@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:06.054Z -->
 {
   "name": "nextjs",
   "version": "0.1.0",
@@ -25,7 +26,9 @@
     "qr:branded": "node scripts/generate-qr-branded.js",
     "qr:clean-logo": "node scripts/generate-qr-clean-logo.js",
     "github:setup": "node scripts/setup-fresh-github.js",
-    "github:connect": "node scripts/connect-github.js"
+    "github:connect": "node scripts/connect-github.js",
+    "files:force-update": "node scripts/force-update-files.js",
+    "files:nuclear-update": "node scripts/nuclear-file-update.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
