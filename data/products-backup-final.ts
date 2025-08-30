@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:03.005Z -->
 export const products = [
   {
     "id": 0,

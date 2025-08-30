@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:02.964Z -->
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 

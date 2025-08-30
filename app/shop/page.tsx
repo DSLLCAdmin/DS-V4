@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:01.816Z -->
 "use client";
 import { useState, useEffect } from 'react';
 import { Search, Filter, Star, Heart, ShoppingCart, Package, Truck, Shield, Award, Book, Users, MapPin } from 'lucide-react';

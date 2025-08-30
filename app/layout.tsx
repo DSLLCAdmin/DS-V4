@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:01.813Z -->
 import './globals.css';
 import type { Metadata } from 'next';
 import DarkStreetsButton from '../components/DarkStreetsButton';

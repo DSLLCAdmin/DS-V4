@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:02.960Z -->
 'use client';
 
 import Link from 'next/link';

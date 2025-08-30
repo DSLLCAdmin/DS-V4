@@ -43,7 +43,7 @@ try {
       
       // Add timestamp comment if it doesn't exist
       const timestamp = new Date().toISOString();
-      const header = `<!-- Updated: ${timestamp} -->\n`;
+      const header = `\n`;
       
       if (!content.includes('<!-- Updated:')) {
         content = header + content;

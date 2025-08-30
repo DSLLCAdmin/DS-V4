@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:08.110Z -->
 import fs from 'fs';
 import QRCode from 'qrcode';
 import { createCanvas, loadImage } from 'canvas';

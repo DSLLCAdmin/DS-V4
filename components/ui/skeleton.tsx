@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:02.991Z -->
 import { cn } from '@/lib/utils';
 
 function Skeleton({

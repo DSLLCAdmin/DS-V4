@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:08.133Z -->
 # 🚀 Shopify Integration Guide
 
 ## 📋 **Prerequisites**
