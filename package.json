@@ -23,7 +23,9 @@
     "qr:text": "node scripts/generate-qr-with-text.js",
     "qr:balanced": "node scripts/generate-qr-balanced.js",
     "qr:branded": "node scripts/generate-qr-branded.js",
-    "qr:clean-logo": "node scripts/generate-qr-clean-logo.js"
+    "qr:clean-logo": "node scripts/generate-qr-clean-logo.js",
+    "github:setup": "node scripts/setup-fresh-github.js",
+    "github:connect": "node scripts/connect-github.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
