@@ -1,0 +1,58 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <linearGradient id="coverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2D1810"/>
+            <stop offset="50%" style="stop-color:#1A1A1A"/>
+            <stop offset="100%" style="stop-color:#0A0A0A"/>
+        </linearGradient>
+        <linearGradient id="moonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#F5F5DC"/>
+            <stop offset="100%" style="stop-color:#E6E6E6"/>
+        </linearGradient>
+    </defs>
+    
+    <!-- Shadow -->
+    <ellipse cx="45" cy="72" rx="20" ry="3" fill="#000" opacity="0.3"/>
+    
+    <!-- Book cover -->
+    <rect x="20" y="15" width="40" height="55" rx="3" fill="url(#coverGradient)" stroke="#654321" stroke-width="1.5"/>
+    
+    <!-- Book spine depth -->
+    <path d="M60 15 L63 18 L63 70 L60 70 Z" fill="#1A1A1A"/>
+    
+    <!-- Cover scene: Moon -->
+    <circle cx="35" cy="28" r="6" fill="url(#moonGlow)" opacity="0.9"/>
+    <circle cx="33" cy="25" r="1" fill="#DDD" opacity="0.6"/>
+    <circle cx="37" cy="29" r="0.8" fill="#DDD" opacity="0.6"/>
+    
+    <!-- Street lamp on cover -->
+    <rect x="48" y="35" width="1.5" height="15" fill="#333"/>
+    <rect x="46" y="33" width="5" height="4" rx="1" fill="#1A1A1A"/>
+    
+    <!-- Lamp "eyes" -->
+    <circle cx="47.5" cy="35" r="0.8" fill="#444"/>
+    <circle cx="47.5" cy="35" r="0.4" fill="#000"/>
+    <circle cx="49.5" cy="35" r="0.8" fill="#444"/>
+    <circle cx="49.5" cy="35" r="0.4" fill="#000"/>
+    
+    <!-- Street silhouette -->
+    <path d="M25 50 L55 50 L55 48 L50 45 L45 47 L40 44 L35 46 L30 43 L25 45 Z" fill="#333" opacity="0.6"/>
+    
+    <!-- Title area (golden text suggestion) -->
+    <rect x="25" y="55" width="30" height="2" fill="#8B4513" opacity="0.8"/>
+    <rect x="25" y="58" width="25" height="1.5" fill="#8B4513" opacity="0.6"/>
+    <rect x="25" y="61" width="20" height="1.5" fill="#8B4513" opacity="0.6"/>
+    
+    <!-- Mystical border -->
+    <rect x="22" y="17" width="36" height="51" rx="2" fill="none" stroke="#654321" stroke-width="0.5" opacity="0.7"/>
+    
+    <!-- Corner decorations -->
+    <circle cx="24" cy="19" r="1" fill="#8B4513" opacity="0.7"/>
+    <circle cx="56" cy="19" r="1" fill="#8B4513" opacity="0.7"/>
+    <circle cx="24" cy="66" r="1" fill="#8B4513" opacity="0.7"/>
+    <circle cx="56" cy="66" r="1" fill="#8B4513" opacity="0.7"/>
+    
+    <!-- Pages -->
+    <rect x="21" y="16" width="1" height="53" fill="#F5F5DC" opacity="0.8"/>
+    <rect x="22" y="17" width="1" height="51" fill="#F5F5DC" opacity="0.6"/>
+</svg>

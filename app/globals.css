@@ -1,0 +1,629 @@
+@import url('https://fonts.googleapis.com/css2?family=Directors+Gothic:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Mobile viewport fixes */
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  /* Force mobile viewport */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  main {
+    overflow-x: hidden !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+  }
+  
+  /* Mobile-optimized buttons */
+  .nav-button {
+    min-height: 120px !important;
+    padding: 12px !important;
+    padding-top: 12px !important;
+    margin: 0 8px !important;
+  }
+  
+  /* Mobile-optimized icons */
+  .button-streetstore .button-icon {
+    width: 100px !important;
+    height: 40px !important;
+    top: -35px !important;
+  }
+  
+  .button-streetcircle .button-icon,
+  .button-dsmap .button-icon,
+  .button-about .button-icon {
+    width: 80px !important;
+    height: 35px !important;
+    top: -30px !important;
+  }
+  
+  /* Mobile typography */
+  .button-title {
+    font-size: 1.25rem !important;
+  }
+  
+  .button-subtitle {
+    font-size: 0.875rem !important;
+  }
+  
+  .button-description {
+    font-size: 0.7rem !important;
+  }
+  
+  /* Mobile grid layout */
+  .grid {
+    gap: 8px !important;
+    margin: 0 4px !important;
+  }
+  
+  /* Mobile content sections */
+  .text-center {
+    padding: 0 8px !important;
+  }
+  
+  /* Mobile banner scaling */
+  .bg-black {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+
+/* Enhanced Product Card Styling */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Product Image Standardization */
+.product-card img {
+  object-fit: contain !important;
+  object-position: center !important;
+  background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+  border-radius: 16px 16px 0 0;
+}
+
+.product-card .image-container {
+  background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 100%);
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+/* Monochromatic Car Filters - Noir Night Shades on Hover Only */
+.streetstore-vehicle,
+.streetcircle-vehicle,
+.dsmap-vehicle,
+.about-vehicle {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Initial state: Full color */
+  filter: none;
+}
+
+.streetstore-vehicle:hover,
+.streetcircle-vehicle:hover,
+.dsmap-vehicle:hover,
+.about-vehicle:hover {
+  /* Hover state: Transform into night shade */
+  filter: grayscale(90%) brightness(70%) contrast(140%) saturate(25%);
+  transform: scale(1.05);
+}
+
+/* Enhanced night-time glow effect - NO SHADOW */
+.nav-button:hover .button-icon img {
+  filter: grayscale(90%) brightness(90%) contrast(135%) saturate(45%);
+}
+
+.product-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.product-card .product-image {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+
+.product-card .product-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.product-card:hover .product-overlay {
+  opacity: 1;
+}
+
+/* Enhanced Button Animations */
+.btn-primary {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #D2691E 0%, #8B4513 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(139, 69, 19, 0.3);
+}
+
+/* Enhanced Badge Styling */
+.badge-premium {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #000;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.badge-discount {
+  background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+  color: white;
+  font-weight: 700;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced Typography */
+.product-title {
+  background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+/* TSW Correction: Remove All Focus Outlines and Rings */
+*:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove any red borders or outlines */
+*:focus,
+*:focus-visible,
+*:active {
+  border-color: transparent !important;
+  outline-color: transparent !important;
+  box-shadow: none !important;
+}
+
+*:focus-visible {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+}
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none !important;
+  outline-offset: 0 !important;
+  box-shadow: none !important;
+  ring: none !important;
+  ring-offset: none !important;
+}
+
+/* Remove any remaining focus rings */
+.focus\:ring-0:focus,
+.focus\:ring-2:focus,
+.focus\:ring-4:focus {
+  box-shadow: none !important;
+  ring: none !important;
+}
+
+.product-price {
+  background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color palette variables */
+:root {
+  --swatch101: #FFF7CB;
+  --swatch102: #F4D6ED;
+  --swatch103: #B7011F;
+  --swatch104: #883E3A;
+  --swatch105: #572A1E;
+  --swatch201: #E1E6E7;
+  --swatch202: #B0BDC0;
+  --swatch203: #6A8085;
+  --swatch204: #3B3929;
+  --swatch205: #000000;
+
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --border: 220 14% 96%;
+}
+
+/* Base font settings */
+@layer base {
+  html {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  h2 {
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  a {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  button, input, textarea, select {
+    font-family: 'Directors Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Ensure all text elements inherit the font */
+  *, *::before, *::after {
+    font-family: inherit;
+  }
+}
+
+/* Custom Tailwind utility classes for custom colors */
+@layer utilities {
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  
+  /* Swatch background helpers */
+  .bg-swatch101 { background-color: var(--swatch101); }
+  .bg-swatch102 { background-color: var(--swatch102); }
+  .bg-swatch103 { background-color: var(--swatch103); }
+  .bg-swatch104 { background-color: var(--swatch104); }
+  .bg-swatch105 { background-color: var(--swatch105); }
+  .bg-swatch201 { background-color: var(--swatch201); }
+  .bg-swatch202 { background-color: var(--swatch202); }
+  .bg-swatch203 { background-color: var(--swatch203); }
+  .bg-swatch204 { background-color: var(--swatch204); }
+  .bg-swatch205 { background-color: var(--swatch205); }
+
+  /* Font weight utilities for Directors Gothic font */
+  .font-light { font-weight: 300; }
+  .font-normal { font-weight: 400; }
+  .font-medium { font-weight: 500; }
+  .font-semibold { font-weight: 600; }
+  .font-bold { font-weight: 700; }
+  .font-extrabold { font-weight: 800; }
+  .font-black { font-weight: 900; }
+
+  /* Custom letter spacing for Directors Gothic font */
+  .tracking-tighter { letter-spacing: -0.05em; }
+  .tracking-tight { letter-spacing: -0.025em; }
+  .tracking-normal { letter-spacing: 0em; }
+  .tracking-wide { letter-spacing: 0.025em; }
+  .tracking-wider { letter-spacing: 0.05em; }
+  .tracking-widest { letter-spacing: 0.1em; }
+}
+
+/* Enhanced typography for Dark Streets brand */
+@layer components {
+  .ds-heading {
+    font-family: 'Directors Gothic', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .ds-subheading {
+    font-family: 'Directors Gothic', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .ds-body {
+    font-family: 'Directors Gothic', sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+  }
+
+  .ds-caption {
+    font-family: 'Directors Gothic', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: 0.01em;
+  }
+}
+
+/* Smooth scrolling and focus styles */
+html {
+  scroll-behavior: smooth;
+}
+
+*:focus {
+  outline: 2px solid var(--swatch103);
+  outline-offset: 2px;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--swatch103);
+  color: var(--swatch101);
+}
+
+::-moz-selection {
+  background-color: var(--swatch103);
+  color: var(--swatch101);
+}
+
+/* Button Styles - Clean and Reliable */
+.nav-button {
+  border-radius: 16px;
+  padding: 32px;
+  padding-top: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+  position: relative;
+}
+
+.nav-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.35);
+}
+
+
+
+
+
+/* Button Content Styling */
+.button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+/* Target specific button icon classes for proper specificity */
+.button-streetstore .button-icon {
+  width: 160px !important;
+  height: 60px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.3s !important;
+  position: absolute !important;
+  top: -65px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+}
+
+.button-streetcircle .button-icon {
+  width: 140px !important;
+  height: 50px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.3s !important;
+  position: absolute !important;
+  top: -60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(-10deg) !important;
+  z-index: 10 !important;
+}
+
+.button-dsmap .button-icon {
+  width: 140px !important;
+  height: 50px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.3s !important;
+  position: absolute !important;
+  top: -60px !important;
+  left: 50% !important;
+  transform: translateX(-50%) rotate(10deg) !important;
+  z-index: 10 !important;
+}
+
+.button-about .button-icon {
+  width: 140px !important;
+  height: 50px !important;
+  background: transparent !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: transform 0.3s !important;
+  position: absolute !important;
+  top: -55px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+}
+
+.nav-button:hover .button-icon {
+  transform: scale(1.1);
+}
+
+/* Vehicle color filters for each button - adjusted to preserve wheel details */
+.streetstore-vehicle {
+  filter: brightness(1.1) saturate(1.05) hue-rotate(5deg);
+}
+
+.streetcircle-vehicle {
+  filter: brightness(1.2) saturate(1.1) hue-rotate(-5deg);
+}
+
+.dsmap-vehicle {
+  filter: brightness(1.1) saturate(1.05) hue-rotate(10deg);
+}
+
+.about-vehicle {
+  filter: brightness(1.1) saturate(1.05) hue-rotate(15deg);
+}
+
+/* Remove any text elements from ImmersiveExp icon */
+.immersiveexp-vehicle {
+  filter: brightness(1.2) saturate(1.1) hue-rotate(25deg);
+}
+
+.button-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.button-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+}
+
+.button-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  line-height: 1.1;
+}
+
+.button-arrow {
+  transition: transform 0.3s;
+  margin-top: 4px;
+}
+
+.nav-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+/* Button-specific background gradients */
+.button-streetstore {
+  background: linear-gradient(to right, #1A0F0A, #D2691E) !important;
+}
+
+.button-streetcircle {
+  background: linear-gradient(90deg, #8B0000 0%, #FF6347 100%) !important;
+}
+
+.button-dsmap {
+  background: linear-gradient(to right, #654321, #F4A460) !important;
+}
+
+.button-about {
+  background: linear-gradient(to right, #9370DB, #FFB6C1) !important;
+}
+
+/* About button specific text colors */
+.about-btn .button-title,
+.about-btn .button-subtitle,
+.about-btn .button-description {
+  color: #92400e;
+}
+
+.about-btn .button-icon {
+  background: rgba(146, 64, 14, 0.2);
+  border-color: rgba(146, 64, 14, 0.3);
+}
+
+/* Custom icon styling for Featured Collection */
+.custom-icon {
+  filter: brightness(1.1) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.group:hover .custom-icon {
+  filter: brightness(1.3) contrast(1.2) scale(1.05);
+}
+
+/* Transform circular containers to ellipses for Featured Collection */
+.text-center.group .w-16.h-16 {
+  width: 120px;
+  height: 40px;
+  border-radius: 50%;
+}

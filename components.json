@@ -1,0 +1,38 @@
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "default",
+  "rsc": true,
+  "tsx": true,
+  "tailwind": {
+    "config": "tailwind.config.ts",
+    "css": "app/globals.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "aliases": {
+    "components": "@/components",
+    "utils": "@/lib/utils",
+    "ui": "@/components/ui",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "buttons": [
+    {
+      "className": "w-full py-8 bg-swatch101 text-black text-xl font-semibold shadow-lg transition-all duration-200 hover:brightness-105 active:brightness-95 focus:outline-none focus:ring-2 focus:ring-swatch101",
+      "label": "Bookstore"
+    },
+    {
+      "className": "w-full py-8 bg-swatch102 text-black text-xl font-semibold shadow-lg transition-all duration-200 hover:brightness-105 active:brightness-95 focus:outline-none focus:ring-2 focus:ring-swatch102",
+      "label": "Shop"
+    },
+    {
+      "className": "w-full py-8 bg-swatch103 text-black text-xl font-semibold shadow-lg transition-all duration-200 hover:brightness-105 active:brightness-95 focus:outline-none focus:ring-2 focus:ring-swatch103",
+      "label": "DS Map"
+    },
+    {
+      "className": "w-full py-8 bg-swatch104 text-black text-xl font-semibold shadow-lg transition-all duration-200 hover:brightness-105 active:brightness-95 focus:outline-none focus:ring-2 focus:ring-swatch104",
+      "label": "StreetCircle"
+    }
+  ]
+}
