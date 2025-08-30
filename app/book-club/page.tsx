@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:01.809Z -->
 "use client";
 import { Users, Star, Calendar, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";

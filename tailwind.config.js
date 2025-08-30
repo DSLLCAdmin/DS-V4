@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:08.135Z -->
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ['class'],

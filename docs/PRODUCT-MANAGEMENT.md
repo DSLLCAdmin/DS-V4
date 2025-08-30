@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:03.012Z -->
 # 🛍️ Product Management System
 
 This document explains how to manage products, images, and data in the DarkStreets website.

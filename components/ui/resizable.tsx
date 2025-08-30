@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:02.986Z -->
 'use client';
 
 import { GripVertical } from 'lucide-react';

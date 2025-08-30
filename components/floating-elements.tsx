@@ -1,3 +1,4 @@
+<!-- Updated: 2025-08-30T20:54:02.959Z -->
 'use client';
 
 import { useEffect, useState } from 'react';
