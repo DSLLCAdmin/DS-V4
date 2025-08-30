@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:01.811Z -->
 "use client";
 import { useState, useEffect, useRef } from 'react';
 import { MapPin, Search, Plus, Minus, Move, Info, Navigation, Layers, Users, Target, X } from 'lucide-react';

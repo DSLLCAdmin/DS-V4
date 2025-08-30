@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:01.814Z -->
 "use client";
 import Link from "next/link";
 import { Button } from "../components/ui/button";

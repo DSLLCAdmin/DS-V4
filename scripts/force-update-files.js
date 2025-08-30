@@ -45,7 +45,7 @@ importantFiles.forEach(file => {
       
       // Add a comment with current timestamp
       const timestamp = new Date().toISOString();
-      const header = `<!-- Updated: ${timestamp} -->\n`;
+      const header = `\n`;
       
       // Only add header if it doesn't already exist
       if (!content.includes('<!-- Updated:')) {

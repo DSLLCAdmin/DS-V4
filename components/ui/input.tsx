@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:02.979Z -->
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';

@@ -1,4 +1,3 @@
-<!-- Updated: 2025-08-30T20:54:02.964Z -->
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react';
