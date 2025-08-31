@@ -8,6 +8,8 @@ import { Badge } from '@/components/ui/badge';
 import { Navigation, BackButton } from '@/components/navigation';
 import { FloatingElement, ScrollReveal } from '@/components/floating-elements';
 import { products } from '@/data/products';
+import { useCart } from '@/hooks/use-cart';
+import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
@@ -25,8 +27,9 @@ function StreetStoreContent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("images-first"); // Default: images first
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [cartItems, setCartItems] = useState<string[]>([]);
+  const [showCart, setShowCart] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(24); // Show first 24 products initially
+  const { addToCart, itemCount } = useCart();
 
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.Title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -99,8 +102,11 @@ function StreetStoreContent() {
     );
   };
 
-  const addToCart = (productId: string) => {
-    setCartItems(prev => [...prev, productId]);
+  const handleAddToCart = async (productId: string) => {
+    const success = await addToCart(productId);
+    if (success) {
+      setShowCart(true);
+    }
   };
 
   const getBadgeColor = (badge: string | null) => {
@@ -138,6 +144,21 @@ function StreetStoreContent() {
   return (
     		<div className="min-h-screen bg-gradient-to-b from-[#1A0F0A] via-[#8B4513] to-[#D2691E] overflow-hidden">
       <Navigation />
+      
+      {/* Cart Icon */}
+      <div className="fixed top-4 right-4 z-50">
+        <Button
+          variant="ghost"
+          size="lg"
+          onClick={() => setShowCart(!showCart)}
+          className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white"
+        >
+          <CartIcon />
+        </Button>
+      </div>
+
+      {/* Cart Component */}
+      {showCart && <CartComponent />}
 
       {/* Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
@@ -507,7 +528,7 @@ function StreetStoreContent() {
                           ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
                           : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
                       }`}
-                      onClick={() => addToCart(String(product.id))}
+                      onClick={() => handleAddToCart(String(product.id))}
                       disabled={product.InStock === "false"}
                     >
                       {formatPrice(product.SalePrice, product.OriginalPrice) === "Contact for Price" ? (

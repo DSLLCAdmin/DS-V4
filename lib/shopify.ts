@@ -1,0 +1,50 @@
+import { shopifyApi, LATEST_API_VERSION } from '@shopify/shopify-api';
+import { restResources } from '@shopify/shopify-api/rest/admin/2024-01';
+
+// Shopify API configuration
+export const shopify = shopifyApi({
+  apiKey: process.env.SHOPIFY_API_KEY || '',
+  apiSecretKey: process.env.SHOPIFY_API_SECRET || '',
+  scopes: [
+    'read_products',
+    'write_products', 
+    'read_orders',
+    'write_orders',
+    'read_customers',
+    'write_customers',
+    'read_inventory',
+    'write_inventory'
+  ],
+  hostName: process.env.SHOPIFY_SHOP_NAME || '',
+  apiVersion: LATEST_API_VERSION,
+  isEmbeddedApp: false,
+  restResources,
+});
+
+// Helper function to get admin client
+export async function getAdminClient(shop: string, accessToken: string) {
+  return new shopify.clients.Rest({
+    session: {
+      id: 'default',
+      shop,
+      state: 'default',
+      isOnline: false,
+      accessToken,
+      scope: 'read_products,write_products,read_orders,write_orders,read_customers,write_customers,read_inventory,write_inventory',
+      expires: undefined,
+      onlineAccessInfo: undefined,
+      isActive: () => true,
+    },
+  });
+}
+
+// Product sync functions
+export async function syncProductsToShopify(products: any[]) {
+  // This will sync your local products to Shopify
+  // Implementation coming in next step
+}
+
+export async function getShopifyProducts() {
+  // This will fetch products from Shopify
+  // Implementation coming in next step
+}
