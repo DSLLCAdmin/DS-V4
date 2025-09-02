@@ -12,27 +12,24 @@ export default function Home() {
     <main className="min-h-screen bg-gradient-to-b from-slate-200 via-slate-400 to-slate-600">
       {/* Hero Section with Original DSLLC Banner */}
       <div className="w-full relative overflow-hidden" style={{ height: '40vh', minHeight: '250px', maxHeight: '400px' }}>
-        {/* Original DSLLC Banner Image */}
+        {/* Temporary Banner Solution */}
         <div style={{
           width: '100%',
           height: '100%',
-          background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
+          background: 'linear-gradient(135deg, #B7011F 0%, #EFD907 50%, #B7011F 100%)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           position: 'relative'
         }}>
-          {/* DarkStreets Banner Placeholder */}
+          {/* Dark overlay for text readability */}
           <div style={{
             position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            background: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 400\'%3E%3Cdefs%3E%3ClinearGradient id=\'bg\' x1=\'0%25\' y1=\'0%25\' x2=\'100%25\' y2=\'100%25\'%3E%3Cstop offset=\'0%25\' style=\'stop-color:%23B7011F;stop-opacity:1\' /%3E%3Cstop offset=\'50%25\' style=\'stop-color:%23EFD907;stop-opacity:0.8\' /%3E%3Cstop offset=\'100%25\' style=\'stop-color:%23B7011F;stop-opacity:1\' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=\'1200\' height=\'400\' fill=\'url(%23bg)\'/%3E%3Ctext x=\'600\' y=\'180\' font-family=\'Arial, sans-serif\' font-size=\'48\' font-weight=\'bold\' text-anchor=\'middle\' fill=\'white\'%3EDARK STREETS%3C/text%3E%3Ctext x=\'600\' y=\'220\' font-family=\'Arial, sans-serif\' font-size=\'24\' text-anchor=\'middle\' fill=\'%23cccccc\'%3EProwler claws LA streets while Aries and Dance drive the night%3C/text%3E%3C/svg%3E")',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.9
+            background: 'rgba(0,0,0,0.3)'
           }}></div>
         </div>
         
@@ -54,7 +51,7 @@ export default function Home() {
         {/* Hero Text - Removed duplicate content */}
         <div className="text-center mb-12 sm:mb-16 mt-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-swatch103 via-swatch104 to-swatch105 bg-clip-text text-transparent">
-            Welcome to DarkStreets
+            'Streetin in Style
           </h1>
         </div>
 
@@ -266,23 +263,21 @@ export default function Home() {
           {/* QR Code Section */}
           <div className="flex flex-col items-center mb-6">
             <div className="bg-white rounded-lg p-3 shadow-lg mb-3">
-              <img
-                src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPHJlY3Qgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIxNiIgeT0iMTYiIHdpZHRoPSI5NiIgaGVpZ2h0PSI5NiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjI0IiB5PSIyNCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjZmZmZmZmIi8+CiAgPHJlY3QgeD0iMzIiIHk9IjMyIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9IiMwMDAwMDAiLz4KICA8cmVjdCB4PSI0MCIgeT0iNDAiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjQ4IiB5PSI0OCIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNTYiIHk9IjU2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSI3MiIgeT0iNTYiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjQ4IiB5PSI3MiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjE2IiBmaWxsPSIjMDAwMDAwIi8+CiAgPHJlY3QgeD0iNDAiIHk9Ijg4IiB3aWR0aD0iNDgiIGhlaWdodD0iMTYiIGZpbGw9IiNmZmZmZmYiLz4KICA8cmVjdCB4PSIzMiIgeT0iOTYiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIvPgogIDxyZWN0IHg9IjI0IiB5PSIxMDQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxyZWN0IHg9IjE2IiB5PSIxMTIiIHdpZHRoPSI5NiIgaGVpZ2h0PSIxNiIgZmlsbD0iIzAwMDAwMCIvPgogIDx0ZXh0IHg9IjY0IiB5PSIxMjQiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSI4IiBmaWxsPSIjMDAwMDAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5EUzwvdGV4dD4KPC9zdmc+"
-                alt="DarkStreets QR Code"
-                width={128}
-                height={128}
-                className="rounded-lg"
-                style={{
-                  border: '2px solid #10b981',
-                  display: 'block'
-                }}
-                onLoad={() => {
-                  console.log('✅ QR code loaded successfully (data URI)');
-                }}
-                onError={(e) => {
-                  console.error('❌ QR code failed to load:', e);
-                }}
-              />
+              <div style={{
+                width: '128px',
+                height: '128px',
+                backgroundColor: 'white',
+                border: '2px solid #10b981',
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '24px',
+                fontWeight: 'bold',
+                color: '#10b981'
+              }}>
+                QR CODE
+              </div>
             </div>
             <p className="text-sm text-swatch101/70 mb-2">
               Scan to explore on mobile
