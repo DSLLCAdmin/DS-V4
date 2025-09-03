@@ -1,0 +1,5 @@
+[33m774fbab[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Update subtitle and fix banner/QR code display
+[33m2853e64[m Step 3: Complete cart functionality implementation - Cart management system, React hooks, UI components, and Shopify integration
+[33mcc376d3[m Fix banner and QR code with data URIs - bypass local server issues
+[33md9a373e[m Cleanup: Remove all HTML comments from nuclear script
+[33mf59687f[m NUCLEAR UPDATE: Force update all files with current timestamps

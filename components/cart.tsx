@@ -90,7 +90,11 @@ export function Cart() {
           <span className="text-lg font-semibold">Total:</span>
           <span className="text-lg font-semibold">${cart.total.toFixed(2)}</span>
         </div>
-        <Button className="w-full" disabled={loading}>
+        <Button 
+          className="w-full" 
+          disabled={loading}
+          onClick={() => window.location.href = '/checkout'}
+        >
           {loading ? 'Processing...' : 'Checkout'}
         </Button>
       </div>
