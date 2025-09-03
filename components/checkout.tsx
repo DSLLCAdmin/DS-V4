@@ -22,7 +22,7 @@ interface CheckoutForm {
 }
 
 export function Checkout() {
-  const { cartItems, cartTotal, clearCart } = useCart();
+  const { cart, total, clearCart } = useCart();
   const [formData, setFormData] = useState<CheckoutForm>({
     email: '',
     firstName: '',
@@ -42,7 +42,7 @@ export function Checkout() {
   };
 
   const handleCheckout = async () => {
-    if (cartItems.length === 0) {
+    if (cart.items.length === 0) {
       alert('Your cart is empty');
       return;
     }
@@ -57,7 +57,7 @@ export function Checkout() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          items: cartItems,
+          items: cart.items,
           customer: formData,
         }),
       });
@@ -91,7 +91,7 @@ export function Checkout() {
     );
   };
 
-  if (cartItems.length === 0) {
+  if (cart.items.length === 0) {
     return (
       <div className="max-w-4xl mx-auto p-6">
         <Card>
@@ -259,14 +259,14 @@ export function Checkout() {
             <CardContent className="space-y-4">
               {/* Cart Items */}
               <div className="space-y-3">
-                {cartItems.map((item) => (
+                {cart.items.map((item) => (
                   <div key={item.id} className="flex justify-between items-center">
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-12 bg-gray-200 rounded-md flex items-center justify-center">
                         <span className="text-xs text-gray-600">IMG</span>
                       </div>
                       <div>
-                        <p className="font-medium">{item.name}</p>
+                        <p className="font-medium">{item.title}</p>
                         <p className="text-sm text-gray-600">
                           Qty: {item.quantity}
                         </p>
@@ -285,7 +285,7 @@ export function Checkout() {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Shipping</span>
@@ -298,7 +298,7 @@ export function Checkout() {
                 <Separator />
                 <div className="flex justify-between text-lg font-bold">
                   <span>Total</span>
-                  <span>${cartTotal.toFixed(2)}</span>
+                  <span>${total.toFixed(2)}</span>
                 </div>
               </div>
 

@@ -9,6 +9,7 @@ export interface CartItem {
 }
 
 export interface Cart {
+  id?: string; // Shopify cart ID
   items: CartItem[];
   total: number;
   itemCount: number;
@@ -17,6 +18,7 @@ export interface Cart {
 // Cart state management
 class CartManager {
   private cart: Cart = {
+    id: undefined,
     items: [],
     total: 0,
     itemCount: 0

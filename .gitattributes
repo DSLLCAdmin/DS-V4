@@ -1,0 +1,49 @@
+# Image files - treat as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.svg binary
+*.ico binary
+*.bmp binary
+*.tiff binary
+*.tif binary
+
+# Font files - treat as binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary
+
+# Archive files - treat as binary
+*.zip binary
+*.rar binary
+*.7z binary
+*.tar binary
+*.gz binary
+
+# PDF files - treat as binary
+*.pdf binary
+
+# Excel files - treat as binary
+*.xlsx binary
+*.xls binary
+
+# Text files - normalize line endings
+*.md text
+*.txt text
+*.json text
+*.js text
+*.ts text
+*.jsx text
+*.tsx text
+*.css text
+*.html text
+*.xml text
+*.yml text
+*.yaml text
+*.ini text
+*.conf text
+*.log text
