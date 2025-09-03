@@ -51,7 +51,7 @@ export default function Home() {
         {/* Hero Text - Removed duplicate content */}
         <div className="text-center mb-12 sm:mb-16 mt-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-swatch103 via-swatch104 to-swatch105 bg-clip-text text-transparent">
-            'Streetin in Style
+            Streetin' Style
           </h1>
         </div>
 
