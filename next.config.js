@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -7,7 +8,7 @@ const nextConfig = {
     unoptimized: true,
   },
   // Force static file serving
-  trailingSlash: false,
+  trailingSlash: true,
   experimental: {
     forceSwcTransforms: true,
   },
