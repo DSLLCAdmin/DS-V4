@@ -10,40 +10,15 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-200 via-slate-400 to-slate-600">
-      {/* Hero Section with Original DSLLC Banner */}
+      {/* Hero Section with Restored DSLLC Banner */}
       <div className="w-full relative overflow-hidden" style={{ height: '40vh', minHeight: '250px', maxHeight: '400px' }}>
-        {/* Temporary Banner Solution */}
-        <div style={{
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient(135deg, #B7011F 0%, #EFD907 50%, #B7011F 100%)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'relative'
-        }}>
-          {/* Dark overlay for text readability */}
-          <div style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            background: 'rgba(0,0,0,0.3)'
-          }}></div>
-        </div>
-        
-        {/* Overlay text on top of banner */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="text-center text-white">
-            <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
-              DARK STREETS
-            </h1>
-            <p className="text-xl text-gray-300">
-              Prowler claws LA streets while Aries and Dance drive the night
-            </p>
-          </div>
-        </div>
+        <Image
+          src="/DS-WebBanner-1.webp"
+          alt="DarkStreets Banner"
+          fill
+          priority
+          className="object-cover"
+        />
       </div>
 
       {/* Main Content */}
@@ -263,21 +238,13 @@ export default function Home() {
           {/* QR Code Section */}
           <div className="flex flex-col items-center mb-6">
             <div className="bg-white rounded-lg p-3 shadow-lg mb-3">
-              <div style={{
-                width: '128px',
-                height: '128px',
-                backgroundColor: 'white',
-                border: '2px solid #10b981',
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '24px',
-                fontWeight: 'bold',
-                color: '#10b981'
-              }}>
-                QR CODE
-              </div>
+              <Image
+                src="/DSLLC_QRC_1.png"
+                alt="DarkStreets QR Code"
+                width={128}
+                height={128}
+                className="rounded-lg"
+              />
             </div>
             <p className="text-sm text-swatch101/70 mb-2">
               Scan to explore on mobile
