@@ -45,7 +45,7 @@ export default function StreetCircle() {
 			<div className="max-w-5xl mx-auto px-4 py-16">
 				<ScrollReveal>
 					<h1 className="text-5xl font-bold text-white mb-10 text-center drop-shadow-lg">
-						StreetCircle & Literary Life
+						StreetCircle
 					</h1>
 				</ScrollReveal>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
