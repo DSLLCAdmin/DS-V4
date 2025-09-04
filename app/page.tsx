@@ -31,7 +31,7 @@ export default function Home() {
         </div>
 
         {/* Main Navigation Grid - 4 columns for 4 main sections */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
           {/* StreetStore */}
           <Link href="/shop" className="group">
             <div className="button-streetstore nav-button">
