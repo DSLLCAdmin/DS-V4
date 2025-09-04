@@ -31,7 +31,7 @@ export const products = [
     "Description": "Stage One- First & Light, we meet Aries Tiger, a 'Streeter extraodinaire. He confuses thrill with meaning, but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler, a big cat on wheels, and a growler that knows the highways and byways of LA's infamous DarkStreets.",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/1a_first-light-ebook.webp"
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "1b",
@@ -48,7 +48,7 @@ export const products = [
     "Description": "Stage One- First & Light, we meet Aries Tiger, a 'Streeter extraodinaire. He confuses thrill with meaning, but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler, a big cat on wheels, and a growler that knows the highways and byways of LA's infamous DarkStreets.",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/1a_first-light-ebook.webp"
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "2a",
@@ -65,7 +65,7 @@ export const products = [
     "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/2a_risque-safety-ebook.webp"
+    "image": "/product-images/2a_risque-safety-ebook.jpg"
   },
   {
     "id": "2b",
@@ -82,7 +82,7 @@ export const products = [
     "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/2a_risque-safety-ebook.webp"
+    "image": "/product-images/2a_risque-safety-ebook.jpg"
   },
   {
     "id": "3a",
@@ -99,7 +99,7 @@ export const products = [
     "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/3a_mercury-memory-ebook.webp"
+    "image": "/product-images/3a_mercury-memory-ebook.jpg"
   },
   {
     "id": "3b",
@@ -116,7 +116,7 @@ export const products = [
     "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/3a_mercury-memory-ebook.webp"
+    "image": "/product-images/3a_mercury-memory-ebook.jpg"
   },
   {
     "id": "11a",
@@ -199,7 +199,7 @@ export const products = [
     "Category": "0",
     "PageNum": null,
     "Description": "Inspired by Dancer's wardrobe, with \"Streetin�\" detailing.",
-    "image": "/product-images/A2_mesh-bodysuits.webp",
+    "image": "/product-images/A2_mesh-bodysuits.jpg",
     "InStock": null
   },
   {
@@ -302,7 +302,7 @@ export const products = [
     "Description": "Baseball Caps",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/A8_hats.webp"
+    "image": "/product-images/A8_hats.jpg"
   },
   {
     "id": "A9",
@@ -353,7 +353,7 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": "",
-    "image": "/product-images/1a_first-light-ebook.webp"
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "B1",
@@ -387,7 +387,7 @@ export const products = [
     "Description": "�Prowler�s Leather,� �Bleach & Bourbon.�",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/B2_Dark Streets Scent Diffusers.webp"
+    "image": "/product-images/B2_Dark Streets Scent Diffusers.jpg"
   },
   {
     "id": "B3",
@@ -404,7 +404,7 @@ export const products = [
     "Description": "Shades printed with silhouettes of Dancer mid-pirouette or iconic car kisses.",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/B3_window-shades.webp"
+    "image": "/product-images/B3_window-shades.jpg"
   },
   {
     "id": "B4",
@@ -472,7 +472,7 @@ export const products = [
     "Description": "Tiny dancers, streetlight beads, black feathers.",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/B7_mirror-charms.webp"
+    "image": "/product-images/B7_mirror-charms.jpg"
   },
   {
     "id": "B8",
@@ -829,7 +829,7 @@ export const products = [
     "Description": "Phrases: �You�re Art,� �Feel the Wind.�",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/D6_neon-light-wall-signs.webp"
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D7",
@@ -863,7 +863,7 @@ export const products = [
     "Description": "Cast your city's skyline to  silhouette your ceiling. (LA, NYC, CHI)",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/D8_Moonlight Noir Projection Lamps.webp"
+    "image": "/product-images/D8_Moonlight Noir Projection Lamps.jpg"
   },
   {
     "id": "D9",
@@ -897,7 +897,7 @@ export const products = [
     "Description": "Stash drawers + noir glow w/silhouette of dancer.",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/D6_neon-light-wall-signs.webp"
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D11",
@@ -1135,7 +1135,7 @@ export const products = [
     "Description": "Photo Filters (like stickers as overlay to photos)",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/D6_neon-light-wall-signs.webp"
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "E10",
@@ -1339,7 +1339,7 @@ export const products = [
     "Description": "Joe on the Road",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/G2_dark-street-mug_Front.webp"
+    "image": "/product-images/G2_dark-street-mug_Front.jpg"
   },
   {
     "id": "G3",
