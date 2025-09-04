@@ -133,7 +133,7 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "11b",
@@ -150,7 +150,7 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "A",
@@ -387,7 +387,7 @@ export const products = [
     "Description": "�Prowler�s Leather,� �Bleach & Bourbon.�",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/B2_Dark Streets Scent Diffusers.jpg"
+    "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg"
   },
   {
     "id": "B3",
@@ -863,7 +863,7 @@ export const products = [
     "Description": "Cast your city's skyline to  silhouette your ceiling. (LA, NYC, CHI)",
     "Badge": "",
     "InStock": null,
-    "image": "/product-images/D8_Moonlight Noir Projection Lamps.jpg"
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D9",
