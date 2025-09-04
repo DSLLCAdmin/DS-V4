@@ -82,16 +82,19 @@ function StreetStoreContent() {
       console.warn('Products with potentially problematic image paths:', problematicImages);
     }
 
-    // Clear any cached 404 errors
+    // Clear any cached 404 errors and force image reload
     if (typeof window !== 'undefined') {
-      // Force reload of any cached failed images
-      const images = document.querySelectorAll('img');
-      images.forEach(img => {
-        if (img.src && img.src.includes('placeholder-product.png')) {
-          console.log('Removing cached placeholder image reference');
-          img.remove();
-        }
-      });
+      setTimeout(() => {
+        console.log('🔄 Forcing image reload...');
+        const images = document.querySelectorAll('img[src*="/product-images/"]');
+        images.forEach(img => {
+          const originalSrc = img.src;
+          img.src = '';
+          setTimeout(() => {
+            img.src = originalSrc;
+          }, 100);
+        });
+      }, 1000);
     }
   }, [filteredProducts]);
 
@@ -365,12 +368,17 @@ function StreetStoreContent() {
                         </div>
                       ) : (
                         <img
-                          src={`${product.image}?v=1`}
+                          src={product.image}
                           alt={product.Title}
                           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                          onError={() => {
+                          loading="lazy"
+                          onLoad={() => {
+                            console.log(`✅ Successfully loaded: ${product.image}`);
+                          }}
+                          onError={(e) => {
                             // Track failed images and show placeholder
                             console.warn(`Failed to load image: ${product.image}`);
+                            console.warn(`Error details:`, e);
                             setFailedImages(prev => new Set(prev).add(product.image));
                           }}
                         />
