@@ -5,16 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
 
-[[redirects]]
-  from = "/product-images/*"
-  to = "/product-images/:splat"
-  status = 200
-
-[[redirects]]
-  from = "/public/*"
-  to = "/public/:splat"
-  status = 200
-
+# Handle SPA routing - serve index.html for all routes
 [[redirects]]
   from = "/*"
   to = "/index.html"
