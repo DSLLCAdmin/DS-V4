@@ -19,7 +19,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
   const navItems = [
     { href: '/', label: 'Home', icon: Home },
     { href: '/shop', label: 'StreetStore', icon: ShoppingCart },
-    { href: '/book-club', label: 'Book Club', icon: Users },
+    { href: '/book-club', label: 'StreetCircle', icon: Users },
     { href: '/ds-map', label: 'DS Map', icon: MapPin },
   ];
 

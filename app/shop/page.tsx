@@ -579,7 +579,7 @@ function StreetStoreContent() {
             <Link href="/book-club">
               <Button className="bg-swatch101 text-swatch103 hover:bg-swatch102 px-6 py-3">
                 <Users className="h-5 w-5 mr-2" />
-                Join Book Club
+                                    Join StreetCircle
               </Button>
             </Link>
             <Link href="/ds-map">

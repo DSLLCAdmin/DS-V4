@@ -45,7 +45,7 @@ const mockPins = [
     lat: 37.7749,
     lng: -122.4194,
     title: "SF Poetry Corner",
-    description: "Cozy spot for poetry readings and book clubs",
+            description: "Cozy spot for poetry readings and StreetCircle meetups",
     user: "PoetryLover",
     date: "2025-01-08",
     category: "café"
