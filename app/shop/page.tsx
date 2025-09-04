@@ -88,11 +88,13 @@ function StreetStoreContent() {
         console.log('🔄 Forcing image reload...');
         const images = document.querySelectorAll('img[src*="/product-images/"]');
         images.forEach(img => {
-          const originalSrc = img.src;
-          img.src = '';
-          setTimeout(() => {
-            img.src = originalSrc;
-          }, 100);
+          if (img instanceof HTMLImageElement) {
+            const originalSrc = img.src;
+            img.src = '';
+            setTimeout(() => {
+              img.src = originalSrc;
+            }, 100);
+          }
         });
       }, 1000);
     }
