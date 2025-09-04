@@ -11,6 +11,7 @@ import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -29,6 +30,7 @@ function StreetStoreContent() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showCart, setShowCart] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(24); // Show first 24 products initially
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
   const { addToCart, itemCount } = useCart();
 
   const filteredProducts = dsProducts.filter(product => {
@@ -340,7 +342,7 @@ function StreetStoreContent() {
                   {/* Product Image Section */}
                   <div className="relative overflow-hidden bg-gradient-to-br from-swatch205/10 to-swatch205/5">
                     <div className="relative w-full h-80 bg-gradient-to-br from-swatch205/10 to-swatch205/5 rounded-t-2xl overflow-hidden flex-shrink-0">
-                      {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) ? (
+                      {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder') || failedImages.has(product.image)) ? (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-swatch101/40 to-swatch102/30 border-2 border-swatch101/20 hover:bg-gradient-to-br hover:from-swatch101/50 hover:to-swatch102/40 transition-all duration-300">
                           <div className="text-center p-6">
                             <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
@@ -363,14 +365,17 @@ function StreetStoreContent() {
                           </div>
                         </div>
                       ) : (
-                                                <img
+                        <Image
                           src={product.image}
                           alt={product.Title}
-                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-102"
-                          onError={(e) => {
-                            // Don't try to load a fallback image that might not exist
-                            e.currentTarget.style.display = 'none';
-                            e.currentTarget.alt = 'Image not available';
+                          fill
+                          className="object-contain transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={index < 6}
+                          onError={() => {
+                            // Track failed images and show placeholder
+                            console.warn(`Failed to load image: ${product.image}`);
+                            setFailedImages(prev => new Set(prev).add(product.image));
                           }}
                         />
                       )}
