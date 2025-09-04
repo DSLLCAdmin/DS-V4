@@ -193,44 +193,37 @@ export default function Home() {
         </div>
 
         {/* Brand Story Section */}
-        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-8 mb-16 text-center">
-          <h2 className="text-3xl font-bold mb-6 text-swatch101">
-            The DarkStreet Story
-          </h2>
-          <p className="text-lg text-swatch101/90 max-w-4xl mx-auto leading-relaxed">
-            DarkStreets live more than our stories suggest. We are everyday people in a drifting collective rolling around a way of seeing the world. Look through the eyes of Aries Tiger and the Dancer, explore a freedom embedded in street life, connect with the restless rhythm of urban being. Join us on the DarkStreets where corners hold stories, shadows hide light, and every moment is truly alive.
-          </p>
+        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-8 mb-16 relative overflow-hidden">
+          {/* Left Image - Tiger's Eye */}
+          <div className="absolute left-8 top-1/3 transform -translate-y-1/2">
+            <Image
+              src="/Tigers-Eye_1.jpg"
+              alt="Tiger's Eye"
+              width={120}
+              height={120}
+              className="rounded-[50%] object-cover border-8 border-swatch105 shadow-lg opacity-75"
+            />
+          </div>
           
-          {/* DarkStreet Story Button */}
-          <div className="mt-8">
-            <Button className="relative bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-xl font-bold py-6 px-16 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 border-0 overflow-hidden">
-              {/* Left Image - Tiger's Eye */}
-              <div className="absolute left-4 top-1/2 transform -translate-y-1/2">
-                <Image
-                  src="/Tigers-Eye_1.jpg"
-                  alt="Tiger's Eye"
-                  width={60}
-                  height={60}
-                  className="rounded-full object-cover border-2 border-white/30"
-                />
-              </div>
-              
-              {/* Center Text */}
-              <div className="flex-1 text-center px-8">
-                Explore The DarkStreet Story
-              </div>
-              
-              {/* Right Image - Dancer */}
-              <div className="absolute right-4 bottom-1/2 transform translate-y-1/2">
-                <Image
-                  src="/Dancer.jpg"
-                  alt="Dancer"
-                  width={60}
-                  height={60}
-                  className="rounded-full object-cover border-2 border-white/30"
-                />
-              </div>
-            </Button>
+          {/* Right Image - Dancer */}
+          <div className="absolute right-8 bottom-1/3 transform translate-y-1/2">
+            <Image
+              src="/Dancer.jpg"
+              alt="Dancer"
+              width={120}
+              height={120}
+              className="rounded-[50%] object-cover border-8 border-swatch105 shadow-lg opacity-75"
+            />
+          </div>
+          
+          {/* Center Content */}
+          <div className="text-center max-w-4xl mx-auto relative z-10">
+            <h2 className="text-3xl font-bold mb-6 text-swatch101">
+              The DarkStreet Story
+            </h2>
+            <p className="text-lg text-swatch101/90 leading-relaxed">
+              DarkStreets live more than our stories suggest. We are everyday people in a drifting collective rolling around a way of seeing the world. Look through the eyes of Aries Tiger and the Dancer, explore a freedom embedded in street life, connect with the restless rhythm of urban being. Join us on the DarkStreets where corners hold stories, shadows hide light, and every moment is truly alive.
+            </p>
           </div>
         </div>
 
