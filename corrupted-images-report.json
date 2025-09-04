@@ -1,8 +1,8 @@
 {
-  "scanDate": "2025-09-03T17:44:31.517Z",
-  "totalImages": 112,
-  "corruptedCount": 78,
-  "validCount": 34,
+  "scanDate": "2025-09-04T01:01:54.046Z",
+  "totalImages": 96,
+  "corruptedCount": 50,
+  "validCount": 46,
   "corruptedFiles": [
     {
       "path": "Archive-Images\\1a_first-light-ebook.jpg",
@@ -155,139 +155,14 @@
       "ext": ".jpg"
     },
     {
-      "path": "out\\Archive-Images\\1a_first-light-ebook.jpg",
-      "size": 157878,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
-    },
-    {
-      "path": "out\\Archive-Images\\2a_risque-safety-ebook.jpg",
-      "size": 161440,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
-    },
-    {
-      "path": "out\\Archive-Images\\3a_mercury-memory-ebook.jpg",
-      "size": 855056,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
-    },
-    {
-      "path": "out\\Archive-Images\\A2_mesh-bodysuits.png",
-      "size": 739830,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\A8_hats.png",
-      "size": 190760,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\B2_Dark Streets Scent Diffusers.png",
-      "size": 393031,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\B3_window-shades.png",
-      "size": 779460,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\B7_mirror-charms.png",
-      "size": 393031,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\D6_neon-light-wall-signs.png",
-      "size": 963377,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\D8_Moonlight Noir Projection Lamps.png",
-      "size": 475981,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\DarkStreets_Text.png",
-      "size": 901024,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\DS-WebBanner-0.png",
-      "size": 1010271,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\DS-WebBanner-1.png",
-      "size": 3339856,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\DS-WebBanner-2.png",
-      "size": 465783,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\DS-WebBanner-3.png",
-      "size": 452795,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\G2_dark-street-mugs.jpg",
+      "path": "out\\banner-placeholder.jpg",
       "size": 35127,
       "issue": "Invalid header: efbfbdef",
       "ext": ".jpg"
     },
     {
-      "path": "out\\Archive-Images\\Lamp post.png",
-      "size": 527636,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\NightSky.jpg",
-      "size": 35029700,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
-    },
-    {
-      "path": "out\\Archive-Images\\palette.png",
-      "size": 522756,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\Archive-Images\\Picture1.png",
-      "size": 203962,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
       "path": "out\\DS-Logo.png",
       "size": 110733,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "out\\DS-WebBanner-1.png",
-      "size": 0,
-      "issue": "Empty file"
-    },
-    {
-      "path": "out\\DSLLC_QRC_1.png",
-      "size": 179496,
       "issue": "Invalid header: efbfbd50",
       "ext": ".png"
     },
@@ -346,6 +221,12 @@
       "ext": ".jpg"
     },
     {
+      "path": "out\\qrc-new.png",
+      "size": 179496,
+      "issue": "Invalid header: efbfbd50",
+      "ext": ".png"
+    },
+    {
       "path": "out\\Spyder-2.PNG",
       "size": 1458485,
       "issue": "Invalid header: efbfbd50",
@@ -388,18 +269,6 @@
       "ext": ".jpg"
     },
     {
-      "path": "public\\DS-Logo.png",
-      "size": 110733,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "public\\DS_Color Pallet.png",
-      "size": 545127,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
       "path": "public\\Graffiti_Dancer.png",
       "size": 739830,
       "issue": "Invalid header: efbfbd50",
@@ -418,34 +287,10 @@
       "ext": ".png"
     },
     {
-      "path": "public\\Graffiti_Dancer_4.png",
-      "size": 393031,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "public\\Hats.png",
-      "size": 190760,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
-      "path": "public\\Icons\\ImmersiveExp.png",
-      "size": 1322139,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
       "path": "public\\Icons\\palette.png",
       "size": 522756,
       "issue": "Invalid header: efbfbd50",
       "ext": ".png"
-    },
-    {
-      "path": "public\\Mugs.jpg",
-      "size": 35127,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
     },
     {
       "path": "public\\qrc-new.png",
@@ -454,29 +299,37 @@
       "ext": ".png"
     },
     {
-      "path": "public\\Spyder-2.PNG",
-      "size": 1458485,
-      "issue": "Invalid header: efbfbd50",
-      "ext": ".png"
-    },
-    {
       "path": "public\\Spyder.png",
       "size": 2484027,
       "issue": "Invalid header: efbfbd50",
       "ext": ".png"
-    },
-    {
-      "path": "public\\Tees-2.jpg",
-      "size": 77683,
-      "issue": "Invalid header: efbfbdef",
-      "ext": ".jpg"
     }
   ],
   "validFiles": [
     {
-      "path": "out\\DS-WebBanner-1.webp",
+      "path": "out\\banner-fresh.webp",
       "size": 109234,
       "ext": ".webp"
+    },
+    {
+      "path": "out\\banner-new.webp",
+      "size": 109234,
+      "ext": ".webp"
+    },
+    {
+      "path": "out\\banner-test.webp",
+      "size": 109234,
+      "ext": ".webp"
+    },
+    {
+      "path": "out\\DS-WebBanner-1.webp",
+      "size": 60336,
+      "ext": ".webp"
+    },
+    {
+      "path": "out\\DSLLC_QRC_1.png",
+      "size": 99932,
+      "ext": ".png"
     },
     {
       "path": "out\\product-images\\1a_first-light-ebook.webp",
@@ -564,6 +417,11 @@
       "ext": ".webp"
     },
     {
+      "path": "public\\DS-Logo.png",
+      "size": 60829,
+      "ext": ".png"
+    },
+    {
       "path": "public\\DS-WebBanner-1.webp",
       "size": 60336,
       "ext": ".webp"
@@ -572,6 +430,31 @@
       "path": "public\\DSLLC_QRC_1.png",
       "size": 99932,
       "ext": ".png"
+    },
+    {
+      "path": "public\\DS_Color Pallet.png",
+      "size": 301681,
+      "ext": ".png"
+    },
+    {
+      "path": "public\\Graffiti_Dancer_4.png",
+      "size": 216208,
+      "ext": ".png"
+    },
+    {
+      "path": "public\\Hats.png",
+      "size": 104697,
+      "ext": ".png"
+    },
+    {
+      "path": "public\\Icons\\ImmersiveExp.png",
+      "size": 728483,
+      "ext": ".png"
+    },
+    {
+      "path": "public\\Mugs.jpg",
+      "size": 19346,
+      "ext": ".jpg"
     },
     {
       "path": "public\\product-images\\1a_first-light-ebook.webp",
@@ -642,6 +525,16 @@
       "path": "public\\product-images\\Tees-2.webp",
       "size": 99017,
       "ext": ".webp"
+    },
+    {
+      "path": "public\\Spyder-2.PNG",
+      "size": 795476,
+      "ext": ".png"
+    },
+    {
+      "path": "public\\Tees-2.jpg",
+      "size": 40056,
+      "ext": ".jpg"
     }
   ]
 }
