@@ -11,7 +11,6 @@ import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
-import Image from 'next/image';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -365,13 +364,10 @@ function StreetStoreContent() {
                           </div>
                         </div>
                       ) : (
-                        <Image
-                          src={product.image}
+                        <img
+                          src={`${product.image}?v=1`}
                           alt={product.Title}
-                          fill
-                          className="object-contain transition-transform duration-300 group-hover:scale-105"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                          priority={index < 6}
+                          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                           onError={() => {
                             // Track failed images and show placeholder
                             console.warn(`Failed to load image: ${product.image}`);
