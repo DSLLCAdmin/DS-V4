@@ -29,7 +29,7 @@ function StreetStoreContent() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showCart, setShowCart] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(24); // Show first 24 products initially
-  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
+
   const { addToCart, itemCount } = useCart();
 
   const filteredProducts = dsProducts.filter(product => {
@@ -82,22 +82,7 @@ function StreetStoreContent() {
       console.warn('Products with potentially problematic image paths:', problematicImages);
     }
 
-    // Clear any cached 404 errors and force image reload
-    if (typeof window !== 'undefined') {
-      setTimeout(() => {
-        console.log('🔄 Forcing image reload...');
-        const images = document.querySelectorAll('img[src*="/product-images/"]');
-        images.forEach(img => {
-          if (img instanceof HTMLImageElement) {
-            const originalSrc = img.src;
-            img.src = '';
-            setTimeout(() => {
-              img.src = originalSrc;
-            }, 100);
-          }
-        });
-      }, 1000);
-    }
+
   }, [filteredProducts]);
 
   const toggleFavorite = (productId: string) => {
@@ -346,7 +331,7 @@ function StreetStoreContent() {
                   {/* Product Image Section */}
                   <div className="relative overflow-hidden bg-gradient-to-br from-swatch205/10 to-swatch205/5">
                     <div className="relative w-full h-80 bg-gradient-to-br from-swatch205/10 to-swatch205/5 rounded-t-2xl overflow-hidden flex-shrink-0">
-                      {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder') || failedImages.has(product.image)) ? (
+                      {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) ? (
                         <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-swatch101/40 to-swatch102/30 border-2 border-swatch101/20 hover:bg-gradient-to-br hover:from-swatch101/50 hover:to-swatch102/40 transition-all duration-300">
                           <div className="text-center p-6">
                             <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
@@ -378,10 +363,8 @@ function StreetStoreContent() {
                             console.log(`✅ Successfully loaded: ${product.image}`);
                           }}
                           onError={(e) => {
-                            // Track failed images and show placeholder
+                            // Log error but don't change display
                             console.warn(`Failed to load image: ${product.image}`);
-                            console.warn(`Error details:`, e);
-                            setFailedImages(prev => new Set(prev).add(product.image));
                           }}
                         />
                       )}
