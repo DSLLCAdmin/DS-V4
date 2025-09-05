@@ -22,7 +22,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full overflow-x-hidden">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full overflow-x-hidden overflow-hidden grid grid-cols-1 gap-0">
         {/* Hero Text - Removed duplicate content */}
         <div className="text-center mb-12 sm:mb-16 mt-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-swatch103 via-swatch104 to-swatch105 bg-clip-text text-transparent">
@@ -134,7 +134,7 @@ export default function Home() {
         </div>
 
         {/* Featured Products Section */}
-        <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-8 mb-16 border border-swatch201/30 max-w-full overflow-hidden">
+        <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-6 mb-16 border border-swatch201/30 max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold text-center mb-8 text-swatch205">
             Featured DarkStreet Collections
           </h2>
@@ -197,7 +197,7 @@ export default function Home() {
         </div>
 
         {/* Brand Story Section */}
-        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-8 mb-16 relative max-w-full overflow-hidden">
+        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
             The DarkStreet Story
           </h2>
@@ -206,7 +206,7 @@ export default function Home() {
           </p>
           
           {/* Tiger's Eye Image - RAISED */}
-          <div className="absolute left-4 top-8 w-[120px] h-[120px] rounded-full border-8 border-swatch105 shadow-lg overflow-hidden opacity-30">
+          <div className="absolute left-2 top-6 w-[100px] h-[100px] rounded-full border-6 border-swatch105 shadow-lg overflow-hidden opacity-30">
             <img
               src="/Tigers-Eye_1.jpg"
               alt="Tiger's Eye"
@@ -220,7 +220,7 @@ export default function Home() {
           </div>
           
           {/* Dancer Image - LOWERED */}
-          <div className="absolute right-4 bottom-8 w-[120px] h-[120px] rounded-full border-8 border-swatch105 shadow-lg overflow-hidden opacity-30">
+          <div className="absolute right-2 bottom-6 w-[100px] h-[100px] rounded-full border-6 border-swatch105 shadow-lg overflow-hidden opacity-30">
             <img
               src="/Dancer.jpg"
               alt="Dancer"
@@ -266,7 +266,7 @@ export default function Home() {
           {/* QR Code Section */}
           <div className="flex flex-col items-center mb-6">
             <a 
-              href="https://bit.ly/darkstreets" 
+              href="https://ds-v5.netlify.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:scale-105 transition-transform duration-200 group"

@@ -18,10 +18,20 @@ body {
   /* Force mobile viewport */
   html, body {
     overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
   }
   
   main {
     overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  /* Ensure all containers respect viewport boundaries */
+  .max-w-6xl {
+    max-width: 100% !important;
+    width: 100% !important;
   }
   
   /* Mobile-optimized buttons */
@@ -650,4 +660,33 @@ html {
   width: 120px;
   height: 40px;
   border-radius: 50%;
+}
+
+/* Grid item constraints for spillage prevention */
+.grid-item {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+/* Enhanced container constraints for spillage prevention */
+.max-w-5xl {
+  max-width: 64rem !important; /* 1024px */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Ensure main content container respects viewport */
+.max-w-6xl {
+  max-width: 72rem !important; /* 1152px */
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Force all sections to respect container boundaries */
+.bg-gradient-to-b {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
