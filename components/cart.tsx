@@ -1,11 +1,12 @@
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../hooks/use-cart';
 import { Button } from './ui/button';
 import { ShoppingBag, X, Plus, Minus, Trash2 } from 'lucide-react';
 
 export function Cart() {
   const { cart, loading, updateQuantity, removeFromCart, clearCart } = useCart();
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   if (cart.items.length === 0) {
     return (
@@ -92,10 +93,45 @@ export function Cart() {
         </div>
         <Button 
           className="w-full" 
-          disabled={loading}
-          onClick={() => window.location.href = '/checkout'}
+          disabled={loading || checkoutLoading}
+          onClick={async () => {
+            try {
+              setCheckoutLoading(true);
+              const response = await fetch('/api/create-checkout', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  items: cart.items,
+                  customer: {
+                    email: 'customer@example.com', // This should come from a form
+                    firstName: 'Customer',
+                    lastName: 'Name'
+                  }
+                })
+              });
+              
+              const result = await response.json();
+              
+              if (result.success) {
+                // Clear cart after successful checkout
+                await clearCart();
+                // Redirect to success page
+                window.location.href = result.checkoutUrl;
+              } else {
+                console.error('Checkout failed:', result.error);
+                alert('Checkout failed. Please try again.');
+              }
+            } catch (error) {
+              console.error('Checkout error:', error);
+              alert('Checkout failed. Please try again.');
+            } finally {
+              setCheckoutLoading(false);
+            }
+          }}
         >
-          {loading ? 'Processing...' : 'Checkout'}
+          {checkoutLoading ? 'Processing...' : 'Checkout'}
         </Button>
       </div>
     </div>

@@ -15,7 +15,7 @@ export interface Cart {
   itemCount: number;
 }
 
-// Cart state management
+// Cart state management using localStorage for client-side cart
 class CartManager {
   private cart: Cart = {
     id: undefined,
@@ -24,56 +24,44 @@ class CartManager {
     itemCount: 0
   };
 
+  constructor() {
+    this.loadCartFromStorage();
+  }
+
   // Add item to cart
   async addToCart(productId: string, quantity: number = 1) {
     try {
-      const shopUrl = `https://${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_NAME}`;
+      // For now, we'll use a local cart implementation
+      // This can be enhanced later with Shopify Storefront API
       
-      // Create cart if it doesn't exist
-      if (!this.cart.items.length) {
-        const createResponse = await fetch(`${shopUrl}/admin/api/2024-01/carts.json`, {
-          method: 'POST',
-          headers: {
-            'X-Shopify-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN!,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            cart: {
-              line_items: [{
-                variant_id: productId,
-                quantity: quantity
-              }]
-            }
-          })
-        });
-
-        if (createResponse.ok) {
-          const cartData = await createResponse.json();
-          this.updateCartFromShopify(cartData.cart);
-          return true;
-        }
+      // Find existing item in cart
+      const existingItemIndex = this.cart.items.findIndex(item => item.id === productId);
+      
+      if (existingItemIndex >= 0) {
+        // Update existing item quantity
+        this.cart.items[existingItemIndex].quantity += quantity;
       } else {
-        // Add to existing cart
-        const addResponse = await fetch(`${shopUrl}/admin/api/2024-01/carts/${this.cart.id}/line_items.json`, {
-          method: 'POST',
-          headers: {
-            'X-Shopify-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN!,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            line_item: {
-              variant_id: productId,
-              quantity: quantity
-            }
-          })
-        });
-
-        if (addResponse.ok) {
-          const cartData = await addResponse.json();
-          this.updateCartFromShopify(cartData.cart);
-          return true;
+        // Add new item to cart
+        // We'll need to get product details from our local products data
+        const product = await this.getProductDetails(productId);
+        if (product) {
+          this.cart.items.push({
+            id: productId,
+            title: product.title,
+            price: product.price,
+            quantity: quantity,
+            image: product.image,
+            variant_id: productId // Using product ID as variant ID for now
+          });
+        } else {
+          console.error('Product not found:', productId);
+          return false;
         }
       }
+      
+      this.updateCartTotals();
+      this.saveCartToStorage();
+      return true;
     } catch (error) {
       console.error('Error adding to cart:', error);
       return false;
@@ -83,27 +71,21 @@ class CartManager {
   // Update item quantity
   async updateQuantity(itemId: string, quantity: number) {
     try {
-      const shopUrl = `https://${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_NAME}`;
+      const itemIndex = this.cart.items.findIndex(item => item.id === itemId);
       
-      const response = await fetch(`${shopUrl}/admin/api/2024-01/carts/${this.cart.id}/line_items/${itemId}.json`, {
-        method: 'PUT',
-        headers: {
-          'X-Shopify-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN!,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          line_item: {
-            id: itemId,
-            quantity: quantity
-          }
-        })
-      });
-
-      if (response.ok) {
-        const cartData = await response.json();
-        this.updateCartFromShopify(cartData.cart);
+      if (itemIndex >= 0) {
+        if (quantity <= 0) {
+          // Remove item if quantity is 0 or negative
+          this.cart.items.splice(itemIndex, 1);
+        } else {
+          this.cart.items[itemIndex].quantity = quantity;
+        }
+        
+        this.updateCartTotals();
+        this.saveCartToStorage();
         return true;
       }
+      return false;
     } catch (error) {
       console.error('Error updating quantity:', error);
       return false;
@@ -113,20 +95,15 @@ class CartManager {
   // Remove item from cart
   async removeFromCart(itemId: string) {
     try {
-      const shopUrl = `https://${process.env.NEXT_PUBLIC_SHOPIFY_SHOP_NAME}`;
+      const itemIndex = this.cart.items.findIndex(item => item.id === itemId);
       
-      const response = await fetch(`${shopUrl}/admin/api/2024-01/carts/${this.cart.id}/line_items/${itemId}.json`, {
-        method: 'DELETE',
-        headers: {
-          'X-Shopify-Access-Token': process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN!
-        }
-      });
-
-      if (response.ok) {
-        const cartData = await response.json();
-        this.updateCartFromShopify(cartData.cart);
+      if (itemIndex >= 0) {
+        this.cart.items.splice(itemIndex, 1);
+        this.updateCartTotals();
+        this.saveCartToStorage();
         return true;
       }
+      return false;
     } catch (error) {
       console.error('Error removing from cart:', error);
       return false;
@@ -145,23 +122,56 @@ class CartManager {
       total: 0,
       itemCount: 0
     };
+    this.saveCartToStorage();
   }
 
-  // Update cart from Shopify response
-  private updateCartFromShopify(shopifyCart: any) {
-    this.cart = {
-      id: shopifyCart.id,
-      items: shopifyCart.line_items?.map((item: any) => ({
-        id: item.id,
-        title: item.title,
-        price: parseFloat(item.price),
-        quantity: item.quantity,
-        image: item.image,
-        variant_id: item.variant_id
-      })) || [],
-      total: parseFloat(shopifyCart.total_price || 0),
-      itemCount: shopifyCart.item_count || 0
-    };
+  // Get product details from local products data
+  private async getProductDetails(productId: string) {
+    try {
+      // Import products data dynamically to avoid circular imports
+      const { products } = await import('../data/products');
+      const product = products.find(p => String(p.id) === productId);
+      
+      if (product) {
+        return {
+          title: product.Title,
+          price: parseFloat(product.SalePrice?.replace(/[^0-9.]/g, '') || '0'),
+          image: product.image
+        };
+      }
+      return null;
+    } catch (error) {
+      console.error('Error getting product details:', error);
+      return null;
+    }
+  }
+
+  // Update cart totals
+  private updateCartTotals() {
+    this.cart.total = this.cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    this.cart.itemCount = this.cart.items.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  // Save cart to localStorage
+  private saveCartToStorage() {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('ds-cart', JSON.stringify(this.cart));
+    }
+  }
+
+  // Load cart from localStorage
+  private loadCartFromStorage() {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedCart = localStorage.getItem('ds-cart');
+        if (savedCart) {
+          this.cart = JSON.parse(savedCart);
+        }
+      } catch (error) {
+        console.error('Error loading cart from storage:', error);
+        this.cart = { items: [], total: 0, itemCount: 0 };
+      }
+    }
   }
 }
 
