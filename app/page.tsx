@@ -206,7 +206,7 @@ export default function Home() {
           </p>
           
           {/* Tiger's Eye Image - RAISED */}
-          <div className="absolute left-2 top-6 w-[100px] h-[100px] rounded-full border-6 border-swatch105 shadow-lg overflow-hidden opacity-30">
+          <div className="absolute inset-x-2 top-6 w-[80px] h-[80px] rounded-full border-4 border-swatch105 shadow-lg overflow-hidden opacity-30" style={{ left: '8px', right: 'auto' }}>
             <img
               src="/Tigers-Eye_1.jpg"
               alt="Tiger's Eye"
@@ -220,7 +220,7 @@ export default function Home() {
           </div>
           
           {/* Dancer Image - LOWERED */}
-          <div className="absolute right-2 bottom-6 w-[100px] h-[100px] rounded-full border-6 border-swatch105 shadow-lg overflow-hidden opacity-30">
+          <div className="absolute inset-x-2 bottom-6 w-[80px] h-[80px] rounded-full border-4 border-swatch105 shadow-lg overflow-hidden opacity-30" style={{ left: 'auto', right: '8px' }}>
             <img
               src="/Dancer.jpg"
               alt="Dancer"
@@ -273,7 +273,7 @@ export default function Home() {
             >
               <div className="bg-white rounded-lg p-4 shadow-xl mb-3 border-2 border-swatch103/20 hover:border-swatch103/40 transition-all duration-300">
                 <Image
-                  src="/DSLLC_QRC_1.png?v=2"
+                  src="/DSLLC_QRC_2.png?v=2"
                   alt="DarkStreets QR Code - Scan to visit live site"
                   width={128}
                   height={128}

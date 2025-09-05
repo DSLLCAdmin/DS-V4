@@ -234,7 +234,7 @@ export const products = [
     "Description": "Quotes + neon visuals",
     "Badge": "",
     "InStock": null,
-    "image": "/Tees-2.jpg"
+    "image": "/product-images/Tees-2.jpg"
   },
   {
     "id": "A5",
