@@ -1,0 +1,10 @@
+[33mad53358[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Beta: Updated DarkStreet Story images with asymmetrical balance, thicker borders, and oval shapes
+[33mf3fc63c[m Add DarkStreet Story button with Tiger's Eye and Dancer images positioned as specified
+[33m7d8a3fe[m Update all legacy 'Book Club' references to 'StreetCircle': Navigation, buttons, and descriptions
+[33m6207ffe[m Fix remaining 3 product images: Correct file paths for Scent Diffusers, Moonlight Noir, and Vol-1 products
+[33mb105e48[m Fix race condition: Remove failedImages state that was causing images to revert to placeholders
+[33m1ac1be8[m Fix product image filenames: Remove timestamps to match product references - TSW solution ready for deployment
+[33mbfd298d[m Convert product images from WebP to JPG: Resolve Netlify MIME type compatibility issue - TSW solution implemented
+[33m1105182[m Fix TypeScript error: Add type check for HTMLImageElement in image reload logic
+[33m0fdbd04[m Add image loading debugging and force reload: Test Netlify image accessibility and improve error handling
+[33m5758b2d[m Fix product image loading: Revert to img tags, add cache-busting, and fix Netlify static asset serving

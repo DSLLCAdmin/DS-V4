@@ -22,7 +22,7 @@ export default function Home() {
       </div>
 
       {/* Main Content */}
-      <div className="w-full max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 w-full overflow-x-hidden">
         {/* Hero Text - Removed duplicate content */}
         <div className="text-center mb-12 sm:mb-16 mt-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-swatch103 via-swatch104 to-swatch105 bg-clip-text text-transparent">
@@ -31,12 +31,14 @@ export default function Home() {
         </div>
 
         {/* Main Navigation Grid - 4 columns for 4 main sections */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
+        <div className="mb-12 sm:mb-16">
+          {/* Navigation Buttons */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 sm:gap-4 md:gap-6">
           {/* StreetStore */}
           <Link href="/shop" className="group">
             <div className="button-streetstore nav-button">
                               <div className="button-content">
-                  <div className="button-icon">
+                  <div className="button-icon mb-6 sm:mb-0">
                     <Image 
                       src="/2714756_delivery_vehicle_transport_cab_cargo_transportation_auto_car.svg" 
                       alt="Delivery Van" 
@@ -60,7 +62,7 @@ export default function Home() {
           <Link href="/book-club" className="group">
             <div className="button-streetcircle nav-button">
                               <div className="button-content">
-                  <div className="button-icon">
+                  <div className="button-icon mb-6 sm:mb-0">
                     <Image 
                       src="/2714749_fastcar_formula_super_roadster_sportcar_sportscar_car_supercar.svg" 
                       alt="Sports Car" 
@@ -84,7 +86,7 @@ export default function Home() {
           <Link href="/ds-map" className="group">
             <div className="button-dsmap nav-button">
                               <div className="button-content">
-                  <div className="button-icon">
+                  <div className="button-icon mb-6 sm:mb-0">
                     <Image 
                       src="/2714754_auto_vehicle_automobile_holiday_transport_car_hatchback_transportation_travel.svg" 
                       alt="Travel Car" 
@@ -108,7 +110,7 @@ export default function Home() {
           <Link href="/about" className="group">
             <div className="button-about nav-button">
               <div className="button-content">
-                                  <div className="button-icon">
+                                  <div className="button-icon mb-6 sm:mb-0">
                     <Image 
                       src="/2714750_truck_delivery_vehicle_auto_transportation_car_transport_pickup_automobile.svg" 
                       alt="Pickup Truck" 
@@ -128,9 +130,11 @@ export default function Home() {
             </div>
           </Link>
         </div>
+          </div>
+        </div>
 
         {/* Featured Products Section */}
-        <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-8 mb-16 border border-swatch201/30">
+        <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-8 mb-16 border border-swatch201/30 max-w-full overflow-hidden">
           <h2 className="text-3xl font-bold text-center mb-8 text-swatch205">
             Featured DarkStreet Collections
           </h2>
@@ -193,37 +197,40 @@ export default function Home() {
         </div>
 
         {/* Brand Story Section */}
-        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-8 mb-16 relative overflow-hidden">
-          {/* Left Image - Tiger's Eye */}
-          <div className="absolute left-8 top-1/3 transform -translate-y-1/2">
-            <Image
+        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-8 mb-16 relative max-w-full overflow-hidden">
+          <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
+            The DarkStreet Story
+          </h2>
+          <p className="text-lg font-bold text-swatch101/90 leading-relaxed text-center max-w-4xl mx-auto">
+            DarkStreets extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'Streeters in their restless rhythm of urban being. Join us on the DarkStreets where corners hold stories, shadows hide light, and every moment is truly alive.
+          </p>
+          
+          {/* Tiger's Eye Image - RAISED */}
+          <div className="absolute left-4 top-8 w-[120px] h-[120px] rounded-full border-8 border-swatch105 shadow-lg overflow-hidden opacity-30">
+            <img
               src="/Tigers-Eye_1.jpg"
               alt="Tiger's Eye"
-              width={120}
-              height={120}
-              className="rounded-[50%] object-cover border-8 border-swatch105 shadow-lg opacity-75"
+              className="w-full h-full object-cover"
+              style={{ borderRadius: '50%' }}
+              onError={(e) => {
+                console.warn('Failed to load Tiger image');
+                e.preventDefault();
+              }}
             />
           </div>
           
-          {/* Right Image - Dancer */}
-          <div className="absolute right-8 bottom-1/3 transform translate-y-1/2">
-            <Image
+          {/* Dancer Image - LOWERED */}
+          <div className="absolute right-4 bottom-8 w-[120px] h-[120px] rounded-full border-8 border-swatch105 shadow-lg overflow-hidden opacity-30">
+            <img
               src="/Dancer.jpg"
               alt="Dancer"
-              width={120}
-              height={120}
-              className="rounded-[50%] object-cover border-8 border-swatch105 shadow-lg opacity-75"
+              className="w-full h-full object-cover"
+              style={{ borderRadius: '50%' }}
+              onError={(e) => {
+                console.warn('Failed to load Dancer image');
+                e.preventDefault();
+              }}
             />
-          </div>
-          
-          {/* Center Content */}
-          <div className="text-center max-w-4xl mx-auto relative z-10">
-            <h2 className="text-3xl font-bold mb-6 text-swatch101">
-              The DarkStreet Story
-            </h2>
-            <p className="text-lg text-swatch101/90 leading-relaxed">
-              DarkStreets live more than our stories suggest. We are everyday people in a drifting collective rolling around a way of seeing the world. Look through the eyes of Aries Tiger and the Dancer, explore a freedom embedded in street life, connect with the restless rhythm of urban being. Join us on the DarkStreets where corners hold stories, shadows hide light, and every moment is truly alive.
-            </p>
           </div>
         </div>
 
@@ -236,7 +243,6 @@ export default function Home() {
             </Button>
           </Link>
         </div>
-      </div>
 
       {/* Footer */}
       <footer className="w-full bg-swatch205 text-swatch101 mt-16">
@@ -259,17 +265,28 @@ export default function Home() {
           
           {/* QR Code Section */}
           <div className="flex flex-col items-center mb-6">
-            <div className="bg-white rounded-lg p-3 shadow-lg mb-3">
-              <Image
-                src="/DSLLC_QRC_1.png"
-                alt="DarkStreets QR Code"
-                width={128}
-                height={128}
-                className="rounded-lg"
-              />
-            </div>
+            <a 
+              href="https://bit.ly/darkstreets" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:scale-105 transition-transform duration-200 group"
+            >
+              <div className="bg-white rounded-lg p-4 shadow-xl mb-3 border-2 border-swatch103/20 hover:border-swatch103/40 transition-all duration-300">
+                <Image
+                  src="/DSLLC_QRC_1.png"
+                  alt="DarkStreets QR Code - Scan to visit live site"
+                  width={128}
+                  height={128}
+                  className="rounded-lg group-hover:shadow-lg transition-shadow duration-300"
+                  onError={(e) => {
+                    console.warn('Failed to load QR code image');
+                    e.preventDefault();
+                  }}
+                />
+              </div>
+            </a>
             <p className="text-sm text-swatch101/70 mb-2">
-              Scan to explore on mobile
+              📱 Scan to explore on mobile • 🔗 Click to visit live site
             </p>
           </div>
           
