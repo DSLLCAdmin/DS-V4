@@ -29,7 +29,9 @@
     "files:nuclear-update": "node scripts/nuclear-file-update.js",
     "cleanup:html-comments": "node scripts/cleanup-html-comments.js",
     "build:netlify": "next build && next export",
-    "deploy:netlify": "npm run build:netlify"
+    "deploy:netlify": "npm run build:netlify",
+    "auto-commit": "node scripts/auto-commit.js",
+    "auto-commit:start": "node scripts/auto-commit.js &"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
