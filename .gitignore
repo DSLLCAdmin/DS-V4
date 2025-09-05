@@ -4,33 +4,98 @@
 /node_modules
 /.pnp
 .pnp.js
-
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
-/build
-
-# misc
-.DS_Store
-*.pem
-
-# debug
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# testing
+/coverage
+coverage/
+
+# next.js
+/.next/
+/out/
+.next/
+out/
+.next/cache/
+.next/static/
+
+# production
+/build
+build/
+dist/
+
+# misc
+.DS_Store
+*.pem
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
 # local env files
 .env
 .env*.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # vercel
 .vercel
+.vercel/
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Large media files that can cause git to hang
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+*.mkv
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+
+# Backup files
+*.bak
+*.backup
+*_backup
+*_old
+
+# Temporary script files
+temp/
+tmp/
+cache/
+.cache/
+
+# Large data files
+*.sql
+*.dump
+*.db
+*.sqlite
+*.sqlite3
+
+# Generated files
+generated/
+auto-generated/

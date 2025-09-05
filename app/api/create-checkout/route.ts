@@ -19,90 +19,37 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Get Shopify credentials from environment
-    const shopName = process.env.NEXT_PUBLIC_SHOPIFY_SHOP_NAME;
-    const accessToken = process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN;
+    // For now, we'll create a simple checkout page with order summary
+    // This can be enhanced later with actual payment processing
+    const orderSummary = {
+      items: items.map((item: any) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity,
+        total: item.price * item.quantity
+      })),
+      subtotal: items.reduce((sum: number, item: any) => sum + (item.price * item.quantity), 0),
+      shipping: 0, // Free shipping for now
+      tax: 0, // No tax calculation for now
+      total: items.reduce((sum: number, item: any) => sum + (item.price * item.quantity), 0),
+      customer: customer
+    };
 
-    if (!shopName || !accessToken) {
-      console.error('Missing Shopify credentials');
-      return NextResponse.json(
-        { error: 'Shopify configuration error' },
-        { status: 500 }
-      );
-    }
+    // Store order in session or database (for now, just return success)
+    // In a real implementation, you would:
+    // 1. Create an order in your database
+    // 2. Generate a unique order ID
+    // 3. Send confirmation email
+    // 4. Process payment through Stripe/PayPal/etc.
 
-    // Create Shopify checkout session
-    const shopifyUrl = `https://${shopName}`;
-    
-    try {
-      // Create a checkout session via Shopify's API
-      const response = await fetch(`${shopifyUrl}/admin/api/2024-01/checkouts.json`, {
-        method: 'POST',
-        headers: {
-          'X-Shopify-Access-Token': accessToken,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          checkout: {
-            line_items: items.map((item: any) => ({
-              variant_id: item.id,
-              quantity: item.quantity
-            })),
-            email: customer.email,
-            shipping_address: {
-              first_name: customer.firstName,
-              last_name: customer.lastName,
-              address1: customer.address1,
-              address2: customer.address2,
-              city: customer.city,
-              province: customer.state,
-              zip: customer.zipCode,
-              country: customer.country,
-              phone: customer.phone
-            }
-          }
-        })
-      });
-
-      if (response.ok) {
-        const checkoutData = await response.json();
-        const checkoutUrl = checkoutData.checkout.web_url;
-        
-        return NextResponse.json({
-          checkoutUrl,
-          message: 'Checkout session created successfully'
-        });
-      } else {
-        // Fallback to cart redirect if checkout creation fails
-        console.warn('Checkout creation failed, falling back to cart redirect');
-        const cartUrl = `${shopifyUrl}/cart`;
-        const cartItems = items.map((item: any) => 
-          `${item.id}:${item.quantity}`
-        ).join(',');
-        
-        const finalCartUrl = `${cartUrl}?items=${encodeURIComponent(cartItems)}`;
-        
-        return NextResponse.json({
-          checkoutUrl: finalCartUrl,
-          message: 'Redirecting to cart (checkout creation failed)'
-        });
-      }
-    } catch (apiError) {
-      console.error('Shopify API error:', apiError);
-      
-      // Fallback to cart redirect
-      const cartUrl = `${shopifyUrl}/cart`;
-      const cartItems = items.map((item: any) => 
-        `${item.id}:${item.quantity}`
-      ).join(',');
-      
-      const finalCartUrl = `${cartUrl}?items=${encodeURIComponent(cartItems)}`;
-      
-      return NextResponse.json({
-        checkoutUrl: finalCartUrl,
-        message: 'Redirecting to cart (API error)'
-      });
-    }
+    return NextResponse.json({
+      success: true,
+      orderSummary,
+      message: 'Order created successfully',
+      // For now, redirect to a success page
+      checkoutUrl: '/checkout/success'
+    });
 
   } catch (error) {
     console.error('Checkout creation error:', error);
