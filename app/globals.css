@@ -690,3 +690,16 @@ html {
   width: 100% !important;
   max-width: 100% !important;
 }
+
+/* Strike 3: Contain absolute positioned images */
+.bg-gradient-to-b.from-\[#8B4513\].to-swatch105 {
+  contain: layout !important;
+  position: relative !important;
+}
+
+/* Ensure absolute images stay within their container */
+.bg-gradient-to-b.from-\[#8B4513\].to-swatch105 .absolute {
+  max-width: calc(100% - 16px) !important;
+  contain: strict !important;
+}
+
