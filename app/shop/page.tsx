@@ -346,6 +346,8 @@ function StreetStoreContent() {
                                   fallback.className = 'text-6xl text-swatch103';
                                   fallback.textContent = '🎨';
                                   e.currentTarget.parentNode?.appendChild(fallback);
+                                  // Prevent the error from bubbling up
+                                  e.preventDefault();
                                 }}
                               />
                             </div>
@@ -365,6 +367,8 @@ function StreetStoreContent() {
                           onError={(e) => {
                             // Log error but don't change display
                             console.warn(`Failed to load image: ${product.image}`);
+                            // Prevent the error from bubbling up
+                            e.preventDefault();
                           }}
                         />
                       )}

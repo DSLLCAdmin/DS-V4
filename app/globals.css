@@ -11,8 +11,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  width: 100%;
-  max-width: 100vw;
 }
 
 /* Mobile-first responsive design */
@@ -20,14 +18,10 @@ body {
   /* Force mobile viewport */
   html, body {
     overflow-x: hidden !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
   }
   
   main {
     overflow-x: hidden !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
   }
   
   /* Mobile-optimized buttons */
@@ -38,11 +32,16 @@ body {
     margin: 0 8px 16px 8px !important;
   }
   
-  /* Mobile-optimized icons */
+  /* Mobile-optimized icons - Override absolute positioning */
   .button-streetstore .button-icon {
     width: 100px !important;
     height: 40px !important;
-    top: -15px !important;
+    position: relative !important;
+    top: 0px !important;
+    left: auto !important;
+    transform: none !important;
+    margin-bottom: 20px !important;
+    z-index: 1 !important;
   }
   
   .button-streetcircle .button-icon,
@@ -50,7 +49,12 @@ body {
   .button-about .button-icon {
     width: 80px !important;
     height: 35px !important;
-    top: -10px !important;
+    position: relative !important;
+    top: 0px !important;
+    left: auto !important;
+    transform: none !important;
+    margin-bottom: 20px !important;
+    z-index: 1 !important;
   }
   
   /* Mobile typography */
@@ -81,6 +85,26 @@ body {
   .bg-black {
     background-size: cover !important;
     background-position: center !important;
+  }
+  
+  /* Mobile Story section images */
+  .bg-gradient-to-b.from-\[#8B4513\].to-swatch105 {
+    position: relative !important;
+  }
+  
+  .bg-gradient-to-b.from-\[#8B4513\].to-swatch105 img {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  .bg-gradient-to-b.from-\[#8B4513\].to-swatch105 .absolute.left-4 {
+    left: 8px !important;
+    top: 16px !important;
+  }
+  
+  .bg-gradient-to-b.from-\[#8B4513\].to-swatch105 .absolute.right-4 {
+    right: 8px !important;
+    bottom: 16px !important;
   }
 }
 
@@ -473,7 +497,7 @@ html {
   justify-content: center !important;
   transition: transform 0.3s !important;
   position: absolute !important;
-  top: -65px !important;
+  top: -45px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 10 !important;
@@ -488,7 +512,7 @@ html {
   justify-content: center !important;
   transition: transform 0.3s !important;
   position: absolute !important;
-  top: -60px !important;
+  top: -40px !important;
   left: 50% !important;
   transform: translateX(-50%) rotate(-10deg) !important;
   z-index: 10 !important;
@@ -503,7 +527,7 @@ html {
   justify-content: center !important;
   transition: transform 0.3s !important;
   position: absolute !important;
-  top: -60px !important;
+  top: -40px !important;
   left: 50% !important;
   transform: translateX(-50%) rotate(10deg) !important;
   z-index: 10 !important;
@@ -518,7 +542,7 @@ html {
   justify-content: center !important;
   transition: transform 0.3s !important;
   position: absolute !important;
-  top: -55px !important;
+  top: -35px !important;
   left: 50% !important;
   transform: translateX(-50%) !important;
   z-index: 10 !important;
