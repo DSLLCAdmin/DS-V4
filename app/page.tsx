@@ -273,7 +273,7 @@ export default function Home() {
             >
               <div className="bg-white rounded-lg p-4 shadow-xl mb-3 border-2 border-swatch103/20 hover:border-swatch103/40 transition-all duration-300">
                 <Image
-                  src="/DSLLC_QRC_1.png"
+                  src="/DSLLC_QRC_1.png?v=2"
                   alt="DarkStreets QR Code - Scan to visit live site"
                   width={128}
                   height={128}
