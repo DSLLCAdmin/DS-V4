@@ -52,8 +52,8 @@ export const products = [
   },
   {
     "id": "2a",
-    "Type": "Risque & Safety- E-book",
-    "Title": "Risque & Safety",
+    "Type": "Risqué & Safety- E-book",
+    "Title": "Risqué & Safety",
     "Author": "Aries Tiger",
     "SalePrice": "$4.99",
     "OriginalPrice": "$6.99",
@@ -62,15 +62,15 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/2a_risque-safety-ebook.jpg"
   },
   {
     "id": "2b",
-    "Type": "Risque & Safety- Paperback",
-    "Title": "Risque & Safety",
+    "Type": "Risqué & Safety- Paperback",
+    "Title": "Risqué & Safety",
     "Author": "Aries Tiger",
     "SalePrice": "$9.99",
     "OriginalPrice": "$12.99",
@@ -79,7 +79,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/2a_risque-safety-ebook.jpg"
@@ -181,7 +181,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Printed quotes �Still here.�, �You smell like asphalt�",
+    "Description": "Printed quotes �Still here.�, �You smell like asphalt",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -384,7 +384,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�Prowler�s Leather,� �Bleach & Bourbon.�",
+    "Description": "Prowler Leather, Bleach & Bourbon.",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg"
@@ -503,7 +503,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�No Rules After Midnight.�",
+    "Description": "No Rules After Midnight.",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
@@ -749,7 +749,7 @@ export const products = [
   {
     "id": "D2",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "?� �Asphalt & Aftershave�",
+    "Title": "Asphalt & Aftershave",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
     "OriginalPrice": "$29.99",
@@ -766,7 +766,7 @@ export const products = [
   {
     "id": "D3",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "?� �Coconut & Gin�",
+    "Title": "Coconut & Gin",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
     "OriginalPrice": "$29.99",
@@ -783,7 +783,7 @@ export const products = [
   {
     "id": "D4",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "?� �Midnight Bleach�",
+    "Title": "Midnight Bleach",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
     "OriginalPrice": "$29.99",
@@ -800,7 +800,7 @@ export const products = [
   {
     "id": "D5",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "?� �Prowler Interior: '69 Edition�",
+    "Title": "Prowler Interior: '69 Edition",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
     "OriginalPrice": "$29.99",
@@ -1693,7 +1693,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "'What Are You Seeing?'  poetic prompt cards.",
+    "Description": "'What Are You Seeing?' poetic prompt cards.",
     "Badge": "",
     "InStock": null,
     "image": ""
