@@ -70,6 +70,12 @@ export function useCart() {
     setLoading(true);
     try {
       await cartManager.clearCart();
+      // Force immediate state update
+      setCart({
+        items: [],
+        total: 0,
+        itemCount: 0
+      });
       updateCart();
     } catch (error) {
       console.error('Error clearing cart:', error);

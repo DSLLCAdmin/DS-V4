@@ -35,7 +35,28 @@ function StreetStoreContent() {
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.Title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (product.Description && product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === "All" || product.Type === selectedCategory;
+    
+    // Handle category filtering with flexible matching
+    let matchesCategory = false;
+    if (selectedCategory === "All") {
+      matchesCategory = true;
+    } else if (selectedCategory === "Serials/Books") {
+      matchesCategory = product.Type && (
+        product.Type.includes("Book") || 
+        product.Type.includes("E-book") || 
+        product.Type.includes("Paperback") ||
+        product.Type === "Serials/Books"
+      );
+    } else if (selectedCategory === "Live & Social Activation") {
+      matchesCategory = product.Type && (
+        product.Type.includes("Social") || 
+        product.Type.includes("Activation") ||
+        product.Type === "Live & Social Activation"
+      );
+    } else {
+      matchesCategory = product.Type === selectedCategory;
+    }
+    
     return matchesSearch && matchesCategory;
   });
 
