@@ -206,7 +206,7 @@ export const products = [
   },
   {
     "id": "A5",
-    "Type": "Auto + Mobility",
+    "Type": "Live & Social Activation",
     "Title": "Silk Scarves",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -223,7 +223,7 @@ export const products = [
   },
   {
     "id": "A6",
-    "Type": "Accessories",
+    "Type": "Live & Social Activation",
     "Title": "Boxers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -274,7 +274,7 @@ export const products = [
   },
   {
     "id": "A9",
-    "Type": "Collector & Art-Based",
+    "Type": "Live & Social Activation",
     "Title": "Limited-Edition Hoodies",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -325,7 +325,7 @@ export const products = [
   },
   {
     "id": "B2",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "Dark Streets Branded Scent Diffusers",
@@ -359,7 +359,7 @@ export const products = [
   },
   {
     "id": "B4",
-    "Type": "Media + Experiences",
+    "Type": "Live & Social Activation",
     "Title": "Prowler Dashboard Confessionals",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -376,7 +376,7 @@ export const products = [
   },
   {
     "id": "B5",
-    "Type": "Media + Experiences",
+    "Type": "Live & Social Activation",
     "Title": "Seatbelt Harness Covers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -427,7 +427,7 @@ export const products = [
   },
   {
     "id": "B8",
-    "Type": "Relationship",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Erotic & Mystery-Inspired",
     "Author": "Glovebox Zines",
     "SalePrice": "DS LLC",
@@ -444,7 +444,7 @@ export const products = [
   },
   {
     "id": "B9",
-    "Type": "Digital + Curated Services",
+    "Type": "Live & Social Activation",
     "Title": "Custom Vanity Plate Frames",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -631,7 +631,7 @@ export const products = [
   },
   {
     "id": "C10",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "Dashboard Candles",
@@ -648,7 +648,7 @@ export const products = [
   },
   {
     "id": "D1",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "DS Scented Candle Collection",
@@ -665,7 +665,7 @@ export const products = [
   },
   {
     "id": "D2",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "?� �Asphalt & Aftershave�",
@@ -682,7 +682,7 @@ export const products = [
   },
   {
     "id": "D3",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "?� �Coconut & Gin�",
@@ -699,7 +699,7 @@ export const products = [
   },
   {
     "id": "D4",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "?� �Midnight Bleach�",
@@ -716,7 +716,7 @@ export const products = [
   },
   {
     "id": "D5",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "?� �Prowler Interior: '69 Edition�",
@@ -733,7 +733,7 @@ export const products = [
   },
   {
     "id": "D6",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "Neon Light Wall Signs",
@@ -767,7 +767,7 @@ export const products = [
   },
   {
     "id": "D8",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "�Moonlight Noir� Projection Lamps",
@@ -801,7 +801,7 @@ export const products = [
   },
   {
     "id": "D10",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "Secret-Safe Lamps",
@@ -920,7 +920,7 @@ export const products = [
   },
   {
     "id": "E3",
-    "Type": "Relationship",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Erotic & Mystery-Inspired",
     "Author": "Erotic Soundtracks",
     "SalePrice": "DS LLC",
@@ -1073,7 +1073,7 @@ export const products = [
   },
   {
     "id": "F2",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "'Streetin' Score' AI Tool",
@@ -1243,7 +1243,7 @@ export const products = [
   },
   {
     "id": "G5",
-    "Type": "Relationship",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Erotic & Mystery-Inspired",
     "Author": "Prowler Flask Kit",
     "SalePrice": "DS LLC",
@@ -1515,7 +1515,7 @@ export const products = [
   },
   {
     "id": "J3",
-    "Type": "Relationship",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Erotic & Mystery-Inspired",
     "Author": "Anonymous Drop Letters",
     "SalePrice": "DS LLC",
@@ -1566,7 +1566,7 @@ export const products = [
   },
   {
     "id": "J6",
-    "Type": "Home",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Mood",
     "Author": "and Atmosphere",
     "SalePrice": "DS Mood Ring Keychains",
