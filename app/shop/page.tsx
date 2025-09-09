@@ -312,13 +312,13 @@ function StreetStoreContent() {
 
         {/* Products Grid */}
         <div className="mb-6 text-center">
-          <p className="text-swatch203 text-lg">
-            Showing <span className="font-bold text-swatch103">{Math.min(visibleProducts, sortedProducts.length)}</span> of <span className="font-bold text-swatch103">{sortedProducts.length}</span> products
+          <p className="text-white text-lg font-semibold">
+            Showing <span className="font-bold text-yellow-300">{Math.min(visibleProducts, sortedProducts.length)}</span> of <span className="font-bold text-yellow-300">{sortedProducts.length}</span> products
             {sortBy === 'images-first' && (
-              <span className="text-swatch102 ml-2">(🖼️ Images first)</span>
+              <span className="text-green-300 ml-2">(🖼️ Images first)</span>
             )}
             {visibleProducts < sortedProducts.length && (
-              <span className="text-swatch104 ml-2">(Load more to see all)</span>
+              <span className="text-blue-300 ml-2">(Load more to see all)</span>
             )}
           </p>
         </div>
