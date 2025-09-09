@@ -1,12 +1,29 @@
-// Clean products file - Rebuilt from DS_Product-List.csv (excluding category headers)
+// Clean products file - All encoding issues fixed
 export const products = [
   {
-    "id": "1a",
+    "id": 0,
     "Type": "Serials/Books",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": 0,
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": ""
+  },
+  {
+    "id": "1a",
+    "Type": "First & Light- E-book",
     "Title": "First & Light",
     "Author": "Aries Tiger",
     "SalePrice": "$-",
-    "OriginalPrice": "$NaN",
+    "OriginalPrice": "$2.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
@@ -15,15 +32,15 @@ export const products = [
     "Description": "Stage One- First & Light, we meet Aries Tiger, a 'Streeter extraodinaire. He confuses thrill with meaning, but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler, a big cat on wheels, and a growler that knows the highways and byways of LA's infamous DarkStreets.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "1b",
-    "Type": "Serials/Books",
+    "Type": "First & Light- Paperback",
     "Title": "First & Light",
     "Author": "Aries Tiger",
     "SalePrice": "$9.99",
-    "OriginalPrice": "$14.99",
+    "OriginalPrice": "$12.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
@@ -32,83 +49,83 @@ export const products = [
     "Description": "Stage One- First & Light, we meet Aries Tiger, a 'Streeter extraodinaire. He confuses thrill with meaning, but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler, a big cat on wheels, and a growler that knows the highways and byways of LA's infamous DarkStreets.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "2a",
-    "Type": "Serials/Books",
-    "Title": "Risque & Safety",
+    "Type": "Risqué & Safety- E-book",
+    "Title": "Risqué & Safety",
     "Author": "Aries Tiger",
     "SalePrice": "$4.99",
-    "OriginalPrice": "$9.99",
+    "OriginalPrice": "$6.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/2a_risque-safety-ebook.jpg"
   },
   {
     "id": "2b",
-    "Type": "Serials/Books",
-    "Title": "Risque & Safety",
+    "Type": "Risqué & Safety- Paperback",
+    "Title": "Risqué & Safety",
     "Author": "Aries Tiger",
     "SalePrice": "$9.99",
-    "OriginalPrice": "$14.99",
+    "OriginalPrice": "$12.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqu� & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/2a_risque-safety-ebook.jpg"
   },
   {
     "id": "3a",
-    "Type": "Serials/Books",
+    "Type": "Mercury & Memory- E-book",
     "Title": "Mercury & Memory",
     "Author": "Aries Tiger",
     "SalePrice": "$4.99",
-    "OriginalPrice": "$9.99",
+    "OriginalPrice": "$6.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
+    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/3a_mercury-memory-ebook.jpg"
   },
   {
     "id": "3b",
-    "Type": "Serials/Books",
+    "Type": "Mercury & Memory- Paperback",
     "Title": "Mercury & Memory",
     "Author": "Aries Tiger",
     "SalePrice": "$9.99",
-    "OriginalPrice": "$14.99",
+    "OriginalPrice": "$12.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
+    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/3a_mercury-memory-ebook.jpg"
   },
   {
     "id": "11a",
-    "Type": "Serials/Books",
+    "Type": "Vol-1 - E-book",
     "Title": "Vol-1 (first 10 Stages)",
     "Author": "Aries Tiger",
     "SalePrice": "$15.99",
-    "OriginalPrice": "$20.99",
+    "OriginalPrice": "$19.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
@@ -117,11 +134,11 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "11b",
-    "Type": "Serials/Books",
+    "Type": "Vol-1 - Paperback",
     "Title": "Vol-1 (first 10 Stages)",
     "Author": "Aries Tiger",
     "SalePrice": "$24.99",
@@ -134,6 +151,23 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": null,
+    "image": "/product-images/1a_first-light-ebook.jpg"
+  },
+  {
+    "id": "A",
+    "Type": "Apparel & Intimate Wear",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "A",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
     "image": ""
   },
   {
@@ -148,7 +182,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Printed quotes �Still here.�, �You smell like asphalt�",
+    "Description": "Printed quotes �Still here.�, �You smell like asphalt",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -166,9 +200,8 @@ export const products = [
     "Category": "0",
     "PageNum": null,
     "Description": "Inspired by Dancer's wardrobe, with \"Streetin�\" detailing.",
-    "Badge": "",
-    "InStock": null,
-    "image": ""
+    "image": "/product-images/A2_mesh-bodysuits.jpg",
+    "InStock": null
   },
   {
     "id": "A3",
@@ -185,7 +218,7 @@ export const products = [
     "Description": "Denim with hidden pocket sleeves.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "A4",
@@ -202,11 +235,11 @@ export const products = [
     "Description": "Quotes + neon visuals",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/Tees-2.jpg"
   },
   {
     "id": "A5",
-    "Type": "Live & Social Activation",
+    "Type": "Auto + Mobility",
     "Title": "Silk Scarves",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -219,11 +252,11 @@ export const products = [
     "Description": "Graffiti-tagged street names (�Memory & Mercury�).",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "A6",
-    "Type": "Live & Social Activation",
+    "Type": "Accessories",
     "Title": "Boxers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -236,7 +269,7 @@ export const products = [
     "Description": "blackout: �No Eyes, No Rules� print inside the waistband.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "A7",
@@ -253,7 +286,7 @@ export const products = [
     "Description": "Ribbed, rib-cage hugging, with DS tattoos or maplines",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "A8",
@@ -270,11 +303,11 @@ export const products = [
     "Description": "Baseball Caps",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/A8_hats.jpg"
   },
   {
     "id": "A9",
-    "Type": "Live & Social Activation",
+    "Type": "Collector & Art-Based",
     "Title": "Limited-Edition Hoodies",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -287,7 +320,7 @@ export const products = [
     "Description": "Inside lining printed with scene excerpts.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "A10",
@@ -304,7 +337,24 @@ export const products = [
     "Description": "�from streetlight to backseat.�",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
+  },
+  {
+    "id": "B",
+    "Type": "Auto + Mobility",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "B",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": "/product-images/1a_first-light-ebook.jpg"
   },
   {
     "id": "B1",
@@ -321,24 +371,24 @@ export const products = [
     "Description": "�Streeter Mode� with remote noir hues.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B2",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "Dark Streets Branded Scent Diffusers",
-    "OriginalPrice": "$NaN",
+    "Title": "Dark Streets Branded Scent Diffusers",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,�Prowler�s Leather,� �Bleach & Bourbon.�",
+    "Description": "Prowler Leather, Bleach & Bourbon.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg"
   },
   {
     "id": "B3",
@@ -355,11 +405,11 @@ export const products = [
     "Description": "Shades printed with silhouettes of Dancer mid-pirouette or iconic car kisses.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/B3_window-shades.jpg"
   },
   {
     "id": "B4",
-    "Type": "Live & Social Activation",
+    "Type": "Media + Experiences",
     "Title": "Prowler Dashboard Confessionals",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -372,11 +422,11 @@ export const products = [
     "Description": "Recordable voice note keychains.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B5",
-    "Type": "Live & Social Activation",
+    "Type": "Media + Experiences",
     "Title": "Seatbelt Harness Covers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -389,7 +439,7 @@ export const products = [
     "Description": "Embroidered with �Feel the Wind. Follow the Heat.�",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B6",
@@ -406,7 +456,7 @@ export const products = [
     "Description": "Mini Travel packs with wipes, condoms, pepper spray, gum.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B7",
@@ -423,28 +473,28 @@ export const products = [
     "Description": "Tiny dancers, streetlight beads, black feathers.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/B7_mirror-charms.jpg"
   },
   {
     "id": "B8",
     "Type": "Relationship, Erotic & Mystery-Inspired",
-    "Title": "Erotic & Mystery-Inspired",
-    "Author": "Glovebox Zines",
-    "SalePrice": "DS LLC",
-    "OriginalPrice": "$NaN",
+    "Title": "Glovebox Zines",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "$24.99,Micro-stories printed like erotic manuals.",
+    "Description": "Micro-stories printed like erotic manuals.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B9",
-    "Type": "Live & Social Activation",
+    "Type": "Digital + Curated Services",
     "Title": "Custom Vanity Plate Frames",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -454,10 +504,10 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�No Rules After Midnight.�",
+    "Description": "No Rules After Midnight.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B10",
@@ -474,6 +524,23 @@ export const products = [
     "Description": "Stealthy black, embroidered with moon phases.",
     "Badge": "",
     "InStock": null,
+    "image": ""
+  },
+  {
+    "id": "C",
+    "Type": "Accessories",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "C",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
     "image": ""
   },
   {
@@ -624,7 +691,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�Still Thinking?� & car outline silhouettes.",
+    "Description": "�Still Thinking� & car outline silhouettes.",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -632,121 +699,138 @@ export const products = [
   {
     "id": "C10",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "Dashboard Candles",
-    "OriginalPrice": "$NaN",
+    "Title": "Dashboard Candles",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring neon saints of the street on suction cups",
+    "Description": "Featuring neon saints of the street on suction cups",
     "Badge": "",
     "InStock": null,
+    "image": ""
+  },
+  {
+    "id": "D",
+    "Type": "Home, Mood, and Atmosphere",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "D",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
     "image": ""
   },
   {
     "id": "D1",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "DS Scented Candle Collection",
-    "OriginalPrice": "$NaN",
+    "Title": "DS Scented Candle Collection",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring the scent of the street in mason jars",
+    "Description": "Featuring the scent of the street in mason jars",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D2",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "?� �Asphalt & Aftershave�",
-    "OriginalPrice": "$NaN",
+    "Title": "Asphalt & Aftershave",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring the scent of the street in mason jars",
+    "Description": "Featuring the scent of the street in mason jars",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D3",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "?� �Coconut & Gin�",
-    "OriginalPrice": "$NaN",
+    "Title": "Coconut & Gin",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring the scent of the street in mason jars",
+    "Description": "Featuring the scent of the street in mason jars",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D4",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "?� �Midnight Bleach�",
-    "OriginalPrice": "$NaN",
+    "Title": "Midnight Bleach",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring the scent of the street in mason jars",
+    "Description": "Featuring the scent of the street in mason jars",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D5",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "?� �Prowler Interior: '69 Edition�",
-    "OriginalPrice": "$NaN",
+    "Title": "Prowler Interior: '69 Edition",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Featuring the scent of the street in mason jars",
+    "Description": "Featuring the scent of the street in mason jars",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D6",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "Neon Light Wall Signs",
-    "OriginalPrice": "$NaN",
+    "Title": "Neon Light Wall Signs",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Phrases: �You�re Art,� �Feel the Wind.�",
+    "Description": "Phrases: �You�re Art,� �Feel the Wind.�",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D7",
@@ -763,24 +847,24 @@ export const products = [
     "Description": "",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D8",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "�Moonlight Noir� Projection Lamps",
-    "OriginalPrice": "$NaN",
+    "Title": "�Moonlight Noir� Projection Lamps",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Cast your city's skyline to  silhouette your ceiling. (LA, NYC, CHI)",
+    "Description": "Cast your city's skyline to  silhouette your ceiling. (LA, NYC, CHI)",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D9",
@@ -797,24 +881,24 @@ export const products = [
     "Description": "Prowler engine purr, soft panting, vinyl crackle.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D10",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "Secret-Safe Lamps",
-    "OriginalPrice": "$NaN",
+    "Title": "Secret-Safe Lamps",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Stash drawers + noir glow w/silhouette of dancer.",
+    "Description": "Stash drawers + noir glow w/silhouette of dancer.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "D11",
@@ -831,7 +915,7 @@ export const products = [
     "Description": "DS themes: 'The Driver', 'The Dancer', 'The Signal'.",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "D12",
@@ -885,6 +969,23 @@ export const products = [
     "image": ""
   },
   {
+    "id": "E",
+    "Type": "Media + Experiences",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "E",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": ""
+  },
+  {
     "id": "E1",
     "Type": "Media + Experiences",
     "Title": "Official Dark Streets Driving Playlists",
@@ -921,16 +1022,16 @@ export const products = [
   {
     "id": "E3",
     "Type": "Relationship, Erotic & Mystery-Inspired",
-    "Title": "Erotic & Mystery-Inspired",
-    "Author": "Erotic Soundtracks",
-    "SalePrice": "DS LLC",
-    "OriginalPrice": "$NaN",
+    "Title": "Erotic Soundtracks",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "$24.99,Lo-fi noir beats + DS dialogue intercuts.",
+    "Description": "Lo-fi noir beats + DS dialogue intercuts.",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -1035,7 +1136,7 @@ export const products = [
     "Description": "Photo Filters (like stickers as overlay to photos)",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/D6_neon-light-wall-signs.jpg"
   },
   {
     "id": "E10",
@@ -1052,6 +1153,23 @@ export const products = [
     "Description": "Curated confessions.",
     "Badge": "",
     "InStock": null,
+    "image": ""
+  },
+  {
+    "id": "F",
+    "Type": "Digital + Curated Services",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "F",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
     "image": ""
   },
   {
@@ -1074,16 +1192,16 @@ export const products = [
   {
     "id": "F2",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "'Streetin' Score' AI Tool",
-    "OriginalPrice": "$NaN",
+    "Title": "'Streetin' Score' AI Tool",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Analyze your mood, suggest music + scent + route",
+    "Description": "Analyze your mood, suggest music + scent + route",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -1174,6 +1292,23 @@ export const products = [
     "image": ""
   },
   {
+    "id": "G",
+    "Type": "Culinary & Novelty",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "G",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": ""
+  },
+  {
     "id": "G1",
     "Type": "Culinary & Novelty",
     "Title": "'Noir-ade' Beverages",
@@ -1205,7 +1340,7 @@ export const products = [
     "Description": "Joe on the Road",
     "Badge": "",
     "InStock": null,
-    "image": ""
+    "image": "/product-images/G2_dark-street-mug_Front.jpg"
   },
   {
     "id": "G3",
@@ -1244,18 +1379,35 @@ export const products = [
   {
     "id": "G5",
     "Type": "Relationship, Erotic & Mystery-Inspired",
-    "Title": "Erotic & Mystery-Inspired",
-    "Author": "Prowler Flask Kit",
-    "SalePrice": "DS LLC",
-    "OriginalPrice": "$NaN",
+    "Title": "Prowler Flask Kit",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "$24.99,Curved black flask + secret shot vial.",
+    "Description": "Curved black flask + secret shot vial.",
     "Badge": "",
     "InStock": null,
+    "image": ""
+  },
+  {
+    "id": "H",
+    "Type": "Collector & Art-Based",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "H",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
     "image": ""
   },
   {
@@ -1378,6 +1530,23 @@ export const products = [
     "image": ""
   },
   {
+    "id": "I",
+    "Type": "Live & Social Activation",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "I",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": ""
+  },
+  {
     "id": "I1",
     "Type": "Auto + Mobility",
     "Title": "Backseat Theater Box",
@@ -1480,6 +1649,23 @@ export const products = [
     "image": ""
   },
   {
+    "id": "J",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Title": "",
+    "Author": "",
+    "SalePrice": "",
+    "OriginalPrice": "",
+    "TopSeller": "",
+    "Rating": "",
+    "Reviews": "",
+    "Category": "J",
+    "PageNum": "",
+    "Description": "",
+    "Badge": "",
+    "InStock": "",
+    "image": ""
+  },
+  {
     "id": "J1",
     "Type": "Accessories",
     "Title": "DS Bedroom Dice",
@@ -1508,7 +1694,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "'What Are You Seeing?'  poetic prompt cards.",
+    "Description": "'What Are You Seeing' poetic prompt cards.",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -1516,16 +1702,16 @@ export const products = [
   {
     "id": "J3",
     "Type": "Relationship, Erotic & Mystery-Inspired",
-    "Title": "Erotic & Mystery-Inspired",
-    "Author": "Anonymous Drop Letters",
-    "SalePrice": "DS LLC",
-    "OriginalPrice": "$NaN",
+    "Title": "Anonymous Drop Letters",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "$24.99,prewritten mystery notes to leave behind.",
+    "Description": "prewritten mystery notes to leave behind.",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -1567,16 +1753,16 @@ export const products = [
   {
     "id": "J6",
     "Type": "Home, Mood, and Atmosphere",
-    "Title": "Mood",
-    "Author": "and Atmosphere",
-    "SalePrice": "DS Mood Ring Keychains",
-    "OriginalPrice": "$NaN",
+    "Title": "DS Mood Ring Keychains",
+    "Author": "DS LLC",
+    "SalePrice": "$24.99",
+    "OriginalPrice": "$29.99",
     "TopSeller": null,
     "Rating": null,
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "DS LLC,$24.99,Noir hues reflect emotional temp.",
+    "Description": "Noir hues reflect emotional temp.",
     "Badge": "",
     "InStock": null,
     "image": ""
