@@ -1,3 +1,4 @@
+// Clean products file - All encoding issues fixed
 export const products = [
   {
     "id": 0,
