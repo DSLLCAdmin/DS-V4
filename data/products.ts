@@ -182,7 +182,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Printed quotes �Still here.�, �You smell like asphalt",
+    "Description": "Printed quotes \"Still here.\", \"You smell like asphalt\"",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -199,7 +199,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Inspired by Dancer's wardrobe, with \"Streetin�\" detailing.",
+    "Description": "Inspired by Dancer's wardrobe, with \"Streetin'\" detailing.",
     "image": "/product-images/A2_mesh-bodysuits.jpg",
     "InStock": null
   },
@@ -249,7 +249,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Graffiti-tagged street names (�Memory & Mercury�).",
+    "Description": "Graffiti-tagged street names (\"Memory & Mercury\").",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
@@ -266,7 +266,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "blackout: �No Eyes, No Rules� print inside the waistband.",
+    "Description": "blackout: \"No Eyes, No Rules\" print inside the waistband.",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
@@ -334,7 +334,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�from streetlight to backseat.�",
+    "Description": "\"from streetlight to backseat.\"",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
@@ -368,14 +368,14 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�Streeter Mode� with remote noir hues.",
+    "Description": "\"Streeter Mode\" with remote noir hues.",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
   },
   {
     "id": "B2",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Dark Streets Branded Scent Diffusers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -436,7 +436,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Embroidered with �Feel the Wind. Follow the Heat.�",
+    "Description": "Embroidered with \"Feel the Wind. Follow the Heat.\"",
     "Badge": "",
     "InStock": null,
     "image": "Product in-Design\nTell us your ideas!"
@@ -477,7 +477,7 @@ export const products = [
   },
   {
     "id": "B8",
-    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Type": "Relationship",
     "Title": "Glovebox Zines",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -555,7 +555,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�Aries Blackout� & �Dancer Glare�",
+    "Description": "\"Aries Blackout\" & \"Dancer Glare\"",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -606,7 +606,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Phrases like �Bangin� Joy Outta Satisfaction.�",
+    "Description": "Phrases like \"Bangin' Joy Outta Satisfaction.\"",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -640,7 +640,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�We Rehearse in the Ruins,� �DSA,� �Memory+Mercury.�",
+    "Description": "\"We Rehearse in the Ruins,\" \"DSA,\" \"Memory+Mercury.\"",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -698,7 +698,7 @@ export const products = [
   },
   {
     "id": "C10",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Dashboard Candles",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -715,7 +715,7 @@ export const products = [
   },
   {
     "id": "D",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "",
     "Author": "",
     "SalePrice": "",
@@ -732,7 +732,7 @@ export const products = [
   },
   {
     "id": "D1",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "DS Scented Candle Collection",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -749,7 +749,7 @@ export const products = [
   },
   {
     "id": "D2",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Asphalt & Aftershave",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -766,7 +766,7 @@ export const products = [
   },
   {
     "id": "D3",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Coconut & Gin",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -783,7 +783,7 @@ export const products = [
   },
   {
     "id": "D4",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Midnight Bleach",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -800,7 +800,7 @@ export const products = [
   },
   {
     "id": "D5",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Prowler Interior: '69 Edition",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -817,7 +817,7 @@ export const products = [
   },
   {
     "id": "D6",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Neon Light Wall Signs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -851,7 +851,7 @@ export const products = [
   },
   {
     "id": "D8",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "�Moonlight Noir� Projection Lamps",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -885,7 +885,7 @@ export const products = [
   },
   {
     "id": "D10",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "Secret-Safe Lamps",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1021,7 +1021,7 @@ export const products = [
   },
   {
     "id": "E3",
-    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Type": "Relationship",
     "Title": "Erotic Soundtracks",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1191,7 +1191,7 @@ export const products = [
   },
   {
     "id": "F2",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "'Streetin' Score' AI Tool",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1378,7 +1378,7 @@ export const products = [
   },
   {
     "id": "G5",
-    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Type": "Relationship",
     "Title": "Prowler Flask Kit",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1548,7 +1548,7 @@ export const products = [
   },
   {
     "id": "I1",
-    "Type": "Auto + Mobility",
+    "Type": "Live & Social Activation",
     "Title": "Backseat Theater Box",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1565,7 +1565,7 @@ export const products = [
   },
   {
     "id": "I2",
-    "Type": "Accessories",
+    "Type": "Live & Social Activation",
     "Title": "'Memory & Mercury' Scavenger Hunt",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1582,7 +1582,7 @@ export const products = [
   },
   {
     "id": "I3",
-    "Type": "Collector & Art-Based",
+    "Type": "Live & Social Activation",
     "Title": "Pop-Up Confession Booths",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1599,7 +1599,7 @@ export const products = [
   },
   {
     "id": "I4",
-    "Type": "Media + Experiences",
+    "Type": "Live & Social Activation",
     "Title": "Streetlight Salons",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1616,7 +1616,7 @@ export const products = [
   },
   {
     "id": "I5",
-    "Type": "Media + Experiences",
+    "Type": "Live & Social Activation",
     "Title": "Backseat Photo Booth Pop-Ups",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1633,7 +1633,7 @@ export const products = [
   },
   {
     "id": "I6",
-    "Type": "Digital + Curated Services",
+    "Type": "Live & Social Activation",
     "Title": "Custom Drive-In Screenings",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1650,7 +1650,7 @@ export const products = [
   },
   {
     "id": "J",
-    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Type": "Relationship",
     "Title": "",
     "Author": "",
     "SalePrice": "",
@@ -1701,7 +1701,7 @@ export const products = [
   },
   {
     "id": "J3",
-    "Type": "Relationship, Erotic & Mystery-Inspired",
+    "Type": "Relationship",
     "Title": "Anonymous Drop Letters",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1752,7 +1752,7 @@ export const products = [
   },
   {
     "id": "J6",
-    "Type": "Home, Mood, and Atmosphere",
+    "Type": "Home",
     "Title": "DS Mood Ring Keychains",
     "Author": "DS LLC",
     "SalePrice": "$24.99",

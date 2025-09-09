@@ -585,9 +585,9 @@ function StreetStoreContent() {
         {filteredProducts.length === 0 && (
           <ScrollReveal>
             <div className="text-center py-16">
-              <Package className="mx-auto h-16 w-16 text-swatch203 mb-4" />
-              <h3 className="text-xl font-semibold text-swatch203 mb-2">No products found</h3>
-              <p className="text-swatch203/80">Try adjusting your search or filter criteria</p>
+              <Package className="mx-auto h-16 w-16 text-blue-400 mb-4" />
+              <h3 className="text-xl font-semibold text-white mb-2">No products found</h3>
+              <p className="text-gray-300">Try adjusting your search or filter criteria</p>
             </div>
           </ScrollReveal>
         )}
