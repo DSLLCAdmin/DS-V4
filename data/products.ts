@@ -62,7 +62,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/2a_risque-safety-ebook.jpg"
@@ -79,7 +79,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!?",
+    "Description": "Stage Two- Risqué & Safety, Aries and Dance find graffiti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been, but who they are. If only they could remember!",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/2a_risque-safety-ebook.jpg"
@@ -96,7 +96,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
+    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/3a_mercury-memory-ebook.jpg"
@@ -113,7 +113,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?",
+    "Description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight, a low hum, and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream",
     "Badge": "",
     "InStock": null,
     "image": "/product-images/3a_mercury-memory-ebook.jpg"
@@ -690,7 +690,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "�Still Thinking?� & car outline silhouettes.",
+    "Description": "�Still Thinking� & car outline silhouettes.",
     "Badge": "",
     "InStock": null,
     "image": ""
@@ -1693,7 +1693,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "'What Are You Seeing?' poetic prompt cards.",
+    "Description": "'What Are You Seeing' poetic prompt cards.",
     "Badge": "",
     "InStock": null,
     "image": ""
