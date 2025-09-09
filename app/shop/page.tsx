@@ -41,18 +41,18 @@ function StreetStoreContent() {
     if (selectedCategory === "All") {
       matchesCategory = true;
     } else if (selectedCategory === "Serials/Books") {
-      matchesCategory = product.Type && (
+      matchesCategory = !!(product.Type && (
         product.Type.includes("Book") || 
         product.Type.includes("E-book") || 
         product.Type.includes("Paperback") ||
         product.Type === "Serials/Books"
-      );
+      ));
     } else if (selectedCategory === "Live & Social Activation") {
-      matchesCategory = product.Type && (
+      matchesCategory = !!(product.Type && (
         product.Type.includes("Social") || 
         product.Type.includes("Activation") ||
         product.Type === "Live & Social Activation"
-      );
+      ));
     } else {
       matchesCategory = product.Type === selectedCategory;
     }
