@@ -165,7 +165,7 @@ export const products = [
     "Reviews": null,
     "Category": "0",
     "PageNum": null,
-    "Description": "Inspired by Dancer's wardrobe, with "Streetin�" detailing.",
+    "Description": "Inspired by Dancer's wardrobe, with \"Streetin�\" detailing.",
     "Badge": "",
     "InStock": null,
     "image": ""
