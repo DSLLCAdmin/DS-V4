@@ -171,7 +171,7 @@ export const products = [
   },
   {
     "id": "A1",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Dark Streeter Panties",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -188,7 +188,7 @@ export const products = [
   },
   {
     "id": "A2",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Mesh Bodysuits",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -204,7 +204,7 @@ export const products = [
   },
   {
     "id": "A3",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Asphalt Black Denim Jackets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -221,7 +221,7 @@ export const products = [
   },
   {
     "id": "A4",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Dark Streeter Tees",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -238,7 +238,7 @@ export const products = [
   },
   {
     "id": "A5",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Silk Scarves",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -255,7 +255,7 @@ export const products = [
   },
   {
     "id": "A6",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Boxers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -272,7 +272,7 @@ export const products = [
   },
   {
     "id": "A7",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Tank Tops (Men/Women)",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -289,7 +289,7 @@ export const products = [
   },
   {
     "id": "A8",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Hats",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -306,7 +306,7 @@ export const products = [
   },
   {
     "id": "A9",
-    "Type": "",
+    "Type": "Collector & Art-Based",
     "Title": "Limited-Edition Hoodies",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -323,7 +323,7 @@ export const products = [
   },
   {
     "id": "A10",
-    "Type": "",
+    "Type": "Apparel & Intimate Wear",
     "Title": "Convertible Wrap Dresses",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -357,7 +357,7 @@ export const products = [
   },
   {
     "id": "B1",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Custom LED Underlighting Kits",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -374,7 +374,7 @@ export const products = [
   },
   {
     "id": "B2",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Dark Streets Branded Scent Diffusers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -391,7 +391,7 @@ export const products = [
   },
   {
     "id": "B3",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Window Shades",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -408,7 +408,7 @@ export const products = [
   },
   {
     "id": "B4",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Prowler Dashboard Confessionals",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -425,7 +425,7 @@ export const products = [
   },
   {
     "id": "B5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Seatbelt Harness Covers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -442,7 +442,7 @@ export const products = [
   },
   {
     "id": "B6",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Streetin' Survival Kits",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -459,7 +459,7 @@ export const products = [
   },
   {
     "id": "B7",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Mirror Charms",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -476,7 +476,7 @@ export const products = [
   },
   {
     "id": "B8",
-    "Type": "",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Glovebox Zines",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -493,7 +493,7 @@ export const products = [
   },
   {
     "id": "B9",
-    "Type": "",
+    "Type": "Digital + Curated Services",
     "Title": "Custom Vanity Plate Frames",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -510,7 +510,7 @@ export const products = [
   },
   {
     "id": "B10",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Backseat Throw Blankets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -544,7 +544,7 @@ export const products = [
   },
   {
     "id": "C1",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Retro Noir Sunglass Series",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -561,7 +561,7 @@ export const products = [
   },
   {
     "id": "C2",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Cigarette Case Wallets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -578,7 +578,7 @@ export const products = [
   },
   {
     "id": "C3",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Lighter Collabs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -595,7 +595,7 @@ export const products = [
   },
   {
     "id": "C4",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Silicone Wristbands",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -612,7 +612,7 @@ export const products = [
   },
   {
     "id": "C5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Temporary Tattoos",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -629,7 +629,7 @@ export const products = [
   },
   {
     "id": "C6",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Embroidered Patches",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -646,7 +646,7 @@ export const products = [
   },
   {
     "id": "C7",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Knuckle Rings",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -663,7 +663,7 @@ export const products = [
   },
   {
     "id": "C8",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Graffiti Street Tag Stickers",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -680,7 +680,7 @@ export const products = [
   },
   {
     "id": "C9",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Leather Keychains",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -697,7 +697,7 @@ export const products = [
   },
   {
     "id": "C10",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Dashboard Candles",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -731,7 +731,7 @@ export const products = [
   },
   {
     "id": "D1",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "DS Scented Candle Collection",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -748,7 +748,7 @@ export const products = [
   },
   {
     "id": "D2",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "?� �Asphalt & Aftershave�",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -765,7 +765,7 @@ export const products = [
   },
   {
     "id": "D3",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "?� �Coconut & Gin�",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -782,7 +782,7 @@ export const products = [
   },
   {
     "id": "D4",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "?� �Midnight Bleach�",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -799,7 +799,7 @@ export const products = [
   },
   {
     "id": "D5",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "?� �Prowler Interior: '69 Edition�",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -816,7 +816,7 @@ export const products = [
   },
   {
     "id": "D6",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Neon Light Wall Signs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -833,7 +833,7 @@ export const products = [
   },
   {
     "id": "D7",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Backseat Room Fragrance",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -850,7 +850,7 @@ export const products = [
   },
   {
     "id": "D8",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "�Moonlight Noir� Projection Lamps",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -867,7 +867,7 @@ export const products = [
   },
   {
     "id": "D9",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Soundscape Machines",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -884,7 +884,7 @@ export const products = [
   },
   {
     "id": "D10",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "Secret-Safe Lamps",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -901,7 +901,7 @@ export const products = [
   },
   {
     "id": "D11",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Erotic Tarot Decks",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -918,7 +918,7 @@ export const products = [
   },
   {
     "id": "D12",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Streetlight Bath Bombs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -935,7 +935,7 @@ export const products = [
   },
   {
     "id": "D13",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Art Prints",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -952,7 +952,7 @@ export const products = [
   },
   {
     "id": "D14",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Tabletop Graffiti Sets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -986,7 +986,7 @@ export const products = [
   },
   {
     "id": "E1",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Official Dark Streets Driving Playlists",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1003,7 +1003,7 @@ export const products = [
   },
   {
     "id": "E2",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Guided Driving Meditation Audio",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1020,7 +1020,7 @@ export const products = [
   },
   {
     "id": "E3",
-    "Type": "",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Erotic Soundtracks",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1037,7 +1037,7 @@ export const products = [
   },
   {
     "id": "E4",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Interactive Audio Zines",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1054,7 +1054,7 @@ export const products = [
   },
   {
     "id": "E5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Midnight Poetry Readings",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1071,7 +1071,7 @@ export const products = [
   },
   {
     "id": "E6",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "DS Short Film Anthology",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1088,7 +1088,7 @@ export const products = [
   },
   {
     "id": "E7",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Voice Memos from Aries or Dancer",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1105,7 +1105,7 @@ export const products = [
   },
   {
     "id": "E8",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Car Sex Safety Course",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1122,7 +1122,7 @@ export const products = [
   },
   {
     "id": "E9",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Digital 'Rehearse in the Ruins'",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1139,7 +1139,7 @@ export const products = [
   },
   {
     "id": "E10",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "DSA: Dark Streeters Anonymous Newsletter",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1173,7 +1173,7 @@ export const products = [
   },
   {
     "id": "F1",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "'DS Route Generator' App",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1190,7 +1190,7 @@ export const products = [
   },
   {
     "id": "F2",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "'Streetin' Score' AI Tool",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1207,7 +1207,7 @@ export const products = [
   },
   {
     "id": "F3",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Digital Streetlight Flash Fiction Pack",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1224,7 +1224,7 @@ export const products = [
   },
   {
     "id": "F4",
-    "Type": "",
+    "Type": "Digital + Curated Services",
     "Title": "Text Message Confessional Subscription",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1241,7 +1241,7 @@ export const products = [
   },
   {
     "id": "F5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Augmented Reality Scene Overlays",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1258,7 +1258,7 @@ export const products = [
   },
   {
     "id": "F6",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Chatbot Roleplay with Aries or Dancer",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1275,7 +1275,7 @@ export const products = [
   },
   {
     "id": "F7",
-    "Type": "",
+    "Type": "Digital + Curated Services",
     "Title": "Custom Memory Erasure Generator",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1309,7 +1309,7 @@ export const products = [
   },
   {
     "id": "G1",
-    "Type": "",
+    "Type": "Culinary & Novelty",
     "Title": "'Noir-ade' Beverages",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1326,7 +1326,7 @@ export const products = [
   },
   {
     "id": "G2",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Dark Street Mugs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1343,7 +1343,7 @@ export const products = [
   },
   {
     "id": "G3",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "'Confession Shots' Kits",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1360,7 +1360,7 @@ export const products = [
   },
   {
     "id": "G4",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Streetlight Ice Cubes",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1377,7 +1377,7 @@ export const products = [
   },
   {
     "id": "G5",
-    "Type": "",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Prowler Flask Kit",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1411,7 +1411,7 @@ export const products = [
   },
   {
     "id": "H1",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Limited-Edition Zines",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1428,7 +1428,7 @@ export const products = [
   },
   {
     "id": "H2",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Graphic Novella Box Sets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1445,7 +1445,7 @@ export const products = [
   },
   {
     "id": "H3",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Hand-Numbered Prints of DS Street Maps",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1462,7 +1462,7 @@ export const products = [
   },
   {
     "id": "H4",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Collectible Character Cards",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1479,7 +1479,7 @@ export const products = [
   },
   {
     "id": "H5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "DS Polaroid Sets",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1496,7 +1496,7 @@ export const products = [
   },
   {
     "id": "H6",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Tactile Memory Packs",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1513,7 +1513,7 @@ export const products = [
   },
   {
     "id": "H7",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Backseat Diorama Kits",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1547,7 +1547,7 @@ export const products = [
   },
   {
     "id": "I1",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Backseat Theater Box",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1564,7 +1564,7 @@ export const products = [
   },
   {
     "id": "I2",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "'Memory & Mercury' Scavenger Hunt",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1581,7 +1581,7 @@ export const products = [
   },
   {
     "id": "I3",
-    "Type": "",
+    "Type": "Collector & Art-Based",
     "Title": "Pop-Up Confession Booths",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1598,7 +1598,7 @@ export const products = [
   },
   {
     "id": "I4",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Streetlight Salons",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1615,7 +1615,7 @@ export const products = [
   },
   {
     "id": "I5",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Backseat Photo Booth Pop-Ups",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1632,7 +1632,7 @@ export const products = [
   },
   {
     "id": "I6",
-    "Type": "",
+    "Type": "Digital + Curated Services",
     "Title": "Custom Drive-In Screenings",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1666,7 +1666,7 @@ export const products = [
   },
   {
     "id": "J1",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "DS Bedroom Dice",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1683,7 +1683,7 @@ export const products = [
   },
   {
     "id": "J2",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Lovers Game",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1700,7 +1700,7 @@ export const products = [
   },
   {
     "id": "J3",
-    "Type": "",
+    "Type": "Relationship, Erotic & Mystery-Inspired",
     "Title": "Anonymous Drop Letters",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1717,7 +1717,7 @@ export const products = [
   },
   {
     "id": "J4",
-    "Type": "",
+    "Type": "Accessories",
     "Title": "Stolen Glance Mirrors",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1734,7 +1734,7 @@ export const products = [
   },
   {
     "id": "J5",
-    "Type": "",
+    "Type": "Auto + Mobility",
     "Title": "Aries' Burner Phone Prop Replica",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1751,7 +1751,7 @@ export const products = [
   },
   {
     "id": "J6",
-    "Type": "",
+    "Type": "Home, Mood, and Atmosphere",
     "Title": "DS Mood Ring Keychains",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1768,7 +1768,7 @@ export const products = [
   },
   {
     "id": "J7",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Journals",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
@@ -1785,7 +1785,7 @@ export const products = [
   },
   {
     "id": "J8",
-    "Type": "",
+    "Type": "Media + Experiences",
     "Title": "Customizable Digital Memory Vaults",
     "Author": "DS LLC",
     "SalePrice": "$24.99",
