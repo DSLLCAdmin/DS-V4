@@ -1175,7 +1175,7 @@ export const products = [
   {
   "id": "G1",
   "Type": "Culinary & Novelty",
-  "Title": "Culinary & Novelty Product 1",
+  "Title": "Gourmet Coffee Beans",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1192,7 +1192,7 @@ export const products = [
   {
   "id": "G2",
   "Type": "Culinary & Novelty",
-  "Title": "Culinary & Novelty Product 2",
+  "Title": "Artisan Chocolate Box",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1209,7 +1209,7 @@ export const products = [
   {
   "id": "G3",
   "Type": "Culinary & Novelty",
-  "Title": "Culinary & Novelty Product 3",
+  "Title": "Exotic Spice Set",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1226,7 +1226,7 @@ export const products = [
   {
   "id": "G4",
   "Type": "Culinary & Novelty",
-  "Title": "Culinary & Novelty Product 4",
+  "Title": "Craft Beer Tasting Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1243,7 +1243,7 @@ export const products = [
   {
   "id": "G5",
   "Type": "Culinary & Novelty",
-  "Title": "Culinary & Novelty Product 5",
+  "Title": "Novelty Kitchen Gadget",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
