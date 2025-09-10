@@ -1056,7 +1056,7 @@ export const products = [
   {
   "id": "F1",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 1",
+  "Title": "Personal Styling Session (Online)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1073,7 +1073,7 @@ export const products = [
   {
   "id": "F2",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 2",
+  "Title": "Digital Marketing Consultation",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1090,7 +1090,7 @@ export const products = [
   {
   "id": "F3",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 3",
+  "Title": "Website Design Package",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1107,7 +1107,7 @@ export const products = [
   {
   "id": "F4",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 4",
+  "Title": "Social Media Management (1 Month)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1124,7 +1124,7 @@ export const products = [
   {
   "id": "F5",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 5",
+  "Title": "Graphic Design Service",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1141,7 +1141,7 @@ export const products = [
   {
   "id": "F6",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 6",
+  "Title": "Online Fitness Coaching (3 Months)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1158,7 +1158,7 @@ export const products = [
   {
   "id": "F7",
   "Type": "Digital + Curated Services",
-  "Title": "Digital + Curated Services Product 7",
+  "Title": "Virtual Assistant Service (10 Hours)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
