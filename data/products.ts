@@ -487,7 +487,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 1 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -504,7 +504,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 2 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -521,7 +521,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 3 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -538,7 +538,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 4 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -555,7 +555,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 5 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -572,7 +572,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 6 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -589,7 +589,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 7 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -606,7 +606,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 8 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -623,7 +623,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 9 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -640,7 +640,7 @@ export const products = [
   "Reviews": null,
   "Category": "C",
   "PageNum": null,
-  "Description": "Product 10 from Accessories category",
+  "Description": "Premium accessory for your lifestyle",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -657,7 +657,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 1 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -674,7 +674,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 2 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -691,7 +691,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 3 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -708,7 +708,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 4 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -725,7 +725,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 5 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -742,7 +742,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 6 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -759,7 +759,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 7 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -776,7 +776,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 8 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -793,7 +793,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 9 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -810,7 +810,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 10 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -827,7 +827,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 11 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -844,7 +844,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 12 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -861,7 +861,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 13 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -878,7 +878,7 @@ export const products = [
   "Reviews": null,
   "Category": "D",
   "PageNum": null,
-  "Description": "Product 14 from Home, Mood, and Atmosphere category",
+  "Description": "Enhance your living space",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -895,7 +895,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 1 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -912,7 +912,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 2 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -929,7 +929,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 3 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -946,7 +946,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 4 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -963,7 +963,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 5 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -980,7 +980,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 6 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -997,7 +997,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 7 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1014,7 +1014,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 8 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1031,7 +1031,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 9 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1048,7 +1048,7 @@ export const products = [
   "Reviews": null,
   "Category": "E",
   "PageNum": null,
-  "Description": "Product 10 from Media + Experiences category",
+  "Description": "Immersive entertainment experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1065,7 +1065,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 1 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1082,7 +1082,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 2 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1099,7 +1099,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 3 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1116,7 +1116,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 4 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1133,7 +1133,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 5 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1150,7 +1150,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 6 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1167,7 +1167,7 @@ export const products = [
   "Reviews": null,
   "Category": "F",
   "PageNum": null,
-  "Description": "Product 7 from Digital + Curated Services category",
+  "Description": "Professional digital service",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1184,7 +1184,7 @@ export const products = [
   "Reviews": null,
   "Category": "G",
   "PageNum": null,
-  "Description": "Product 1 from Culinary & Novelty category",
+  "Description": "Gourmet culinary experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1201,7 +1201,7 @@ export const products = [
   "Reviews": null,
   "Category": "G",
   "PageNum": null,
-  "Description": "Product 2 from Culinary & Novelty category",
+  "Description": "Gourmet culinary experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1218,7 +1218,7 @@ export const products = [
   "Reviews": null,
   "Category": "G",
   "PageNum": null,
-  "Description": "Product 3 from Culinary & Novelty category",
+  "Description": "Gourmet culinary experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1235,7 +1235,7 @@ export const products = [
   "Reviews": null,
   "Category": "G",
   "PageNum": null,
-  "Description": "Product 4 from Culinary & Novelty category",
+  "Description": "Gourmet culinary experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1252,7 +1252,7 @@ export const products = [
   "Reviews": null,
   "Category": "G",
   "PageNum": null,
-  "Description": "Product 5 from Culinary & Novelty category",
+  "Description": "Gourmet culinary experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1269,7 +1269,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 1 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1286,7 +1286,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 2 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1303,7 +1303,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 3 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1320,7 +1320,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 4 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1337,7 +1337,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 5 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1354,7 +1354,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 6 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1371,7 +1371,7 @@ export const products = [
   "Reviews": null,
   "Category": "H",
   "PageNum": null,
-  "Description": "Product 7 from Collector & Art-Based category",
+  "Description": "Unique collectible art piece",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1388,7 +1388,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 1 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1405,7 +1405,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 2 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1422,7 +1422,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 3 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1439,7 +1439,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 4 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1456,7 +1456,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 5 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1473,7 +1473,7 @@ export const products = [
   "Reviews": null,
   "Category": "I",
   "PageNum": null,
-  "Description": "Product 6 from Live & Social Activation category",
+  "Description": "Exclusive live experience",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1490,7 +1490,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 1 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1507,7 +1507,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 2 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1524,7 +1524,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 3 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1541,7 +1541,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 4 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1558,7 +1558,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 5 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1575,7 +1575,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 6 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1592,7 +1592,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 7 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -1609,7 +1609,7 @@ export const products = [
   "Reviews": null,
   "Category": "J",
   "PageNum": null,
-  "Description": "Product 8 from Relationship, Erotic & Mystery-Inspired category",
+  "Description": "Intimate relationship enhancement",
   "Badge": "",
   "InStock": null,
   "image": ""
