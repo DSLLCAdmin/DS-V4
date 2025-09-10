@@ -1260,7 +1260,7 @@ export const products = [
   {
   "id": "H1",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 1",
+  "Title": "Limited Edition Print (Signed)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1277,7 +1277,7 @@ export const products = [
   {
   "id": "H2",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 2",
+  "Title": "Hand-Painted Figurine",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1294,7 +1294,7 @@ export const products = [
   {
   "id": "H3",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 3",
+  "Title": "Custom Portrait Commission",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1311,7 +1311,7 @@ export const products = [
   {
   "id": "H4",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 4",
+  "Title": "Rare Comic Book",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1328,7 +1328,7 @@ export const products = [
   {
   "id": "H5",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 5",
+  "Title": "Vintage Collectible Toy",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1345,7 +1345,7 @@ export const products = [
   {
   "id": "H6",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 6",
+  "Title": "Sculptural Art Piece",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1362,7 +1362,7 @@ export const products = [
   {
   "id": "H7",
   "Type": "Collector & Art-Based",
-  "Title": "Collector & Art-Based Product 7",
+  "Title": "Autographed Memorabilia",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
