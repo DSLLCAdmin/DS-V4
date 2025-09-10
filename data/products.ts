@@ -1379,7 +1379,7 @@ export const products = [
   {
   "id": "I1",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 1",
+  "Title": "VIP Event Pass",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1396,7 +1396,7 @@ export const products = [
   {
   "id": "I2",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 2",
+  "Title": "Meet & Greet Experience",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1413,7 +1413,7 @@ export const products = [
   {
   "id": "I3",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 3",
+  "Title": "Exclusive Workshop Access",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1430,7 +1430,7 @@ export const products = [
   {
   "id": "I4",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 4",
+  "Title": "Social Media Shoutout",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1447,7 +1447,7 @@ export const products = [
   {
   "id": "I5",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 5",
+  "Title": "Brand Ambassador Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1464,7 +1464,7 @@ export const products = [
   {
   "id": "I6",
   "Type": "Live & Social Activation",
-  "Title": "Live & Social Activation Product 6",
+  "Title": "Pop-Up Shop Experience",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
