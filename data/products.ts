@@ -1,4 +1,4 @@
-// Complete DarkStreets Product Catalog - 95 Products
+// Complete DarkStreets Product Catalog - 95 Products with Original Titles
 export const products = [
   {
   "id": "1a",
@@ -139,7 +139,7 @@ export const products = [
   {
   "id": "A1",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 1",
+  "Title": "Dark Streeter Panties",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -148,7 +148,7 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 1 from Apparel & Intimate Wear category",
+  "Description": "Printed quotes 'Still here.', 'You smell like asphalt'",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -156,7 +156,7 @@ export const products = [
   {
   "id": "A2",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 2",
+  "Title": "Mesh Bodysuits",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -165,15 +165,14 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 2 from Apparel & Intimate Wear category",
-  "Badge": "",
-  "InStock": null,
-  "image": ""
+  "Description": "Inspired by Dancer's wardrobe, with 'Streetin'' detailing.",
+  "image": "/product-images/A2_mesh-bodysuits.jpg",
+  "InStock": null
 },
   {
   "id": "A3",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 3",
+  "Title": "Asphalt Black Denim Jackets",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -182,15 +181,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 3 from Apparel & Intimate Wear category",
+  "Description": "Denim with hidden pocket sleeves.",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "A4",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 4",
+  "Title": "Dark Streeter Tees",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -199,15 +198,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 4 from Apparel & Intimate Wear category",
+  "Description": "Quotes + neon visuals",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "/product-images/Tees-2.jpg"
 },
   {
   "id": "A5",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 5",
+  "Title": "Silk Scarves",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -216,15 +215,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 5 from Apparel & Intimate Wear category",
+  "Description": "Graffiti-tagged street names ('Memory & Mercury').",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "A6",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 6",
+  "Title": "Boxers",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -233,15 +232,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 6 from Apparel & Intimate Wear category",
+  "Description": "blackout: 'No Eyes, No Rules' print inside the waistband.",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "A7",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 7",
+  "Title": "Tank Tops (Men/Women)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -250,15 +249,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 7 from Apparel & Intimate Wear category",
+  "Description": "Ribbed, rib-cage hugging, with DS tattoos or maplines",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "A8",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 8",
+  "Title": "Hats",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -267,15 +266,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 8 from Apparel & Intimate Wear category",
+  "Description": "Baseball Caps",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "/product-images/A8_hats.jpg"
 },
   {
   "id": "A9",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 9",
+  "Title": "Limited-Edition Hoodies",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -284,15 +283,15 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 9 from Apparel & Intimate Wear category",
+  "Description": "Inside lining printed with scene excerpts.",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "A10",
   "Type": "Apparel & Intimate Wear",
-  "Title": "Apparel & Intimate Wear Product 10",
+  "Title": "Convertible Wrap Dresses",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -301,10 +300,10 @@ export const products = [
   "Reviews": null,
   "Category": "A",
   "PageNum": null,
-  "Description": "Product 10 from Apparel & Intimate Wear category",
+  "Description": "'from streetlight to backseat.'",
   "Badge": "",
   "InStock": null,
-  "image": ""
+  "image": "Product in-Design\nTell us your ideas!"
 },
   {
   "id": "B1",
