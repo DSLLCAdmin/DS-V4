@@ -648,7 +648,7 @@ export const products = [
   {
   "id": "D1",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 1",
+  "Title": "Scented Candles (Set of 3)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -665,7 +665,7 @@ export const products = [
   {
   "id": "D2",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 2",
+  "Title": "Diffuser with Essential Oils",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -682,7 +682,7 @@ export const products = [
   {
   "id": "D3",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 3",
+  "Title": "Ambient LED Lighting Strip",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -699,7 +699,7 @@ export const products = [
   {
   "id": "D4",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 4",
+  "Title": "Weighted Blanket",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -716,7 +716,7 @@ export const products = [
   {
   "id": "D5",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 5",
+  "Title": "Smart Home Speaker",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -733,7 +733,7 @@ export const products = [
   {
   "id": "D6",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 6",
+  "Title": "Robotic Vacuum Cleaner",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -750,7 +750,7 @@ export const products = [
   {
   "id": "D7",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 7",
+  "Title": "Air Purifier",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -767,7 +767,7 @@ export const products = [
   {
   "id": "D8",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 8",
+  "Title": "Indoor Herb Garden Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -784,7 +784,7 @@ export const products = [
   {
   "id": "D9",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 9",
+  "Title": "Luxury Bathrobe",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -801,7 +801,7 @@ export const products = [
   {
   "id": "D10",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 10",
+  "Title": "Memory Foam Pillow",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -818,7 +818,7 @@ export const products = [
   {
   "id": "D11",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 11",
+  "Title": "Decorative Throw Pillows",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -835,7 +835,7 @@ export const products = [
   {
   "id": "D12",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 12",
+  "Title": "Wall Art Print",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -852,7 +852,7 @@ export const products = [
   {
   "id": "D13",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 13",
+  "Title": "Ceramic Coffee Mugs (Set of 2)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -869,7 +869,7 @@ export const products = [
   {
   "id": "D14",
   "Type": "Home, Mood, and Atmosphere",
-  "Title": "Home, Mood, and Atmosphere Product 14",
+  "Title": "Cozy Fleece Blanket",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
