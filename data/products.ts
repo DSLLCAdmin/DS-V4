@@ -308,7 +308,7 @@ export const products = [
   {
   "id": "B1",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 1",
+  "Title": "Prowler Keychain",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -325,7 +325,7 @@ export const products = [
   {
   "id": "B2",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 2",
+  "Title": "DarkStreets License Plate Frame",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -342,7 +342,7 @@ export const products = [
   {
   "id": "B3",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 3",
+  "Title": "Custom Car Decals (Set of 3)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -478,7 +478,7 @@ export const products = [
   {
   "id": "C1",
   "Type": "Accessories",
-  "Title": "Accessories Product 1",
+  "Title": "DarkStreets Wallet",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -495,7 +495,7 @@ export const products = [
   {
   "id": "C2",
   "Type": "Accessories",
-  "Title": "Accessories Product 2",
+  "Title": "Leather Phone Case",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -512,7 +512,7 @@ export const products = [
   {
   "id": "C3",
   "Type": "Accessories",
-  "Title": "Accessories Product 3",
+  "Title": "Designer Sunglasses",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -529,7 +529,7 @@ export const products = [
   {
   "id": "C4",
   "Type": "Accessories",
-  "Title": "Accessories Product 4",
+  "Title": "Smartwatch Band",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -546,7 +546,7 @@ export const products = [
   {
   "id": "C5",
   "Type": "Accessories",
-  "Title": "Accessories Product 5",
+  "Title": "Custom Backpack",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -563,7 +563,7 @@ export const products = [
   {
   "id": "C6",
   "Type": "Accessories",
-  "Title": "Accessories Product 6",
+  "Title": "Laptop Sleeve",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -580,7 +580,7 @@ export const products = [
   {
   "id": "C7",
   "Type": "Accessories",
-  "Title": "Accessories Product 7",
+  "Title": "Wireless Earbuds",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -597,7 +597,7 @@ export const products = [
   {
   "id": "C8",
   "Type": "Accessories",
-  "Title": "Accessories Product 8",
+  "Title": "Portable Power Bank",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -614,7 +614,7 @@ export const products = [
   {
   "id": "C9",
   "Type": "Accessories",
-  "Title": "Accessories Product 9",
+  "Title": "Travel Mug",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -631,7 +631,7 @@ export const products = [
   {
   "id": "C10",
   "Type": "Accessories",
-  "Title": "Accessories Product 10",
+  "Title": "Reusable Water Bottle",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
