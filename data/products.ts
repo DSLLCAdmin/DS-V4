@@ -886,7 +886,7 @@ export const products = [
   {
   "id": "E1",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 1",
+  "Title": "Virtual Reality Headset",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -903,7 +903,7 @@ export const products = [
   {
   "id": "E2",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 2",
+  "Title": "Gaming Console",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -920,7 +920,7 @@ export const products = [
   {
   "id": "E3",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 3",
+  "Title": "Streaming Service Subscription (1 Year)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -937,7 +937,7 @@ export const products = [
   {
   "id": "E4",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 4",
+  "Title": "Concert Tickets (Digital)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -954,7 +954,7 @@ export const products = [
   {
   "id": "E5",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 5",
+  "Title": "Online Course (Photography)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -971,7 +971,7 @@ export const products = [
   {
   "id": "E6",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 6",
+  "Title": "E-book Reader",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -988,7 +988,7 @@ export const products = [
   {
   "id": "E7",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 7",
+  "Title": "Premium Headset",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1005,7 +1005,7 @@ export const products = [
   {
   "id": "E8",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 8",
+  "Title": "Smart Projector",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1022,7 +1022,7 @@ export const products = [
   {
   "id": "E9",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 9",
+  "Title": "Digital Art Software",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1039,7 +1039,7 @@ export const products = [
   {
   "id": "E10",
   "Type": "Media + Experiences",
-  "Title": "Media + Experiences Product 10",
+  "Title": "Music Production Software",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
