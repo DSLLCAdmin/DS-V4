@@ -317,7 +317,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 1 from Auto + Mobility category",
+  "Description": "A sleek keychain featuring the iconic Prowler design.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -334,7 +334,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 2 from Auto + Mobility category",
+  "Description": "Show your allegiance with a custom DarkStreets license plate frame.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -351,7 +351,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 3 from Auto + Mobility category",
+  "Description": "Personalize your ride with a set of three unique DarkStreets car decals.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -368,7 +368,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 4 from Auto + Mobility category",
+  "Description": "Keep your car smelling fresh with a Prowler-themed air freshener.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -385,7 +385,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 5 from Auto + Mobility category",
+  "Description": "Protect and style your car seats with durable DarkStreets themed covers.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -402,7 +402,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 6 from Auto + Mobility category",
+  "Description": "Enhance your mobility scooter with this performance upgrade kit.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -419,7 +419,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 7 from Auto + Mobility category",
+  "Description": "Experience urban mobility with a high-performance electric skateboard.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -436,7 +436,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 8 from Auto + Mobility category",
+  "Description": "Secure your bike with a smart lock featuring app control and alarm.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -453,7 +453,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 9 from Auto + Mobility category",
+  "Description": "A compact and powerful portable tire inflator for on-the-go emergencies.",
   "Badge": "",
   "InStock": null,
   "image": ""
@@ -470,7 +470,7 @@ export const products = [
   "Reviews": null,
   "Category": "B",
   "PageNum": null,
-  "Description": "Product 10 from Auto + Mobility category",
+  "Description": "Keep track of your vehicle location with this reliable GPS tracker.",
   "Badge": "",
   "InStock": null,
   "image": ""
