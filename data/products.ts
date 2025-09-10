@@ -359,7 +359,7 @@ export const products = [
   {
   "id": "B4",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 4",
+  "Title": "Prowler Air Freshener",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -376,7 +376,7 @@ export const products = [
   {
   "id": "B5",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 5",
+  "Title": "DarkStreets Seat Covers",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -393,7 +393,7 @@ export const products = [
   {
   "id": "B6",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 6",
+  "Title": "Mobility Scooter Upgrade Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -410,7 +410,7 @@ export const products = [
   {
   "id": "B7",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 7",
+  "Title": "Electric Skateboard",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -427,7 +427,7 @@ export const products = [
   {
   "id": "B8",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 8",
+  "Title": "Smart Bike Lock",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -444,7 +444,7 @@ export const products = [
   {
   "id": "B9",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 9",
+  "Title": "Portable Tire Inflator",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -461,7 +461,7 @@ export const products = [
   {
   "id": "B10",
   "Type": "Auto + Mobility",
-  "Title": "Auto + Mobility Product 10",
+  "Title": "GPS Tracker for Vehicles",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
