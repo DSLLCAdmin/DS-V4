@@ -1481,7 +1481,7 @@ export const products = [
   {
   "id": "J1",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 1",
+  "Title": "Couples Massage Oil",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1498,7 +1498,7 @@ export const products = [
   {
   "id": "J2",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 2",
+  "Title": "Romantic Dinner Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1515,7 +1515,7 @@ export const products = [
   {
   "id": "J3",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 3",
+  "Title": "Mystery Box (Adult)",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1532,7 +1532,7 @@ export const products = [
   {
   "id": "J4",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 4",
+  "Title": "Erotic Lingerie Set",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1549,7 +1549,7 @@ export const products = [
   {
   "id": "J5",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 5",
+  "Title": "Relationship Journal",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1566,7 +1566,7 @@ export const products = [
   {
   "id": "J6",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 6",
+  "Title": "Sensual Bath Bombs",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1583,7 +1583,7 @@ export const products = [
   {
   "id": "J7",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 7",
+  "Title": "Detective Game Kit",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
@@ -1600,7 +1600,7 @@ export const products = [
   {
   "id": "J8",
   "Type": "Relationship, Erotic & Mystery-Inspired",
-  "Title": "Relationship, Erotic & Mystery-Inspired Product 8",
+  "Title": "Love Language Cards",
   "Author": "DS LLC",
   "SalePrice": "$24.99",
   "OriginalPrice": "$29.99",
