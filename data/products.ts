@@ -11,6 +11,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "first & light"
     ],
@@ -29,6 +30,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "first & light"
     ],
@@ -47,6 +49,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "risque & safety"
     ],
@@ -65,6 +68,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "risque & safety"
     ],
@@ -83,6 +87,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "mercury & memory"
     ],
@@ -101,6 +106,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "mercury & memory"
     ],
@@ -119,6 +125,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "vol-1 (first 10 stages)"
     ],
@@ -137,6 +144,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "vol-1 (first 10 stages)"
     ],
@@ -155,6 +163,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dark streeter panties"
     ],
@@ -173,6 +182,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "mesh bodysuits"
     ],
@@ -191,6 +201,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "asphalt black denim jackets"
     ],
@@ -209,6 +220,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dark streeter tees"
     ],
@@ -227,6 +239,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "silk scarves"
     ],
@@ -245,6 +258,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "boxers"
     ],
@@ -263,6 +277,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "tank tops (men/women)"
     ],
@@ -281,6 +296,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "hats"
     ],
@@ -299,6 +315,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "limited-edition hoodies"
     ],
@@ -317,6 +334,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "convertible wrap dresses"
     ],
@@ -335,6 +353,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "custom led underlighting kits"
     ],
@@ -353,6 +372,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dark streets branded scent diffusers"
     ],
@@ -371,6 +391,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "window shades"
     ],
@@ -389,6 +410,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "prowler dashboard confessionals"
     ],
@@ -407,6 +429,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "seatbelt harness covers"
     ],
@@ -425,6 +448,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "streetin' survival kits"
     ],
@@ -443,6 +467,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "mirror charms"
     ],
@@ -461,6 +486,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " erotic & mystery-inspired"
     ],
@@ -479,6 +505,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "custom vanity plate frames"
     ],
@@ -497,6 +524,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "backseat throw blankets"
     ],
@@ -515,6 +543,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "retro noir sunglass series"
     ],
@@ -533,6 +562,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "cigarette case wallets"
     ],
@@ -551,6 +581,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "lighter collabs"
     ],
@@ -569,6 +600,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "silicone wristbands"
     ],
@@ -587,6 +619,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "temporary tattoos"
     ],
@@ -605,6 +638,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "embroidered patches"
     ],
@@ -623,6 +657,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "knuckle rings"
     ],
@@ -641,6 +676,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "graffiti street tag stickers"
     ],
@@ -659,6 +695,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "leather keychains"
     ],
@@ -677,6 +714,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dashboard candles"
     ],
@@ -695,6 +733,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -713,6 +752,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -731,6 +771,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -749,6 +790,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -767,6 +809,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -785,6 +828,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -803,6 +847,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -821,6 +866,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -839,6 +885,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -857,6 +904,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -875,6 +923,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -893,6 +942,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -911,6 +961,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -929,6 +980,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       " mood"
     ],
@@ -947,6 +999,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "official dark streets driving playlists"
     ],
@@ -965,6 +1018,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "guided driving meditation audio"
     ],
@@ -983,6 +1037,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "erotic & mystery-inspired"
     ],
@@ -1001,6 +1056,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "interactive audio zines"
     ],
@@ -1019,6 +1075,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "midnight poetry readings"
     ],
@@ -1037,6 +1094,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "ds short film anthology"
     ],
@@ -1055,6 +1113,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "voice memos from aries or dancer"
     ],
@@ -1073,6 +1132,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "car sex safety course"
     ],
@@ -1091,6 +1151,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "digital 'rehearse in the ruins'"
     ],
@@ -1109,6 +1170,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dsa: dark streeters anonymous newsletter"
     ],
@@ -1127,6 +1189,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "'ds route generator' app"
     ],
@@ -1145,6 +1208,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "'streetin' score' ai tool"
     ],
@@ -1163,6 +1227,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "digital streetlight flash fiction pack"
     ],
@@ -1181,6 +1246,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "text message confessional subscription"
     ],
@@ -1199,6 +1265,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "augmented reality scene overlays"
     ],
@@ -1217,6 +1284,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "chatbot roleplay with aries or dancer"
     ],
@@ -1235,6 +1303,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "custom memory erasure generator"
     ],
@@ -1253,6 +1322,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "'noir-ade' beverages"
     ],
@@ -1271,6 +1341,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "dark street mugs"
     ],
@@ -1289,6 +1360,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "'confession shots' kits"
     ],
@@ -1307,6 +1379,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "streetlight ice cubes"
     ],
@@ -1325,6 +1398,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "prowler flask kit"
     ],
@@ -1343,6 +1417,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "limited-edition zines"
     ],
@@ -1361,6 +1436,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "graphic novella box sets"
     ],
@@ -1379,6 +1455,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "hand-numbered prints of ds street maps"
     ],
@@ -1397,6 +1474,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "collectible character cards"
     ],
@@ -1415,6 +1493,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "ds polaroid sets"
     ],
@@ -1433,6 +1512,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "tactile memory packs"
     ],
@@ -1451,6 +1531,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "backseat diorama kits"
     ],
@@ -1469,6 +1550,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "backseat theater box"
     ],
@@ -1487,6 +1569,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "'memory & mercury' scavenger hunt"
     ],
@@ -1505,6 +1588,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "pop-up confession booths"
     ],
@@ -1523,6 +1607,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "streetlight salons"
     ],
@@ -1541,6 +1626,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "backseat photo booth pop-ups"
     ],
@@ -1559,6 +1645,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "custom drive-in screenings"
     ],
@@ -1577,6 +1664,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "ds bedroom dice"
     ],
@@ -1595,6 +1683,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "lovers game"
     ],
@@ -1613,6 +1702,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "anonymous drop letters"
     ],
@@ -1631,6 +1721,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "stolen glance mirrors"
     ],
@@ -1649,6 +1740,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "aries' burner phone prop replica"
     ],
@@ -1667,6 +1759,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "ds mood ring keychains"
     ],
@@ -1685,6 +1778,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "journals"
     ],
@@ -1703,6 +1797,7 @@ export const products = [
     "rating": "N/A",
     "inStock": true,
     "featured": false,
+    "badge": "New",
     "tags": [
       "customizable digital memory vaults"
     ],
