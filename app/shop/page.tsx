@@ -499,7 +499,7 @@ function StreetStoreContent() {
                       <div className="flex flex-col items-end space-y-1 flex-shrink-0">
                         <div className="flex items-center space-x-1">
                           <Star className="h-5 w-5 fill-swatch103 text-swatch103" />
-                          <span className="text-base font-black text-swatch204 drop-shadow-sm">{product.rating || "N/A"}</span>
+                          <span className="text-base font-black text-swatch204 drop-shadow-sm">{N/A}</span>
                         </div></div>
                     </div></CardContent>
 
