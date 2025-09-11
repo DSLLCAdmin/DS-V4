@@ -485,7 +485,7 @@ function StreetStoreContent() {
                     <div className="flex items-start justify-between pt-3 gap-4">
                       {/* Price Display */}
                       <div className="space-y-2 flex-1">
-                        {formatPrice(product.price, product.originalPrice) === "Contact for Price" ? (
+                        {formatPrice(product.price?.toString() || "0", product.originalPrice?.toString() || "0") === "Contact for Price" ? (
                           <div className="text-center p-3 bg-gradient-to-br from-swatch103/10 to-swatch104/10 rounded-lg border border-swatch103/20">
                             <p className="text-xl font-black text-swatch103 mb-1 drop-shadow-sm">Contact for Price</p>
                             {product.originalPrice && (
@@ -497,7 +497,7 @@ function StreetStoreContent() {
                           <div className="space-y-2">
                             <div className="flex items-center space-x-3">
                               <span className="text-3xl font-black text-swatch103 drop-shadow-sm">
-                                {formatPrice(product.price, product.originalPrice)}
+                                {formatPrice(product.price?.toString() || "0", product.originalPrice?.toString() || "0")}
                               </span>
                               {hasDiscount(product.price?.toString() || "0", product.originalPrice?.toString() || "0") && (
                                 <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
@@ -543,14 +543,14 @@ function StreetStoreContent() {
                   <CardFooter className="p-6 pt-3 mt-auto">
                     <Button
                       className={`w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
-                        formatPrice(product.price, product.originalPrice) === "Contact for Price"
+                        formatPrice(product.price?.toString() || "0", product.originalPrice?.toString() || "0") === "Contact for Price"
                           ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
                           : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
                       }`}
                       onClick={() => handleAddToCart(String(product.id))}
                       disabled={!product.inStock}
                     >
-                      {formatPrice(product.price, product.originalPrice) === "Contact for Price" ? (
+                      {formatPrice(product.price?.toString() || "0", product.originalPrice?.toString() || "0") === "Contact for Price" ? (
                         <>
                           <Users className="h-5 w-5 mr-2" />
                           Contact for Pricing
