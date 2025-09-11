@@ -438,9 +438,9 @@ function StreetStoreContent() {
                           </Badge>
                         )}
                       </div>
-                      {product.brand && (
+                      {product.author && (
                         <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
-                          by {product.brand}
+                          by {product.author}
                         </p>
                       )}
                     </div>
