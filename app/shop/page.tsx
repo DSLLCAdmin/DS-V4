@@ -72,9 +72,9 @@ function StreetStoreContent() {
     // Second priority: apply selected sort
     switch (sortBy) {
       case 'price-low':
-        return (parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0') - parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0'));
+        return (a.price - b.price);
       case 'price-high':
-        return (parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0') - parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0'));
+        return (a.price - b.price);
       case 'name':
         return (a.Title || '').localeCompare(b.Title || '');
       case 'category':
