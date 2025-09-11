@@ -14,10 +14,10 @@ import Link from 'next/link';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
-  product.Title && 
-  product.Title.trim() !== "" && 
-  product.Title.length > 1 && // Exclude single character titles like "A:", "B:"
-  !product.Title.endsWith(':') // Exclude category headers
+  product.title && 
+  product.title.trim() !== "" && 
+  product.title.length > 1 && // Exclude single character titles like "A:", "B:"
+  !product.title.endsWith(':') // Exclude category headers
 );
 
 const categories = ["All", "Serials/Books", "Apparel & Intimate Wear", "Auto + Mobility", "Accessories", "Home, Mood, and Atmosphere", "Media + Experiences", "Digital + Curated Services", "Culinary & Novelty", "Collector & Art-Based", "Live & Social Activation", "Relationship, Erotic & Mystery-Inspired"];
@@ -33,7 +33,7 @@ function StreetStoreContent() {
   const { addToCart, itemCount } = useCart();
 
   const filteredProducts = dsProducts.filter(product => {
-    const matchesSearch = product.Title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (product.Description && product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
     
     // Handle category filtering with flexible matching
@@ -379,7 +379,7 @@ function StreetStoreContent() {
                       ) : (
                         <img
                           src={product.image}
-                          alt={product.Title}
+                          alt={product.title}
                           className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
                           onLoad={() => {
@@ -449,7 +449,7 @@ function StreetStoreContent() {
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-2xl font-black text-swatch204 group-hover:font-extrabold transition-all duration-300 leading-tight drop-shadow-sm flex-1">
-                          {product.Title}
+                          {product.title}
                         </h3>
                         {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) && (
                           <Badge className="bg-swatch102/90 text-swatch101 border-swatch102 font-bold text-xs px-3 py-1.5 flex-shrink-0 shadow-lg">
