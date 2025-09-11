@@ -76,9 +76,9 @@ function StreetStoreContent() {
       case 'price-high':
         return ((a.price || 0) - (b.price || 0));
       case 'name':
-        return (a.Title || '').localeCompare(b.Title || '');
+        return (a.title || '').localeCompare(b.title || '');
       case 'category':
-        return (a.Type || '').localeCompare(b.Type || '');
+        return (a.category || '').localeCompare(b.category || '');
       default:
         return 0;
     }
