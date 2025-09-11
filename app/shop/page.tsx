@@ -488,7 +488,7 @@ function StreetStoreContent() {
                             </div>
                             {false && (
                               <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
-                                Save ${((product.originalPrice || 0) - (product.price || 0)).toFixed(2)}
+                                Save $0.00
                               </p>
                             )}
                           </div>
