@@ -37,7 +37,7 @@ function StreetStoreContent() {
       (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()));
     
     // Handle category filtering
-    matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+    let matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
