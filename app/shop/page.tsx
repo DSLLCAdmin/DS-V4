@@ -34,7 +34,7 @@ function StreetStoreContent() {
 
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (product.Description && product.Description.toLowerCase().includes(searchTerm.toLowerCase()));
+      (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()));
     
     // Handle category filtering with flexible matching
     let matchesCategory = false;
@@ -467,7 +467,7 @@ function StreetStoreContent() {
                     {/* Description */}
                     <div className="space-y-2">
                       <p className="text-base text-swatch204 font-medium leading-relaxed line-clamp-3 group-hover:font-semibold transition-all duration-300 drop-shadow-sm">
-                        {product.Description || "DarkStreets exclusive product"}
+                        {product.description || "DarkStreets exclusive product"}
                       </p>
                       
                       {/* Special First & Light E-Book Description */}
