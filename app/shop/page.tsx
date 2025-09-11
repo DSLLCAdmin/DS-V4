@@ -72,9 +72,9 @@ function StreetStoreContent() {
     // Second priority: apply selected sort
     switch (sortBy) {
       case 'price-low':
-        return (a.price - b.price);
+        return ((a.price || 0) - (b.price || 0));
       case 'price-high':
-        return (a.price - b.price);
+        return ((a.price || 0) - (b.price || 0));
       case 'name':
         return (a.Title || '').localeCompare(b.Title || '');
       case 'category':
