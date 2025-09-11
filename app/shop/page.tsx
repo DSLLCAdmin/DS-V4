@@ -469,8 +469,8 @@ function StreetStoreContent() {
                         {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price" ? (
                           <div className="text-center p-3 bg-gradient-to-br from-swatch103/10 to-swatch104/10 rounded-lg border border-swatch103/20">
                             <p className="text-xl font-black text-swatch103 mb-1 drop-shadow-sm">Contact for Price</p>
-                            {product.originalPrice && (
-                              <p className="text-base text-swatch203 font-semibold drop-shadow-sm">MSRP: {product.originalPrice}</p>
+                            {false && (
+                              <p className="text-base text-swatch203 font-semibold drop-shadow-sm">MSRP: {product.price}</p>
                             )}
                             <p className="text-sm text-swatch103 font-medium mt-1 drop-shadow-sm">Special pricing available</p>
                           </div>
