@@ -72,9 +72,9 @@ function StreetStoreContent() {
     // Second priority: apply selected sort
     switch (sortBy) {
       case 'price-low':
-        return (parseFloat(a.SalePrice?.replace(/[^0-9.]/g, '') || '0') - parseFloat(b.SalePrice?.replace(/[^0-9.]/g, '') || '0'));
+        return (parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0') - parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0'));
       case 'price-high':
-        return (parseFloat(b.SalePrice?.replace(/[^0-9.]/g, '') || '0') - parseFloat(a.SalePrice?.replace(/[^0-9.]/g, '') || '0'));
+        return (parseFloat(b.price?.replace(/[^0-9.]/g, '') || '0') - parseFloat(a.price?.replace(/[^0-9.]/g, '') || '0'));
       case 'name':
         return (a.Title || '').localeCompare(b.Title || '');
       case 'category':
@@ -413,9 +413,9 @@ function StreetStoreContent() {
                     )}
 
                     {/* Discount Badge */}
-                    {hasDiscount(product.SalePrice, product.OriginalPrice) && (
+                    {hasDiscount(product.price, product.OriginalPrice) && (
                       <Badge className="absolute top-4 right-20 bg-gradient-to-r from-swatch103 to-swatch104 text-swatch101 border-2 border-swatch101 font-bold text-xs px-3 py-1 shadow-lg z-10">
-                        -{getDiscountPercentage(product.SalePrice, product.OriginalPrice)}%
+                        -{getDiscountPercentage(product.price, product.OriginalPrice)}%
                       </Badge>
                     )}
 
@@ -485,7 +485,7 @@ function StreetStoreContent() {
                     <div className="flex items-start justify-between pt-3 gap-4">
                       {/* Price Display */}
                       <div className="space-y-2 flex-1">
-                        {formatPrice(product.SalePrice, product.OriginalPrice) === "Contact for Price" ? (
+                        {formatPrice(product.price, product.OriginalPrice) === "Contact for Price" ? (
                           <div className="text-center p-3 bg-gradient-to-br from-swatch103/10 to-swatch104/10 rounded-lg border border-swatch103/20">
                             <p className="text-xl font-black text-swatch103 mb-1 drop-shadow-sm">Contact for Price</p>
                             {product.OriginalPrice && (
@@ -497,17 +497,17 @@ function StreetStoreContent() {
                           <div className="space-y-2">
                             <div className="flex items-center space-x-3">
                               <span className="text-3xl font-black text-swatch103 drop-shadow-sm">
-                                {formatPrice(product.SalePrice, product.OriginalPrice)}
+                                {formatPrice(product.price, product.OriginalPrice)}
                               </span>
-                              {hasDiscount(product.SalePrice, product.OriginalPrice) && (
+                              {hasDiscount(product.price, product.OriginalPrice) && (
                                 <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
                                   {product.OriginalPrice}
                                 </span>
                               )}
                             </div>
-                            {hasDiscount(product.SalePrice, product.OriginalPrice) && (
+                            {hasDiscount(product.price, product.OriginalPrice) && (
                               <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
-                                Save ${(parseFloat(product.OriginalPrice?.replace('$', '') || '0') - parseFloat(product.SalePrice.replace('$', ''))).toFixed(2)}
+                                Save ${(parseFloat(product.OriginalPrice?.replace('$', '') || '0') - parseFloat(product.price.replace('$', ''))).toFixed(2)}
                               </p>
                             )}
                           </div>
@@ -543,14 +543,14 @@ function StreetStoreContent() {
                   <CardFooter className="p-6 pt-3 mt-auto">
                     <Button
                       className={`w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
-                        formatPrice(product.SalePrice, product.OriginalPrice) === "Contact for Price"
+                        formatPrice(product.price, product.OriginalPrice) === "Contact for Price"
                           ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
                           : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
                       }`}
                       onClick={() => handleAddToCart(String(product.id))}
                       disabled={product.InStock === "false"}
                     >
-                      {formatPrice(product.SalePrice, product.OriginalPrice) === "Contact for Price" ? (
+                      {formatPrice(product.price, product.OriginalPrice) === "Contact for Price" ? (
                         <>
                           <Users className="h-5 w-5 mr-2" />
                           Contact for Pricing
