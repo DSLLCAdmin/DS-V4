@@ -482,7 +482,7 @@ function StreetStoreContent() {
                               </span>
                               {false && (
                                 <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
-                                  {product.originalPrice}
+                                  {product.price}
                                 </span>
                               )}
                             </div>
