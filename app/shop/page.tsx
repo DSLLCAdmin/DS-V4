@@ -37,13 +37,12 @@ function StreetStoreContent() {
       (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()));
     
     // Handle category filtering
+    let matchesCategory = false;
     if (selectedCategory === "All") {
       matchesCategory = true;
     } else {
       matchesCategory = product.category === selectedCategory;
     }
-    }
-    
     return matchesSearch && matchesCategory;
   });
 
