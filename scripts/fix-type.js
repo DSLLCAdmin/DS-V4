@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('app/shop/page.tsx', 'utf8'); const newContent = content.replace(/product\.Type/g, 'product.category'); fs.writeFileSync('app/shop/page.tsx', newContent, 'utf8'); console.log('Fixed Type to category in shop page'); 

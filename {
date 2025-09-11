@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('app/shop/page.tsx', 'utf8'); console.log('File length:', content.length); const lines = content.split('\n'); console.log('Total lines:', lines.length); let found = false; lines.forEach((line, i) = if (line.includes('parseFloat') 

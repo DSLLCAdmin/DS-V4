@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('app/shop/page.tsx', 'utf8'); const newContent = content.replace(/product\.Description/g, 'product.description'); fs.writeFileSync('app/shop/page.tsx', newContent, 'utf8'); console.log('Fixed Description to description in shop page'); 

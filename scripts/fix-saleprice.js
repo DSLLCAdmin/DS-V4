@@ -1,0 +1,1 @@
+const fs = require('fs'); const content = fs.readFileSync('app/shop/page.tsx', 'utf8'); const newContent = content.replace(/SalePrice/g, 'price'); fs.writeFileSync('app/shop/page.tsx', newContent, 'utf8'); console.log('Fixed SalePrice to price in shop page'); 
