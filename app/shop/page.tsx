@@ -507,7 +507,7 @@ function StreetStoreContent() {
                             </div>
                             {hasDiscount(product.price?.toString() || "0", product.originalPrice?.toString() || "0") && (
                               <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
-                                Save ${(parseFloat(product.originalPrice?.replace('$', '') || '0') - parseFloat(product.price.replace('$', ''))).toFixed(2)}
+                                Save ${((product.originalPrice || 0) - (product.price || 0)).toFixed(2)}
                               </p>
                             )}
                           </div>
