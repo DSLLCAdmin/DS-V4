@@ -413,9 +413,9 @@ function StreetStoreContent() {
                     )}
 
                     {/* Discount Badge */}
-                    {hasDiscount(product.price, product.originalPrice) && (
+                    {hasDiscount(product.price?.toString() || "0", product.originalPrice?.toString() || "0") && (
                       <Badge className="absolute top-4 right-20 bg-gradient-to-r from-swatch103 to-swatch104 text-swatch101 border-2 border-swatch101 font-bold text-xs px-3 py-1 shadow-lg z-10">
-                        -{getDiscountPercentage(product.price, product.originalPrice)}%
+                        -{getDiscountPercentage(product.price?.toString() || "0", product.originalPrice?.toString() || "0")}%
                       </Badge>
                     )}
 
@@ -499,13 +499,13 @@ function StreetStoreContent() {
                               <span className="text-3xl font-black text-swatch103 drop-shadow-sm">
                                 {formatPrice(product.price, product.originalPrice)}
                               </span>
-                              {hasDiscount(product.price, product.originalPrice) && (
+                              {hasDiscount(product.price?.toString() || "0", product.originalPrice?.toString() || "0") && (
                                 <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
                                   {product.originalPrice}
                                 </span>
                               )}
                             </div>
-                            {hasDiscount(product.price, product.originalPrice) && (
+                            {hasDiscount(product.price?.toString() || "0", product.originalPrice?.toString() || "0") && (
                               <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
                                 Save ${(parseFloat(product.originalPrice?.replace('$', '') || '0') - parseFloat(product.price.replace('$', ''))).toFixed(2)}
                               </p>
