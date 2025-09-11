@@ -44,6 +44,8 @@ function StreetStoreContent() {
       matchesCategory = product.category.includes("First & Light") || product.category.includes("Risque & Safety") || product.category.includes("Mercury & Memory") || product.category.includes("Vol-1");
     } else if (selectedCategory === "Apparel & Intimate Wear") {
       matchesCategory = product.category.includes("Panties") || product.category.includes("Bodysuits") || product.category.includes("Denim") || product.category.includes("Tees") || product.category.includes("Scarves") || product.category.includes("Boxers") || product.category.includes("Tank Tops") || product.category.includes("Hats") || product.category.includes("Hoodies") || product.category.includes("Dresses");
+    } else if (selectedCategory === "Auto + Mobility") {
+      matchesCategory = product.category.includes("LED") || product.category.includes("Scent") || product.category.includes("Window") || product.category.includes("Dashboard") || product.category.includes("Seatbelt") || product.category.includes("Survival") || product.category.includes("Mirror") || product.category.includes("Vanity") || product.category.includes("Throw") || product.category.includes("Sunglass") || product.category.includes("Cigarette") || product.category.includes("Lighter") || product.category.includes("Wristband") || product.category.includes("Tattoo") || product.category.includes("Patch") || product.category.includes("Ring") || product.category.includes("Sticker") || product.category.includes("Keychain") || product.category.includes("Candle");
     } else {
       matchesCategory = product.category === selectedCategory;
     }
