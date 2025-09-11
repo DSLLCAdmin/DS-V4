@@ -518,11 +518,11 @@ function StreetStoreContent() {
                       <div className="flex flex-col items-end space-y-1 flex-shrink-0">
                         <div className="flex items-center space-x-1">
                           <Star className="h-5 w-5 fill-swatch103 text-swatch103" />
-                          <span className="text-base font-black text-swatch204 drop-shadow-sm">{product.Rating || "N/A"}</span>
+                          <span className="text-base font-black text-swatch204 drop-shadow-sm">{product.rating || "N/A"}</span>
                         </div>
-                        {product.Reviews && (
+                        {product.reviews && (
                           <span className="text-sm text-swatch203 font-medium drop-shadow-sm">
-                            ({product.Reviews} review{parseInt(String(product.Reviews)) > 1 ? 's' : ''})
+                            ({product.reviews} review{parseInt(String(product.reviews)) > 1 ? 's' : ''})
                           </span>
                         )}
                       </div>
