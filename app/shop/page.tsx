@@ -434,7 +434,7 @@ function StreetStoreContent() {
                     </Button>
 
                     {/* Out of Stock Overlay */}
-                    {product.InStock === "false" && (
+                    {product.inStock === "false" && (
                       <div className="absolute inset-0 bg-swatch205/80 backdrop-blur-sm flex items-center justify-center">
                         <Badge variant="secondary" className="bg-swatch101 text-swatch204 font-bold text-lg px-6 py-3 border-2 border-swatch103">
                           Out of Stock
@@ -548,7 +548,7 @@ function StreetStoreContent() {
                           : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
                       }`}
                       onClick={() => handleAddToCart(String(product.id))}
-                      disabled={product.InStock === "false"}
+                      disabled={product.inStock === "false"}
                     >
                       {formatPrice(product.price, product.originalPrice) === "Contact for Price" ? (
                         <>
@@ -558,7 +558,7 @@ function StreetStoreContent() {
                       ) : (
                         <>
                           <ShoppingCart className="h-5 w-5 mr-2" />
-                          {product.InStock !== "false" ? "Add to Cart" : "Out of Stock"}
+                          {product.inStock !== "false" ? "Add to Cart" : "Out of Stock"}
                         </>
                       )}
                     </Button>
