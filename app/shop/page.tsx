@@ -46,8 +46,8 @@ function StreetStoreContent() {
       matchesCategory = product.category.includes("Panties") || product.category.includes("Bodysuits") || product.category.includes("Denim") || product.category.includes("Tees") || product.category.includes("Scarves") || product.category.includes("Boxers") || product.category.includes("Tank Tops") || product.category.includes("Hats") || product.category.includes("Hoodies") || product.category.includes("Dresses");
     } else {
       matchesCategory = product.category === selectedCategory;
-        return matchesSearch && matchesCategory;
-  }
+    }
+    return matchesSearch && matchesCategory;
   });
 
   // Sort products: images first, then by selected sort option
