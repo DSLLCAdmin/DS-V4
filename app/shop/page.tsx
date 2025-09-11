@@ -520,18 +520,7 @@ function StreetStoreContent() {
                           <Star className="h-5 w-5 fill-swatch103 text-swatch103" />
                           <span className="text-base font-black text-swatch204 drop-shadow-sm">{product.rating || "N/A"}</span>
                         </div></div>
-                    </div>
-
-                    {/* Additional Info */}
-                    {product.PageNum && (
-                      <div className="flex items-center justify-between text-sm text-swatch203 font-medium pt-3 border-t border-swatch103/20 gap-4">
-                        <span className="drop-shadow-sm">Pages: {product.PageNum}</span>
-                        {product.TopSeller && (
-                          <span className="text-swatch103 font-bold drop-shadow-sm flex-shrink-0">🔥 Top Seller</span>
-                        )}
-                      </div>
-                    )}
-                  </CardContent>
+                    </div></CardContent>
 
                   {/* Action Button */}
                   <CardFooter className="p-6 pt-3 mt-auto">
@@ -552,7 +541,7 @@ function StreetStoreContent() {
                       ) : (
                         <>
                           <ShoppingCart className="h-5 w-5 mr-2" />
-                          {product.inStock !== "false" ? "Add to Cart" : "Out of Stock"}
+                          {product.inStock ? "Add to Cart" : "Out of Stock"}
                         </>
                       )}
                     </Button>

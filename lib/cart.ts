@@ -134,8 +134,8 @@ class CartManager {
       
       if (product) {
         return {
-          title: product.Title,
-          price: parseFloat(product.SalePrice?.replace(/[^0-9.]/g, '') || '0'),
+          title: product.title,
+          price: product.price || 0,
           image: product.image
         };
       }
