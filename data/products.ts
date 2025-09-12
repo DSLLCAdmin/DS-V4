@@ -19,7 +19,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets. a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
-    "image": "/product-images/1b_first-light-paperback.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -43,7 +43,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage Two- Risque & Safety",
     "longDescription": " Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!? but who they are. If only they could remember!?\r",
-    "image": "/product-images/2b_risque-safety-paperback.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -67,7 +67,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight",
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
-    "image": "/product-images/3b_mercury-memory-paperback.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -79,7 +79,7 @@ export const products = [
     "price": 15.99,
     "description": "Compilation of Stages 1-10 ",
     "longDescription": "\r",
-    "image": "/product-images/11a.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -91,7 +91,7 @@ export const products = [
     "price": 24.99,
     "description": "Compilation of Stages 1-10 ",
     "longDescription": "\r",
-    "image": "/product-images/11b.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -103,7 +103,7 @@ export const products = [
     "price": 24.99,
     "description": "Printed quotes Still here.  You smell like asphalt",
     "longDescription": "\r",
-    "image": "/product-images/A1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -115,7 +115,7 @@ export const products = [
     "price": 24.99,
     "description": "\"Inspired by Dancer's wardrobe with \"\"Streetin\"\" detailing.\"",
     "longDescription": "\r",
-    "image": "/product-images/A2.jpg",
+    "image": "/product-images/A2_mesh-bodysuits.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -127,7 +127,7 @@ export const products = [
     "price": 24.99,
     "description": "Denim with hidden pocket sleeves.",
     "longDescription": "\r",
-    "image": "/product-images/A3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -139,7 +139,7 @@ export const products = [
     "price": 24.99,
     "description": "Quotes + neon visuals",
     "longDescription": "\r",
-    "image": "/product-images/A4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -151,7 +151,7 @@ export const products = [
     "price": 24.99,
     "description": "Graffiti-tagged street names (Memory & Mercury).",
     "longDescription": "\r",
-    "image": "/product-images/A5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -163,7 +163,7 @@ export const products = [
     "price": 24.99,
     "description": "Blackout: No Eyes No Rules print inside the waistband.",
     "longDescription": "\r",
-    "image": "/product-images/A6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -175,7 +175,7 @@ export const products = [
     "price": 24.99,
     "description": "Ribbed rib-cage hugging with DS tattoos or maplines",
     "longDescription": "\r",
-    "image": "/product-images/A7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -187,7 +187,7 @@ export const products = [
     "price": 24.99,
     "description": "Baseball Caps",
     "longDescription": "\r",
-    "image": "/product-images/A8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -199,7 +199,7 @@ export const products = [
     "price": 24.99,
     "description": "Inside lining printed with scene excerpts.",
     "longDescription": "\r",
-    "image": "/product-images/A9.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -211,7 +211,7 @@ export const products = [
     "price": 24.99,
     "description": "From streetlight to backseat.",
     "longDescription": "\r",
-    "image": "/product-images/A10.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -223,7 +223,7 @@ export const products = [
     "price": 24.99,
     "description": "Streeter Mode with remote noir hues.",
     "longDescription": "\r",
-    "image": "/product-images/B1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -235,7 +235,7 @@ export const products = [
     "price": 24.99,
     "description": "Prowlers Leather  Bleach & Bourbon.",
     "longDescription": "\r",
-    "image": "/product-images/B2.jpg",
+    "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -247,7 +247,7 @@ export const products = [
     "price": 24.99,
     "description": "Shades printed with silhouettes of Dancer mid-pirouette and iconic car kisses.",
     "longDescription": "\r",
-    "image": "/product-images/B3.jpg",
+    "image": "/product-images/B3_window-shades.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -259,7 +259,7 @@ export const products = [
     "price": 24.99,
     "description": "Recordable voice note keychains.",
     "longDescription": "\r",
-    "image": "/product-images/B4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -271,7 +271,7 @@ export const products = [
     "price": 24.99,
     "description": "Embroidered with Feel the Wind. Follow the Heat.",
     "longDescription": "\r",
-    "image": "/product-images/B5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -283,7 +283,7 @@ export const products = [
     "price": 24.99,
     "description": "Mini Travel packs with wipes condoms pepper spray gum.",
     "longDescription": "\r",
-    "image": "/product-images/B6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -295,7 +295,7 @@ export const products = [
     "price": 24.99,
     "description": "Tiny dancers streetlight beads black feathers.",
     "longDescription": "\r",
-    "image": "/product-images/B7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -307,7 +307,7 @@ export const products = [
     "price": 24.99,
     "description": "Glovebox Zines Micro-stories printed like erotic manuals.",
     "longDescription": "\r",
-    "image": "/product-images/B8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -319,7 +319,7 @@ export const products = [
     "price": 24.99,
     "description": "No Rules After Midnight.",
     "longDescription": "\r",
-    "image": "/product-images/B9.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -331,7 +331,7 @@ export const products = [
     "price": 24.99,
     "description": "Stealthy black embroidered with moon phases.",
     "longDescription": "\r",
-    "image": "/product-images/B10.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -343,7 +343,7 @@ export const products = [
     "price": 24.99,
     "description": "Aries Blackout & Dancer Glare",
     "longDescription": "\r",
-    "image": "/product-images/C1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -355,7 +355,7 @@ export const products = [
     "price": 24.99,
     "description": "Matte black engraved with DS quotes.",
     "longDescription": "\r",
-    "image": "/product-images/C2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -367,7 +367,7 @@ export const products = [
     "price": 24.99,
     "description": "Zippo-style with scene titles etched in chrome.",
     "longDescription": "\r",
-    "image": "/product-images/C3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -379,7 +379,7 @@ export const products = [
     "price": 24.99,
     "description": "Phrases like Bangin Joy Outta Satisfaction.",
     "longDescription": "\r",
-    "image": "/product-images/C4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -391,7 +391,7 @@ export const products = [
     "price": 24.99,
     "description": "Noir symbols quotes GPS coordinates.",
     "longDescription": "\r",
-    "image": "/product-images/C5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -403,7 +403,7 @@ export const products = [
     "price": 24.99,
     "description": "We Rehearse in the Ruins DSA Memory+Mercury.",
     "longDescription": "\r",
-    "image": "/product-images/C6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -415,7 +415,7 @@ export const products = [
     "price": 24.99,
     "description": "Engraved with single words: Risk. Safety. Lust. Control.",
     "longDescription": "\r",
-    "image": "/product-images/C7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -427,7 +427,7 @@ export const products = [
     "price": 24.99,
     "description": "Stickers for sticking",
     "longDescription": "\r",
-    "image": "/product-images/C8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -439,7 +439,7 @@ export const products = [
     "price": 24.99,
     "description": "Still Thinking? & car outline silhouettes.",
     "longDescription": "\r",
-    "image": "/product-images/C9.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -451,7 +451,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring neon saints of the street on suction cups",
     "longDescription": "\r",
-    "image": "/product-images/C10.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -463,7 +463,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
-    "image": "/product-images/D1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -475,7 +475,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
-    "image": "/product-images/D2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -487,7 +487,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
-    "image": "/product-images/D3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -499,7 +499,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
-    "image": "/product-images/D4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -511,7 +511,7 @@ export const products = [
     "price": 24.99,
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
-    "image": "/product-images/D5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -523,7 +523,7 @@ export const products = [
     "price": 24.99,
     "description": "Phrases: Youre Art Feel the Wind.",
     "longDescription": "\r",
-    "image": "/product-images/D6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -535,7 +535,7 @@ export const products = [
     "price": 24.99,
     "description": "Erotic scents from afar",
     "longDescription": "\r",
-    "image": "/product-images/D7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -547,7 +547,7 @@ export const products = [
     "price": 24.99,
     "description": "Cast your city's skyline to  silhouette your ceiling. (LA NYC CHI)",
     "longDescription": "\r",
-    "image": "/product-images/D8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -559,7 +559,7 @@ export const products = [
     "price": 24.99,
     "description": "Prowler engine purr soft panting vinyl crackle.",
     "longDescription": "\r",
-    "image": "/product-images/D9.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -571,7 +571,7 @@ export const products = [
     "price": 24.99,
     "description": "Stash drawers + noir glow w/silhouette of dancer.",
     "longDescription": "\r",
-    "image": "/product-images/D10.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -583,7 +583,7 @@ export const products = [
     "price": 24.99,
     "description": "DS themes: 'The Driver'  'The Dancer' 'The Signal'.",
     "longDescription": "\r",
-    "image": "/product-images/D11.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -595,7 +595,7 @@ export const products = [
     "price": 24.99,
     "description": "Dissolve into deep shadowy hues. Mist in a bottle.",
     "longDescription": "\r",
-    "image": "/product-images/D12.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -607,7 +607,7 @@ export const products = [
     "price": 24.99,
     "description": "High-contrast car scenes dancers in streetlight halos.",
     "longDescription": "\r",
-    "image": "/product-images/D13.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -619,7 +619,7 @@ export const products = [
     "price": 24.99,
     "description": "Chalk spray and DS stencils for home art.",
     "longDescription": "\r",
-    "image": "/product-images/D14.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -631,7 +631,7 @@ export const products = [
     "price": 24.99,
     "description": "Spotify/Apple collabs.",
     "longDescription": "\r",
-    "image": "/product-images/E1.jpg",
+    "image": "/product-images/E1_Official Dark Streets Driving Playlists.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -643,7 +643,7 @@ export const products = [
     "price": 24.99,
     "description": "Become the Car. Be the Curve.",
     "longDescription": "\r",
-    "image": "/product-images/E2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -655,7 +655,7 @@ export const products = [
     "price": 24.99,
     "description": "Erotic Soundtracks Lo-fi noir beats + DS dialogue intercuts.",
     "longDescription": "\r",
-    "image": "/product-images/E3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -667,7 +667,7 @@ export const products = [
     "price": 24.99,
     "description": "Choose-your-own-street drama.",
     "longDescription": "\r",
-    "image": "/product-images/E4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -679,7 +679,7 @@ export const products = [
     "price": 24.99,
     "description": "Digital or IRL read by the characters.",
     "longDescription": "\r",
-    "image": "/product-images/E5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -691,7 +691,7 @@ export const products = [
     "price": 24.99,
     "description": "Episodes adapted from key scenes.",
     "longDescription": "\r",
-    "image": "/product-images/E6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -703,7 +703,7 @@ export const products = [
     "price": 24.99,
     "description": "Digital experience & memorabilia",
     "longDescription": "\r",
-    "image": "/product-images/E7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -715,7 +715,7 @@ export const products = [
     "price": 24.99,
     "description": "cheeky online video/ebook for adventurous fans.",
     "longDescription": "\r",
-    "image": "/product-images/E8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -727,7 +727,7 @@ export const products = [
     "price": 24.99,
     "description": "Photo Filters (like stickers as overlay to photos)",
     "longDescription": "\r",
-    "image": "/product-images/E9.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -739,7 +739,7 @@ export const products = [
     "price": 24.99,
     "description": "Curated confessions.",
     "longDescription": "\r",
-    "image": "/product-images/E10.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -751,7 +751,7 @@ export const products = [
     "price": 24.99,
     "description": "Find the darkest streets in your city.",
     "longDescription": "\r",
-    "image": "/product-images/F1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -763,7 +763,7 @@ export const products = [
     "price": 24.99,
     "description": "Analyze your mood suggest music + scent + route",
     "longDescription": "\r",
-    "image": "/product-images/F2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -775,7 +775,7 @@ export const products = [
     "price": 24.99,
     "description": "50 micro-tales unlocked by GPS.",
     "longDescription": "\r",
-    "image": "/product-images/F3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -787,7 +787,7 @@ export const products = [
     "price": 24.99,
     "description": "Daily noir thoughts or quotes.",
     "longDescription": "\r",
-    "image": "/product-images/F4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -799,7 +799,7 @@ export const products = [
     "price": 24.99,
     "description": "Point your phone at an alley watch DS unfold.",
     "longDescription": "\r",
-    "image": "/product-images/F5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -811,7 +811,7 @@ export const products = [
     "price": 24.99,
     "description": "Text-based storytelling.",
     "longDescription": "\r",
-    "image": "/product-images/F6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -823,7 +823,7 @@ export const products = [
     "price": 24.99,
     "description": "Write the memory you'd street away. Etchasketch shakabily",
     "longDescription": "\r",
-    "image": "/product-images/F7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -835,7 +835,7 @@ export const products = [
     "price": 24.99,
     "description": "Black lemon tonic bittersweet gin mocktails.",
     "longDescription": "\r",
-    "image": "/product-images/G1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -847,7 +847,7 @@ export const products = [
     "price": 24.99,
     "description": "Joe on the Road",
     "longDescription": "\r",
-    "image": "/product-images/G2.jpg",
+    "image": "/product-images/G2_dark-street-mug_Front.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -859,7 +859,7 @@ export const products = [
     "price": 24.99,
     "description": "Mini glass bottles labeled by mood.",
     "longDescription": "\r",
-    "image": "/product-images/G3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -871,7 +871,7 @@ export const products = [
     "price": 24.99,
     "description": "Glow LED cubes for drinks.",
     "longDescription": "\r",
-    "image": "/product-images/G4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -883,7 +883,7 @@ export const products = [
     "price": 24.99,
     "description": "Curved black flask + secret shot vial.",
     "longDescription": "\r",
-    "image": "/product-images/G5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -895,7 +895,7 @@ export const products = [
     "price": 24.99,
     "description": "Alternate POV stories or Aries' and Dancer's private journals.",
     "longDescription": "\r",
-    "image": "/product-images/H1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -907,7 +907,7 @@ export const products = [
     "price": 24.99,
     "description": "illustrated DS episodes.",
     "longDescription": "\r",
-    "image": "/product-images/H2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -919,7 +919,7 @@ export const products = [
     "price": 24.99,
     "description": "Each a unique and abstract routes through North Hollywood.",
     "longDescription": "\r",
-    "image": "/product-images/H3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -931,7 +931,7 @@ export const products = [
     "price": 24.99,
     "description": "Noir RPG-style attributes and secrets.",
     "longDescription": "\r",
-    "image": "/product-images/H4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -943,7 +943,7 @@ export const products = [
     "price": 24.99,
     "description": "Found-footage style shots from iconic scenes.",
     "longDescription": "\r",
-    "image": "/product-images/H5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -955,7 +955,7 @@ export const products = [
     "price": 24.99,
     "description": "Scent swatches texture cards audio clips.",
     "longDescription": "\r",
-    "image": "/product-images/H6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -967,7 +967,7 @@ export const products = [
     "price": 24.99,
     "description": "For display collectors (adult and subtle).",
     "longDescription": "\r",
-    "image": "/product-images/H7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -979,7 +979,7 @@ export const products = [
     "price": 24.99,
     "description": "Couple's improv prompt cards for car confessionals.",
     "longDescription": "\r",
-    "image": "/product-images/I1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -991,7 +991,7 @@ export const products = [
     "price": 24.99,
     "description": "City-based DS clues",
     "longDescription": "\r",
-    "image": "/product-images/I2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1003,7 +1003,7 @@ export const products = [
     "price": 24.99,
     "description": "DS-branded limited times/locations.",
     "longDescription": "\r",
-    "image": "/product-images/I3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1015,7 +1015,7 @@ export const products = [
     "price": 24.99,
     "description": "Exclusive story readings at dive bars",
     "longDescription": "\r",
-    "image": "/product-images/I4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1027,7 +1027,7 @@ export const products = [
     "price": 24.99,
     "description": "Create your own DS scene.",
     "longDescription": "\r",
-    "image": "/product-images/I5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1039,7 +1039,7 @@ export const products = [
     "price": 24.99,
     "description": "DS visual mixtapes + merch trucks.",
     "longDescription": "\r",
-    "image": "/product-images/I6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1051,7 +1051,7 @@ export const products = [
     "price": 24.99,
     "description": "Window fog' 'Dash grip' 'Soft scream.'",
     "longDescription": "\r",
-    "image": "/product-images/J1.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1063,7 +1063,7 @@ export const products = [
     "price": 24.99,
     "description": "'What Are You Seeing?'  poetic prompt cards.",
     "longDescription": "\r",
-    "image": "/product-images/J2.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1075,7 +1075,7 @@ export const products = [
     "price": 24.99,
     "description": "prewritten mystery notes to leave behind.",
     "longDescription": "\r",
-    "image": "/product-images/J3.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1087,7 +1087,7 @@ export const products = [
     "price": 24.99,
     "description": "Vanity mirrors etched with sensual prompts.",
     "longDescription": "\r",
-    "image": "/product-images/J4.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1099,7 +1099,7 @@ export const products = [
     "price": 24.99,
     "description": "Flip-phone with auto-loaded audio drops.",
     "longDescription": "\r",
-    "image": "/product-images/J5.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1111,7 +1111,7 @@ export const products = [
     "price": 24.99,
     "description": "Noir hues reflect emotional temp.",
     "longDescription": "\r",
-    "image": "/product-images/J6.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1123,7 +1123,7 @@ export const products = [
     "price": 24.99,
     "description": "'Crash Like You Mean It' with Cover Art",
     "longDescription": "\r",
-    "image": "/product-images/J7.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -1135,7 +1135,7 @@ export const products = [
     "price": 24.99,
     "description": "USB drives with encrypted secret stories/visuals.",
     "longDescription": "\r",
-    "image": "/product-images/J8.jpg",
+    "image": "/product-images/placeholder.jpg",
     "inStock": true,
     "badge": "New"
   }
