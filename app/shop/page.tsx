@@ -357,9 +357,9 @@ function StreetStoreContent() {
                   </div>
                   
                   {/* Products Grid for this Category */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 items-start">
+                  <div className="flex flex-wrap gap-8 justify-center">
                     {products.map((product, index) => (
-                      <div key={product.id} className="w-full">
+                      <div key={product.id} className="w-full md:w-80 lg:w-96">
               <ScrollReveal delay={Math.min(index * 50, 500)}>
                 <FloatingElement speed={0.01}>
                 <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
@@ -571,9 +571,9 @@ function StreetStoreContent() {
             } else {
               // Regular grid for non-category sorts
               return (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 items-start">
+                <div className="flex flex-wrap gap-8 justify-center">
                   {sortedProducts.slice(0, visibleProducts).map((product, index) => (
-                    <div key={product.id} className="w-full">
+                    <div key={product.id} className="w-full md:w-80 lg:w-96">
                       <ScrollReveal delay={Math.min(index * 50, 500)}>
                         <FloatingElement speed={0.01}>
                         <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
