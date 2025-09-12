@@ -326,7 +326,7 @@ function StreetStoreContent() {
             )}
           </p>
         </div>
-        <div>
+        <div className="space-y-16">
           {(() => {
             // Group products by category when sorting by category
             if (sortBy === 'category') {
@@ -338,17 +338,16 @@ function StreetStoreContent() {
               }, {} as Record<string, typeof sortedProducts>);
 
               return Object.entries(grouped).map(([category, products], index) => (
-                <div key={category} style={{ position: 'relative' }}>
-                  {/* Category Header - Absolutely Positioned */}
+                <div key={category} className="space-y-8">
+                  {/* Category Header - Using Padding to Prevent Margin Collapse */}
                   <div 
                     className="text-center" 
                     style={{ 
-                      position: 'relative',
-                      zIndex: 10,
-                      marginTop: index === 0 ? '60px' : '120px',
-                      marginBottom: '120px',
+                      paddingTop: index === 0 ? '40px' : '80px',
+                      paddingBottom: '60px',
                       backgroundColor: 'rgba(139, 69, 19, 0.8)',
-                      padding: '20px',
+                      paddingLeft: '20px',
+                      paddingRight: '20px',
                       borderRadius: '12px'
                     }}
                   >
@@ -855,4 +854,119 @@ function ErrorBoundary({ children, fallback }: { children: React.ReactNode; fall
     console.error('Shop page error:', error);
     return fallback;
   }
-}
+}cDeploy log
+Why did it fail?
+
+
+
+
+Minimize log
+Initializing
+Complete
+Building
+Failed
+3:32:24 PM: Netlify Build                                                 
+3:32:24 PM: ────────────────────────────────────────────────────────────────
+3:32:24 PM: ​
+3:32:24 PM: ❯ Version
+3:32:24 PM:   @netlify/build 35.1.6
+3:32:24 PM: ​
+3:32:24 PM: ❯ Flags
+3:32:24 PM:   accountId: 68b884aa9b653700a27732ae
+3:32:24 PM:   baseRelDir: true
+3:32:24 PM:   buildId: 68c49f643f615b0008e368e0
+3:32:24 PM:   deployId: 68c49f643f615b0008e368e2
+3:32:24 PM: ​
+3:32:24 PM: ❯ Current directory
+3:32:24 PM:   /opt/build/repo
+3:32:24 PM: ​
+3:32:24 PM: ❯ Config file
+3:32:24 PM:   /opt/build/repo/netlify.toml
+3:32:24 PM: ​
+3:32:24 PM: ❯ Context
+3:32:24 PM:   production
+3:32:24 PM: ​
+3:32:24 PM: ❯ Using Next.js Runtime - v5.13.2
+3:32:26 PM: No Next.js cache to restore
+3:32:26 PM: ​
+3:32:26 PM: build.command from netlify.toml                               
+3:32:26 PM: ────────────────────────────────────────────────────────────────
+3:32:26 PM: ​
+3:32:26 PM: $ npm run build
+3:32:26 PM: > nextjs@0.1.0 build
+3:32:26 PM: > next build
+3:32:27 PM:  ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+3:32:27 PM: ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+3:32:27 PM:  ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+3:32:27 PM:    ▲ Next.js 15.4.6
+3:32:27 PM:    - Experiments (use with caution):
+3:32:27 PM:      ✓ forceSwcTransforms
+3:32:27 PM:    Creating an optimized production build ...
+3:32:27 PM:  ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+3:32:32 PM: Failed during stage 'building site': Build script returned non-zero exit code: 2 (https://ntl.fyi/exit-code-2)
+3:32:32 PM: Failed to compile.
+3:32:32 PM: 
+3:32:32 PM: ./app/test-spacing/page.tsx
+3:32:32 PM: Module not found: Can't resolve '../../../test-spacing'
+3:32:32 PM: https://nextjs.org/docs/messages/module-not-found
+3:32:32 PM: > Build failed because of webpack errors
+3:32:32 PM: ​
+3:32:32 PM: "build.command" failed                                        
+3:32:32 PM: ────────────────────────────────────────────────────────────────
+3:32:32 PM: ​
+3:32:32 PM:   Error message
+3:32:32 PM:   Command failed with exit code 1: npm run build (https://ntl.fyi/exit-code-1)
+3:32:32 PM: ​
+3:32:32 PM:   Error location
+3:32:32 PM:   In build.command from netlify.toml:
+3:32:32 PM:   npm run build
+3:32:32 PM: ​
+3:32:32 PM:   Resolved config
+3:32:32 PM:   build:
+3:32:32 PM:     command: npm run build
+3:32:32 PM:     commandOrigin: config
+3:32:32 PM:     environment:
+3:32:32 PM:       - NODE_VERSION
+3:32:32 PM:     publish: /opt/build/repo/out
+3:32:32 PM:     publishOrigin: config
+3:32:32 PM:   headers:
+3:32:32 PM:     - for: /*
+      values:
+        Referrer-Policy: strict-origin-when-cross-origin
+        X-Content-Type-Options: nosniff
+        X-Frame-Options: DENY
+        X-XSS-Protection: 1; mode=block
+    - for: /_next/static/*
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+    - for: "*.webp"
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+        Content-Type: image/webp
+    - for: "*.png"
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+        Content-Type: image/png
+    - for: "*.jpg"
+      values:
+        Cache-Control: public, max-age=31536000, immutable
+        Content-Type: image/jpeg
+  headersOrigin: config
+  plugins:
+    - inputs: {}
+      origin: ui
+      package: "@netlify/plugin-nextjs"
+  redirects:
+    - from: /*
+      status: 200
+      to: /index.html
+  redirectsOrigin: config
+3:32:32 PM: Build failed due to a user error: Build script returned non-zero exit code: 2
+3:32:32 PM: Failing build: Failed to build site
+3:32:32 PM: Finished processing build request in 26.176s
+Deploying
+Skipped
+Cleanup
+Skipped
+Post-processing
+Skipped
