@@ -338,17 +338,15 @@ function StreetStoreContent() {
               }, {} as Record<string, typeof sortedProducts>);
 
               return Object.entries(grouped).map(([category, products], index) => (
-                <div key={category} className="space-y-8">
-                  {/* Category Header - Using Padding to Prevent Margin Collapse */}
+                <div key={category} className="relative" style={{ marginTop: index === 0 ? '40px' : '120px', marginBottom: '120px' }}>
+                  {/* Category Header - Absolutely Positioned */}
                   <div 
-                    className="text-center" 
+                    className="absolute top-0 left-0 right-0 z-20 text-center" 
                     style={{ 
-                      paddingTop: index === 0 ? '40px' : '80px',
-                      paddingBottom: '60px',
-                      backgroundColor: 'rgba(139, 69, 19, 0.8)',
-                      paddingLeft: '20px',
-                      paddingRight: '20px',
-                      borderRadius: '12px'
+                      backgroundColor: 'rgba(139, 69, 19, 0.9)',
+                      padding: '20px',
+                      borderRadius: '12px',
+                      marginBottom: '40px'
                     }}
                   >
                     <h2 className="text-2xl font-bold text-yellow-300 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-4 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm shadow-lg">
@@ -356,8 +354,8 @@ function StreetStoreContent() {
                     </h2>
                   </div>
                   
-                  {/* Products Grid for this Category */}
-                  <div className="flex flex-wrap gap-8 justify-center">
+                  {/* Products Grid for this Category - Positioned Below Header */}
+                  <div className="relative top-32 flex flex-wrap gap-8 justify-center">
                     {products.map((product, index) => (
                       <div key={product.id} className="w-full md:w-80 lg:w-96">
               <ScrollReveal delay={Math.min(index * 50, 500)}>
