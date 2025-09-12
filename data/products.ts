@@ -7,7 +7,7 @@ export const products = [
     "price": 0,
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets. a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
-    "image": "/product-images/1a.jpg",
+    "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -19,7 +19,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets. a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
-    "image": "/product-images/1b.jpg",
+    "image": "/product-images/1b_first-light-paperback.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -31,7 +31,7 @@ export const products = [
     "price": 4.99,
     "description": "Stage Two- Risque & Safety",
     "longDescription": "Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!? but who they are. If only they could remember!?\r",
-    "image": "/product-images/2a.jpg",
+    "image": "/product-images/2a_risque-safety-ebook.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -43,7 +43,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage Two- Risque & Safety",
     "longDescription": " Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!? but who they are. If only they could remember!?\r",
-    "image": "/product-images/2b.jpg",
+    "image": "/product-images/2b_risque-safety-paperback.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -55,7 +55,7 @@ export const products = [
     "price": 4.99,
     "description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight",
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
-    "image": "/product-images/3a.jpg",
+    "image": "/product-images/3a_mercury-memory-ebook.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -67,7 +67,7 @@ export const products = [
     "price": 9.99,
     "description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight",
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
-    "image": "/product-images/3b.jpg",
+    "image": "/product-images/3b_mercury-memory-paperback.jpg",
     "inStock": true,
     "badge": "New"
   },
