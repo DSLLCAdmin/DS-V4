@@ -58,7 +58,7 @@ function StreetStoreContent() {
         return ((b.price || 0) - (a.price || 0));
       case 'name':
         // Normalize titles by removing quotes and special characters for proper A-Z sorting
-        const normalizeTitle = (title) => (title || '').replace(/^['"]|['"]$/g, '').replace(/['"]/g, '').trim();
+        const normalizeTitle = (title: string) => (title || '').replace(/^['"]|['"]$/g, '').replace(/['"]/g, '').trim();
         return normalizeTitle(a.title).localeCompare(normalizeTitle(b.title));
       case 'category':
         return (a.category || '').localeCompare(b.category || '');
@@ -338,7 +338,7 @@ function StreetStoreContent() {
               }, {} as Record<string, typeof sortedProducts>);
 
               return Object.entries(grouped).map(([category, products]) => (
-                <div key={category} className="space-y-6">
+                <div key={category} className="space-y-6 mt-12">
                   {/* Category Header */}
                   <div className="text-center mb-8">
                     <h2 className="text-2xl font-bold text-yellow-300 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-4 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm shadow-lg">
