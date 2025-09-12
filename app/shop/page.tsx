@@ -338,9 +338,9 @@ function StreetStoreContent() {
               }, {} as Record<string, typeof sortedProducts>);
 
               return Object.entries(grouped).map(([category, products]) => (
-                <div key={category} className="space-y-6 mt-12">
+                <div key={category} className="space-y-6 mt-16 mb-8">
                   {/* Category Header */}
-                  <div className="text-center mb-8">
+                  <div className="text-center mb-12">
                     <h2 className="text-2xl font-bold text-yellow-300 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-4 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm shadow-lg">
                       🏷️ {category}
                     </h2>
