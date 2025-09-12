@@ -57,7 +57,9 @@ function StreetStoreContent() {
       case 'price-high':
         return ((b.price || 0) - (a.price || 0));
       case 'name':
-        return (a.title || '').localeCompare(b.title || '');
+        // Normalize titles by removing quotes and special characters for proper A-Z sorting
+        const normalizeTitle = (title) => (title || '').replace(/^['"]|['"]$/g, '').replace(/['"]/g, '').trim();
+        return normalizeTitle(a.title).localeCompare(normalizeTitle(b.title));
       case 'category':
         return (a.category || '').localeCompare(b.category || '');
       default:
