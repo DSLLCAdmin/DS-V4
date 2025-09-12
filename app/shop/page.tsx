@@ -338,8 +338,8 @@ function StreetStoreContent() {
               return Object.entries(grouped).map(([category, products]) => (
                 <div key={category} className="space-y-6">
                   {/* Category Header */}
-                  <div className="text-center">
-                    <h2 className="text-2xl font-bold text-swatch103 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-3 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm">
+                  <div className="text-center mb-8">
+                    <h2 className="text-2xl font-bold text-yellow-300 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-4 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm shadow-lg">
                       🏷️ {category}
                     </h2>
                   </div>
