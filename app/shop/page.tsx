@@ -55,7 +55,7 @@ function StreetStoreContent() {
       case 'price-low':
         return ((a.price || 0) - (b.price || 0));
       case 'price-high':
-        return ((a.price || 0) - (b.price || 0));
+        return ((b.price || 0) - (a.price || 0));
       case 'name':
         return (a.title || '').localeCompare(b.title || '');
       case 'category':
