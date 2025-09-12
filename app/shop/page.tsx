@@ -338,9 +338,9 @@ function StreetStoreContent() {
               }, {} as Record<string, typeof sortedProducts>);
 
               return Object.entries(grouped).map(([category, products], index) => (
-                <div key={category} className="space-y-6" style={{ marginTop: index === 0 ? '40px' : '120px', marginBottom: '60px' }}>
+                <div key={category} className="space-y-6" style={{ paddingTop: index === 0 ? '60px' : '140px', paddingBottom: '80px' }}>
                   {/* Category Header */}
-                  <div className="text-center" style={{ marginBottom: '80px' }}>
+                  <div className="text-center" style={{ paddingBottom: '100px' }}>
                     <h2 className="text-2xl font-bold text-yellow-300 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-4 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm shadow-lg">
                       🏷️ {category}
                     </h2>
