@@ -44,8 +44,8 @@ function StreetStoreContent() {
   // Sort products: images first, then by selected sort option
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     // First priority: products with images come first
-    const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here";
-    const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here";
+    const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here" && a.image !== "/product-images/placeholder.jpg";
+    const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here" && b.image !== "/product-images/placeholder.jpg";
     
     if (aHasImage && !bHasImage) return -1;
     if (!aHasImage && bHasImage) return 1;
@@ -324,9 +324,30 @@ function StreetStoreContent() {
             )}
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 items-start">
-          {sortedProducts.slice(0, visibleProducts).map((product, index) => (
-            <div key={product.id} className="w-full">
+        <div className="space-y-8">
+          {(() => {
+            // Group products by category when sorting by category
+            if (sortBy === 'category') {
+              const grouped = sortedProducts.slice(0, visibleProducts).reduce((acc, product) => {
+                const category = product.category || 'Uncategorized';
+                if (!acc[category]) acc[category] = [];
+                acc[category].push(product);
+                return acc;
+              }, {} as Record<string, typeof sortedProducts>);
+
+              return Object.entries(grouped).map(([category, products]) => (
+                <div key={category} className="space-y-6">
+                  {/* Category Header */}
+                  <div className="text-center">
+                    <h2 className="text-2xl font-bold text-swatch103 bg-gradient-to-r from-swatch101/20 to-swatch102/20 px-6 py-3 rounded-xl border-2 border-swatch103/30 backdrop-blur-sm">
+                      🏷️ {category}
+                    </h2>
+                  </div>
+                  
+                  {/* Products Grid for this Category */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 items-start">
+                    {products.map((product, index) => (
+                      <div key={product.id} className="w-full">
               <ScrollReveal delay={Math.min(index * 50, 500)}>
                 <FloatingElement speed={0.01}>
                 <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
@@ -530,8 +551,226 @@ function StreetStoreContent() {
                 </Card>
               </FloatingElement>
             </ScrollReveal>
-            </div>
-          ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ));
+            } else {
+              // Regular grid for non-category sorts
+              return (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 items-start">
+                  {sortedProducts.slice(0, visibleProducts).map((product, index) => (
+                    <div key={product.id} className="w-full">
+                      <ScrollReveal delay={Math.min(index * 50, 500)}>
+                        <FloatingElement speed={0.01}>
+                        <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
+                          {/* Product Image Section */}
+                          <div className="relative overflow-hidden bg-gradient-to-br from-swatch205/10 to-swatch205/5">
+                            <div className="relative w-full h-80 bg-gradient-to-br from-swatch205/10 to-swatch205/5 rounded-t-2xl overflow-hidden flex-shrink-0">
+                              {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) ? (
+                                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-swatch101/40 to-swatch102/30 border-2 border-swatch101/20 hover:bg-gradient-to-br hover:from-swatch101/50 hover:to-swatch102/40 transition-all duration-300">
+                                  <div className="text-center p-6">
+                                    <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
+                                      <img 
+                                        src="/Icons/palette-colorful.svg" 
+                                        alt="Design Palette" 
+                                        className="h-32 w-32 mx-auto drop-shadow-lg"
+                                        onError={(e) => {
+                                          // Fallback to emoji if SVG fails to load
+                                          e.currentTarget.style.display = 'none';
+                                          const fallback = document.createElement('div');
+                                          fallback.className = 'text-6xl text-swatch103';
+                                          fallback.textContent = '🎨';
+                                          e.currentTarget.parentNode?.appendChild(fallback);
+                                          // Prevent the error from bubbling up
+                                          e.preventDefault();
+                                        }}
+                                      />
+                                    </div>
+                                    <p className="text-xl font-bold text-swatch101 mb-1 drop-shadow-lg font-extrabold underline decoration-2 underline-offset-4">Product in-Design</p>
+                                    <p className="text-base text-green-800 font-bold drop-shadow-md">Tell us your ideas!</p>
+                                  </div>
+                                </div>
+                              ) : (
+                                <img
+                                  src={product.image}
+                                  alt={product.title}
+                                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                                  loading="lazy"
+                                  onLoad={() => {
+                                    console.log(`✅ Successfully loaded: ${product.image}`);
+                                  }}
+                                  onError={(e) => {
+                                    // Log error but don't change display
+                                    console.warn(`Failed to load image: ${product.image}`);
+                                    // Prevent the error from bubbling up
+                                    e.preventDefault();
+                                  }}
+                                />
+                              )}
+                            </div>
+                            
+                            {/* Overlay Gradient */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-swatch205/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            
+                            {/* Top Badge */}
+                            {product.badge && (
+                              <Badge className={`absolute top-4 left-4 ${getBadgeColor(product.badge)} border-2 font-semibold text-xs px-3 py-1 shadow-lg z-10`}>
+                                {product.badge}
+                              </Badge>
+                            )}
+
+                            {/* Featured Product Badge for First & Light E-Book */}
+                            {product.id === "1a" && (
+                              <Badge className="absolute top-4 left-4 bg-gradient-to-r from-swatch102 to-swatch103 text-swatch101 border-2 border-swatch101 font-bold text-xs px-3 py-1 shadow-lg animate-pulse z-10">
+                                ⭐ FEATURED
+                              </Badge>
+                            )}
+
+                            {/* Discount Badge */}
+                            {false && (
+                              <Badge className="absolute top-4 right-20 bg-gradient-to-r from-swatch103 to-swatch104 text-swatch101 border-2 border-swatch101 font-bold text-xs px-3 py-1 shadow-lg z-10">
+                                -{0}%
+                              </Badge>
+                            )}
+
+                            {/* Favorite Button */}
+                            <Button
+                              size="sm"
+                              variant="secondary"
+                              className="absolute top-4 right-4 rounded-full p-2.5 bg-swatch101/95 hover:bg-swatch101 border border-swatch103/30 transition-all duration-150 hover:scale-105 hover:shadow-md z-10"
+                              onClick={() => toggleFavorite(String(product.id))}
+                            >
+                              <Heart
+                                className={`h-4 w-4 transition-all duration-200 ${
+                                  favorites.includes(String(product.id)) ? "fill-swatch103 text-swatch103 scale-110" : "text-swatch203 hover:text-swatch103"
+                                }`}
+                              />
+                            </Button>
+
+                            {/* Out of Stock Overlay */}
+                            {!product.inStock && (
+                              <div className="absolute inset-0 bg-swatch205/80 backdrop-blur-sm flex items-center justify-center">
+                                <Badge variant="secondary" className="bg-swatch101 text-swatch204 font-bold text-lg px-6 py-3 border-2 border-swatch103">
+                                  Out of Stock
+                                </Badge>
+                              </div>
+                            )}
+                          </div>
+
+                          {/* Product Content */}
+                          <CardContent className="p-6 space-y-4 flex-1">
+                            {/* Title and Author */}
+                            <div className="space-y-3">
+                              <div className="flex items-start justify-between gap-3">
+                                <h3 className="text-2xl font-black text-swatch204 group-hover:font-extrabold transition-all duration-300 leading-tight drop-shadow-sm flex-1">
+                                  {product.title}
+                                </h3>
+                                {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) && (
+                                  <Badge className="bg-swatch102/90 text-swatch101 border-swatch102 font-bold text-xs px-3 py-1.5 flex-shrink-0 shadow-lg">
+                                    🎨 IN-DESIGN
+                                  </Badge>
+                                )}
+                              </div>
+                              {product.author && (
+                                <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
+                                  by {product.author}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Description */}
+                            <div className="space-y-2">
+                              <p className="text-base text-swatch204 font-medium leading-relaxed line-clamp-3 group-hover:font-semibold transition-all duration-300 drop-shadow-sm">
+                                {product.description || "DarkStreets exclusive product"}
+                              </p>
+                              
+                              {/* Special First & Light E-Book Description */}
+                              {product.id === "1a" && (
+                                <div className="p-3 bg-gradient-to-br from-swatch102/10 to-swatch103/10 rounded-lg border border-swatch102/20">
+                                  <p className="text-xs text-swatch102 font-semibold mb-1">🎭 STAGE ONE - THE BEGINNING</p>
+                                  <p className="text-xs text-swatch203/90 leading-relaxed">
+                                    Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's DarkStreets through their eyes.
+                                  </p>
+                                </div>
+                              )}
+                            </div>
+
+                            {/* Price and Rating Section */}
+                            <div className="flex items-start justify-between pt-3 gap-4">
+                              {/* Price Display */}
+                              <div className="space-y-2 flex-1">
+                                {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price" ? (
+                                  <div className="text-center p-3 bg-gradient-to-br from-swatch103/10 to-swatch104/10 rounded-lg border border-swatch103/20">
+                                    <p className="text-xl font-black text-swatch103 mb-1 drop-shadow-sm">Contact for Price</p>
+                                    {false && (
+                                      <p className="text-base text-swatch203 font-semibold drop-shadow-sm">MSRP: {product.price}</p>
+                                    )}
+                                    <p className="text-sm text-swatch103 font-medium mt-1 drop-shadow-sm">Special pricing available</p>
+                                  </div>
+                                ) : (
+                                  <div className="space-y-2">
+                                    <div className="flex items-center space-x-3">
+                                      <span className="text-3xl font-black text-swatch103 drop-shadow-sm">
+                                        {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0")}
+                                      </span>
+                                      {false && (
+                                        <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
+                                          {product.price}
+                                        </span>
+                                      )}
+                                    </div>
+                                    {false && (
+                                      <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
+                                        Save $0.00
+                                      </p>
+                                    )}
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Rating Display */}
+                              <div className="flex flex-col items-end space-y-1 flex-shrink-0">
+                                <div className="flex items-center space-x-1">
+                                  <Star className="h-5 w-5 fill-swatch103 text-swatch103" />
+                                  <span className="text-base font-black text-swatch204 drop-shadow-sm">{"N/A"}</span>
+                                </div></div>
+                            </div></CardContent>
+
+                          {/* Action Button */}
+                          <CardFooter className="p-6 pt-3 mt-auto">
+                            <Button
+                              className={`w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
+                                formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price"
+                                  ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
+                                  : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
+                              }`}
+                              onClick={() => handleAddToCart(String(product.id))}
+                              disabled={!product.inStock}
+                            >
+                              {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price" ? (
+                                <>
+                                  <Users className="h-5 w-5 mr-2" />
+                                  Contact for Pricing
+                                </>
+                              ) : (
+                                <>
+                                  <ShoppingCart className="h-5 w-5 mr-2" />
+                                  {product.inStock ? "Add to Cart" : "Out of Stock"}
+                                </>
+                              )}
+                            </Button>
+                          </CardFooter>
+                        </Card>
+                      </FloatingElement>
+                    </ScrollReveal>
+                  </div>
+                ))}
+                </div>
+              );
+            }
+          })()}
         </div>
 
         {/* Load More Button */}
