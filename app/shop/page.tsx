@@ -326,7 +326,7 @@ function StreetStoreContent() {
             )}
           </p>
         </div>
-        <div className="space-y-8">
+        <div>
           {(() => {
             // Group products by category when sorting by category
             if (sortBy === 'category') {
