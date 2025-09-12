@@ -20,7 +20,7 @@ const dsProducts = products.filter(product =>
   !product.title.endsWith(':') // Exclude category headers
 );
 
-const categories = ["All", "Serials/Books", "Apparel & Intimate Wear", "Auto + Mobility", "Accessories", "Home, Mood, and Atmosphere", "Media + Experiences", "Digital + Curated Services", "Culinary & Novelty", "Collector & Art-Based", "Live & Social Activation", "Relationship, Erotic & Mystery-Inspired"];
+const categories = ["All", "Serials/Books", "Apparel & Intimate Wear", "Auto & Mobility", "Accessories", "Home & Mood & Atmosphere", "Media & Experiences", "Digital & Curated Services", "Culinary & Novelty", "Collector & Art-Based", "Live & Social Activation", "Relationship & Erotic & Mystery-Inspired"];
 
 function StreetStoreContent() {
   const [searchTerm, setSearchTerm] = useState("");
