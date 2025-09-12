@@ -457,7 +457,7 @@ export const products = [
   },
   {
     "id": "D1",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -469,7 +469,7 @@ export const products = [
   },
   {
     "id": "D2",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -481,7 +481,7 @@ export const products = [
   },
   {
     "id": "D3",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -493,7 +493,7 @@ export const products = [
   },
   {
     "id": "D4",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -505,7 +505,7 @@ export const products = [
   },
   {
     "id": "D5",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -517,7 +517,7 @@ export const products = [
   },
   {
     "id": "D6",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -529,7 +529,7 @@ export const products = [
   },
   {
     "id": "D7",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -541,7 +541,7 @@ export const products = [
   },
   {
     "id": "D8",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -553,7 +553,7 @@ export const products = [
   },
   {
     "id": "D9",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -565,7 +565,7 @@ export const products = [
   },
   {
     "id": "D10",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -577,7 +577,7 @@ export const products = [
   },
   {
     "id": "D11",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -589,7 +589,7 @@ export const products = [
   },
   {
     "id": "D12",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -601,7 +601,7 @@ export const products = [
   },
   {
     "id": "D13",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -613,7 +613,7 @@ export const products = [
   },
   {
     "id": "D14",
-    "category": "\"Home",
+    "category": "\"Home, Mood, and Atmosphere"",
     "title": " Mood",
     "author": " and Atmosphere\"",
     "price": null,
@@ -1045,7 +1045,7 @@ export const products = [
   },
   {
     "id": "J1",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "DS Bedroom Dice",
     "author": "DS LLC",
     "price": 24.99,
@@ -1057,7 +1057,7 @@ export const products = [
   },
   {
     "id": "J2",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Lovers Game",
     "author": "DS LLC",
     "price": 24.99,
@@ -1069,7 +1069,7 @@ export const products = [
   },
   {
     "id": "J3",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Anonymous Drop Letters",
     "author": "DS LLC",
     "price": 24.99,
@@ -1081,7 +1081,7 @@ export const products = [
   },
   {
     "id": "J4",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Stolen Glance Mirrors",
     "author": "DS LLC",
     "price": 24.99,
@@ -1093,7 +1093,7 @@ export const products = [
   },
   {
     "id": "J5",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Aries' Burner Phone Prop Replica",
     "author": "DS LLC",
     "price": 24.99,
@@ -1105,7 +1105,7 @@ export const products = [
   },
   {
     "id": "J6",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "DS Mood Ring Keychains",
     "author": "DS LLC",
     "price": 24.99,
@@ -1117,7 +1117,7 @@ export const products = [
   },
   {
     "id": "J7",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Journals",
     "author": "DS LLC",
     "price": 24.99,
@@ -1129,7 +1129,7 @@ export const products = [
   },
   {
     "id": "J8",
-    "category": "Relationship Erotic & Mystery-Inspired",
+    "category": "Relationship, Erotic & Mystery-Inspired",
     "title": "Customizable Digital Memory Vaults",
     "author": "DS LLC",
     "price": 24.99,
