@@ -462,7 +462,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Featuring the scent of the street in mason jars,\r",
     "image": "/product-images/D1_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -474,7 +474,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Featuring the scent of the street in mason jars,\r",
     "image": "/product-images/D2_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -486,7 +486,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Featuring the scent of the street in mason jars,\r",
     "image": "/product-images/D3_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -498,7 +498,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Featuring the scent of the street in mason jars,\r",
     "image": "/product-images/D4_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -510,7 +510,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Featuring the scent of the street in mason jars,\r",
     "image": "/product-images/D5_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -522,7 +522,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Phrases: Youre Art Feel the Wind.,\r",
     "image": "/product-images/D6_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -534,7 +534,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Erotic scents from afar,\r",
     "image": "/product-images/D7_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -546,7 +546,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Cast your city's skyline to  silhouette your ceiling. (LA NYC CHI),\r",
     "image": "/product-images/D8_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -558,7 +558,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Prowler engine purr soft panting vinyl crackle.,\r",
     "image": "/product-images/D9_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -570,7 +570,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Stash drawers + noir glow w/silhouette of dancer.,\r",
     "image": "/product-images/D10_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -582,7 +582,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,DS themes: 'The Driver'  'The Dancer' 'The Signal'.,\r",
     "image": "/product-images/D11_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -594,7 +594,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Dissolve into deep shadowy hues. Mist in a bottle.,\r",
     "image": "/product-images/D12_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -606,7 +606,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,High-contrast car scenes dancers in streetlight halos.,\r",
     "image": "/product-images/D13_-mood.jpg",
     "inStock": true,
     "badge": "New"
@@ -618,7 +618,7 @@ export const products = [
     "author": " and Atmosphere\"",
     "price": null,
     "description": "DS LLC",
-    "longDescription": "$24.99 ",
+    "longDescription": "$24.99 ,Chalk spray and DS stencils for home art.,\r",
     "image": "/product-images/D14_-mood.jpg",
     "inStock": true,
     "badge": "New"
