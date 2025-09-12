@@ -854,7 +854,7 @@ function ErrorBoundary({ children, fallback }: { children: React.ReactNode; fall
     console.error('Shop page error:', error);
     return fallback;
   }
-}cDeploy log
+}
 Why did it fail?
 
 
