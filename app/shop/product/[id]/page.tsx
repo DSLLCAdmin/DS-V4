@@ -167,8 +167,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                   <Button
                     className={`w-full font-bold py-6 text-xl rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
                       formatPrice(product.price) === "Contact for Price"
-                        ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-white border-swatch102/30 hover:border-swatch102/50"
-                        : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-white border-transparent hover:border-white/20"
+                        ? "bg-gradient-to-b from-[#8B4513] to-[#654321] hover:from-[#A0522D] hover:to-[#8B4513] text-white border-[#8B4513]/30 hover:border-[#8B4513]/50 shadow-lg"
+                        : "bg-gradient-to-b from-[#8B4513] to-[#654321] hover:from-[#A0522D] hover:to-[#8B4513] text-white border-transparent hover:border-white/20 shadow-lg"
                     }`}
                     disabled={!product.inStock}
                   >
@@ -232,46 +232,50 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
 
             <ScrollReveal delay={600}>
               <div className="space-y-6">
-                <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl p-6 border border-swatch103/30">
-                  <h2 className="text-2xl font-bold text-white mb-4">Description</h2>
-                  <p className="text-lg text-white leading-relaxed">
+                {/* Description - Half Size */}
+                <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl p-4 border border-swatch103/30">
+                  <h2 className="text-xl font-bold text-white mb-3">Description</h2>
+                  <p className="text-base text-white leading-relaxed">
                     {product.longDescription || product.description || "DarkStreets exclusive product"}
                   </p>
                 </div>
 
-                {/* Special Product Descriptions */}
-                {product.id === "1a" && (
-                  <div className="bg-gradient-to-br from-swatch102/20 to-swatch103/20 rounded-2xl p-6 border border-swatch102/30">
-                    <h3 className="text-xl font-bold text-white mb-3">🎭 STAGE ONE - THE BEGINNING</h3>
-                    <p className="text-white leading-relaxed">
-                      Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's DarkStreets through their eyes as they navigate the complex world of street culture, relationships, and self-discovery.
-                    </p>
-                  </div>
-                )}
+                {/* Stage One and Features Side-by-Side */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Special Product Descriptions */}
+                  {product.id === "1a" && (
+                    <div className="bg-gradient-to-br from-swatch102/20 to-swatch103/20 rounded-2xl p-4 border border-swatch102/30">
+                      <h3 className="text-lg font-bold text-white mb-3">🎭 STAGE ONE - THE BEGINNING</h3>
+                      <p className="text-white leading-relaxed text-sm">
+                        Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's DarkStreets through their eyes as they navigate the complex world of street culture, relationships, and self-discovery.
+                      </p>
+                    </div>
+                  )}
 
-                {/* Universal Product Features */}
-                <div className="bg-gradient-to-br from-swatch104/20 to-swatch103/20 rounded-2xl p-6 border border-swatch104/30">
-                  <h3 className="text-xl font-bold text-white mb-3">✨ Product Features</h3>
-                  <ul className="text-white leading-relaxed space-y-2">
-                    <li className="flex items-center space-x-2">
-                      <span className="text-swatch103">•</span>
-                      <span>DarkStreets exclusive design</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-swatch103">•</span>
-                      <span>Premium quality materials</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <span className="text-swatch103">•</span>
-                      <span>Authentic street culture inspiration</span>
-                    </li>
-                    {product.category === "Serials/Books" && (
+                  {/* Universal Product Features */}
+                  <div className="bg-gradient-to-br from-swatch104/20 to-swatch103/20 rounded-2xl p-4 border border-swatch104/30">
+                    <h3 className="text-lg font-bold text-white mb-3">✨ Product Features</h3>
+                    <ul className="text-white leading-relaxed space-y-2 text-sm">
                       <li className="flex items-center space-x-2">
                         <span className="text-swatch103">•</span>
-                        <span>Digital and physical formats available</span>
+                        <span>DarkStreets exclusive design</span>
                       </li>
-                    )}
-                  </ul>
+                      <li className="flex items-center space-x-2">
+                        <span className="text-swatch103">•</span>
+                        <span>Premium quality materials</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <span className="text-swatch103">•</span>
+                        <span>Authentic street culture inspiration</span>
+                      </li>
+                      {product.category === "Serials/Books" && (
+                        <li className="flex items-center space-x-2">
+                          <span className="text-swatch103">•</span>
+                          <span>Digital and physical formats available</span>
+                        </li>
+                      )}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
