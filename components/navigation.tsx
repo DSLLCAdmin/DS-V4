@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/use-scroll';
 import Image from 'next/image';
-import DarkStreetsText from './DarkStreetsText';
+import DarkStreetsLogo from './DarkStreetsLogo';
 
 interface NavigationProps {
   variant?: 'header' | 'footer';
@@ -37,9 +37,8 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 height={24}
                 className="h-6 w-6 object-contain"
               />
-              <DarkStreetsText 
-                size="xl" 
-                variant="gradient" 
+              <DarkStreetsLogo 
+                size={24}
                 className="text-xl font-bold"
               />
             </div>
@@ -84,9 +83,8 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               height={32}
               className="h-8 w-8 object-contain group-hover:scale-110 transition-transform duration-200"
             />
-            <DarkStreetsText 
-              size="xl" 
-              variant="gradient" 
+            <DarkStreetsLogo 
+              size={32}
               className="text-2xl font-bold"
             />
           </Link>
