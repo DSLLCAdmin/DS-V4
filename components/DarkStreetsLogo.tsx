@@ -14,9 +14,9 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
 }) => {
   return (
     <Image
-      src="/DS-Logo-Bichrome.svg"
+      src="/DS-Logo-Bichrome.svg?v=2"
       alt={alt}
-      width={200} // Base width for SVG
+      width={400} // Base width for SVG
       height={80}  // Base height for SVG (5:1 ratio)
       className={`inline-block align-middle ${className}`}
       style={{
