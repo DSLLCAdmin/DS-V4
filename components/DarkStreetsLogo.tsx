@@ -14,7 +14,7 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
 }) => {
   return (
     <Image
-      src="/DS-Logo-Bichrome.svg?v=2"
+      src="/DS-Logo-Bichrome.svg?v=3"
       alt={alt}
       width={400} // Base width for SVG
       height={80}  // Base height for SVG (5:1 ratio)
@@ -22,6 +22,8 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
       style={{
         width: size,
         height: 'auto', // Maintain aspect ratio
+        minWidth: '120px', // Force minimum size
+        minHeight: '24px', // Force minimum size
       }}
     />
   );

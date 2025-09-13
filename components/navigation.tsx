@@ -38,7 +38,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 className="h-6 w-6 object-contain"
               />
               <DarkStreetsLogo 
-                size="1.5rem"
+                size="3rem"
                 className="text-xl font-bold"
               />
             </div>
@@ -84,7 +84,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               className="h-8 w-8 object-contain group-hover:scale-110 transition-transform duration-200"
             />
             <DarkStreetsLogo 
-              size="2rem"
+              size="4rem"
               className="text-2xl font-bold"
             />
           </Link>
