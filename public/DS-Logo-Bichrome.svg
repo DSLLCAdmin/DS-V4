@@ -18,5 +18,5 @@
   <text x="0" y="56" class="dark-text" font-size="48">Dark</text>
   
   <!-- Streets text -->
-  <text x="85" y="56" class="streets-text" font-size="48">Streets</text>
+  <text x="75" y="56" class="streets-text" font-size="48">Streets</text>
 </svg>
