@@ -234,8 +234,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
               <div className="space-y-6">
                 {/* Description - Half Size */}
                 <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl p-4 border border-swatch103/30">
-                  <h2 className="text-xl font-bold text-white mb-3">Description</h2>
-                  <p className="text-base text-white leading-relaxed">
+                  <h2 className="text-xl font-bold text-black mb-3">Description</h2>
+                  <p className="text-base text-black leading-relaxed">
                     {product.longDescription || product.description || "DarkStreets exclusive product"}
                   </p>
                 </div>
@@ -245,33 +245,33 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                   {/* Special Product Descriptions */}
                   {product.id === "1a" && (
                     <div className="bg-gradient-to-br from-swatch102/20 to-swatch103/20 rounded-2xl p-4 border border-swatch102/30">
-                      <h3 className="text-lg font-bold text-white mb-3">🎭 STAGE ONE - THE BEGINNING</h3>
-                      <p className="text-white leading-relaxed text-sm">
-                        Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's DarkStreets through their eyes as they navigate the complex world of street culture, relationships, and self-discovery.
+                      <h3 className="text-lg font-bold text-black mb-3">🎭 STAGE ONE - THE BEGINNING</h3>
+                      <p className="text-black leading-relaxed text-sm">
+                        Meet Aries Tiger and Dance in this electrifying first chapter. Experience LA's DarkStreets through their eyes as they cruise complexions in street culture, relationships, and self-discovery.
                       </p>
                     </div>
                   )}
 
                   {/* Universal Product Features */}
                   <div className="bg-gradient-to-br from-swatch104/20 to-swatch103/20 rounded-2xl p-4 border border-swatch104/30">
-                    <h3 className="text-lg font-bold text-white mb-3">✨ Product Features</h3>
-                    <ul className="text-white leading-relaxed space-y-2 text-sm">
+                    <h3 className="text-lg font-bold text-black mb-3">✨ Product Features</h3>
+                    <ul className="text-black leading-relaxed space-y-2 text-sm">
                       <li className="flex items-center space-x-2">
                         <span className="text-swatch103">•</span>
-                        <span>DarkStreets exclusive design</span>
+                        <span>Exclusive D-Street Design</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <span className="text-swatch103">•</span>
-                        <span>Premium quality materials</span>
+                        <span>{product.category === "Serials/Books" ? "Premium Printing" : "Premium quality materials"}</span>
                       </li>
                       <li className="flex items-center space-x-2">
                         <span className="text-swatch103">•</span>
-                        <span>Authentic street culture inspiration</span>
+                        <span>Raised by DarkStreets</span>
                       </li>
                       {product.category === "Serials/Books" && (
                         <li className="flex items-center space-x-2">
                           <span className="text-swatch103">•</span>
-                          <span>Digital and physical formats available</span>
+                          <span>We play digitally and physically</span>
                         </li>
                       )}
                     </ul>
