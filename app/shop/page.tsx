@@ -11,7 +11,7 @@ import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
-import DarkStreetsLogo from '@/components/DarkStreetsLogo';
+import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -187,7 +187,7 @@ function StreetStoreContent() {
               </ScrollReveal>
               <ScrollReveal delay={400}>
                 <p className="text-2xl md:text-3xl mb-10 text-swatch101/95 max-w-4xl mx-auto font-medium leading-relaxed">
-                  Discover the complete <DarkStreetsLogo size="2rem" /> collection - from books to street culture apparel
+                  Discover the complete <DarkStreetsTextLogo /> collection - from books to street culture apparel
                 </p>
               </ScrollReveal>
               <ScrollReveal delay={600}>
@@ -483,7 +483,7 @@ function StreetStoreContent() {
                       <p className="text-base text-swatch204 font-medium leading-relaxed line-clamp-3 group-hover:font-semibold transition-all duration-300 drop-shadow-sm">
                         {product.description || (
                           <>
-                            <DarkStreetsLogo size="1rem" /> exclusive product
+                            <DarkStreetsTextLogo /> exclusive product
                           </>
                         )}
                       </p>
@@ -493,7 +493,7 @@ function StreetStoreContent() {
                         <div className="p-3 bg-gradient-to-br from-swatch102/10 to-swatch103/10 rounded-lg border border-swatch102/20">
                           <p className="text-xs text-swatch102 font-semibold mb-1">🎭 STAGE ONE - THE BEGINNING</p>
                           <p className="text-xs text-swatch203/90 leading-relaxed">
-                            Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's <DarkStreetsLogo size="0.8rem" /> through their eyes.
+                            Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's <DarkStreetsTextLogo /> through their eyes.
                           </p>
                         </div>
                       )}
@@ -689,7 +689,7 @@ function StreetStoreContent() {
                               <p className="text-base text-swatch204 font-medium leading-relaxed line-clamp-3 group-hover:font-semibold transition-all duration-300 drop-shadow-sm">
                                 {product.description || (
                           <>
-                            <DarkStreetsLogo size="1rem" /> exclusive product
+                            <DarkStreetsTextLogo /> exclusive product
                           </>
                         )}
                               </p>
@@ -699,7 +699,7 @@ function StreetStoreContent() {
                                 <div className="p-3 bg-gradient-to-br from-swatch102/10 to-swatch103/10 rounded-lg border border-swatch102/20">
                                   <p className="text-xs text-swatch102 font-semibold mb-1">🎭 STAGE ONE - THE BEGINNING</p>
                                   <p className="text-xs text-swatch203/90 leading-relaxed">
-                                    Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's <DarkStreetsLogo size="0.8rem" /> through their eyes.
+                                    Meet Aries Tiger and Dance in this electrifying first chapter. Experience the thrill of LA's <DarkStreetsTextLogo /> through their eyes.
                                   </p>
                                 </div>
                               )}
@@ -794,7 +794,7 @@ function StreetStoreContent() {
       {/* Call to Action */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="bg-gradient-to-r from-swatch103 to-swatch104 rounded-2xl p-8 text-center text-swatch101">
-          <h2 className="text-3xl font-bold mb-4">Join the <DarkStreetsLogo size="2.5rem" /> Community</h2>
+          <h2 className="text-3xl font-bold mb-4">Join the <DarkStreetsTextLogo /> Community</h2>
           <p className="text-lg mb-6 text-swatch101/90">
             Connect with fellow readers, discover local activities, and explore our complete collection
           </p>
