@@ -16,8 +16,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductPage({ params }: { params: { id: string } }) {
-  const product = products.find(p => p.id === params.id);
+export default async function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const product = products.find(p => p.id === id);
 
   // Client-side functionality will be handled by separate components
 
