@@ -105,19 +105,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-swatch101/40 to-swatch102/30 border-2 border-swatch101/20">
                       <div className="text-center p-6">
                         <div className="mb-4 transform hover:scale-110 transition-transform duration-300">
-                          <img 
-                            src="/Icons/palette-colorful.svg" 
-                            alt="Design Palette" 
-                            className="h-32 w-32 mx-auto drop-shadow-lg"
-                            onError={(e) => {
-                              e.currentTarget.style.display = 'none';
-                              const fallback = document.createElement('div');
-                              fallback.className = 'text-6xl text-swatch103';
-                              fallback.textContent = '🎨';
-                              e.currentTarget.parentNode?.appendChild(fallback);
-                              e.preventDefault();
-                            }}
-                          />
+                        <img 
+                          src="/Icons/palette-colorful.svg" 
+                          alt="Design Palette" 
+                          className="h-32 w-32 mx-auto drop-shadow-lg"
+                        />
                         </div>
                         <p className="text-xl font-bold text-swatch101 mb-1 drop-shadow-lg font-extrabold underline decoration-2 underline-offset-4">Product in-Design</p>
                         <p className="text-base text-green-800 font-bold drop-shadow-md">Tell us your ideas!</p>
