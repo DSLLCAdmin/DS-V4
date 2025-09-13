@@ -13,8 +13,8 @@ export const DarkStreetsText: React.FC<DarkStreetsTextProps> = ({
   size = 'md',
   variant = 'default'
 }) => {
-  // Cool grey color for "Dark" - using a lower middle cool grey tone
-  const darkColor = 'text-gray-500';
+  // Black color for "Dark" - better contrast on most backgrounds
+  const darkColor = 'text-black';
   
   // Size classes
   const sizeClasses = {
