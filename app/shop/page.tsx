@@ -360,7 +360,8 @@ function StreetStoreContent() {
                       <div key={product.id} className="w-full md:w-80 lg:w-96">
               <ScrollReveal delay={Math.min(index * 50, 500)}>
                 <FloatingElement speed={0.01}>
-                <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
+                <Link href={`/shop/product/${product.id}`}>
+                <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0 cursor-pointer">
                   {/* Product Image Section */}
                   <div className="relative overflow-hidden bg-gradient-to-br from-swatch205/10 to-swatch205/5">
                     <div className="relative w-full h-80 bg-gradient-to-br from-swatch205/10 to-swatch205/5 rounded-t-2xl overflow-hidden flex-shrink-0">
@@ -559,6 +560,7 @@ function StreetStoreContent() {
                     </Button>
                   </CardFooter>
                 </Card>
+                </Link>
               </FloatingElement>
             </ScrollReveal>
                       </div>
@@ -574,7 +576,8 @@ function StreetStoreContent() {
                     <div key={product.id} className="w-full md:w-80 lg:w-96">
                       <ScrollReveal delay={Math.min(index * 50, 500)}>
                         <FloatingElement speed={0.01}>
-                        <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0">
+                        <Link href={`/shop/product/${product.id}`}>
+                        <Card className="group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.01] bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30 hover:border-swatch103/50 h-full flex flex-col min-h-0 cursor-pointer">
                           {/* Product Image Section */}
                           <div className="relative overflow-hidden bg-gradient-to-br from-swatch205/10 to-swatch205/5">
                             <div className="relative w-full h-80 bg-gradient-to-br from-swatch205/10 to-swatch205/5 rounded-t-2xl overflow-hidden flex-shrink-0">
@@ -773,6 +776,7 @@ function StreetStoreContent() {
                             </Button>
                           </CardFooter>
                         </Card>
+                        </Link>
                       </FloatingElement>
                     </ScrollReveal>
                   </div>
