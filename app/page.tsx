@@ -201,6 +201,7 @@ export default function Home() {
         <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
             The <DarkStreetsTextLogo /> Story 
+            
           </h2>
           <p className="text-lg font-bold text-swatch101/90 leading-relaxed text-center max-w-4xl mx-auto">
             <DarkStreetsTextLogo /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'<DarkStreetsTextLogo />ers in their restless rhythm of urban being. Join us on the <DarkStreetsTextLogo /> where corners hold stories, shadows hide light, and every moment is truly alive.
