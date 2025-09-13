@@ -14,7 +14,7 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
 }) => {
   return (
     <Image
-      src="/DS-Logo-Bichrome.svg?v=7"
+      src="/DS-Logo-Bichrome.svg?v=8"
       alt={alt}
       width={400} // Base width for SVG
       height={80}  // Base height for SVG (5:1 ratio)
@@ -23,9 +23,11 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
         width: size,
         height: 'auto', // Maintain aspect ratio
         verticalAlign: 'baseline', // Align with text baseline
-        marginLeft: '0.15em', // Left spacing
-        marginRight: '0.15em', // Right spacing
-        transform: 'translateY(0.05em)', // Fine-tune vertical position
+        marginLeft: '0.2em', // Space after last word
+        marginRight: '0.2em', // Space before next word
+        display: 'inline-block',
+        position: 'relative',
+        top: '0', // Baseline alignment
       }}
     />
   );

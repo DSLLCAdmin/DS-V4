@@ -703,3 +703,21 @@ html {
   contain: strict !important;
 }
 
+/* DarkStreet Text Logo Styles */
+.dark-streets-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit; /* Inherits parent font size */
+  vertical-align: baseline; /* Perfect text alignment */
+  display: inline-block;
+  white-space: nowrap; /* Prevent line breaks */
+}
+
+.dark-streets-text-logo .dark-part {
+  color: #000000;
+}
+
+.dark-streets-text-logo .street-part {
+  color: #FFFFFF;
+}
+
