@@ -14,16 +14,17 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
 }) => {
   return (
     <Image
-      src="/DS-Logo-Bichrome.svg?v=4"
+      src="/DS-Logo-Bichrome.svg?v=5"
       alt={alt}
       width={400} // Base width for SVG
       height={80}  // Base height for SVG (5:1 ratio)
-      className={`inline-block align-baseline ${className}`}
+      className={`inline-block align-text-bottom ${className}`}
       style={{
         width: size,
         height: 'auto', // Maintain aspect ratio
-        minWidth: '120px', // Force minimum size
-        minHeight: '24px', // Force minimum size
+        verticalAlign: 'text-bottom', // Align with text baseline
+        marginLeft: '0.1em', // Small left margin for spacing
+        marginRight: '0.1em', // Small right margin for spacing
       }}
     />
   );
