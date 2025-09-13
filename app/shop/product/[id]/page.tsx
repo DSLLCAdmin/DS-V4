@@ -8,6 +8,7 @@ import { FloatingElement, ScrollReveal } from '@/components/floating-elements';
 import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import Link from 'next/link';
+import DarkStreetsText from '@/components/DarkStreetsText';
 
 // Generate static params for all products
 export async function generateStaticParams() {
@@ -236,7 +237,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                 <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl p-4 border border-swatch103/30">
                   <h2 className="text-xl font-bold text-black mb-3">Description</h2>
                   <p className="text-base text-black leading-relaxed">
-                    {product.longDescription || product.description || "DarkStreets exclusive product"}
+                    {product.longDescription || product.description || "<DarkStreetsText size=\"sm\" streetsColor=\"text-black\" /> exclusive product"}
                   </p>
                 </div>
 
@@ -247,7 +248,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                     <div className="bg-gradient-to-br from-swatch102/20 to-swatch103/20 rounded-2xl p-4 border border-swatch102/30">
                       <h3 className="text-lg font-bold text-black mb-3">🎭 STAGE ONE - THE BEGINNING</h3>
                       <p className="text-black leading-relaxed text-sm">
-                        Meet Aries Tiger and Dance in this electrifying first chapter. Experience LA's DarkStreets through their eyes as they cruise complexions in street culture, relationships, and self-discovery.
+                        Meet Aries Tiger and Dance in this electrifying first chapter. Experience LA's <DarkStreetsText size="sm" streetsColor="text-black" /> through their eyes as they cruise complexions in street culture, relationships, and self-discovery.
                       </p>
                     </div>
                   )}
@@ -266,7 +267,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                       </li>
                       <li className="flex items-center space-x-2">
                         <span className="text-swatch103">•</span>
-                        <span>Raised by DarkStreets</span>
+                        <span>Raised by <DarkStreetsText size="sm" streetsColor="text-black" /></span>
                       </li>
                       {product.category === "Serials/Books" && (
                         <li className="flex items-center space-x-2">
@@ -285,7 +286,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         {/* Features Section */}
         <ScrollReveal delay={800}>
           <div className="mt-16 bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md rounded-2xl p-8 border border-swatch103/30">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">Why Choose DarkStreets?</h2>
+            <h2 className="text-3xl font-bold text-center text-white mb-8">Why Choose <DarkStreetsText size="xl" streetsColor="text-white" />?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <FloatingElement speed={0.02}>
                 <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">

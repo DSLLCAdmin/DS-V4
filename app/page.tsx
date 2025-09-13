@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "../components/ui/button";
 import Image from "next/image";
 import { Book, Users, MapPin, ShoppingBag, Star, ArrowRight } from "lucide-react";
+import DarkStreetsText from "../components/DarkStreetsText";
 
 export default function Home() {
 
@@ -98,7 +99,7 @@ export default function Home() {
                   <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">DS Map</h3>
                   <p className="button-subtitle">Global Streeters</p>
                   <div className="button-description">
-                    <span>Discover DarkStreets</span>
+                    <span>Discover <DarkStreetsText size="sm" streetsColor="text-white" /></span>
                     <span>For You</span>
                     <ArrowRight className="w-4 h-4 button-arrow" />
                   </div>
@@ -120,9 +121,9 @@ export default function Home() {
                     />
                   </div>
                 <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">About</h3>
-                <p className="button-subtitle">DarkStreets</p>
+                <p className="button-subtitle"><DarkStreetsText size="sm" streetsColor="text-white" /></p>
                 <div className="button-description">
-                  <span>Hear Our DarkStreets</span>
+                  <span>Hear Our <DarkStreetsText size="sm" streetsColor="text-white" /></span>
                   <span>Backstory</span>
                   <ArrowRight className="w-4 h-4 button-arrow" />
                 </div>
@@ -151,7 +152,7 @@ export default function Home() {
                   className="custom-icon"
                 />
               </div>
-              <h3 className="font-bold text-xl mb-3 text-swatch205">DarkStreets Series</h3>
+              <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsText size="lg" streetsColor="text-swatch205" /> Series</h3>
               <p className="text-swatch205 leading-relaxed">
                 Follow Aries Tiger and the Dancer through the neon-lit streets of LA. 
                 From "First & Light" to "Mercury & Memory," experience the complete journey.
@@ -189,7 +190,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Immersive Experiences</h3>
               <p className="text-swatch205 leading-relaxed">
-                From scent diffusers to soundscape machines, create your own DarkStreets atmosphere. 
+                From scent diffusers to soundscape machines, create your own <DarkStreetsText size="sm" streetsColor="text-swatch205" /> atmosphere. 
                 Includes exclusive playlists and guided experiences.
               </p>
             </div>
@@ -202,7 +203,7 @@ export default function Home() {
             The DarkStreet Story
           </h2>
           <p className="text-lg font-bold text-swatch101/90 leading-relaxed text-center max-w-4xl mx-auto">
-            DarkStreets extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'Streeters in their restless rhythm of urban being. Join us on the DarkStreets where corners hold stories, shadows hide light, and every moment is truly alive.
+            <DarkStreetsText size="lg" streetsColor="text-swatch101" /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'Streeters in their restless rhythm of urban being. Join us on the <DarkStreetsText size="lg" streetsColor="text-swatch101" /> where corners hold stories, shadows hide light, and every moment is truly alive.
           </p>
           
           {/* Tiger's Eye Image - RAISED */}
@@ -239,7 +240,7 @@ export default function Home() {
           <Link href="/shop">
             <Button className="bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-xl font-bold py-6 px-12 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 border-0">
               <ShoppingBag className="w-6 h-6 mr-3" />
-              Start Your DarkStreets Journey
+              Start Your <DarkStreetsText size="lg" streetsColor="text-white" /> Journey
             </Button>
           </Link>
         </div>
@@ -255,12 +256,12 @@ export default function Home() {
               height={24}
               className="h-6 w-6 object-contain"
             />
-            <span className="text-xl font-bold bg-gradient-to-r from-swatch103 to-swatch104 bg-clip-text text-transparent">
-              DarkStreets LLC
+            <span className="text-xl font-bold">
+              <DarkStreetsText size="xl" variant="gradient" /> LLC
             </span>
           </div>
           <p className="text-swatch101/80 mb-2">
-            Your central portal for all DarkStreets products and experiences
+            Your central portal for all <DarkStreetsText size="sm" streetsColor="text-swatch101" /> products and experiences
           </p>
           
           {/* QR Code Section */}
@@ -291,7 +292,7 @@ export default function Home() {
           </div>
           
           <p className="text-sm text-swatch101/60 mb-4">
-            &copy; 2025 DarkStreets LLC. All rights reserved.
+            &copy; 2025 <DarkStreetsText size="sm" streetsColor="text-swatch101" /> LLC. All rights reserved.
           </p>
           
           {/* Font Credit */}

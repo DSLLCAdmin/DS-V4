@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/use-scroll';
 import Image from 'next/image';
+import DarkStreetsText from './DarkStreetsText';
 
 interface NavigationProps {
   variant?: 'header' | 'footer';
@@ -36,9 +37,11 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 height={24}
                 className="h-6 w-6 object-contain"
               />
-              <span className="text-xl font-bold bg-gradient-to-r from-swatch103 to-swatch104 bg-clip-text text-transparent">
-                DarkStreets
-              </span>
+              <DarkStreetsText 
+                size="xl" 
+                variant="gradient" 
+                className="text-xl font-bold"
+              />
             </div>
             <div className="flex flex-wrap justify-center gap-6">
               {navItems.map((item) => (
@@ -81,9 +84,11 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               height={32}
               className="h-8 w-8 object-contain group-hover:scale-110 transition-transform duration-200"
             />
-            <span className="text-2xl font-bold bg-gradient-to-r from-swatch103 to-swatch104 bg-clip-text text-transparent">
-              DarkStreets
-            </span>
+            <DarkStreetsText 
+              size="xl" 
+              variant="gradient" 
+              className="text-2xl font-bold"
+            />
           </Link>
           
           <div className="hidden md:flex items-center space-x-1">
