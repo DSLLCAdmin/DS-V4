@@ -1,5 +1,3 @@
-"use client";
-import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { ShoppingCart, Heart, Star, ArrowLeft, Users, MapPin, Book, Award, Shield, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,32 +16,10 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProductPage() {
-  const params = useParams();
-  const router = useRouter();
-  const { addToCart, itemCount } = useCart();
-  const [product, setProduct] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [showCart, setShowCart] = useState(false);
+export default function ProductPage({ params }: { params: { id: string } }) {
+  const product = products.find(p => p.id === params.id);
 
-  useEffect(() => {
-    if (params.id) {
-      const foundProduct = products.find(p => p.id === params.id);
-      if (foundProduct) {
-        setProduct(foundProduct);
-      }
-      setIsLoading(false);
-    }
-  }, [params.id]);
-
-  const handleAddToCart = async () => {
-    if (product) {
-      const success = await addToCart(product.id);
-      if (success) {
-        setShowCart(true);
-      }
-    }
-  };
+  // Client-side functionality will be handled by separate components
 
   const formatPrice = (price: number) => {
     if (price === 0) return "Contact for Price";
@@ -62,14 +38,6 @@ export default function ProductPage() {
       default: return "bg-swatch201/20 text-swatch204 border-swatch201/30";
     }
   };
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gradient-to-b from-[#1A0F0A] via-[#8B4513] to-[#D2691E] flex items-center justify-center">
-        <div className="text-white text-xl">Loading product...</div>
-      </div>
-    );
-  }
 
   if (!product) {
     return (
@@ -92,20 +60,14 @@ export default function ProductPage() {
     <div className="min-h-screen bg-gradient-to-b from-[#1A0F0A] via-[#8B4513] to-[#D2691E] overflow-hidden">
       <Navigation />
       
-      {/* Cart Icon */}
+      {/* Cart Icon - Will be handled by client component */}
       <div className="fixed top-4 right-4 z-50">
         <Button
           variant="ghost"
           size="lg"
-          onClick={() => setShowCart(!showCart)}
           className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white"
         >
           <ShoppingCart className="h-6 w-6" />
-          {itemCount > 0 && (
-            <span className="absolute -top-2 -right-2 bg-swatch103 text-swatch101 text-xs rounded-full h-6 w-6 flex items-center justify-center font-bold">
-              {itemCount}
-            </span>
-          )}
         </Button>
       </div>
 
@@ -269,7 +231,6 @@ export default function ProductPage() {
                         ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
                         : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
                     }`}
-                    onClick={handleAddToCart}
                     disabled={!product.inStock}
                   >
                     {formatPrice(product.price) === "Contact for Price" ? (

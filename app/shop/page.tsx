@@ -535,28 +535,14 @@ function StreetStoreContent() {
                         </div></div>
                     </div></CardContent>
 
-                  {/* Action Button */}
+                  {/* Action Button - Temporarily Disabled */}
                   <CardFooter className="p-6 pt-3 mt-auto">
                     <Button
-                      className={`w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
-                        formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price"
-                          ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
-                          : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
-                      }`}
-                      onClick={() => handleAddToCart(String(product.id))}
-                      disabled={!product.inStock}
+                      className="w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg border-2 bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
+                      disabled={true}
                     >
-                      {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price" ? (
-                        <>
-                          <Users className="h-5 w-5 mr-2" />
-                          Contact for Pricing
-                        </>
-                      ) : (
-                        <>
-                          <ShoppingCart className="h-5 w-5 mr-2" />
-                          {product.inStock ? "Add to Cart" : "Out of Stock"}
-                        </>
-                      )}
+                      <ShoppingCart className="h-5 w-5 mr-2" />
+                      View Details
                     </Button>
                   </CardFooter>
                 </Card>
@@ -751,28 +737,14 @@ function StreetStoreContent() {
                                 </div></div>
                             </div></CardContent>
 
-                          {/* Action Button */}
+                          {/* Action Button - Temporarily Disabled */}
                           <CardFooter className="p-6 pt-3 mt-auto">
                             <Button
-                              className={`w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
-                                formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price"
-                                  ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch102 text-swatch101 border-swatch102/30 hover:border-swatch102/50"
-                                  : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
-                              }`}
-                              onClick={() => handleAddToCart(String(product.id))}
-                              disabled={!product.inStock}
+                              className="w-full font-bold py-4 rounded-xl transition-all duration-200 transform hover:scale-102 hover:shadow-lg border-2 bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 border-transparent hover:border-swatch101/20"
+                              disabled={true}
                             >
-                              {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0") === "Contact for Price" ? (
-                                <>
-                                  <Users className="h-5 w-5 mr-2" />
-                                  Contact for Pricing
-                                </>
-                              ) : (
-                                <>
-                                  <ShoppingCart className="h-5 w-5 mr-2" />
-                                  {product.inStock ? "Add to Cart" : "Out of Stock"}
-                                </>
-                              )}
+                              <ShoppingCart className="h-5 w-5 mr-2" />
+                              View Details
                             </Button>
                           </CardFooter>
                         </Card>
