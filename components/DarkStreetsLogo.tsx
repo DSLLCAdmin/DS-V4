@@ -2,13 +2,13 @@ import React from 'react';
 import Image from 'next/image';
 
 interface DarkStreetsLogoProps {
-  size?: number;
+  size?: string;
   className?: string;
   alt?: string;
 }
 
 export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
-  size = 24,
+  size = '1.5rem',
   className = '',
   alt = 'DarkStreets'
 }) => {
@@ -16,9 +16,13 @@ export const DarkStreetsLogo: React.FC<DarkStreetsLogoProps> = ({
     <Image
       src="/DS-Logo-Bichrome.svg"
       alt={alt}
-      width={size}
-      height={size * 0.4} // Maintain aspect ratio (200:40 = 5:1)
+      width={200} // Base width for SVG
+      height={80}  // Base height for SVG (5:1 ratio)
       className={`inline-block align-middle ${className}`}
+      style={{
+        width: size,
+        height: 'auto', // Maintain aspect ratio
+      }}
     />
   );
 };

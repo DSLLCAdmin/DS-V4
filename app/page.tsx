@@ -99,7 +99,7 @@ export default function Home() {
                   <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">DS Map</h3>
                   <p className="button-subtitle">Global Streeters</p>
                   <div className="button-description">
-                    <span>Discover <DarkStreetsLogo size={16} /></span>
+                    <span>Discover <DarkStreetsLogo size="1rem" /></span>
                     <span>For You</span>
                     <ArrowRight className="w-4 h-4 button-arrow" />
                   </div>
@@ -121,9 +121,9 @@ export default function Home() {
                     />
                   </div>
                 <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">About</h3>
-                <p className="button-subtitle"><DarkStreetsLogo size={16} /></p>
+                <p className="button-subtitle"><DarkStreetsLogo size="1rem" /></p>
                 <div className="button-description">
-                  <span>Hear Our <DarkStreetsLogo size={16} /></span>
+                  <span>Hear Our <DarkStreetsLogo size="1rem" /></span>
                   <span>Backstory</span>
                   <ArrowRight className="w-4 h-4 button-arrow" />
                 </div>
@@ -137,7 +137,7 @@ export default function Home() {
         {/* Featured Products Section */}
         <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-6 mb-16 border border-swatch201/30 max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold text-center mb-8 text-swatch205">
-            Featured <DarkStreetsLogo size={24} /> Collections
+            Featured <DarkStreetsLogo size="2rem" /> Collections
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -152,7 +152,7 @@ export default function Home() {
                   className="custom-icon"
                 />
               </div>
-              <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsLogo size={20} /> Series</h3>
+              <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsLogo size="1.5rem" /> Series</h3>
               <p className="text-swatch205 leading-relaxed">
                 Follow Aries Tiger and the Dancer through the neon-lit streets of LA. 
                 From "First & Light" to "Mercury & Memory," experience the complete journey.
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
               <p className="text-swatch205 leading-relaxed">
-                <DarkStreetsLogo size={16} /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
+                <DarkStreetsLogo size="1rem" /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
                 the essence of the streets. Each piece tells a story.
               </p>
             </div>
@@ -190,7 +190,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Immersive Experiences</h3>
               <p className="text-swatch205 leading-relaxed">
-                From scent diffusers to soundscape machines, create your own <DarkStreetsLogo size={16} /> atmosphere. 
+                From scent diffusers to soundscape machines, create your own <DarkStreetsLogo size="1rem" /> atmosphere. 
                 Includes exclusive playlists and guided experiences.
               </p>
             </div>
@@ -200,10 +200,10 @@ export default function Home() {
         {/* Brand Story Section */}
         <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
-            The <DarkStreetsLogo size={24} /> Story
+            The <DarkStreetsLogo size="2rem" /> Story
           </h2>
           <p className="text-lg font-bold text-swatch101/90 leading-relaxed text-center max-w-4xl mx-auto">
-            <DarkStreetsLogo size={20} /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'<DarkStreetsLogo size={16} />ers in their restless rhythm of urban being. Join us on the <DarkStreetsLogo size={20} /> where corners hold stories, shadows hide light, and every moment is truly alive.
+            <DarkStreetsLogo size="1.5rem" /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'<DarkStreetsLogo size="1rem" />ers in their restless rhythm of urban being. Join us on the <DarkStreetsLogo size="1.5rem" /> where corners hold stories, shadows hide light, and every moment is truly alive.
           </p>
           
           {/* Tiger's Eye Image - RAISED */}
@@ -240,7 +240,7 @@ export default function Home() {
           <Link href="/shop">
             <Button className="bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-xl font-bold py-6 px-12 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 border-0">
               <ShoppingBag className="w-6 h-6 mr-3" />
-              Start Your <DarkStreetsLogo size={20} /> Journey
+              Start Your <DarkStreetsLogo size="1.5rem" /> Journey
             </Button>
           </Link>
         </div>
@@ -257,11 +257,11 @@ export default function Home() {
               className="h-6 w-6 object-contain"
             />
             <span className="text-xl font-bold">
-              <DarkStreetsLogo size={24} /> LLC
+              <DarkStreetsLogo size="2rem" /> LLC
             </span>
           </div>
           <p className="text-swatch101/80 mb-2">
-            Your central portal for all <DarkStreetsLogo size={16} /> products and experiences
+            Your central portal for all <DarkStreetsLogo size="1rem" /> products and experiences
           </p>
           
           {/* QR Code Section */}
@@ -292,7 +292,7 @@ export default function Home() {
           </div>
           
           <p className="text-sm text-swatch101/60 mb-4">
-            &copy; 2025 <DarkStreetsLogo size={16} /> LLC. All rights reserved.
+            &copy; 2025 <DarkStreetsLogo size="1rem" /> LLC. All rights reserved.
           </p>
           
           {/* Font Credit */}

@@ -19,7 +19,7 @@ export default function AboutPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white drop-shadow-lg">
-            About <DarkStreetsLogo size={48} />
+            About <DarkStreetsLogo size="3rem" />
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
             More than a story—it's a lifestyle, a community, and a way of seeing the world.
@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 border border-white/30">
             <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Our Origin</h2>
             <p className="text-lg text-white/90 leading-relaxed mb-6">
-              <DarkStreetsLogo size={20} /> emerged from the neon-lit streets of Los Angeles, where Aries Tiger and the Dancer 
+              <DarkStreetsLogo size="1.5rem" /> emerged from the neon-lit streets of Los Angeles, where Aries Tiger and the Dancer 
               first crossed paths. What began as chance encounters in the urban landscape evolved into a 
               movement that celebrates the raw beauty of street culture.
             </p>
@@ -51,7 +51,7 @@ export default function AboutPage() {
             </p>
             <p className="text-lg text-white/90 leading-relaxed">
               From our books to our apparel to our immersive experiences, every element is designed to 
-              transport you into the world of <DarkStreetsLogo size={20} />.
+              transport you into the world of <DarkStreetsLogo size="1.5rem" />.
             </p>
           </div>
         </div>
