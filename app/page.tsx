@@ -137,7 +137,7 @@ export default function Home() {
         {/* Featured Products Section */}
         <div className="bg-gradient-to-b from-[#EFD907] to-[#B8A005] rounded-2xl shadow-xl p-6 mb-16 border border-swatch201/30 max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold text-center mb-8 text-swatch205">
-            Featured DarkStreet Collections
+            Featured <DarkStreetsLogo size={24} /> Collections
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
               <p className="text-swatch205 leading-relaxed">
-                Dark Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
+                <DarkStreetsLogo size={16} /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
                 the essence of the streets. Each piece tells a story.
               </p>
             </div>
@@ -200,10 +200,10 @@ export default function Home() {
         {/* Brand Story Section */}
         <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
-            The DarkStreet Story
+            The <DarkStreetsLogo size={24} /> Story
           </h2>
           <p className="text-lg font-bold text-swatch101/90 leading-relaxed text-center max-w-4xl mx-auto">
-            <DarkStreetsLogo size={20} /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'Streeters in their restless rhythm of urban being. Join us on the <DarkStreetsLogo size={20} /> where corners hold stories, shadows hide light, and every moment is truly alive.
+            <DarkStreetsLogo size={20} /> extend further than our stories tell. We are everyday people, a drifting collective, rolling around in our unique way of seeing the world. Look through the eyes of Aries Tiger. Explore freedom with the Dancer. Embed with D'<DarkStreetsLogo size={16} />ers in their restless rhythm of urban being. Join us on the <DarkStreetsLogo size={20} /> where corners hold stories, shadows hide light, and every moment is truly alive.
           </p>
           
           {/* Tiger's Eye Image - RAISED */}
