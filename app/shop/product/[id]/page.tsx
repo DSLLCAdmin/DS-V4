@@ -11,6 +11,13 @@ import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
 import Link from 'next/link';
 
+// Generate static params for all products
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    id: product.id,
+  }));
+}
+
 export default function ProductPage() {
   const params = useParams();
   const router = useRouter();
