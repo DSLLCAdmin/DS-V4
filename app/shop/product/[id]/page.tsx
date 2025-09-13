@@ -168,8 +168,8 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                   <Button
                     className={`w-full font-bold py-6 text-xl rounded-xl transition-all duration-200 transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none border-2 ${
                       formatPrice(product.price) === "Contact for Price"
-                        ? "bg-gradient-to-b from-[#8B4513] to-[#654321] hover:from-[#A0522D] hover:to-[#8B4513] text-white border-[#8B4513]/30 hover:border-[#8B4513]/50 shadow-lg"
-                        : "bg-gradient-to-b from-[#8B4513] to-[#654321] hover:from-[#A0522D] hover:to-[#8B4513] text-white border-transparent hover:border-white/20 shadow-lg"
+                        ? "bg-gradient-to-b from-[#FFD700] to-[#FFA500] hover:from-[#FFFF00] hover:to-[#FFD700] text-black border-[#FFD700]/30 hover:border-[#FFD700]/50 shadow-lg"
+                        : "bg-gradient-to-b from-[#FFD700] to-[#FFA500] hover:from-[#FFFF00] hover:to-[#FFD700] text-black border-transparent hover:border-black/20 shadow-lg"
                     }`}
                     disabled={!product.inStock}
                   >
@@ -237,7 +237,11 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                 <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl p-4 border border-swatch103/30">
                   <h2 className="text-xl font-bold text-black mb-3">Description</h2>
                   <p className="text-base text-black leading-relaxed">
-                    {product.longDescription || product.description || "<DarkStreetsText size=\"sm\" streetsColor=\"text-black\" /> exclusive product"}
+                    {product.longDescription || product.description || (
+                      <>
+                        <DarkStreetsText size="sm" streetsColor="text-black" /> exclusive product
+                      </>
+                    )}
                   </p>
                 </div>
 
@@ -286,7 +290,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
         {/* Features Section */}
         <ScrollReveal delay={800}>
           <div className="mt-16 bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md rounded-2xl p-8 border border-swatch103/30">
-            <h2 className="text-3xl font-bold text-center text-white mb-8">Why Choose <DarkStreetsText size="xl" streetsColor="text-white" />?</h2>
+            <h2 className="text-3xl font-bold text-center text-white mb-8">Why Cruise with D-Streeters?</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <FloatingElement speed={0.02}>
                 <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
