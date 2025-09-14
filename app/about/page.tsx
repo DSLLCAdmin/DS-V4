@@ -93,7 +93,7 @@ export default function AboutPage() {
         {/* Call to Action */}
         <div className="text-center">
           <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 border border-white/30">
-            <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Join the DarkStreets Movement</h2>
+            <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Join the <DarkStreetsTextLogo /> Movement</h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               Whether you're discovering our books, wearing our apparel, or experiencing our immersive content, 
               you're part of something bigger than just a brand.

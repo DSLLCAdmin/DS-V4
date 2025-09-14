@@ -3,6 +3,7 @@ import { Users, Star, Calendar, BookOpen } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { FloatingElement, ScrollReveal } from "@/components/floating-elements";
 import { Navigation } from "@/components/navigation";
+import { DarkStreetsTextLogo } from "@/components/DarkStreetsTextLogo";
 
 const circles = [
 	{
@@ -57,13 +58,21 @@ export default function StreetCircle() {
 								>
 									<circle.icon className="h-12 w-12 mb-4" />
 									<h2 className="text-2xl font-bold mb-2">
-										{circle.label}
+										{circle.label === "DarkStreet Reads" ? (
+											<><DarkStreetsTextLogo /> Reads</>
+										) : (
+											circle.label
+										)}
 									</h2>
 									<p className="text-lg mb-2 font-semibold">
 										{circle.value}
 									</p>
 									<p className="text-gray-700 text-center">
-										{circle.desc}
+										{circle.desc === "A curated list of must-read books for every DarkStreeter." ? (
+											<>A curated list of must-read books for every <DarkStreetsTextLogo />er.</>
+										) : (
+											circle.desc
+										)}
 									</p>
 								</Card>
 							</FloatingElement>
