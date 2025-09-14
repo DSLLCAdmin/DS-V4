@@ -1,3 +1,4 @@
+import React from 'react';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 
 /**
@@ -7,9 +8,9 @@ import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 export function renderDarkStreetText(text: string): React.ReactNode {
   // Common patterns to replace with the logo component
   const patterns = [
-    { pattern: /Dark Streets?/gi, replacement: <DarkStreetsTextLogo /> },
-    { pattern: /Dark Streeter/gi, replacement: <><DarkStreetsTextLogo />er</> },
-    { pattern: /DarkStreets?/gi, replacement: <DarkStreetsTextLogo /> },
+    { pattern: /Dark Streets?/gi, replacement: React.createElement(DarkStreetsTextLogo) },
+    { pattern: /Dark Streeter/gi, replacement: React.createElement(React.Fragment, null, React.createElement(DarkStreetsTextLogo), 'er') },
+    { pattern: /DarkStreets?/gi, replacement: React.createElement(DarkStreetsTextLogo) },
   ];
 
   let result: React.ReactNode = text;
