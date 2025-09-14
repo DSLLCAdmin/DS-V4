@@ -98,7 +98,7 @@ export const products = [
   {
     "id": "A1",
     "category": "Apparel & Intimate Wear",
-    "title": "Dark Streeter Panties",
+    "title": "DarkStreet Panties",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Printed quotes Still here.  You smell like asphalt",
@@ -134,7 +134,7 @@ export const products = [
   {
     "id": "A4",
     "category": "Apparel & Intimate Wear",
-    "title": "Dark Streeter Tees",
+    "title": "DarkStreet Tees",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Quotes + neon visuals",
@@ -230,7 +230,7 @@ export const products = [
   {
     "id": "B2",
     "category": "Auto & Mobility",
-    "title": "Dark Streets Branded Scent Diffusers",
+    "title": "DarkStreet Branded Scent Diffusers",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Prowlers Leather  Bleach & Bourbon.",
@@ -626,7 +626,7 @@ export const products = [
   {
     "id": "E1",
     "category": "Media & Experiences",
-    "title": "Official Dark Streets Driving Playlists",
+    "title": "Official DarkStreet Driving Playlists",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Spotify/Apple collabs.",
@@ -734,7 +734,7 @@ export const products = [
   {
     "id": "E10",
     "category": "Media & Experiences",
-    "title": "DSA: Dark Streeters Anonymous Newsletter",
+    "title": "DSA: DarkStreeters Anonymous Newsletter",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Curated confessions.",
@@ -842,7 +842,7 @@ export const products = [
   {
     "id": "G2",
     "category": "Culinary & Novelty",
-    "title": "Dark Street Mugs",
+    "title": "DarkStreet Mugs",
     "author": "DS LLC",
     "price": 24.99,
     "description": "Joe on the Road",

@@ -12,6 +12,7 @@ import { useCart } from '@/hooks/use-cart';
 import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
+import { withDarkStreetLogo } from '@/lib/logo-utils';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -463,7 +464,7 @@ function StreetStoreContent() {
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-3">
                         <h3 className="text-2xl font-black text-swatch204 group-hover:font-extrabold transition-all duration-300 leading-tight drop-shadow-sm flex-1">
-                          {product.title}
+                          {withDarkStreetLogo(product.title)}
                         </h3>
                         {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) && (
                           <Badge className="bg-swatch102/90 text-swatch101 border-swatch102 font-bold text-xs px-3 py-1.5 flex-shrink-0 shadow-lg">
@@ -669,7 +670,7 @@ function StreetStoreContent() {
                             <div className="space-y-3">
                               <div className="flex items-start justify-between gap-3">
                                 <h3 className="text-2xl font-black text-swatch204 group-hover:font-extrabold transition-all duration-300 leading-tight drop-shadow-sm flex-1">
-                                  {product.title}
+                                  {withDarkStreetLogo(product.title)}
                                 </h3>
                                 {(!product.image || product.image === "" || product.image.startsWith('Product in-Design') || product.image === "Need Image Here" || product.image.includes('placeholder') || product.image.includes('Placeholder')) && (
                                   <Badge className="bg-swatch102/90 text-swatch101 border-swatch102 font-bold text-xs px-3 py-1.5 flex-shrink-0 shadow-lg">
