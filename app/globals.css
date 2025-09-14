@@ -718,7 +718,7 @@ html {
 }
 
 .dark-streets-text-logo .street-part {
-  color: #F9E845 !important;
+  color: #FBF193 !important;
 }
 
 /* Override button text colors for logo */
@@ -729,6 +729,6 @@ button .dark-streets-text-logo .dark-part,
 
 button .dark-streets-text-logo .street-part,
 .btn .dark-streets-text-logo .street-part {
-  color: #F9E845 !important;
+  color: #FBF193 !important;
 }
 
