@@ -752,10 +752,12 @@ button .dark-streets-text-logo .street-part,
 .dark-streets-text-logo .dark-part {
   color: #4F4F4F !important;
   text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
+  vertical-align: baseline; /* Ensure proper alignment */
 }
 
 .dark-streets-text-logo .street-part {
   color: #FBF193 !important;
+  vertical-align: baseline; /* Ensure proper alignment */
   /* No glow for second half - keeps it clean */
 }
 

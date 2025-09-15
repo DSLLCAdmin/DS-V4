@@ -251,8 +251,8 @@ export default function Home() {
         {/* Call to Action */}
         <div className="text-center mb-16">
           <Link href="/shop">
-            <Button className="bg-gray-600 hover:bg-gray-700 text-white text-xl font-bold py-6 px-12 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 border-0 flex items-center justify-center">
-              <ShoppingBag className="w-6 h-6 mr-4 align-middle" />
+            <Button className="bg-gray-600 hover:bg-gray-700 text-white text-xl font-bold py-6 px-12 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 border-0 inline-flex items-center justify-center">
+              <ShoppingBag className="w-6 h-6 mr-4" />
               Start Your <DarkStreetsTextLogo /> Journey
             </Button>
           </Link>
