@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { FloatingElement, ScrollReveal } from "@/components/floating-elements";
 import { Navigation } from "@/components/navigation";
 import { DarkStreetsTextLogo } from "@/components/DarkStreetsTextLogo";
+import { StreetCircleTextLogo } from "@/components/StreetCircleTextLogo";
 
 const circles = [
 	{
@@ -46,7 +47,7 @@ export default function StreetCircle() {
 			<div className="max-w-5xl mx-auto px-4 py-16">
 				<ScrollReveal>
 					<h1 className="text-5xl font-bold text-white mb-10 text-center drop-shadow-lg">
-						StreetCircle
+						<StreetCircleTextLogo />
 					</h1>
 				</ScrollReveal>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -60,6 +61,8 @@ export default function StreetCircle() {
 									<h2 className="text-2xl font-bold mb-2">
 										{circle.label === "DarkStreet Reads" ? (
 											<><DarkStreetsTextLogo /> Reads</>
+										) : circle.label === "StreetCircle" ? (
+											<StreetCircleTextLogo />
 										) : (
 											circle.label
 										)}
