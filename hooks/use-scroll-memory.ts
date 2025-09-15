@@ -91,7 +91,9 @@ export function useScrollMemory() {
 
   // Restore scroll position for a page
   const restoreScrollPosition = (page: string, delay: number = 100) => {
+    console.log(`🔄 Starting scroll restoration for ${page}...`);
     const savedPosition = getScrollPosition(page);
+    console.log(`🔄 Retrieved position: ${savedPosition}px for ${page}`);
     
     if (savedPosition > 0 && typeof window !== 'undefined') {
       console.log(`Attempting to restore scroll position: ${savedPosition}px for ${page}`);
@@ -128,7 +130,7 @@ export function useScrollMemory() {
       
       attemptRestore();
     } else {
-      console.log(`No saved scroll position found for ${page}`);
+      console.log(`❌ No saved scroll position found for ${page} (position: ${savedPosition}px)`);
     }
   };
 

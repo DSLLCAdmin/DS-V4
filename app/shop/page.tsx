@@ -12,6 +12,7 @@ import { useCart } from '@/hooks/use-cart';
 import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
+import { StreetStoreTextLogo } from '@/components/StreetStoreTextLogo';
 import { withDarkStreetLogo } from '@/lib/logo-utils';
 import { isProductInDesign } from '@/lib/product-utils';
 import { InDesignModal } from '@/components/InDesignModal';
@@ -219,8 +220,8 @@ function StreetStoreContent() {
                 </div>
               </ScrollReveal>
               <ScrollReveal delay={200}>
-                <h1 className="text-6xl md:text-8xl font-black mb-8 bg-gradient-to-r from-swatch101 via-swatch102 to-swatch101 bg-clip-text text-transparent leading-tight">
-                  StreetStore
+                <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
+                  <StreetStoreTextLogo />
                 </h1>
               </ScrollReveal>
               <ScrollReveal delay={400}>

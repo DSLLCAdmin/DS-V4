@@ -732,3 +732,34 @@ button .dark-streets-text-logo .street-part,
   color: #FBF193 !important;
 }
 
+/* StreetStore bi-chromatic styling */
+.street-store-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.street-store-text-logo .street-part {
+  color: #4F4F4F !important; /* Dark Grey */
+  text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000; /* Thin black outline */
+}
+
+.street-store-text-logo .store-part {
+  color: #FBF193 !important; /* Light Yellow */
+  text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF; /* Thin white outline */
+}
+
+/* Enhanced DarkStreetsTextLogo with outlines */
+.dark-streets-text-logo .dark-part {
+  color: #4F4F4F !important;
+  text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000; /* Thin black outline */
+}
+
+.dark-streets-text-logo .street-part {
+  color: #FBF193 !important;
+  text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF; /* Thin white outline */
+}
+
