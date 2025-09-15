@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/use-scroll';
 import Image from 'next/image';
 import { DarkStreetsTextLogo } from './DarkStreetsTextLogo';
+import { useCart } from '@/hooks/use-cart';
 
 interface NavigationProps {
   variant?: 'header' | 'footer';
@@ -16,6 +17,7 @@ interface NavigationProps {
 export function Navigation({ variant = 'header' }: NavigationProps) {
   const pathname = usePathname();
   const { scrollY, scrollDirection } = useScrollPosition();
+  const { itemCount } = useCart();
 
   const navItems = [
     { href: '/', label: 'Home', icon: Home },
@@ -103,6 +105,20 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 <span>{item.label}</span>
               </Link>
             ))}
+            
+            {/* Cart Icon with Item Count */}
+            <Link
+              href="/cart"
+              className="relative flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-swatch101 hover:text-swatch103 hover:bg-swatch101/10"
+            >
+              <ShoppingCart className="h-4 w-4" />
+              <span>Cart</span>
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-swatch103 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
           </div>
 
           {/* Mobile menu button - simplified for now */}
