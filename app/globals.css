@@ -744,22 +744,20 @@ button .dark-streets-text-logo .street-part,
 
 .street-store-text-logo .street-part {
   color: #4F4F4F !important; /* Dark Grey */
-  text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000; /* Thin black outline */
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* Subtle grey glow */
 }
 
 .street-store-text-logo .store-part {
   color: #FBF193 !important; /* Light Yellow */
-  text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF; /* Thin white outline */
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* Subtle grey glow */
 }
 
-/* Enhanced DarkStreetsTextLogo with outlines */
+/* Clean DarkStreetsTextLogo without outlines */
 .dark-streets-text-logo .dark-part {
   color: #4F4F4F !important;
-  text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000; /* Thin black outline */
 }
 
 .dark-streets-text-logo .street-part {
   color: #FBF193 !important;
-  text-shadow: 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px -1px 0px #FFFFFF, -1px 1px 0px #FFFFFF; /* Thin white outline */
 }
 
