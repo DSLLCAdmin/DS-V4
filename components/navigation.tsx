@@ -8,6 +8,11 @@ import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/use-scroll';
 import Image from 'next/image';
 import { DarkStreetsTextLogo } from './DarkStreetsTextLogo';
+import { StreetStoreTextLogo } from './StreetStoreTextLogo';
+import { StreetCircleTextLogo } from './StreetCircleTextLogo';
+import { HomeTextLogo } from './HomeTextLogo';
+import { CartTextLogo } from './CartTextLogo';
+import { StreetersMapTextLogo } from './StreetersMapTextLogo';
 import { useCart } from '@/hooks/use-cart';
 
 interface NavigationProps {
@@ -23,7 +28,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
     { href: '/', label: 'Home', icon: Home },
     { href: '/shop', label: 'StreetStore', icon: ShoppingCart },
     { href: '/book-club', label: 'StreetCircle', icon: Users },
-    { href: '/ds-map', label: 'DS Map', icon: MapPin },
+    { href: '/ds-map', label: 'StreetersMap', icon: MapPin },
   ];
 
   if (variant === 'footer') {
@@ -102,7 +107,17 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 )}
               >
                 <item.icon className="h-4 w-4" />
-                <span>{item.label}</span>
+                {item.label === 'Home' ? (
+                  <HomeTextLogo />
+                ) : item.label === 'StreetStore' ? (
+                  <StreetStoreTextLogo />
+                ) : item.label === 'StreetCircle' ? (
+                  <StreetCircleTextLogo />
+                ) : item.label === 'StreetersMap' ? (
+                  <StreetersMapTextLogo />
+                ) : (
+                  <span>{item.label}</span>
+                )}
               </Link>
             ))}
             
@@ -112,7 +127,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               className="relative flex items-center space-x-2 px-4 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-swatch101 hover:text-swatch103 hover:bg-swatch101/10"
             >
               <ShoppingCart className="h-4 w-4" />
-              <span>Cart</span>
+              <CartTextLogo />
               {itemCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-swatch103 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                   {itemCount}
