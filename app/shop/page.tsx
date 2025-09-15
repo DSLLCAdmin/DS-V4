@@ -37,7 +37,7 @@ function StreetStoreContent() {
   const [selectedInDesignProduct, setSelectedInDesignProduct] = useState<any>(null);
 
   const { addToCart, itemCount } = useCart();
-  const { useAutoSave, restoreScrollPosition } = useScrollMemory();
+  const { useAutoSave, restoreScrollPosition, saveScrollPosition } = useScrollMemory();
 
   // Auto-save scroll position as user scrolls (lower threshold for better UX)
   useAutoSave('/shop', 50);
@@ -108,6 +108,19 @@ function StreetStoreContent() {
     }
   }, [sortedProducts.length]);
 
+  // Additional restoration trigger when page becomes visible (handles back navigation)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!document.hidden && sortedProducts.length > 0) {
+        console.log(`🔄 Page became visible, attempting scroll restoration...`);
+        restoreScrollPosition('/shop', 100);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [sortedProducts.length]);
+
   const toggleFavorite = (productId: string) => {
     setFavorites(prev =>
       prev.includes(productId)
@@ -124,9 +137,17 @@ function StreetStoreContent() {
       return;
     }
     
+    // Save current scroll position before adding to cart
+    if (typeof window !== 'undefined') {
+      const currentScroll = window.scrollY;
+      saveScrollPosition('/shop', currentScroll);
+      console.log(`🛒 Shop: Saved scroll position before adding to cart: ${currentScroll}px`);
+    }
+    
     const success = await addToCart(productId);
     if (success) {
-      // Cart updated successfully - user can access cart via navigation
+      // Cart updated successfully - scroll position already saved
+      console.log(`🛒 Shop: Item added to cart, scroll position preserved`);
     }
   };
 

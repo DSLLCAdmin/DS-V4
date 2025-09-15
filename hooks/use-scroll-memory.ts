@@ -120,10 +120,10 @@ export function useScrollMemory() {
             console.log(`✅ Scroll restored to ${savedPosition}px (attempt ${attempts + 1})`);
           } else if (attempts < 15) {
             // Try again if content isn't ready yet
-            console.log(`⏳ Content not ready, retrying... (attempt ${attempts + 1})`);
+            console.log(`⏳ Content not ready (doc: ${documentHeight}, win: ${windowHeight}, max: ${maxScrollableHeight}), retrying... (attempt ${attempts + 1})`);
             attemptRestore(attempts + 1);
           } else {
-            console.log(`❌ Failed to restore scroll position after ${attempts + 1} attempts`);
+            console.log(`❌ Failed to restore scroll position after ${attempts + 1} attempts - doc: ${documentHeight}, win: ${windowHeight}, saved: ${savedPosition}`);
           }
         }, delay + (attempts * 150)); // Increase delay with each attempt
       };

@@ -22,7 +22,7 @@ export default function AboutPage() {
             About <DarkStreetsTextLogo />
           </h1>
           <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
-            More than a story—it's a lifestyle, a community, and a way of seeing the world.
+            More than a story, lifestyle, or community alone, it's a way of seeing the world.
           </p>
         </div>
 
