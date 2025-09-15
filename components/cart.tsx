@@ -141,6 +141,8 @@ export function Cart() {
 export function CartIcon() {
   const { itemCount } = useCart();
 
+  console.log(`🛒 CartIcon rendering with itemCount: ${itemCount}`);
+
   return (
     <div className="relative">
       <ShoppingBag className="w-6 h-6" />

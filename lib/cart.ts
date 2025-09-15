@@ -150,6 +150,8 @@ class CartManager {
   private updateCartTotals() {
     this.cart.total = this.cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     this.cart.itemCount = this.cart.items.reduce((sum, item) => sum + item.quantity, 0);
+    console.log(`🛒 Cart totals updated: ${this.cart.itemCount} items, $${this.cart.total.toFixed(2)}`);
+    console.log(`🛒 Cart items:`, this.cart.items.map(item => `${item.title} x${item.quantity}`));
   }
 
   // Save cart to localStorage
