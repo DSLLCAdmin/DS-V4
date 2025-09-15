@@ -45,7 +45,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                 className="h-12 w-12 object-contain"
               />
               <DarkStreetsTextLogo 
-                className="text-xl font-bold"
+                className="text-xl font-bold -ml-2 -mt-2"
               />
             </div>
             <div className="flex flex-wrap justify-center gap-6">
@@ -90,7 +90,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               className="h-16 w-16 object-contain group-hover:scale-110 transition-transform duration-200"
             />
             <DarkStreetsTextLogo 
-              className="text-2xl font-bold"
+              className="text-2xl font-bold -ml-2 -mt-2"
             />
           </Link>
           
