@@ -269,7 +269,7 @@ export default function Home() {
               height={48}
               className="h-12 w-12 object-contain"
             />
-            <span className="text-xl font-bold -ml-2 -mt-2">
+            <span className="text-xl font-bold mt-4">
               <DarkStreetsTextLogo /> LLC
             </span>
           </div>
