@@ -13,6 +13,8 @@ import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { withDarkStreetLogo } from '@/lib/logo-utils';
+import { isProductInDesign } from '@/lib/product-utils';
+import { InDesignModal } from '@/components/InDesignModal';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -31,6 +33,8 @@ function StreetStoreContent() {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [showCart, setShowCart] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(24); // Show first 24 products initially
+  const [showInDesignModal, setShowInDesignModal] = useState(false);
+  const [selectedInDesignProduct, setSelectedInDesignProduct] = useState<any>(null);
 
   const { addToCart, itemCount } = useCart();
 
@@ -100,6 +104,13 @@ function StreetStoreContent() {
   };
 
   const handleAddToCart = async (productId: string) => {
+    const product = products.find(p => p.id === productId);
+    if (product && isProductInDesign(product)) {
+      setSelectedInDesignProduct(product);
+      setShowInDesignModal(true);
+      return;
+    }
+    
     const success = await addToCart(productId);
     if (success) {
       setShowCart(true);
@@ -156,6 +167,18 @@ function StreetStoreContent() {
 
       {/* Cart Component */}
       {showCart && <CartComponent />}
+
+      {/* In-Design Modal */}
+      {selectedInDesignProduct && (
+        <InDesignModal
+          product={selectedInDesignProduct}
+          isOpen={showInDesignModal}
+          onClose={() => {
+            setShowInDesignModal(false);
+            setSelectedInDesignProduct(null);
+          }}
+        />
+      )}
 
       {/* Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none">

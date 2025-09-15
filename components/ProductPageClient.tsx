@@ -7,6 +7,8 @@ import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/hooks/use-cart';
 import { Product } from '@/data/products';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
+import { isProductInDesign } from '@/lib/product-utils';
+import { InDesignModal } from '@/components/InDesignModal';
 
 interface ProductPageClientProps {
   product: Product;
@@ -16,8 +18,17 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const { addToCart, itemCount } = useCart();
   const [isAdding, setIsAdding] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  const [showInDesignModal, setShowInDesignModal] = useState(false);
+  
+  const isInDesign = isProductInDesign(product);
 
   const handleAddToCart = async () => {
+    // Check if product is In-Design first
+    if (isInDesign) {
+      setShowInDesignModal(true);
+      return;
+    }
+    
     if (!product.inStock) return;
     
     setIsAdding(true);
@@ -105,13 +116,15 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
         <div className="space-y-4">
           <Button
             onClick={handleAddToCart}
-            disabled={!product.inStock || isAdding}
+            disabled={(!product.inStock && !isInDesign) || isAdding}
             className={`w-full py-4 text-lg font-bold rounded-full transition-all duration-300 ${
-              product.inStock 
-                ? isAdded
-                  ? "bg-green-600 hover:bg-green-700 text-white"
-                  : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white hover:scale-105"
-                : "bg-gray-500 text-gray-300 cursor-not-allowed"
+              isInDesign
+                ? "bg-gradient-to-r from-swatch102 to-swatch103 hover:from-swatch103 hover:to-swatch104 text-white hover:scale-105"
+                : product.inStock 
+                  ? isAdded
+                    ? "bg-green-600 hover:bg-green-700 text-white"
+                    : "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white hover:scale-105"
+                  : "bg-gray-500 text-gray-300 cursor-not-allowed"
             }`}
           >
             {isAdding ? (
@@ -124,6 +137,11 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
                 <Star className="h-6 w-6 mr-3" />
                 Added to Cart!
               </>
+            ) : isInDesign ? (
+              <>
+                <Star className="h-6 w-6 mr-3" />
+                Coming Soon - Show Interest
+              </>
             ) : (
               <>
                 <ShoppingCart className="h-6 w-6 mr-3" />
@@ -132,7 +150,15 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
             )}
           </Button>
 
-          {!product.inStock && (
+          {isInDesign && (
+            <div className="text-center">
+              <Badge variant="secondary" className="bg-swatch102/20 text-swatch102 border-swatch102/30 font-bold text-lg px-6 py-3">
+                In Development
+              </Badge>
+            </div>
+          )}
+
+          {!product.inStock && !isInDesign && (
             <div className="text-center">
               <Badge variant="secondary" className="bg-swatch101 text-white font-bold text-lg px-6 py-3 border-2 border-swatch103">
                 Out of Stock
@@ -188,6 +214,13 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
           </ul>
         </div>
       </div>
+
+      {/* In-Design Modal */}
+      <InDesignModal
+        product={product}
+        isOpen={showInDesignModal}
+        onClose={() => setShowInDesignModal(false)}
+      />
     </div>
   );
 }
