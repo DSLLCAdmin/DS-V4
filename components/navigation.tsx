@@ -118,8 +118,6 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
                   {itemCount}
                 </span>
               )}
-              {/* Debug: Remove this after fixing */}
-              {console.log(`🛒 Navigation cart badge rendering with itemCount: ${itemCount}`)}
             </Link>
           </div>
 

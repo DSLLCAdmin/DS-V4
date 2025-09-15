@@ -73,7 +73,7 @@ export default function Home() {
                     />
                   </div>
                   <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">StreetCircle</h3>
-                  <p className="button-subtitle">Join Our Community</p>
+                  <p className="button-subtitle">Join the Streeters</p>
                   <div className="button-description">
                     <span>Connect with</span>
                     <span>Fellow Streeters</span>
@@ -100,7 +100,7 @@ export default function Home() {
                   <p className="button-subtitle">Global Streeters</p>
                   <div className="button-description">
                     <span>Discover <DarkStreetsTextLogo /></span>
-                    <span>For You</span>
+                    <span>for Yourself</span>
                     <ArrowRight className="w-4 h-4 button-arrow" />
                   </div>
                 </div>
@@ -123,7 +123,7 @@ export default function Home() {
                 <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">About</h3>
                 <p className="button-subtitle"><DarkStreetsTextLogo /></p>
                 <div className="button-description">
-                  <span>Hear Our <DarkStreetsTextLogo /></span>
+                  <span>Hear the <DarkStreetsTextLogo /></span>
                   <span>Backstory</span>
                   <ArrowRight className="w-4 h-4 button-arrow" />
                 </div>
@@ -155,7 +155,7 @@ export default function Home() {
               <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsTextLogo /> Series</h3>
               <p className="text-swatch205 leading-relaxed">
                 Follow Aries Tiger and the Dancer through the neon-lit streets of LA. 
-                From "First & Light" to "Mercury & Memory," experience the complete journey.
+                From "First & Light" to "Mercury & Memory, and beyond" cruise the journey.
               </p>
             </div>
 
@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
               <p className="text-swatch205 leading-relaxed">
-                <DarkStreetsTextLogo /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
+                <DarkStreetTextLogo /> tees, mesh bodysuits, denim jackets, and accessories that embody 
                 the essence of the streets. Each piece tells a story.
               </p>
             </div>

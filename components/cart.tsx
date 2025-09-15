@@ -141,7 +141,10 @@ export function Cart() {
 export function CartIcon() {
   const { itemCount } = useCart();
 
-  console.log(`🛒 CartIcon rendering with itemCount: ${itemCount}`);
+  // Debug logging in useEffect to avoid JSX issues
+  React.useEffect(() => {
+    console.log(`🛒 CartIcon rendering with itemCount: ${itemCount}`);
+  }, [itemCount]);
 
   return (
     <div className="relative">
