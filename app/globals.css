@@ -744,20 +744,71 @@ button .dark-streets-text-logo .street-part,
 
 .street-store-text-logo .street-part {
   color: #4F4F4F !important; /* Dark Grey */
-  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* Subtle grey glow */
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
 }
 
 .street-store-text-logo .store-part {
   color: #FBF193 !important; /* Light Yellow */
-  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* Subtle grey glow */
+  /* No glow for second half - keeps it clean */
 }
 
-/* Clean DarkStreetsTextLogo without outlines */
+/* DarkStreetsTextLogo with first-half glow */
 .dark-streets-text-logo .dark-part {
   color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
 }
 
 .dark-streets-text-logo .street-part {
   color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
+}
+
+/* Universal First-Half Glow System for Brand Logos */
+.brand-logo-first-half {
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4) !important;
+}
+
+.brand-logo-second-half {
+  /* No glow for second half - keeps it clean */
+}
+
+/* StreetCircle Logo */
+.street-circle-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.street-circle-text-logo .street-part {
+  color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
+}
+
+.street-circle-text-logo .circle-part {
+  color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
+}
+
+/* Generic Brand Logo Pattern - for future concatenations */
+.brand-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.brand-text-logo .first-half {
+  color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
+}
+
+.brand-text-logo .second-half {
+  color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
 }
 
