@@ -713,23 +713,19 @@ html {
   white-space: nowrap; /* Prevent line breaks */
 }
 
-.dark-streets-text-logo .dark-part {
-  color: #4F4F4F !important;
-}
-
-.dark-streets-text-logo .street-part {
-  color: #FBF193 !important;
-}
+/* DarkStreetsTextLogo colors defined below with glow effect */
 
 /* Override button text colors for logo */
 button .dark-streets-text-logo .dark-part,
 .btn .dark-streets-text-logo .dark-part {
   color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4) !important; /* First-half glow */
 }
 
 button .dark-streets-text-logo .street-part,
 .btn .dark-streets-text-logo .street-part {
   color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
 }
 
 /* StreetStore bi-chromatic styling */
