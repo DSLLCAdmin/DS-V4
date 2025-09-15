@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useScrollMemory } from '@/hooks/use-scroll-memory';
@@ -8,11 +8,24 @@ import { useScrollMemory } from '@/hooks/use-scroll-memory';
 export function ScrollMemoryTest() {
   const { saveScrollPosition, getScrollPosition, clearScrollPosition, scrollPositions } = useScrollMemory();
   const [testPosition, setTestPosition] = useState(0);
+  const [currentScroll, setCurrentScroll] = useState(0);
+
+  // Update current scroll position on client side only
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const updateScroll = () => setCurrentScroll(window.scrollY);
+      updateScroll();
+      window.addEventListener('scroll', updateScroll);
+      return () => window.removeEventListener('scroll', updateScroll);
+    }
+  }, []);
 
   const handleSavePosition = () => {
-    const currentScroll = window.scrollY;
-    saveScrollPosition('/shop', currentScroll);
-    setTestPosition(currentScroll);
+    if (typeof window !== 'undefined') {
+      const currentScroll = window.scrollY;
+      saveScrollPosition('/shop', currentScroll);
+      setTestPosition(currentScroll);
+    }
   };
 
   const handleGetPosition = () => {
@@ -32,7 +45,7 @@ export function ScrollMemoryTest() {
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="text-white">
-          <p>Current scroll position: {window.scrollY}px</p>
+          <p>Current scroll position: {currentScroll}px</p>
           <p>Last saved position: {testPosition}px</p>
         </div>
         

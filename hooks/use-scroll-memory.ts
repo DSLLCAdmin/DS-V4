@@ -23,12 +23,14 @@ export function useScrollMemory() {
     }));
 
     // Also save to localStorage for persistence across sessions
-    try {
-      const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
-      stored[page] = position;
-      localStorage.setItem('scroll-positions', JSON.stringify(stored));
-    } catch (error) {
-      console.error('Failed to save scroll position:', error);
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
+        stored[page] = position;
+        localStorage.setItem('scroll-positions', JSON.stringify(stored));
+      } catch (error) {
+        console.error('Failed to save scroll position:', error);
+      }
     }
   };
 
@@ -40,17 +42,19 @@ export function useScrollMemory() {
     }
 
     // Then check localStorage
-    try {
-      const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
-      if (stored[page]) {
-        // Check if position is recent (within 1 hour)
-        const age = Date.now() - stored[page].timestamp;
-        if (age < 60 * 60 * 1000) { // 1 hour
-          return stored[page].scrollY;
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
+        if (stored[page]) {
+          // Check if position is recent (within 1 hour)
+          const age = Date.now() - stored[page].timestamp;
+          if (age < 60 * 60 * 1000) { // 1 hour
+            return stored[page].scrollY;
+          }
         }
+      } catch (error) {
+        console.error('Failed to get scroll position:', error);
       }
-    } catch (error) {
-      console.error('Failed to get scroll position:', error);
     }
 
     return 0;
@@ -64,12 +68,14 @@ export function useScrollMemory() {
       return newPositions;
     });
 
-    try {
-      const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
-      delete stored[page];
-      localStorage.setItem('scroll-positions', JSON.stringify(stored));
-    } catch (error) {
-      console.error('Failed to clear scroll position:', error);
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
+        delete stored[page];
+        localStorage.setItem('scroll-positions', JSON.stringify(stored));
+      } catch (error) {
+        console.error('Failed to clear scroll position:', error);
+      }
     }
   };
 
@@ -77,7 +83,7 @@ export function useScrollMemory() {
   const restoreScrollPosition = (page: string, delay: number = 100) => {
     const savedPosition = getScrollPosition(page);
     
-    if (savedPosition > 0) {
+    if (savedPosition > 0 && typeof window !== 'undefined') {
       // Use setTimeout to ensure DOM is ready
       setTimeout(() => {
         window.scrollTo({
@@ -91,6 +97,8 @@ export function useScrollMemory() {
   // Auto-save scroll position on scroll
   const useAutoSave = (page: string, threshold: number = 100) => {
     useEffect(() => {
+      if (typeof window === 'undefined') return;
+
       let timeoutId: NodeJS.Timeout;
 
       const handleScroll = () => {
@@ -114,11 +122,13 @@ export function useScrollMemory() {
 
   // Load scroll positions from localStorage on mount
   useEffect(() => {
-    try {
-      const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
-      setScrollPositions(stored);
-    } catch (error) {
-      console.error('Failed to load scroll positions:', error);
+    if (typeof window !== 'undefined') {
+      try {
+        const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
+        setScrollPositions(stored);
+      } catch (error) {
+        console.error('Failed to load scroll positions:', error);
+      }
     }
   }, []);
 

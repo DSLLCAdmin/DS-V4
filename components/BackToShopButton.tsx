@@ -10,7 +10,9 @@ export function BackToShopButton() {
 
   const handleBackClick = () => {
     // Save current scroll position before navigating
-    saveScrollPosition('/shop', window.scrollY);
+    if (typeof window !== 'undefined') {
+      saveScrollPosition('/shop', window.scrollY);
+    }
   };
 
   return (
