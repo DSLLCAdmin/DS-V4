@@ -152,7 +152,7 @@ export const products: Product[] = [
     "price": 24.99,
     "description": "Quotes + neon visuals",
     "longDescription": "\r",
-    "image": "/product-images/placeholder.jpg",
+    "image": "/product-images/Tees-2.jpg",
     "inStock": true,
     "badge": "New"
   },
