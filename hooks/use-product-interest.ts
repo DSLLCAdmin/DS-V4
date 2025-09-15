@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { analytics } from '@/lib/analytics';
 
 interface ProductInterest {
   productId: string;
@@ -26,7 +27,7 @@ export function useProductInterest() {
   }, []);
 
   // Track interest in a product
-  const trackInterest = (productId: string) => {
+  const trackInterest = async (productId: string, productTitle?: string, productCategory?: string) => {
     const newData = { ...interestData };
     
     if (newData[productId]) {
@@ -44,7 +45,11 @@ export function useProductInterest() {
     setInterestData(newData);
     localStorage.setItem('product-interest', JSON.stringify(newData));
     
-    // Log for analytics (you can send this to your analytics service)
+    // Send to analytics system
+    if (productTitle && productCategory) {
+      await analytics.trackProductInterest(productId, productTitle, productCategory);
+    }
+    
     console.log(`Interest tracked for product ${productId}. Total interest: ${newData[productId].count}`);
   };
 

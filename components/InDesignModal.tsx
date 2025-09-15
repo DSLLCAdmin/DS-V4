@@ -20,8 +20,8 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
   
   const interestCount = getInterestCount(product.id);
 
-  const handleTrackInterest = () => {
-    trackInterest(product.id);
+  const handleTrackInterest = async () => {
+    await trackInterest(product.id, product.title, product.category);
     setHasTrackedInterest(true);
   };
 
