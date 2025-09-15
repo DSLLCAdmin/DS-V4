@@ -30,7 +30,20 @@ export function ScrollMemoryTest() {
 
   const handleGetPosition = () => {
     const savedPosition = getScrollPosition('/shop');
-    alert(`Saved position for /shop: ${savedPosition}px`);
+    alert(`Saved position for /shop: ${savedPosition}px\nCurrent scroll: ${currentScroll}px`);
+  };
+
+  const handleTestRestore = () => {
+    const savedPosition = getScrollPosition('/shop');
+    if (savedPosition > 0) {
+      window.scrollTo({
+        top: savedPosition,
+        behavior: 'smooth'
+      });
+      console.log(`Manually restored to ${savedPosition}px`);
+    } else {
+      alert('No saved position found');
+    }
   };
 
   const handleClearPosition = () => {
@@ -49,12 +62,15 @@ export function ScrollMemoryTest() {
           <p>Last saved position: {testPosition}px</p>
         </div>
         
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 flex-wrap">
           <Button onClick={handleSavePosition} variant="outline">
             Save Current Position
           </Button>
           <Button onClick={handleGetPosition} variant="outline">
             Get Saved Position
+          </Button>
+          <Button onClick={handleTestRestore} variant="outline">
+            Test Restore
           </Button>
           <Button onClick={handleClearPosition} variant="outline">
             Clear Position

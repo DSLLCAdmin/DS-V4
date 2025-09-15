@@ -84,13 +84,29 @@ export function useScrollMemory() {
     const savedPosition = getScrollPosition(page);
     
     if (savedPosition > 0 && typeof window !== 'undefined') {
-      // Use setTimeout to ensure DOM is ready
-      setTimeout(() => {
-        window.scrollTo({
-          top: savedPosition,
-          behavior: 'smooth'
-        });
-      }, delay);
+      // Use multiple attempts to ensure restoration works
+      const attemptRestore = (attempts: number = 0) => {
+        if (attempts > 10) return; // Max 10 attempts
+        
+        setTimeout(() => {
+          // Check if page has enough content to scroll to the saved position
+          const documentHeight = document.documentElement.scrollHeight;
+          const windowHeight = window.innerHeight;
+          
+          if (documentHeight > windowHeight && savedPosition < documentHeight) {
+            window.scrollTo({
+              top: savedPosition,
+              behavior: 'smooth'
+            });
+            console.log(`Scroll restored to ${savedPosition}px (attempt ${attempts + 1})`);
+          } else if (attempts < 10) {
+            // Try again if content isn't ready yet
+            attemptRestore(attempts + 1);
+          }
+        }, delay + (attempts * 100)); // Increase delay with each attempt
+      };
+      
+      attemptRestore();
     }
   };
 

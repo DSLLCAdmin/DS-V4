@@ -44,11 +44,6 @@ function StreetStoreContent() {
   // Auto-save scroll position as user scrolls
   useAutoSave('/shop', 100);
 
-  // Restore scroll position when component mounts
-  useEffect(() => {
-    restoreScrollPosition('/shop', 200);
-  }, []);
-
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -105,6 +100,14 @@ function StreetStoreContent() {
 
 
   }, [filteredProducts]);
+
+  // Restore scroll position when component mounts and products are loaded
+  useEffect(() => {
+    // Wait for products to load before restoring scroll
+    if (sortedProducts.length > 0) {
+      restoreScrollPosition('/shop', 300);
+    }
+  }, [sortedProducts.length]);
 
   const toggleFavorite = (productId: string) => {
     setFavorites(prev =>
