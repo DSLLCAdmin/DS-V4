@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     // Log the event (replace with your preferred analytics service)
     console.log('Analytics Event Received:', {
       ...event,
-      ip: request.ip,
+      ip: request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown',
       userAgent: request.headers.get('user-agent'),
       timestamp: new Date().toISOString()
     });
