@@ -5,6 +5,7 @@ import { FloatingElement, ScrollReveal } from "@/components/floating-elements";
 import { Navigation } from "@/components/navigation";
 import { DarkStreetsTextLogo } from "@/components/DarkStreetsTextLogo";
 import { StreetCircleTextLogo } from "@/components/StreetCircleTextLogo";
+import { StreetListTextLogo } from "@/components/StreetListTextLogo";
 
 const circles = [
 	{
@@ -63,6 +64,8 @@ export default function StreetCircle() {
 											<><DarkStreetsTextLogo /> Reads</>
 										) : circle.label === "StreetCircle" ? (
 											<StreetCircleTextLogo />
+										) : circle.label === "StreetList" ? (
+											<StreetListTextLogo />
 										) : (
 											circle.label
 										)}

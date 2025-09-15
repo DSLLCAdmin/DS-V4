@@ -792,6 +792,26 @@ button .dark-streets-text-logo .street-part,
   /* No glow for second half - keeps it clean */
 }
 
+/* StreetList Logo */
+.street-list-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.street-list-text-logo .street-part {
+  color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
+}
+
+.street-list-text-logo .list-part {
+  color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
+}
+
 /* Generic Brand Logo Pattern - for future concatenations */
 .brand-text-logo {
   font-family: 'Directors Gothic', Arial, sans-serif;
