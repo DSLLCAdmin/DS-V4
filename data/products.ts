@@ -200,7 +200,7 @@ export const products: Product[] = [
     "price": 24.99,
     "description": "Baseball Caps",
     "longDescription": "\r",
-    "image": "/product-images/placeholder.jpg",
+    "image": "/product-images/A8_hats.jpg",
     "inStock": true,
     "badge": "New"
   },
