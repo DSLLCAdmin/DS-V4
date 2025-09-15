@@ -172,7 +172,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
               <p className="text-swatch205 leading-relaxed">
-                <DarkStreetTextLogo /> tees, mesh bodysuits, denim jackets, and accessories that embody 
+                <DarkStreetsTextLogo /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
                 the essence of the streets. Each piece tells a story.
               </p>
             </div>
