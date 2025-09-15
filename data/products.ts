@@ -1,4 +1,17 @@
-export const products = [
+export interface Product {
+  id: string;
+  category: string;
+  title: string;
+  author: string;
+  price: number;
+  description: string;
+  longDescription?: string;
+  image: string;
+  inStock: boolean;
+  badge?: string;
+}
+
+export const products: Product[] = [
   {
     "id": "1a",
     "category": "Serials/Books",
