@@ -144,7 +144,7 @@ export default function CartPage() {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-6">
             {cart.items.map((item) => {
-              const product = getProductById(item.productId);
+              const product = getProductById(item.id);
               if (!product) return null;
 
               return (
