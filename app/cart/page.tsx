@@ -11,10 +11,14 @@ import { useCart } from '@/hooks/use-cart';
 import { products } from '@/data/products';
 import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
+import { useScrollMemory } from '@/hooks/use-scroll-memory';
+import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
   const { cart, loading, updateQuantity, removeFromCart, clearCart } = useCart();
   const [isUpdating, setIsUpdating] = useState<string | null>(null);
+  const { saveScrollPosition } = useScrollMemory();
+  const router = useRouter();
 
   const handleUpdateQuantity = async (itemId: string, newQuantity: number) => {
     if (newQuantity < 1) {
@@ -47,6 +51,20 @@ export default function CartPage() {
     if (confirm('Are you sure you want to clear your cart?')) {
       await clearCart();
     }
+  };
+
+  const handleBackToShop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // Save current scroll position before navigating
+    if (typeof window !== 'undefined') {
+      const currentScroll = window.scrollY;
+      saveScrollPosition('/shop', currentScroll);
+      console.log(`💾 Cart: Saved scroll position before navigation: ${currentScroll}px`);
+    }
+    
+    // Use router.push for client-side navigation
+    router.push('/shop');
   };
 
   const formatPrice = (price: number) => {
@@ -114,12 +132,14 @@ export default function CartPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
-          <Link href="/shop">
-            <Button variant="outline" className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Continue Shopping
-            </Button>
-          </Link>
+          <Button 
+            onClick={handleBackToShop}
+            variant="outline" 
+            className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10"
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Continue Shopping
+          </Button>
           
           <div className="text-center">
             <h1 className="text-3xl font-bold text-white mb-2">

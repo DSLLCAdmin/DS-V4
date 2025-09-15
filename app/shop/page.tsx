@@ -104,6 +104,7 @@ function StreetStoreContent() {
   useEffect(() => {
     // Wait for products to load before restoring scroll
     if (sortedProducts.length > 0) {
+      console.log(`🔄 Shop page loaded with ${sortedProducts.length} products, attempting scroll restoration...`);
       restoreScrollPosition('/shop', 300);
     }
   }, [sortedProducts.length]);

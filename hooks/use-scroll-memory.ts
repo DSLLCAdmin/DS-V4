@@ -17,6 +17,8 @@ export function useScrollMemory() {
       timestamp: Date.now()
     };
 
+    console.log(`💾 Saving scroll position for ${page}: ${scrollY}px`);
+
     setScrollPositions(prev => ({
       ...prev,
       [page]: position
@@ -28,6 +30,7 @@ export function useScrollMemory() {
         const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
         stored[page] = position;
         localStorage.setItem('scroll-positions', JSON.stringify(stored));
+        console.log(`💾 Saved to localStorage for ${page}: ${scrollY}px`);
       } catch (error) {
         console.error('Failed to save scroll position:', error);
       }
@@ -38,18 +41,24 @@ export function useScrollMemory() {
   const getScrollPosition = (page: string): number => {
     // First check memory
     if (scrollPositions[page]) {
-      return scrollPositions[page].scrollY;
+      const position = scrollPositions[page].scrollY;
+      console.log(`📖 Retrieved scroll position from memory for ${page}: ${position}px`);
+      return position;
     }
 
     // Then check localStorage
     if (typeof window !== 'undefined') {
       try {
         const stored = JSON.parse(localStorage.getItem('scroll-positions') || '{}');
+        console.log(`📖 Checking localStorage for ${page}:`, stored);
         if (stored[page]) {
           // Check if position is recent (within 1 hour)
           const age = Date.now() - stored[page].timestamp;
           if (age < 60 * 60 * 1000) { // 1 hour
+            console.log(`📖 Retrieved scroll position from localStorage for ${page}: ${stored[page].scrollY}px`);
             return stored[page].scrollY;
+          } else {
+            console.log(`📖 Scroll position for ${page} is too old (${age}ms), ignoring`);
           }
         }
       } catch (error) {
@@ -57,6 +66,7 @@ export function useScrollMemory() {
       }
     }
 
+    console.log(`📖 No scroll position found for ${page}`);
     return 0;
   };
 
