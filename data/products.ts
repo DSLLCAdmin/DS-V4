@@ -296,7 +296,7 @@ export const products: Product[] = [
     "price": 24.99,
     "description": "Mini Travel packs with wipes condoms pepper spray gum.",
     "longDescription": "\r",
-    "image": "/product-images/placeholder.jpg",
+    "image": "/product-images/D6_neon-light-wall-signs.jpg",
     "inStock": true,
     "badge": "New"
   },
@@ -308,7 +308,7 @@ export const products: Product[] = [
     "price": 24.99,
     "description": "Tiny dancers streetlight beads black feathers.",
     "longDescription": "\r",
-    "image": "/product-images/placeholder.jpg",
+    "image": "/product-images/B7_mirror-charms.jpg",
     "inStock": true,
     "badge": "New"
   },
