@@ -1,13 +1,13 @@
-import { useParams, useRouter } from 'next/navigation';
 import { ShoppingCart, Heart, Star, ArrowLeft, Users, MapPin, Book, Award, Shield, Truck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Navigation, BackButton } from '@/components/navigation';
+import { Navigation } from '@/components/navigation';
 import { FloatingElement, ScrollReveal } from '@/components/floating-elements';
 import { products } from '@/data/products';
 import Link from 'next/link';
 import { ProductPageClient } from '@/components/ProductPageClient';
+import { BackToShopButton } from '@/components/BackToShopButton';
 
 // Generate static params for all products
 export async function generateStaticParams() {
@@ -55,12 +55,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Back Button */}
         <div className="mb-8">
-          <Link href="/shop">
-            <Button variant="outline" className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to StreetStore
-            </Button>
-          </Link>
+          <BackToShopButton />
         </div>
 
         {/* Product Details */}
