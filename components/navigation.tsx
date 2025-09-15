@@ -40,9 +40,9 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               <Image
                 src="/DS-Logo.png"
                 alt="DarkStreets Logo"
-                width={24}
-                height={24}
-                className="h-6 w-6 object-contain"
+                width={48}
+                height={48}
+                className="h-12 w-12 object-contain"
               />
               <DarkStreetsTextLogo 
                 className="text-xl font-bold"
@@ -85,9 +85,9 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
             <Image
               src="/DS-Logo.png"
               alt="DarkStreets Logo"
-              width={32}
-              height={32}
-              className="h-8 w-8 object-contain group-hover:scale-110 transition-transform duration-200"
+              width={64}
+              height={64}
+              className="h-16 w-16 object-contain group-hover:scale-110 transition-transform duration-200"
             />
             <DarkStreetsTextLogo 
               className="text-2xl font-bold"
@@ -142,9 +142,9 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
               <Image
                 src="/DS-Logo.png"
                 alt="DarkStreets Logo"
-                width={20}
-                height={20}
-                className="h-5 w-5 object-contain"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
               />
             </Button>
           </div>

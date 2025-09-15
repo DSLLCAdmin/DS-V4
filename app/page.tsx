@@ -265,9 +265,9 @@ export default function Home() {
             <Image
               src="/DS-Logo.png"
               alt="DarkStreets Logo"
-              width={24}
-              height={24}
-              className="h-6 w-6 object-contain"
+              width={48}
+              height={48}
+              className="h-12 w-12 object-contain"
             />
             <span className="text-xl font-bold">
               <DarkStreetsTextLogo /> LLC
