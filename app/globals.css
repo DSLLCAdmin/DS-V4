@@ -812,6 +812,26 @@ button .dark-streets-text-logo .street-part,
   /* No glow for second half - keeps it clean */
 }
 
+/* StreetVerse Logo */
+.street-verse-text-logo {
+  font-family: 'Directors Gothic', Arial, sans-serif;
+  font-weight: bold;
+  font-size: inherit;
+  vertical-align: baseline;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.street-verse-text-logo .street-part {
+  color: #4F4F4F !important;
+  text-shadow: 0 0 8px rgba(128, 128, 128, 0.6), 0 0 16px rgba(128, 128, 128, 0.4); /* First-half glow */
+}
+
+.street-verse-text-logo .verse-part {
+  color: #FBF193 !important;
+  /* No glow for second half - keeps it clean */
+}
+
 /* Generic Brand Logo Pattern - for future concatenations */
 .brand-text-logo {
   font-family: 'Directors Gothic', Arial, sans-serif;

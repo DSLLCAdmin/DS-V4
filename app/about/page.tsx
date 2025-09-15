@@ -33,12 +33,11 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Our Origin</h2>
             <p className="text-lg text-white/90 leading-relaxed mb-6">
               <DarkStreetsTextLogo /> emerged from the neon-lit streets of Los Angeles, where Aries Tiger and the Dancer 
-              first crossed paths. What began as chance encounters in the urban landscape evolved into a 
-              movement that celebrates the raw beauty of street culture.
+              first crossed paths. What began as chance encounters in the urban landscape evolved with Streeters who celebrate the raw beauty of street culture.
             </p>
             <p className="text-lg text-white/90 leading-relaxed">
               Through their eyes, we explore themes of freedom, connection, and the unscripted moments 
-              that make city life truly alive.
+              that make city life feel truly alive.
             </p>
           </div>
 
@@ -46,11 +45,10 @@ export default function AboutPage() {
           <div className="bg-white/20 backdrop-blur-md rounded-2xl p-8 border border-white/30">
             <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Our Mission</h2>
             <p className="text-lg text-white/90 leading-relaxed mb-6">
-              We're building more than a brand—we're cultivating a community of street culture enthusiasts, 
-              urban explorers, and creative souls who find beauty in the unexpected corners of city life.
+              We're building more than community—we're cultivating street culture, urban explorers, and creative souls who find beauty in the unexpected corners of city life.
             </p>
             <p className="text-lg text-white/90 leading-relaxed">
-              From our books to our apparel to our immersive experiences, every element is designed to 
+              From our books and apparel to our immersive experiences, every element is designed to 
               transport you into the world of <DarkStreetsTextLogo />.
             </p>
           </div>
@@ -75,7 +73,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-white drop-shadow-lg">Community</h3>
               <p className="text-white/90">
-                We're building connections between street culture enthusiasts worldwide.
+                We're building street culture with Streeters worldwide.
               </p>
             </div>
             <div className="text-center">
@@ -84,7 +82,7 @@ export default function AboutPage() {
               </div>
               <h3 className="text-xl font-bold mb-3 text-white drop-shadow-lg">Innovation</h3>
               <p className="text-white/90">
-                Pushing boundaries in storytelling, design, and immersive experiences.
+                Pushing the bounds of storytelling, design, and immersive experiences.
               </p>
             </div>
           </div>
@@ -96,7 +94,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold mb-6 text-white drop-shadow-lg">Join the <DarkStreetsTextLogo /> Movement</h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
               Whether you're discovering our books, wearing our apparel, or experiencing our immersive content, 
-              you're part of something bigger than just a brand.
+              you're part of something big.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a href="/shop" className="bg-white/30 hover:bg-white/40 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 hover:scale-105 border border-white/50">

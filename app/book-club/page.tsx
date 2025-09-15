@@ -6,6 +6,7 @@ import { Navigation } from "@/components/navigation";
 import { DarkStreetsTextLogo } from "@/components/DarkStreetsTextLogo";
 import { StreetCircleTextLogo } from "@/components/StreetCircleTextLogo";
 import { StreetListTextLogo } from "@/components/StreetListTextLogo";
+import { StreetVerseTextLogo } from "@/components/StreetVerseTextLogo";
 
 const circles = [
 	{
@@ -76,6 +77,8 @@ export default function StreetCircle() {
 									<p className="text-gray-700 text-center">
 										{circle.desc === "A curated list of must-read books for every DarkStreeter." ? (
 											<>A curated list of must-read books for every <DarkStreetsTextLogo />er.</>
+										) : circle.desc === "Top picks and reviews from the StreetVerse community." ? (
+											<>Top picks and reviews from the <StreetVerseTextLogo /> community.</>
 										) : (
 											circle.desc
 										)}
