@@ -36,7 +36,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
       <footer className="bg-swatch205/90 backdrop-blur-md border-t border-swatch101/20 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
+            <div className="flex items-center space-x-1 mb-4 md:mb-0">
               <Image
                 src="/DS-Logo.png"
                 alt="DarkStreets Logo"
@@ -81,7 +81,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center space-x-1 group">
             <Image
               src="/DS-Logo.png"
               alt="DarkStreets Logo"

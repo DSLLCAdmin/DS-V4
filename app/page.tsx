@@ -261,7 +261,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full bg-swatch205 text-swatch101 mt-16">
         <div className="max-w-7xl mx-auto p-8 text-center">
-          <div className="flex items-center justify-center space-x-2 mb-4">
+          <div className="flex items-center justify-center space-x-1 mb-4">
             <Image
               src="/DS-Logo.png"
               alt="DarkStreets Logo"
