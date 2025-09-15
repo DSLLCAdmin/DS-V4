@@ -84,53 +84,81 @@ export function useScrollMemory() {
     const savedPosition = getScrollPosition(page);
     
     if (savedPosition > 0 && typeof window !== 'undefined') {
+      console.log(`Attempting to restore scroll position: ${savedPosition}px for ${page}`);
+      
       // Use multiple attempts to ensure restoration works
       const attemptRestore = (attempts: number = 0) => {
-        if (attempts > 10) return; // Max 10 attempts
+        if (attempts > 15) {
+          console.log(`Max restoration attempts reached for ${page}`);
+          return;
+        }
         
         setTimeout(() => {
           // Check if page has enough content to scroll to the saved position
           const documentHeight = document.documentElement.scrollHeight;
           const windowHeight = window.innerHeight;
+          const maxScrollableHeight = documentHeight - windowHeight;
           
-          if (documentHeight > windowHeight && savedPosition < documentHeight) {
+          // Ensure we have enough content and the saved position is valid
+          if (documentHeight > windowHeight && savedPosition <= maxScrollableHeight) {
             window.scrollTo({
               top: savedPosition,
               behavior: 'smooth'
             });
-            console.log(`Scroll restored to ${savedPosition}px (attempt ${attempts + 1})`);
-          } else if (attempts < 10) {
+            console.log(`✅ Scroll restored to ${savedPosition}px (attempt ${attempts + 1})`);
+          } else if (attempts < 15) {
             // Try again if content isn't ready yet
+            console.log(`⏳ Content not ready, retrying... (attempt ${attempts + 1})`);
             attemptRestore(attempts + 1);
+          } else {
+            console.log(`❌ Failed to restore scroll position after ${attempts + 1} attempts`);
           }
-        }, delay + (attempts * 100)); // Increase delay with each attempt
+        }, delay + (attempts * 150)); // Increase delay with each attempt
       };
       
       attemptRestore();
+    } else {
+      console.log(`No saved scroll position found for ${page}`);
     }
   };
 
   // Auto-save scroll position on scroll
-  const useAutoSave = (page: string, threshold: number = 100) => {
+  const useAutoSave = (page: string, threshold: number = 50) => {
     useEffect(() => {
       if (typeof window === 'undefined') return;
 
       let timeoutId: NodeJS.Timeout;
+      let lastSavedPosition = 0;
 
       const handleScroll = () => {
         clearTimeout(timeoutId);
         timeoutId = setTimeout(() => {
           const scrollY = window.scrollY;
-          if (scrollY > threshold) {
+          
+          // Only save if we've scrolled significantly from last saved position
+          if (scrollY > threshold && Math.abs(scrollY - lastSavedPosition) > 100) {
             saveScrollPosition(page, scrollY);
+            lastSavedPosition = scrollY;
+            console.log(`Auto-saved scroll position: ${scrollY}px for ${page}`);
           }
-        }, 150); // Debounce scroll events
+        }, 200); // Debounce scroll events
+      };
+
+      // Also save on page unload
+      const handleBeforeUnload = () => {
+        const scrollY = window.scrollY;
+        if (scrollY > threshold) {
+          saveScrollPosition(page, scrollY);
+          console.log(`Saved scroll position on unload: ${scrollY}px for ${page}`);
+        }
       };
 
       window.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('beforeunload', handleBeforeUnload);
       
       return () => {
         window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('beforeunload', handleBeforeUnload);
         clearTimeout(timeoutId);
       };
     }, [page, threshold]);

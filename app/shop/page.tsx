@@ -16,7 +16,6 @@ import { withDarkStreetLogo } from '@/lib/logo-utils';
 import { isProductInDesign } from '@/lib/product-utils';
 import { InDesignModal } from '@/components/InDesignModal';
 import { useScrollMemory } from '@/hooks/use-scroll-memory';
-import { ScrollMemoryTest } from '@/components/ScrollMemoryTest';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -41,8 +40,8 @@ function StreetStoreContent() {
   const { addToCart, itemCount } = useCart();
   const { useAutoSave, restoreScrollPosition } = useScrollMemory();
 
-  // Auto-save scroll position as user scrolls
-  useAutoSave('/shop', 100);
+  // Auto-save scroll position as user scrolls (lower threshold for better UX)
+  useAutoSave('/shop', 50);
 
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -281,8 +280,6 @@ function StreetStoreContent() {
         </div>
       </div>
 
-      {/* Scroll Memory Test - Remove after testing */}
-      <ScrollMemoryTest />
 
       {/* Search and Filter Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

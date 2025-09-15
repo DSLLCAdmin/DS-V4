@@ -14,8 +14,9 @@ export function BackToShopButton() {
     
     // Save current scroll position before navigating
     if (typeof window !== 'undefined') {
-      saveScrollPosition('/shop', window.scrollY);
-      console.log(`Saved scroll position: ${window.scrollY}px`);
+      const currentScroll = window.scrollY;
+      saveScrollPosition('/shop', currentScroll);
+      console.log(`💾 Saved scroll position before navigation: ${currentScroll}px`);
     }
     
     // Use router.push for client-side navigation
