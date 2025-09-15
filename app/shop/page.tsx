@@ -9,7 +9,6 @@ import { Navigation, BackButton } from '@/components/navigation';
 import { FloatingElement, ScrollReveal } from '@/components/floating-elements';
 import { products } from '@/data/products';
 import { useCart } from '@/hooks/use-cart';
-import { Cart as CartComponent, CartIcon } from '@/components/cart';
 import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { StreetStoreTextLogo } from '@/components/StreetStoreTextLogo';
@@ -33,7 +32,6 @@ function StreetStoreContent() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("images-first"); // Default: images first
   const [favorites, setFavorites] = useState<string[]>([]);
-  const [showCart, setShowCart] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState(24); // Show first 24 products initially
   const [showInDesignModal, setShowInDesignModal] = useState(false);
   const [selectedInDesignProduct, setSelectedInDesignProduct] = useState<any>(null);
@@ -128,7 +126,7 @@ function StreetStoreContent() {
     
     const success = await addToCart(productId);
     if (success) {
-      setShowCart(true);
+      // Cart updated successfully - user can access cart via navigation
     }
   };
 
@@ -168,20 +166,6 @@ function StreetStoreContent() {
     		<div className="min-h-screen bg-gradient-to-b from-[#1A0F0A] via-[#8B4513] to-[#D2691E] overflow-hidden">
       <Navigation />
       
-      {/* Cart Icon */}
-      <div className="fixed top-4 right-4 z-50">
-        <Button
-          variant="ghost"
-          size="lg"
-          onClick={() => setShowCart(!showCart)}
-          className="bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 text-white"
-        >
-          <CartIcon />
-        </Button>
-      </div>
-
-      {/* Cart Component */}
-      {showCart && <CartComponent />}
 
       {/* In-Design Modal */}
       {selectedInDesignProduct && (

@@ -149,8 +149,9 @@ class CartManager {
   // Update cart totals
   private updateCartTotals() {
     this.cart.total = this.cart.items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    this.cart.itemCount = this.cart.items.reduce((sum, item) => sum + item.quantity, 0);
-    console.log(`🛒 Cart totals updated: ${this.cart.itemCount} items, $${this.cart.total.toFixed(2)}`);
+    // Count unique products instead of total quantities
+    this.cart.itemCount = this.cart.items.length;
+    console.log(`🛒 Cart totals updated: ${this.cart.itemCount} unique products, $${this.cart.total.toFixed(2)}`);
     console.log(`🛒 Cart items:`, this.cart.items.map(item => `${item.title} x${item.quantity}`));
   }
 
