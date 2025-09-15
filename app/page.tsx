@@ -5,6 +5,10 @@ import { Button } from "../components/ui/button";
 import Image from "next/image";
 import { Book, Users, MapPin, ShoppingBag, Star, ArrowRight } from "lucide-react";
 import { DarkStreetsTextLogo } from "../components/DarkStreetsTextLogo";
+import { StreetStoreTextLogo } from "../components/StreetStoreTextLogo";
+import { StreetCircleTextLogo } from "../components/StreetCircleTextLogo";
+import { StreetersMapTextLogo } from "../components/StreetersMapTextLogo";
+import { AboutTextLogo } from "../components/AboutTextLogo";
 
 export default function Home() {
 
@@ -48,7 +52,9 @@ export default function Home() {
                       className="streetstore-vehicle"
                     />
                   </div>
-                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">StreetStore</h3>
+                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">
+                    <StreetStoreTextLogo />
+                  </h3>
                   <p className="button-subtitle">Streeter Collection</p>
                   <div className="button-description">
                     <span>Books, Apparel,</span>
@@ -72,7 +78,9 @@ export default function Home() {
                       className="streetcircle-vehicle"
                     />
                   </div>
-                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">StreetCircle</h3>
+                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">
+                    <StreetCircleTextLogo />
+                  </h3>
                   <p className="button-subtitle">Join the Streeters</p>
                   <div className="button-description">
                     <span>Connect with</span>
@@ -96,7 +104,9 @@ export default function Home() {
                       className="dsmap-vehicle"
                     />
                   </div>
-                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">DS Map</h3>
+                  <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">
+                    <StreetersMapTextLogo />
+                  </h3>
                   <p className="button-subtitle">Global Streeters</p>
                   <div className="button-description">
                     <span>Discover <DarkStreetsTextLogo /></span>
@@ -120,7 +130,9 @@ export default function Home() {
                       className="about-vehicle filter grayscale brightness-75 contrast-125 saturate-30"
                     />
                   </div>
-                <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">About</h3>
+                <h3 className="button-title underline decoration-white decoration-2 underline-offset-4">
+                  <AboutTextLogo />
+                </h3>
                 <p className="button-subtitle"><DarkStreetsTextLogo /></p>
                 <div className="button-description">
                   <span>Hear the <DarkStreetsTextLogo /></span>
