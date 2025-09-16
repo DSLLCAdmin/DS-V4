@@ -136,8 +136,22 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
             </Link>
           </div>
 
-          {/* Mobile menu button - simplified for now */}
-          <div className="md:hidden">
+          {/* Mobile navigation */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Mobile Cart Button */}
+            <Link
+              href="/cart"
+              className="relative flex items-center space-x-1 px-2 py-2 rounded-lg font-medium transition-all duration-200 hover:scale-105 text-swatch101 hover:text-swatch103 hover:bg-swatch101/10"
+            >
+              <ShoppingCart className="h-5 w-5" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-swatch103 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  {itemCount}
+                </span>
+              )}
+            </Link>
+            
+            {/* Mobile menu button - simplified for now */}
             <Button variant="ghost" size="sm" className="text-swatch101 hover:text-swatch103 hover:bg-swatch101/10">
               <Image
                 src="/DS-Logo.png"
