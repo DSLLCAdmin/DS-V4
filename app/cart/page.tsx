@@ -131,33 +131,72 @@ export default function CartPage() {
       {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <Button 
-            onClick={handleBackToShop}
-            variant="outline" 
-            className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10"
-          >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Continue Shopping
-          </Button>
-          
-          <div className="text-center">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              Your <DarkStreetsTextLogo /> Cart
-            </h1>
-            <p className="text-white/80">
-              {cart.itemCount} {cart.itemCount === 1 ? 'item' : 'items'} in your cart
-            </p>
+        <div className="mb-8">
+          {/* Mobile Header */}
+          <div className="sm:hidden">
+            <div className="text-center mb-4">
+              <h1 className="text-2xl font-bold text-white mb-2">
+                Your <DarkStreetsTextLogo /> Cart
+              </h1>
+              <p className="text-white/80 text-sm">
+                {cart.itemCount} {cart.itemCount === 1 ? 'item' : 'items'} in your cart
+              </p>
+            </div>
+            
+            <div className="flex justify-between items-center">
+              <Button 
+                onClick={handleBackToShop}
+                variant="outline" 
+                size="sm"
+                className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10"
+              >
+                <ArrowLeft className="h-4 w-4 mr-1" />
+                <span className="hidden xs:inline">Continue Shopping</span>
+                <span className="xs:hidden">Back</span>
+              </Button>
+
+              <Button
+                onClick={handleClearCart}
+                variant="outline"
+                size="sm"
+                className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+              >
+                <Trash2 className="h-4 w-4 mr-1" />
+                <span className="hidden xs:inline">Clear Cart</span>
+                <span className="xs:hidden">Clear</span>
+              </Button>
+            </div>
           </div>
 
-          <Button
-            onClick={handleClearCart}
-            variant="outline"
-            className="border-red-500/30 text-red-400 hover:bg-red-500/10"
-          >
-            <Trash2 className="h-4 w-4 mr-2" />
-            Clear Cart
-          </Button>
+          {/* Desktop Header */}
+          <div className="hidden sm:flex justify-between items-center">
+            <Button 
+              onClick={handleBackToShop}
+              variant="outline" 
+              className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10"
+            >
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Continue Shopping
+            </Button>
+            
+            <div className="text-center">
+              <h1 className="text-3xl font-bold text-white mb-2">
+                Your <DarkStreetsTextLogo /> Cart
+              </h1>
+              <p className="text-white/80">
+                {cart.itemCount} {cart.itemCount === 1 ? 'item' : 'items'} in your cart
+              </p>
+            </div>
+
+            <Button
+              onClick={handleClearCart}
+              variant="outline"
+              className="border-red-500/30 text-red-400 hover:bg-red-500/10"
+            >
+              <Trash2 className="h-4 w-4 mr-2" />
+              Clear Cart
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -170,8 +209,79 @@ export default function CartPage() {
               return (
                 <ScrollReveal key={item.id}>
                   <Card className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm border border-swatch103/30">
-                    <CardContent className="p-6">
-                      <div className="flex items-center space-x-6">
+                    <CardContent className="p-4 sm:p-6">
+                      {/* Mobile Layout */}
+                      <div className="flex flex-col space-y-4 sm:hidden">
+                        {/* Product Image and Details */}
+                        <div className="flex items-start space-x-4">
+                          <div className="flex-shrink-0">
+                            {product.image && product.image !== "/product-images/placeholder.jpg" ? (
+                              <img
+                                src={product.image}
+                                alt={product.title}
+                                className="w-16 h-16 object-cover rounded-lg"
+                              />
+                            ) : (
+                              <div className="w-16 h-16 bg-gradient-to-br from-swatch201/30 to-swatch202/20 rounded-lg flex items-center justify-center">
+                                <ShoppingCart className="h-6 w-6 text-swatch204 opacity-50" />
+                              </div>
+                            )}
+                          </div>
+                          <div className="flex-grow min-w-0">
+                            <h3 className="text-lg font-bold text-white mb-1 truncate">
+                              {product.title}
+                            </h3>
+                            <p className="text-white/80 text-sm mb-1">by {product.author}</p>
+                            <p className="text-lg font-bold text-swatch103">
+                              {formatPrice(product.price)}
+                            </p>
+                          </div>
+                        </div>
+                        
+                        {/* Mobile Controls */}
+                        <div className="flex items-center justify-between">
+                          {/* Quantity Controls */}
+                          <div className="flex items-center space-x-3">
+                            <Button
+                              onClick={() => handleUpdateQuantity(item.id, item.quantity - 1)}
+                              disabled={isUpdating === item.id}
+                              variant="outline"
+                              size="sm"
+                              className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10 h-8 w-8 p-0"
+                            >
+                              <Minus className="h-3 w-3" />
+                            </Button>
+                            
+                            <span className="text-white font-bold text-base min-w-[2rem] text-center">
+                              {item.quantity}
+                            </span>
+                            
+                            <Button
+                              onClick={() => handleUpdateQuantity(item.id, item.quantity + 1)}
+                              disabled={isUpdating === item.id}
+                              variant="outline"
+                              size="sm"
+                              className="border-swatch103/30 text-swatch103 hover:bg-swatch103/10 h-8 w-8 p-0"
+                            >
+                              <Plus className="h-3 w-3" />
+                            </Button>
+                          </div>
+
+                          {/* Remove Button */}
+                          <Button
+                            onClick={() => handleRemoveItem(item.id)}
+                            disabled={isUpdating === item.id}
+                            variant="outline"
+                            size="sm"
+                            className="border-red-500/30 text-red-400 hover:bg-red-500/10 h-8 w-8 p-0"
+                          >
+                            <Trash2 className="h-3 w-3" />
+                          </Button>
+                        </div>
+                      </div>
+
+                      {/* Desktop Layout */}
+                      <div className="hidden sm:flex items-center space-x-6">
                         {/* Product Image */}
                         <div className="flex-shrink-0">
                           {product.image && product.image !== "/product-images/placeholder.jpg" ? (
