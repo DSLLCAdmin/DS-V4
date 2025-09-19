@@ -5,13 +5,18 @@
  */
 
 export interface ProductMapping {
-  dsProductId: string;
+  dsProductId: string; // Now will be Shopify Product ID
   amazonASIN?: string;
-  shopifyId?: string;
+  shopifyId?: string; // Redundant but kept for compatibility
   vendorId?: string;
   fulfillmentProvider: 'amazon_fba' | 'apparel_vendor' | 'manual' | 'digital';
   lastSync: Date;
   syncStatus: 'synced' | 'pending' | 'error' | 'not_mapped';
+  // New fields for Amazon compliance
+  gtin?: string; // UPC/EAN/ISBN
+  upc?: string;
+  ean?: string;
+  isbn?: string; // For books
 }
 
 export interface ProductCatalog {
@@ -61,12 +66,14 @@ export interface SyncError {
   retryCount: number;
 }
 
-// Sample product mappings for DS LLC products
+// Sample product mappings for DS LLC products (using Shopify IDs as DS Product IDs)
 const sampleMappings: ProductMapping[] = [
-  // Books - Amazon FBA
+  // Books - Amazon FBA (will use Shopify IDs after migration)
   {
-    dsProductId: '1a',
-    amazonASIN: 'B0ABC123456', // First & Light E-book
+    dsProductId: 'shopify_book_001', // First & Light E-book (Shopify ID)
+    shopifyId: 'shopify_book_001',
+    amazonASIN: 'B0ABC123456',
+    isbn: '9781234567890', // Example ISBN for books
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
