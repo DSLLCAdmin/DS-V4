@@ -30,7 +30,7 @@ export default function CustomersAdminPage() {
   const fetchCustomerData = async () => {
     try {
       setLoading(true);
-      setError(null);
+      setError('');
 
       // TODO: Replace with actual API call when backend is ready
       // For now, we'll simulate some sample data
