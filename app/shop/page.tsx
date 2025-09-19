@@ -522,7 +522,7 @@ function StreetStoreContent() {
                             by {product.author}
                           </p>
                         )}
-                        <p className="text-xs text-swatch203/70 font-mono group-hover:text-swatch203 transition-all duration-300 drop-shadow-sm">
+                        <p className="text-xs font-mono transition-all duration-300 drop-shadow-sm" style={{ color: '#FBF193' }}>
                           ID: {product.id}
                         </p>
                       </div>
@@ -733,7 +733,7 @@ function StreetStoreContent() {
                                     by {product.author}
                                   </p>
                                 )}
-                                <p className="text-xs text-swatch203/70 font-mono group-hover:text-swatch203 transition-all duration-300 drop-shadow-sm">
+                                <p className="text-xs font-mono transition-all duration-300 drop-shadow-sm" style={{ color: '#FBF193' }}>
                                   ID: {product.id}
                                 </p>
                               </div>

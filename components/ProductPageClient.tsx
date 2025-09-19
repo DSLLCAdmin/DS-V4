@@ -98,7 +98,12 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
           <h1 className="text-3xl md:text-4xl font-bold text-swatch101 mb-2">
             {product.title}
           </h1>
-          <p className="text-xl text-swatch101/80 mb-4">by {product.author}</p>
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-xl text-swatch101/80">by {product.author}</p>
+            <p className="text-sm font-mono" style={{ color: '#FBF193' }}>
+              ID: {product.id}
+            </p>
+          </div>
           
           {product.category && (
             <Badge variant="outline" className="bg-swatch103/10 text-swatch101 border-swatch103/30 mb-4">
