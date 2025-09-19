@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { CustomerAnalyticsDashboard } from '@/components/CustomerAnalyticsDashboard';
 import { Customer, CustomerSegment, CustomerInteraction } from '@/lib/customer-data';
+import { exportSettings } from '@/lib/export-settings';
+import { ExportSettingsModal } from '@/components/ExportSettingsModal';
 
 // CSV Export Functions
 function generateCustomersCSV(customers: Customer[]): string {
@@ -55,16 +57,25 @@ function generateCustomersCSV(customers: Customer[]): string {
   ).join('\n');
 }
 
-function downloadCSV(content: string, filename: string): void {
+function downloadCSV(content: string, filename: string, type: 'orders' | 'customers' | 'analytics' | 'reports'): void {
   const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
   const url = URL.createObjectURL(blob);
+  
+  // Use export settings for filename
+  const fullPath = exportSettings.getFullFilePath(type);
+  const pathParts = fullPath.split('\\');
+  const finalFilename = pathParts[pathParts.length - 1];
+  
   link.setAttribute('href', url);
-  link.setAttribute('download', filename);
+  link.setAttribute('download', finalFilename);
   link.style.visibility = 'hidden';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+  
+  console.log(`📁 Export saved: ${finalFilename}`);
+  console.log(`📁 Full path: ${fullPath}`);
 }
 
 // Simple 4-character PIN security
@@ -78,6 +89,7 @@ export default function CustomersAdminPage() {
   const [segments, setSegments] = useState<CustomerSegment[]>([]);
   const [interactions, setInteractions] = useState<CustomerInteraction[]>([]);
   const [loading, setLoading] = useState(true);
+  const [showExportSettings, setShowExportSettings] = useState(false);
 
   const handlePinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -489,6 +501,23 @@ export default function CustomersAdminPage() {
           onRefresh={fetchCustomerData}
         />
 
+        {/* Export Settings Button */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold text-gray-900">Export Settings</h3>
+            <button
+              onClick={() => setShowExportSettings(true)}
+              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
+            >
+              ⚙️ Configure Export Paths
+            </button>
+          </div>
+          <div className="text-sm text-gray-600">
+            <p><strong>Current Export Path:</strong> {exportSettings.getExportPath('customers')}</p>
+            <p><strong>Filename Format:</strong> {exportSettings.generateFilename('customers')}</p>
+          </div>
+        </div>
+
         {/* Additional Actions */}
         <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
@@ -497,7 +526,7 @@ export default function CustomersAdminPage() {
               onClick={() => {
                 // Export customers to CSV
                 const csvContent = generateCustomersCSV(customers);
-                downloadCSV(csvContent, 'customers-export.csv');
+                downloadCSV(csvContent, 'customers-export.csv', 'customers');
               }}
               className="p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
             >
@@ -532,6 +561,16 @@ export default function CustomersAdminPage() {
           </div>
         </div>
       </div>
+
+      {/* Export Settings Modal */}
+      <ExportSettingsModal
+        isOpen={showExportSettings}
+        onClose={() => setShowExportSettings(false)}
+        onSave={() => {
+          // Refresh the page to show updated settings
+          window.location.reload();
+        }}
+      />
     </div>
   );
 }

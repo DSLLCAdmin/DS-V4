@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { OrderManagementDashboard } from '@/components/OrderManagementDashboard';
 import { Order, OrderAnalytics } from '@/lib/order-management';
+import { exportSettings } from '@/lib/export-settings';
+import { ExportSettingsModal } from '@/components/ExportSettingsModal';
 
 // CSV Export Functions
 function generateOrdersCSV(orders: Order[]): string {
@@ -41,16 +43,25 @@ function generateOrdersCSV(orders: Order[]): string {
   ).join('\n');
 }
 
-function downloadCSV(content: string, filename: string): void {
+function downloadCSV(content: string, filename: string, type: 'orders' | 'customers' | 'analytics' | 'reports'): void {
   const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
   const link = document.createElement('a');
   const url = URL.createObjectURL(blob);
+  
+  // Use export settings for filename
+  const fullPath = exportSettings.getFullFilePath(type);
+  const pathParts = fullPath.split('\\');
+  const finalFilename = pathParts[pathParts.length - 1];
+  
   link.setAttribute('href', url);
-  link.setAttribute('download', filename);
+  link.setAttribute('download', finalFilename);
   link.style.visibility = 'hidden';
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+  
+  console.log(`📁 Export saved: ${finalFilename}`);
+  console.log(`📁 Full path: ${fullPath}`);
 }
 
 // Simple 4-character PIN security
@@ -80,6 +91,7 @@ export default function OrdersAdminPage() {
   });
   const [loading, setLoading] = useState(true);
   const [dataError, setDataError] = useState<string | null>(null);
+  const [showExportSettings, setShowExportSettings] = useState(false);
 
   const handlePinSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -384,6 +396,23 @@ export default function OrdersAdminPage() {
           onRefresh={fetchOrders}
         />
 
+        {/* Export Settings Button */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-semibold text-gray-900">Export Settings</h3>
+            <button
+              onClick={() => setShowExportSettings(true)}
+              className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
+            >
+              ⚙️ Configure Export Paths
+            </button>
+          </div>
+          <div className="text-sm text-gray-600">
+            <p><strong>Current Export Path:</strong> {exportSettings.getExportPath('orders')}</p>
+            <p><strong>Filename Format:</strong> {exportSettings.generateFilename('orders')}</p>
+          </div>
+        </div>
+
         {/* Additional Actions */}
         <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
@@ -416,7 +445,7 @@ export default function OrdersAdminPage() {
               onClick={() => {
                 // Export orders to CSV
                 const csvContent = generateOrdersCSV(orders);
-                downloadCSV(csvContent, 'orders-export.csv');
+                downloadCSV(csvContent, 'orders-export.csv', 'orders');
               }}
               className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
             >
@@ -427,6 +456,16 @@ export default function OrdersAdminPage() {
           </div>
         </div>
       </div>
+
+      {/* Export Settings Modal */}
+      <ExportSettingsModal
+        isOpen={showExportSettings}
+        onClose={() => setShowExportSettings(false)}
+        onSave={() => {
+          // Refresh the page to show updated settings
+          window.location.reload();
+        }}
+      />
     </div>
   );
 }
