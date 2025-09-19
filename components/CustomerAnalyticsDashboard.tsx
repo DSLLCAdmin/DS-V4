@@ -19,6 +19,7 @@ export function CustomerAnalyticsDashboard({
   const [selectedSegment, setSelectedSegment] = useState<string>('all');
   const [selectedCustomer, setSelectedCustomer] = useState<Customer | null>(null);
   const [timeRange, setTimeRange] = useState<'7d' | '30d' | '90d' | 'all'>('30d');
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   // Calculate analytics
   const analytics = {
@@ -94,10 +95,19 @@ export function CustomerAnalyticsDashboard({
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-gray-900">Customer Analytics Dashboard</h2>
         <button
-          onClick={onRefresh}
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          onClick={() => {
+            setIsRefreshing(true);
+            onRefresh();
+            setTimeout(() => setIsRefreshing(false), 1000);
+          }}
+          disabled={isRefreshing}
+          className={`px-4 py-2 rounded-lg transition-colors ${
+            isRefreshing 
+              ? 'bg-gray-400 text-white cursor-not-allowed' 
+              : 'bg-blue-600 text-white hover:bg-blue-700'
+          }`}
         >
-          🔄 Refresh
+          {isRefreshing ? '🔄 Refreshing...' : '🔄 Refresh'}
         </button>
       </div>
 

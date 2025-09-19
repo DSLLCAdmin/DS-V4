@@ -4,6 +4,69 @@ import React, { useState, useEffect } from 'react';
 import { CustomerAnalyticsDashboard } from '@/components/CustomerAnalyticsDashboard';
 import { Customer, CustomerSegment, CustomerInteraction } from '@/lib/customer-data';
 
+// CSV Export Functions
+function generateCustomersCSV(customers: Customer[]): string {
+  const headers = [
+    'Customer ID',
+    'Email',
+    'First Name',
+    'Last Name',
+    'Phone',
+    'Address',
+    'Customer Type',
+    'Total Orders',
+    'Total Spent',
+    'Average Order Value',
+    'Lifetime Value',
+    'Engagement Score',
+    'Last Activity',
+    'Newsletter',
+    'SMS Updates',
+    'Product Alerts',
+    'Marketing Emails',
+    'Source',
+    'Created Date'
+  ];
+
+  const rows = customers.map(customer => [
+    customer.id,
+    customer.email,
+    customer.firstName,
+    customer.lastName,
+    customer.phone || '',
+    `${customer.address.street}, ${customer.address.city}, ${customer.address.state} ${customer.address.zipCode}`,
+    customer.segmentation.customerType,
+    customer.behavior.totalOrders.toString(),
+    customer.behavior.totalSpent.toString(),
+    customer.behavior.averageOrderValue.toString(),
+    customer.segmentation.lifetimeValue.toString(),
+    customer.segmentation.engagementScore.toString(),
+    customer.segmentation.lastActivity.toISOString(),
+    customer.preferences.newsletter ? 'Yes' : 'No',
+    customer.preferences.smsUpdates ? 'Yes' : 'No',
+    customer.preferences.productAlerts ? 'Yes' : 'No',
+    customer.preferences.marketingEmails ? 'Yes' : 'No',
+    customer.source,
+    customer.createdAt.toISOString()
+  ]);
+
+  return [headers, ...rows].map(row => 
+    row.map(field => `"${field}"`).join(',')
+  ).join('\n');
+}
+
+function downloadCSV(content: string, filename: string): void {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  link.setAttribute('download', filename);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 // Simple 4-character PIN security
 const ADMIN_PIN = '2024'; // Change this to your preferred PIN
 
@@ -380,23 +443,43 @@ export default function CustomersAdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8 flex justify-between items-start">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Customer Analytics</h1>
-            <p className="mt-2 text-gray-600">
-              Monitor customer behavior, segmentation, and marketing insights
-            </p>
+        <div className="mb-8">
+          {/* Navigation */}
+          <div className="mb-4">
+            <nav className="flex space-x-4">
+              <button
+                onClick={() => window.location.href = '/admin/orders'}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+              >
+                📦 Order Management
+              </button>
+              <button
+                onClick={() => window.location.href = '/admin/customers'}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium"
+              >
+                👥 Customer Analytics
+              </button>
+            </nav>
           </div>
-          <button
-            onClick={() => {
-              setIsAuthenticated(false);
-              setPin('');
-              setError('');
-            }}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
-          >
-            🔒 Logout
-          </button>
+          
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Customer Analytics</h1>
+              <p className="mt-2 text-gray-600">
+                Monitor customer behavior, segmentation, and marketing insights
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setIsAuthenticated(false);
+                setPin('');
+                setError('');
+              }}
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
+            >
+              🔒 Logout
+            </button>
+          </div>
         </div>
 
         <CustomerAnalyticsDashboard
@@ -412,8 +495,9 @@ export default function CustomersAdminPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <button
               onClick={() => {
-                // TODO: Implement customer export
-                console.log('Exporting customer data...');
+                // Export customers to CSV
+                const csvContent = generateCustomersCSV(customers);
+                downloadCSV(csvContent, 'customers-export.csv');
               }}
               className="p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
             >

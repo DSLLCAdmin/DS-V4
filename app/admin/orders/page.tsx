@@ -4,6 +4,55 @@ import React, { useState, useEffect } from 'react';
 import { OrderManagementDashboard } from '@/components/OrderManagementDashboard';
 import { Order, OrderAnalytics } from '@/lib/order-management';
 
+// CSV Export Functions
+function generateOrdersCSV(orders: Order[]): string {
+  const headers = [
+    'Order ID',
+    'Customer Name',
+    'Customer Email',
+    'Status',
+    'Total Amount',
+    'Shipping Cost',
+    'Tax',
+    'Created Date',
+    'Updated Date',
+    'Amazon Order ID',
+    'Tracking Number',
+    'Items Count'
+  ];
+
+  const rows = orders.map(order => [
+    order.id,
+    order.customerName,
+    order.customerEmail,
+    order.status,
+    order.totalAmount.toString(),
+    order.shippingCost.toString(),
+    order.tax.toString(),
+    order.createdAt.toISOString(),
+    order.updatedAt.toISOString(),
+    order.amazonOrderId || '',
+    order.trackingNumber || '',
+    order.items.length.toString()
+  ]);
+
+  return [headers, ...rows].map(row => 
+    row.map(field => `"${field}"`).join(',')
+  ).join('\n');
+}
+
+function downloadCSV(content: string, filename: string): void {
+  const blob = new Blob([content], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(blob);
+  link.setAttribute('href', url);
+  link.setAttribute('download', filename);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 // Simple 4-character PIN security
 const ADMIN_PIN = '2024'; // Change this to your preferred PIN
 
@@ -290,23 +339,43 @@ export default function OrdersAdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8 flex justify-between items-start">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900">Order Management</h1>
-            <p className="mt-2 text-gray-600">
-              Monitor and manage all orders from your DarkStreet website
-            </p>
+        <div className="mb-8">
+          {/* Navigation */}
+          <div className="mb-4">
+            <nav className="flex space-x-4">
+              <button
+                onClick={() => window.location.href = '/admin/orders'}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium"
+              >
+                📦 Order Management
+              </button>
+              <button
+                onClick={() => window.location.href = '/admin/customers'}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+              >
+                👥 Customer Analytics
+              </button>
+            </nav>
           </div>
-          <button
-            onClick={() => {
-              setIsAuthenticated(false);
-              setPin('');
-              setError('');
-            }}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
-          >
-            🔒 Logout
-          </button>
+          
+          <div className="flex justify-between items-start">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900">Order Management</h1>
+              <p className="mt-2 text-gray-600">
+                Monitor and manage all orders from your DarkStreet website
+              </p>
+            </div>
+            <button
+              onClick={() => {
+                setIsAuthenticated(false);
+                setPin('');
+                setError('');
+              }}
+              className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
+            >
+              🔒 Logout
+            </button>
+          </div>
         </div>
 
         <OrderManagementDashboard
@@ -345,8 +414,9 @@ export default function OrdersAdminPage() {
             
             <button
               onClick={() => {
-                // TODO: Implement analytics export
-                console.log('Exporting analytics...');
+                // Export orders to CSV
+                const csvContent = generateOrdersCSV(orders);
+                downloadCSV(csvContent, 'orders-export.csv');
               }}
               className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
             >
