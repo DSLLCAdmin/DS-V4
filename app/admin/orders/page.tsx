@@ -1,0 +1,281 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { OrderManagementDashboard } from '@/components/OrderManagementDashboard';
+import { Order, OrderAnalytics } from '@/lib/order-management';
+
+export default function OrdersAdminPage() {
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [analytics, setAnalytics] = useState<OrderAnalytics>({
+    totalOrders: 0,
+    ordersByStatus: {
+      pending: 0,
+      processing: 0,
+      shipped: 0,
+      delivered: 0,
+      cancelled: 0,
+      error: 0,
+      retry: 0,
+      refunded: 0
+    },
+    averageOrderValue: 0,
+    totalRevenue: 0,
+    errorRate: 0,
+    fulfillmentTime: 0
+  });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchOrders = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+
+      // TODO: Replace with actual API call when backend is ready
+      // For now, we'll simulate some sample data
+      const sampleOrders: Order[] = [
+        {
+          id: '1001',
+          customerId: 'customer-1',
+          customerEmail: 'john.doe@example.com',
+          customerName: 'John Doe',
+          customerAddress: {
+            street: '123 Main St',
+            city: 'Anytown',
+            state: 'CA',
+            zipCode: '12345',
+            country: 'US'
+          },
+          items: [
+            {
+              productId: 'book-1',
+              title: 'First & Light - Paperback',
+              quantity: 1,
+              price: 15.99,
+              image: '/product-images/1b_first-light-paperback.jpg'
+            }
+          ],
+          status: 'delivered',
+          totalAmount: 18.99,
+          shippingCost: 2.50,
+          tax: 0.50,
+          createdAt: new Date('2024-01-15T10:30:00Z'),
+          updatedAt: new Date('2024-01-17T14:20:00Z'),
+          amazonOrderId: 'AMZ-123456789',
+          trackingNumber: 'TRK-ABC123XYZ',
+          retryCount: 0
+        },
+        {
+          id: '1002',
+          customerId: 'customer-2',
+          customerEmail: 'jane.smith@example.com',
+          customerName: 'Jane Smith',
+          customerAddress: {
+            street: '456 Oak Ave',
+            city: 'Somewhere',
+            state: 'NY',
+            zipCode: '67890',
+            country: 'US'
+          },
+          items: [
+            {
+              productId: 'book-2',
+              title: 'Risque & Safety - Paperback',
+              quantity: 2,
+              price: 15.99,
+              image: '/product-images/2b_risque-safety-paperback.jpg'
+            },
+            {
+              productId: 'book-3',
+              title: 'Mercury & Memory - Paperback',
+              quantity: 1,
+              price: 15.99,
+              image: '/product-images/3b_mercury-memory-paperback.jpg'
+            }
+          ],
+          status: 'processing',
+          totalAmount: 52.47,
+          shippingCost: 4.50,
+          tax: 1.50,
+          createdAt: new Date('2024-01-16T15:45:00Z'),
+          updatedAt: new Date('2024-01-16T15:45:00Z'),
+          amazonOrderId: 'AMZ-987654321',
+          retryCount: 0
+        },
+        {
+          id: '1003',
+          customerId: 'customer-3',
+          customerEmail: 'bob.wilson@example.com',
+          customerName: 'Bob Wilson',
+          customerAddress: {
+            street: '789 Pine St',
+            city: 'Elsewhere',
+            state: 'TX',
+            zipCode: '54321',
+            country: 'US'
+          },
+          items: [
+            {
+              productId: 'book-1',
+              title: 'First & Light - Paperback',
+              quantity: 1,
+              price: 15.99,
+              image: '/product-images/1b_first-light-paperback.jpg'
+            }
+          ],
+          status: 'error',
+          totalAmount: 18.99,
+          shippingCost: 2.50,
+          tax: 0.50,
+          createdAt: new Date('2024-01-17T09:15:00Z'),
+          updatedAt: new Date('2024-01-17T09:20:00Z'),
+          errorMessage: 'Amazon FBA API timeout',
+          retryCount: 2
+        }
+      ];
+
+      setOrders(sampleOrders);
+
+      // Calculate analytics
+      const totalOrders = sampleOrders.length;
+      const totalRevenue = sampleOrders.reduce((sum, order) => sum + order.totalAmount, 0);
+      const averageOrderValue = totalOrders > 0 ? totalRevenue / totalOrders : 0;
+      
+      const ordersByStatus = {
+        pending: 0,
+        processing: 0,
+        shipped: 0,
+        delivered: 0,
+        cancelled: 0,
+        error: 0,
+        retry: 0,
+        refunded: 0
+      };
+      
+      sampleOrders.forEach(order => {
+        ordersByStatus[order.status]++;
+      });
+      
+      const errorOrders = sampleOrders.filter(order => order.status === 'error').length;
+      const errorRate = totalOrders > 0 ? (errorOrders / totalOrders) * 100 : 0;
+      
+      const shippedOrders = sampleOrders.filter(order => order.status === 'shipped' || order.status === 'delivered');
+      let fulfillmentTime = 0;
+      if (shippedOrders.length > 0) {
+        const totalFulfillmentTime = shippedOrders.reduce((sum, order) => {
+          const fulfillmentTime = order.updatedAt.getTime() - order.createdAt.getTime();
+          return sum + fulfillmentTime;
+        }, 0);
+        fulfillmentTime = totalFulfillmentTime / shippedOrders.length / (1000 * 60 * 60); // Convert to hours
+      }
+
+      setAnalytics({
+        totalOrders,
+        ordersByStatus,
+        averageOrderValue,
+        totalRevenue,
+        errorRate,
+        fulfillmentTime
+      });
+
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to fetch orders');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading orders...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="text-red-600 text-6xl mb-4">❌</div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Error Loading Orders</h2>
+          <p className="text-gray-600 mb-4">{error}</p>
+          <button
+            onClick={fetchOrders}
+            className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            Try Again
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Order Management</h1>
+          <p className="mt-2 text-gray-600">
+            Monitor and manage all orders from your DarkStreet website
+          </p>
+        </div>
+
+        <OrderManagementDashboard
+          orders={orders}
+          analytics={analytics}
+          onRefresh={fetchOrders}
+        />
+
+        {/* Additional Actions */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <button
+              onClick={() => {
+                // TODO: Implement bulk order processing
+                console.log('Processing pending orders...');
+              }}
+              className="p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors"
+            >
+              <div className="text-blue-600 text-2xl mb-2">🔄</div>
+              <div className="font-medium text-blue-900">Process Pending Orders</div>
+              <div className="text-sm text-blue-600">{analytics.ordersByStatus.pending} pending</div>
+            </button>
+            
+            <button
+              onClick={() => {
+                // TODO: Implement error retry
+                console.log('Retrying failed orders...');
+              }}
+              className="p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors"
+            >
+              <div className="text-orange-600 text-2xl mb-2">🔄</div>
+              <div className="font-medium text-orange-900">Retry Failed Orders</div>
+              <div className="text-sm text-orange-600">{analytics.ordersByStatus.error} failed</div>
+            </button>
+            
+            <button
+              onClick={() => {
+                // TODO: Implement analytics export
+                console.log('Exporting analytics...');
+              }}
+              className="p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors"
+            >
+              <div className="text-green-600 text-2xl mb-2">📊</div>
+              <div className="font-medium text-green-900">Export Analytics</div>
+              <div className="text-sm text-green-600">CSV download</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
