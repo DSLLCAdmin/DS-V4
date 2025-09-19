@@ -4,7 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { OrderManagementDashboard } from '@/components/OrderManagementDashboard';
 import { Order, OrderAnalytics } from '@/lib/order-management';
 
+// Simple 4-character PIN security
+const ADMIN_PIN = '2024'; // Change this to your preferred PIN
+
 export default function OrdersAdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [pin, setPin] = useState('');
+  const [error, setError] = useState('');
   const [orders, setOrders] = useState<Order[]>([]);
   const [analytics, setAnalytics] = useState<OrderAnalytics>({
     totalOrders: 0,
@@ -24,12 +30,23 @@ export default function OrdersAdminPage() {
     fulfillmentTime: 0
   });
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [dataError, setDataError] = useState<string | null>(null);
+
+  const handlePinSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (pin === ADMIN_PIN) {
+      setIsAuthenticated(true);
+      setError('');
+    } else {
+      setError('Invalid PIN. Please try again.');
+      setPin('');
+    }
+  };
 
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      setError(null);
+      setDataError(null);
 
       // TODO: Replace with actual API call when backend is ready
       // For now, we'll simulate some sample data
@@ -179,15 +196,67 @@ export default function OrdersAdminPage() {
       });
 
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to fetch orders');
+      setDataError(err instanceof Error ? err.message : 'Failed to fetch orders');
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchOrders();
-  }, []);
+    if (isAuthenticated) {
+      fetchOrders();
+    }
+  }, [isAuthenticated]);
+
+  // Show PIN entry form if not authenticated
+  if (!isAuthenticated) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
+          <div className="text-center mb-8">
+            <div className="text-blue-600 text-6xl mb-4">🔐</div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Admin Access</h2>
+            <p className="text-gray-600">Enter PIN to access Order Management Dashboard</p>
+          </div>
+
+          <form onSubmit={handlePinSubmit} className="space-y-6">
+            <div>
+              <label htmlFor="pin" className="block text-sm font-medium text-gray-700 mb-2">
+                Admin PIN
+              </label>
+              <input
+                type="password"
+                id="pin"
+                value={pin}
+                onChange={(e) => setPin(e.target.value)}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-center text-lg tracking-widest"
+                placeholder="••••"
+                maxLength={4}
+                autoComplete="off"
+              />
+            </div>
+
+            {error && (
+              <div className="text-red-600 text-sm text-center bg-red-50 p-3 rounded-lg">
+                {error}
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            >
+              Access Dashboard
+            </button>
+          </form>
+
+          <div className="mt-6 text-center text-xs text-gray-500">
+            <p>🔒 Secure admin access for DS LLC management</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (loading) {
     return (
@@ -200,13 +269,13 @@ export default function OrdersAdminPage() {
     );
   }
 
-  if (error) {
+  if (dataError) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <div className="text-red-600 text-6xl mb-4">❌</div>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">Error Loading Orders</h2>
-          <p className="text-gray-600 mb-4">{error}</p>
+          <p className="text-gray-600 mb-4">{dataError}</p>
           <button
             onClick={fetchOrders}
             className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -221,11 +290,23 @@ export default function OrdersAdminPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Order Management</h1>
-          <p className="mt-2 text-gray-600">
-            Monitor and manage all orders from your DarkStreet website
-          </p>
+        <div className="mb-8 flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Order Management</h1>
+            <p className="mt-2 text-gray-600">
+              Monitor and manage all orders from your DarkStreet website
+            </p>
+          </div>
+          <button
+            onClick={() => {
+              setIsAuthenticated(false);
+              setPin('');
+              setError('');
+            }}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors text-sm"
+          >
+            🔒 Logout
+          </button>
         </div>
 
         <OrderManagementDashboard
