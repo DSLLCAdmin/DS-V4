@@ -516,11 +516,16 @@ function StreetStoreContent() {
                           </Badge>
                         )}
                       </div>
-                      {product.author && (
-                        <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
-                          by {product.author}
+                      <div className="flex items-center justify-between">
+                        {product.author && (
+                          <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
+                            by {product.author}
+                          </p>
+                        )}
+                        <p className="text-xs text-swatch203/70 font-mono group-hover:text-swatch203 transition-all duration-300 drop-shadow-sm">
+                          ID: {product.id}
                         </p>
-                      )}
+                      </div>
                     </div>
 
                     {/* Description */}
@@ -722,11 +727,16 @@ function StreetStoreContent() {
                                   </Badge>
                                 )}
                               </div>
-                              {product.author && (
-                                <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
-                                  by {product.author}
+                              <div className="flex items-center justify-between">
+                                {product.author && (
+                                  <p className="text-base text-swatch203 font-semibold italic group-hover:font-bold transition-all duration-300 drop-shadow-sm">
+                                    by {product.author}
+                                  </p>
+                                )}
+                                <p className="text-xs text-swatch203/70 font-mono group-hover:text-swatch203 transition-all duration-300 drop-shadow-sm">
+                                  ID: {product.id}
                                 </p>
-                              )}
+                              </div>
                             </div>
 
                             {/* Description */}
