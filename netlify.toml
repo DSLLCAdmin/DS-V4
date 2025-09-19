@@ -1,15 +1,11 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  # Removed publish = "out" - Next.js plugin handles this automatically
 
 [build.environment]
   NODE_VERSION = "18"
 
-# Handle SPA routing - serve index.html for all routes
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Next.js plugin handles routing automatically - no redirects needed
 
 [[headers]]
   for = "/*"
