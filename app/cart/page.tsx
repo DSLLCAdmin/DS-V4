@@ -381,6 +381,7 @@ export default function CartPage() {
                   </div>
 
                   <Button
+                    onClick={() => router.push('/checkout')}
                     className="w-full bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-lg font-bold py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
                     disabled={loading}
                   >
