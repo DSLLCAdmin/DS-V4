@@ -397,9 +397,49 @@ select:focus {
   .bg-swatch206 { background-color: var(--swatch206); }
   .bg-swatch207 { background-color: var(--swatch207); }
   
-  /* DS Checkout Gradient Background */
+  /* DS Checkout Linen Texture Background */
   .bg-checkout-gradient {
-    background: linear-gradient(135deg, var(--swatch206) 0%, var(--swatch207) 100%);
+    background-color: var(--swatch206);
+    background-image: 
+      /* Subtle linen weave pattern */
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.03) 2px,
+        rgba(255, 255, 255, 0.03) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.02) 2px,
+        rgba(255, 255, 255, 0.02) 4px
+      ),
+      /* Subtle texture variations */
+      radial-gradient(
+        ellipse at 25% 25%,
+        rgba(255, 255, 255, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 75% 75%,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 50% 10%,
+        rgba(255, 255, 255, 0.04) 0%,
+        transparent 50%
+      ),
+      /* Subtle diagonal texture */
+      linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.01) 50%,
+        transparent 60%
+      );
+    background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
   }
 
   /* Font weight utilities for Directors Gothic font */
