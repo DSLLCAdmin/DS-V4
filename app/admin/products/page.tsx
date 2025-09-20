@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductCatalogDashboard } from '@/components/ProductCatalogDashboard';
-import { ProductMapping, CatalogSyncStatus, SyncError, productCatalog } from '@/lib/product-catalog';
+import { ProductMapping, CatalogSyncStatus, SyncError } from '@/lib/product-catalog';
+import { unifiedProductCatalog } from '@/lib/unified-product-data';
 import { exportSettings } from '@/lib/export-settings';
 import { ExportSettingsModal } from '@/components/ExportSettingsModal';
 
@@ -90,10 +91,10 @@ export default function ProductsAdminPage() {
       setLoading(true);
       setError('');
 
-      // In a real app, this would be an API call
-      const fetchedMappings = productCatalog.getMappings();
-      const fetchedSyncStatus = productCatalog.getSyncStatus();
-      const fetchedSyncErrors = productCatalog.getSyncErrors();
+      // Use unified data source (single source of truth)
+      const fetchedMappings = unifiedProductCatalog.getMappings();
+      const fetchedSyncStatus = unifiedProductCatalog.getSyncStatus();
+      const fetchedSyncErrors = unifiedProductCatalog.getSyncErrors();
 
       setMappings(fetchedMappings);
       setSyncStatus(fetchedSyncStatus);
