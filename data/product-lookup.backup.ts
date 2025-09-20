@@ -53,8 +53,8 @@ export interface ProductLookup {
 // Master Product Lookup Table
 export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
   // Books - Amazon FBA
-  'A-01': {
-    dsProductId: 'A-01', // Will become Shopify ID after migration
+  '1a': {
+    dsProductId: '1a', // Will become Shopify ID after migration
     originalDsId: '1a',
     title: 'First & Light- E-book',
     category: 'Serials/Books',
@@ -71,8 +71,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'A-02': {
-    dsProductId: 'A-02',
+  '1b': {
+    dsProductId: '1b',
     originalDsId: '1b',
     title: 'First & Light- Paperback',
     category: 'Serials/Books',
@@ -89,8 +89,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'A-03': {
-    dsProductId: 'A-03',
+  '2a': {
+    dsProductId: '2a',
     originalDsId: '2a',
     title: 'Risque & Safety- E-book',
     category: 'Serials/Books',
@@ -107,8 +107,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'A-04': {
-    dsProductId: 'A-04',
+  '2b': {
+    dsProductId: '2b',
     originalDsId: '2b',
     title: 'Risque & Safety- Paperback',
     category: 'Serials/Books',
@@ -125,8 +125,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'A-05': {
-    dsProductId: 'A-05',
+  '3a': {
+    dsProductId: '3a',
     originalDsId: '3a',
     title: 'Mercury & Memory- E-book',
     category: 'Serials/Books',
@@ -143,8 +143,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'A-06': {
-    dsProductId: 'A-06',
+  '3b': {
+    dsProductId: '3b',
     originalDsId: '3b',
     title: 'Mercury & Memory- Paperback',
     category: 'Serials/Books',
@@ -163,8 +163,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
   },
   
   // Apparel - Vendor Fulfillment
-  'B-04': {
-    dsProductId: 'B-04',
+  'A4': {
+    dsProductId: 'A4',
     originalDsId: 'A4',
     title: 'DarkStreet Tees',
     category: 'Apparel & Intimate Wear',
@@ -182,8 +182,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'B-08': {
-    dsProductId: 'B-08',
+  'A8': {
+    dsProductId: 'A8',
     originalDsId: 'A8',
     title: 'Hats',
     category: 'Apparel & Intimate Wear',
@@ -201,8 +201,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'H-02': {
-    dsProductId: 'H-02',
+  'G2': {
+    dsProductId: 'G2',
     originalDsId: 'G2',
     title: 'DarkStreet Mugs',
     category: 'Culinary & Novelty',
@@ -222,8 +222,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
   },
   
   // Digital Products
-  'F-01': {
-    dsProductId: 'F-01',
+  'E1': {
+    dsProductId: 'E1',
     originalDsId: 'E1',
     title: 'Official DarkStreet Driving Playlists',
     category: 'Media & Experiences',
@@ -238,8 +238,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     lastSync: new Date(),
     syncStatus: 'not_mapped'
   },
-  'G-01': {
-    dsProductId: 'G-01',
+  'F1': {
+    dsProductId: 'F1',
     originalDsId: 'F1',
     title: 'DS Route Generator App',
     category: 'Digital & Curated Services',

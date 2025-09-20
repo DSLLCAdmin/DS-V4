@@ -1,0 +1,62 @@
+[
+  {
+    "originalId": "1b",
+    "newId": "gid://shopify/Product/1234567890",
+    "title": "First & Light- E-book",
+    "handle": "first-light-ebook"
+  },
+  {
+    "originalId": "2a",
+    "newId": "gid://shopify/Product/1234567891",
+    "title": "First & Light- Paperback",
+    "handle": "first-light-paperback"
+  },
+  {
+    "originalId": "2b",
+    "newId": "gid://shopify/Product/1234567892",
+    "title": "Risque & Safety- E-book",
+    "handle": "risque-safety-ebook"
+  },
+  {
+    "originalId": "3a",
+    "newId": "gid://shopify/Product/1234567893",
+    "title": "Risque & Safety- Paperback",
+    "handle": "risque-safety-paperback"
+  },
+  {
+    "originalId": "3b",
+    "newId": "gid://shopify/Product/1234567894",
+    "title": "Mercury & Memory- E-book",
+    "handle": "mercury-memory-ebook"
+  },
+  {
+    "originalId": "11a",
+    "newId": "gid://shopify/Product/1234567895",
+    "title": "Mercury & Memory- Paperback",
+    "handle": "mercury-memory-paperback"
+  },
+  {
+    "originalId": "A5",
+    "newId": "gid://shopify/Product/1234567896",
+    "title": "DarkStreet Tees",
+    "handle": "darkstreet-tees"
+  },
+  {
+    "originalId": "A9",
+    "newId": "gid://shopify/Product/1234567897",
+    "title": "Hats",
+    "handle": "hats"
+  },
+  {
+    "originalId": "G3",
+    "newId": "gid://shopify/Product/1234567898",
+    "title": "DarkStreet Mugs",
+    "handle": "darkstreet-mugs"
+  },
+  {
+    "originalId": "E2",
+    "newId": "gid://shopify/Product/1234567899",
+    "title": "Official DarkStreet Driving Playlists",
+    "handle": "darkstreet-playlists"
+  }
+]

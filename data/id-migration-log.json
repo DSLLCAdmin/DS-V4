@@ -1,0 +1,477 @@
+[
+  {
+    "oldId": "1a",
+    "newId": "A-01",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "1b",
+    "newId": "A-02",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "2a",
+    "newId": "A-03",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "2b",
+    "newId": "A-04",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "3a",
+    "newId": "A-05",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "3b",
+    "newId": "A-06",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "11a",
+    "newId": "A-07",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "11b",
+    "newId": "A-08",
+    "category": "Serials/Books"
+  },
+  {
+    "oldId": "A1",
+    "newId": "B-01",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A2",
+    "newId": "B-02",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A3",
+    "newId": "B-03",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A4",
+    "newId": "B-04",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A5",
+    "newId": "B-05",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A6",
+    "newId": "B-06",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A7",
+    "newId": "B-07",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A8",
+    "newId": "B-08",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A9",
+    "newId": "B-09",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "A10",
+    "newId": "B-10",
+    "category": "Apparel & Intimate Wear"
+  },
+  {
+    "oldId": "B1",
+    "newId": "C-01",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B2",
+    "newId": "C-02",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B3",
+    "newId": "C-03",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B4",
+    "newId": "C-04",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B5",
+    "newId": "C-05",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B6",
+    "newId": "C-06",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B7",
+    "newId": "C-07",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B8",
+    "newId": "C-08",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B9",
+    "newId": "C-09",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "B10",
+    "newId": "C-10",
+    "category": "Auto & Mobility"
+  },
+  {
+    "oldId": "C1",
+    "newId": "D-01",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C2",
+    "newId": "D-02",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C3",
+    "newId": "D-03",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C4",
+    "newId": "D-04",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C5",
+    "newId": "D-05",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C6",
+    "newId": "D-06",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C7",
+    "newId": "D-07",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C8",
+    "newId": "D-08",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C9",
+    "newId": "D-09",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "C10",
+    "newId": "D-10",
+    "category": "Accessories"
+  },
+  {
+    "oldId": "D1",
+    "newId": "E-01",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D2",
+    "newId": "E-02",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D3",
+    "newId": "E-03",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D4",
+    "newId": "E-04",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D5",
+    "newId": "E-05",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D6",
+    "newId": "E-06",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D7",
+    "newId": "E-07",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D8",
+    "newId": "E-08",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D9",
+    "newId": "E-09",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D10",
+    "newId": "E-10",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D11",
+    "newId": "E-11",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D12",
+    "newId": "E-12",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D13",
+    "newId": "E-13",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "D14",
+    "newId": "E-14",
+    "category": "Home & Mood & Atmosphere"
+  },
+  {
+    "oldId": "E1",
+    "newId": "F-01",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E2",
+    "newId": "F-02",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E3",
+    "newId": "F-03",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E4",
+    "newId": "F-04",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E5",
+    "newId": "F-05",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E6",
+    "newId": "F-06",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E7",
+    "newId": "F-07",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E8",
+    "newId": "F-08",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E9",
+    "newId": "F-09",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "E10",
+    "newId": "F-10",
+    "category": "Media & Experiences"
+  },
+  {
+    "oldId": "F1",
+    "newId": "G-01",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F2",
+    "newId": "G-02",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F3",
+    "newId": "G-03",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F4",
+    "newId": "G-04",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F5",
+    "newId": "G-05",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F6",
+    "newId": "G-06",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "F7",
+    "newId": "G-07",
+    "category": "Digital & Curated Services"
+  },
+  {
+    "oldId": "G1",
+    "newId": "H-01",
+    "category": "Culinary & Novelty"
+  },
+  {
+    "oldId": "G2",
+    "newId": "H-02",
+    "category": "Culinary & Novelty"
+  },
+  {
+    "oldId": "G3",
+    "newId": "H-03",
+    "category": "Culinary & Novelty"
+  },
+  {
+    "oldId": "G4",
+    "newId": "H-04",
+    "category": "Culinary & Novelty"
+  },
+  {
+    "oldId": "G5",
+    "newId": "H-05",
+    "category": "Culinary & Novelty"
+  },
+  {
+    "oldId": "H1",
+    "newId": "I-01",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H2",
+    "newId": "I-02",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H3",
+    "newId": "I-03",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H4",
+    "newId": "I-04",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H5",
+    "newId": "I-05",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H6",
+    "newId": "I-06",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "H7",
+    "newId": "I-07",
+    "category": "Collector & Art-Based"
+  },
+  {
+    "oldId": "I1",
+    "newId": "J-01",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "I2",
+    "newId": "J-02",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "I3",
+    "newId": "J-03",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "I4",
+    "newId": "J-04",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "I5",
+    "newId": "J-05",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "I6",
+    "newId": "J-06",
+    "category": "Live & Social Activation"
+  },
+  {
+    "oldId": "J1",
+    "newId": "K-01",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J2",
+    "newId": "K-02",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J3",
+    "newId": "K-03",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J4",
+    "newId": "K-04",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J5",
+    "newId": "K-05",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J6",
+    "newId": "K-06",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J7",
+    "newId": "K-07",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  },
+  {
+    "oldId": "J8",
+    "newId": "K-08",
+    "category": "Relationship & Erotic & Mystery-Inspired"
+  }
+]

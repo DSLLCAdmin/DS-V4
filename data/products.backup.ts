@@ -13,7 +13,7 @@ export interface Product {
 
 export const products: Product[] = [
   {
-    "id": "A-01",
+    "id": "1a",
     "category": "Serials/Books",
     "title": "First & Light- E-book",
     "author": "Aries Tiger",
@@ -25,7 +25,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-02",
+    "id": "1b",
     "category": "Serials/Books",
     "title": "First & Light- Paperback",
     "author": "Aries Tiger",
@@ -37,7 +37,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-03",
+    "id": "2a",
     "category": "Serials/Books",
     "title": "Risque & Safety- E-book",
     "author": "Aries Tiger",
@@ -49,7 +49,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-04",
+    "id": "2b",
     "category": "Serials/Books",
     "title": "Risque & Safety- Paperback",
     "author": "Aries Tiger",
@@ -61,7 +61,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-05",
+    "id": "3a",
     "category": "Serials/Books",
     "title": "Mercury & Memory- E-book",
     "author": "Aries Tiger",
@@ -73,7 +73,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-06",
+    "id": "3b",
     "category": "Serials/Books",
     "title": "Mercury & Memory- Paperback",
     "author": "Aries Tiger",
@@ -85,7 +85,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-07",
+    "id": "11a",
     "category": "Serials/Books",
     "title": "Vol-1 - E-book",
     "author": "Aries Tiger",
@@ -97,7 +97,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "A-08",
+    "id": "11b",
     "category": "Serials/Books",
     "title": "Vol-1 - Paperback",
     "author": "Aries Tiger",
@@ -109,7 +109,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-01",
+    "id": "A1",
     "category": "Apparel & Intimate Wear",
     "title": "DarkStreet Panties",
     "author": "DS LLC",
@@ -121,7 +121,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-02",
+    "id": "A2",
     "category": "Apparel & Intimate Wear",
     "title": "Mesh Bodysuits",
     "author": "DS LLC",
@@ -133,7 +133,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-03",
+    "id": "A3",
     "category": "Apparel & Intimate Wear",
     "title": "Asphalt Black Denim Jackets",
     "author": "DS LLC",
@@ -145,7 +145,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-04",
+    "id": "A4",
     "category": "Apparel & Intimate Wear",
     "title": "DarkStreet Tees",
     "author": "DS LLC",
@@ -157,7 +157,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-05",
+    "id": "A5",
     "category": "Apparel & Intimate Wear",
     "title": "Silk Scarves",
     "author": "DS LLC",
@@ -169,7 +169,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-06",
+    "id": "A6",
     "category": "Apparel & Intimate Wear",
     "title": "Boxers",
     "author": "DS LLC",
@@ -181,7 +181,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-07",
+    "id": "A7",
     "category": "Apparel & Intimate Wear",
     "title": "Tank Tops (Men/Women)",
     "author": "DS LLC",
@@ -193,7 +193,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-08",
+    "id": "A8",
     "category": "Apparel & Intimate Wear",
     "title": "Hats",
     "author": "DS LLC",
@@ -205,7 +205,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-09",
+    "id": "A9",
     "category": "Apparel & Intimate Wear",
     "title": "Limited-Edition Hoodies",
     "author": "DS LLC",
@@ -217,7 +217,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "B-10",
+    "id": "A10",
     "category": "Apparel & Intimate Wear",
     "title": "Convertible Wrap Dresses",
     "author": "DS LLC",
@@ -229,7 +229,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-01",
+    "id": "B1",
     "category": "Auto & Mobility",
     "title": "Custom LED Underlighting Kits",
     "author": "DS LLC",
@@ -241,7 +241,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-02",
+    "id": "B2",
     "category": "Auto & Mobility",
     "title": "DarkStreet Branded Scent Diffusers",
     "author": "DS LLC",
@@ -253,7 +253,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-03",
+    "id": "B3",
     "category": "Auto & Mobility",
     "title": "Window Shades",
     "author": "DS LLC",
@@ -265,7 +265,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-04",
+    "id": "B4",
     "category": "Auto & Mobility",
     "title": "Prowler Dashboard Confessionals",
     "author": "DS LLC",
@@ -277,7 +277,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-05",
+    "id": "B5",
     "category": "Auto & Mobility",
     "title": "Seatbelt Harness Covers",
     "author": "DS LLC",
@@ -289,7 +289,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-06",
+    "id": "B6",
     "category": "Auto & Mobility",
     "title": "Streetin' Survival Kits",
     "author": "DS LLC",
@@ -301,7 +301,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-07",
+    "id": "B7",
     "category": "Auto & Mobility",
     "title": "Mirror Charms",
     "author": "DS LLC",
@@ -313,7 +313,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-08",
+    "id": "B8",
     "category": "Auto & Mobility",
     "title": " Erotic & Mystery-Inspired",
     "author": "DS LLC",
@@ -325,7 +325,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-09",
+    "id": "B9",
     "category": "Auto & Mobility",
     "title": "Custom Vanity Plate Frames",
     "author": "DS LLC",
@@ -337,7 +337,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "C-10",
+    "id": "B10",
     "category": "Auto & Mobility",
     "title": "Backseat Throw Blankets",
     "author": "DS LLC",
@@ -349,7 +349,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-01",
+    "id": "C1",
     "category": "Accessories",
     "title": "Retro Noir Sunglass Series",
     "author": "DS LLC",
@@ -361,7 +361,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-02",
+    "id": "C2",
     "category": "Accessories",
     "title": "Cigarette Case Wallets",
     "author": "DS LLC",
@@ -373,7 +373,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-03",
+    "id": "C3",
     "category": "Accessories",
     "title": "Lighter Collabs",
     "author": "DS LLC",
@@ -385,7 +385,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-04",
+    "id": "C4",
     "category": "Accessories",
     "title": "Silicone Wristbands",
     "author": "DS LLC",
@@ -397,7 +397,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-05",
+    "id": "C5",
     "category": "Accessories",
     "title": "Temporary Tattoos",
     "author": "DS LLC",
@@ -409,7 +409,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-06",
+    "id": "C6",
     "category": "Accessories",
     "title": "Embroidered Patches",
     "author": "DS LLC",
@@ -421,7 +421,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-07",
+    "id": "C7",
     "category": "Accessories",
     "title": "Knuckle Rings",
     "author": "DS LLC",
@@ -433,7 +433,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-08",
+    "id": "C8",
     "category": "Accessories",
     "title": "Graffiti Street Tag Stickers",
     "author": "DS LLC",
@@ -445,7 +445,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-09",
+    "id": "C9",
     "category": "Accessories",
     "title": "Leather Keychains",
     "author": "DS LLC",
@@ -457,7 +457,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "D-10",
+    "id": "C10",
     "category": "Accessories",
     "title": "Dashboard Candles",
     "author": "DS LLC",
@@ -469,7 +469,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-01",
+    "id": "D1",
     "category": "Home & Mood & Atmosphere",
     "title": "DS Scented Candle Collection",
     "author": "DS LLC",
@@ -481,7 +481,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-02",
+    "id": "D2",
     "category": "Home & Mood & Atmosphere",
     "title": "Asphalt & Aftershave",
     "author": "DS LLC",
@@ -493,7 +493,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-03",
+    "id": "D3",
     "category": "Home & Mood & Atmosphere",
     "title": "Coconut & Gin",
     "author": "DS LLC",
@@ -505,7 +505,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-04",
+    "id": "D4",
     "category": "Home & Mood & Atmosphere",
     "title": "Midnight Bleach",
     "author": "DS LLC",
@@ -517,7 +517,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-05",
+    "id": "D5",
     "category": "Home & Mood & Atmosphere",
     "title": "Prowler Interior: '69 Edition",
     "author": "DS LLC",
@@ -529,7 +529,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-06",
+    "id": "D6",
     "category": "Home & Mood & Atmosphere",
     "title": "Neon Light Wall Signs",
     "author": "DS LLC",
@@ -541,7 +541,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-07",
+    "id": "D7",
     "category": "Home & Mood & Atmosphere",
     "title": "Backseat Room Fragrance",
     "author": "DS LLC",
@@ -553,7 +553,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-08",
+    "id": "D8",
     "category": "Home & Mood & Atmosphere",
     "title": "Moonlight Noir Projection Lamps",
     "author": "DS LLC",
@@ -565,7 +565,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-09",
+    "id": "D9",
     "category": "Home & Mood & Atmosphere",
     "title": "Soundscape Machines",
     "author": "DS LLC",
@@ -577,7 +577,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-10",
+    "id": "D10",
     "category": "Home & Mood & Atmosphere",
     "title": "Secret-Safe Lamps",
     "author": "DS LLC",
@@ -589,7 +589,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-11",
+    "id": "D11",
     "category": "Home & Mood & Atmosphere",
     "title": "Erotic Tarot Decks",
     "author": "DS LLC",
@@ -601,7 +601,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-12",
+    "id": "D12",
     "category": "Home & Mood & Atmosphere",
     "title": "Streetlight Bath Bombs",
     "author": "DS LLC",
@@ -613,7 +613,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-13",
+    "id": "D13",
     "category": "Home & Mood & Atmosphere",
     "title": "Art Prints",
     "author": "DS LLC",
@@ -625,7 +625,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "E-14",
+    "id": "D14",
     "category": "Home & Mood & Atmosphere",
     "title": "Tabletop Graffiti Sets",
     "author": "DS LLC",
@@ -637,7 +637,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-01",
+    "id": "E1",
     "category": "Media & Experiences",
     "title": "Official DarkStreet Driving Playlists",
     "author": "DS LLC",
@@ -649,7 +649,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-02",
+    "id": "E2",
     "category": "Media & Experiences",
     "title": "Guided Driving Meditation Audio",
     "author": "DS LLC",
@@ -661,7 +661,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-03",
+    "id": "E3",
     "category": "Media & Experiences",
     "title": "Erotic & Mystery-Inspired",
     "author": "DS LLC",
@@ -673,7 +673,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-04",
+    "id": "E4",
     "category": "Media & Experiences",
     "title": "Interactive Audio Zines",
     "author": "DS LLC",
@@ -685,7 +685,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-05",
+    "id": "E5",
     "category": "Media & Experiences",
     "title": "Midnight Poetry Readings",
     "author": "DS LLC",
@@ -697,7 +697,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-06",
+    "id": "E6",
     "category": "Media & Experiences",
     "title": "DS Short Film Anthology",
     "author": "DS LLC",
@@ -709,7 +709,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-07",
+    "id": "E7",
     "category": "Media & Experiences",
     "title": "Voice Memos from Aries or Dancer",
     "author": "DS LLC",
@@ -721,7 +721,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-08",
+    "id": "E8",
     "category": "Media & Experiences",
     "title": "Car Sex Safety Course",
     "author": "DS LLC",
@@ -733,7 +733,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-09",
+    "id": "E9",
     "category": "Media & Experiences",
     "title": "Digital 'Rehearse in the Ruins'",
     "author": "DS LLC",
@@ -745,7 +745,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "F-10",
+    "id": "E10",
     "category": "Media & Experiences",
     "title": "DSA: DarkStreeters Anonymous Newsletter",
     "author": "DS LLC",
@@ -757,7 +757,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-01",
+    "id": "F1",
     "category": "Digital & Curated Services",
     "title": "'DS Route Generator' App",
     "author": "DS LLC",
@@ -769,7 +769,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-02",
+    "id": "F2",
     "category": "Digital & Curated Services",
     "title": "'Streetin' Score' AI Tool",
     "author": "DS LLC",
@@ -781,7 +781,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-03",
+    "id": "F3",
     "category": "Digital & Curated Services",
     "title": "Digital Streetlight Flash Fiction Pack",
     "author": "DS LLC",
@@ -793,7 +793,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-04",
+    "id": "F4",
     "category": "Digital & Curated Services",
     "title": "Text Message Confessional Subscription",
     "author": "DS LLC",
@@ -805,7 +805,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-05",
+    "id": "F5",
     "category": "Digital & Curated Services",
     "title": "Augmented Reality Scene Overlays",
     "author": "DS LLC",
@@ -817,7 +817,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-06",
+    "id": "F6",
     "category": "Digital & Curated Services",
     "title": "Chatbot Roleplay with Aries or Dancer",
     "author": "DS LLC",
@@ -829,7 +829,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "G-07",
+    "id": "F7",
     "category": "Digital & Curated Services",
     "title": "Custom Memory Erasure Generator",
     "author": "DS LLC",
@@ -841,7 +841,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "H-01",
+    "id": "G1",
     "category": "Culinary & Novelty",
     "title": "'Noir-ade' Beverages",
     "author": "DS LLC",
@@ -853,7 +853,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "H-02",
+    "id": "G2",
     "category": "Culinary & Novelty",
     "title": "DarkStreet Mugs",
     "author": "DS LLC",
@@ -865,7 +865,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "H-03",
+    "id": "G3",
     "category": "Culinary & Novelty",
     "title": "'Confession Shots' Kits",
     "author": "DS LLC",
@@ -877,7 +877,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "H-04",
+    "id": "G4",
     "category": "Culinary & Novelty",
     "title": "Streetlight Ice Cubes",
     "author": "DS LLC",
@@ -889,7 +889,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "H-05",
+    "id": "G5",
     "category": "Culinary & Novelty",
     "title": "Prowler Flask Kit",
     "author": "DS LLC",
@@ -901,7 +901,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-01",
+    "id": "H1",
     "category": "Collector & Art-Based",
     "title": "Limited-Edition Zines",
     "author": "DS LLC",
@@ -913,7 +913,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-02",
+    "id": "H2",
     "category": "Collector & Art-Based",
     "title": "Graphic Novella Box Sets",
     "author": "DS LLC",
@@ -925,7 +925,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-03",
+    "id": "H3",
     "category": "Collector & Art-Based",
     "title": "Hand-Numbered Prints of DS Street Maps",
     "author": "DS LLC",
@@ -937,7 +937,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-04",
+    "id": "H4",
     "category": "Collector & Art-Based",
     "title": "Collectible Character Cards",
     "author": "DS LLC",
@@ -949,7 +949,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-05",
+    "id": "H5",
     "category": "Collector & Art-Based",
     "title": "DS Polaroid Sets",
     "author": "DS LLC",
@@ -961,7 +961,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-06",
+    "id": "H6",
     "category": "Collector & Art-Based",
     "title": "Tactile Memory Packs",
     "author": "DS LLC",
@@ -973,7 +973,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "I-07",
+    "id": "H7",
     "category": "Collector & Art-Based",
     "title": "Backseat Diorama Kits",
     "author": "DS LLC",
@@ -985,7 +985,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-01",
+    "id": "I1",
     "category": "Live & Social Activation",
     "title": "Backseat Theater Box",
     "author": "DS LLC",
@@ -997,7 +997,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-02",
+    "id": "I2",
     "category": "Live & Social Activation",
     "title": "'Memory & Mercury' Scavenger Hunt",
     "author": "DS LLC",
@@ -1009,7 +1009,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-03",
+    "id": "I3",
     "category": "Live & Social Activation",
     "title": "Pop-Up Confession Booths",
     "author": "DS LLC",
@@ -1021,7 +1021,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-04",
+    "id": "I4",
     "category": "Live & Social Activation",
     "title": "Streetlight Salons",
     "author": "DS LLC",
@@ -1033,7 +1033,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-05",
+    "id": "I5",
     "category": "Live & Social Activation",
     "title": "Backseat Photo Booth Pop-Ups",
     "author": "DS LLC",
@@ -1045,7 +1045,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "J-06",
+    "id": "I6",
     "category": "Live & Social Activation",
     "title": "Custom Drive-In Screenings",
     "author": "DS LLC",
@@ -1057,7 +1057,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-01",
+    "id": "J1",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "DS Bedroom Dice",
     "author": "DS LLC",
@@ -1069,7 +1069,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-02",
+    "id": "J2",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Lovers Game",
     "author": "DS LLC",
@@ -1081,7 +1081,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-03",
+    "id": "J3",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Anonymous Drop Letters",
     "author": "DS LLC",
@@ -1093,7 +1093,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-04",
+    "id": "J4",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Stolen Glance Mirrors",
     "author": "DS LLC",
@@ -1105,7 +1105,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-05",
+    "id": "J5",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Aries' Burner Phone Prop Replica",
     "author": "DS LLC",
@@ -1117,7 +1117,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-06",
+    "id": "J6",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "DS Mood Ring Keychains",
     "author": "DS LLC",
@@ -1129,7 +1129,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-07",
+    "id": "J7",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Journals",
     "author": "DS LLC",
@@ -1141,7 +1141,7 @@ export const products: Product[] = [
     "badge": "New"
   },
   {
-    "id": "K-08",
+    "id": "J8",
     "category": "Relationship & Erotic & Mystery-Inspired",
     "title": "Customizable Digital Memory Vaults",
     "author": "DS LLC",
