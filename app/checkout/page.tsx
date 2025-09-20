@@ -17,16 +17,30 @@ export default function CheckoutPage() {
     if (cartData) {
       try {
         const cart = JSON.parse(cartData);
-        const orderItems: OrderItem[] = cart.map((item: any) => ({
+        // Handle both old format (direct array) and new format (Cart object)
+        const cartItems = cart.items ? cart.items : cart;
+        
+        if (!Array.isArray(cartItems)) {
+          setError('Invalid cart data format');
+          setIsLoading(false);
+          return;
+        }
+        
+        const orderItems: OrderItem[] = cartItems.map((item: any) => ({
           id: item.id,
           title: item.title,
-          author: item.author,
+          author: item.author || 'DS LLC', // Default author if not present
           price: item.price,
           quantity: item.quantity,
           image: item.image,
-          category: item.category
+          category: item.category || 'General' // Default category if not present
         }));
-        setItems(orderItems);
+        
+        if (orderItems.length === 0) {
+          setError('No items in cart');
+        } else {
+          setItems(orderItems);
+        }
       } catch (error) {
         console.error('Error loading cart:', error);
         setError('Failed to load cart items');
