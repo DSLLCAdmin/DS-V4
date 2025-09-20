@@ -1,8 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ShopifyApiService, ShopifySyncResult } from '@/lib/shopify-api';
-import { ShopifyConfig, validateShopifyConfig } from '@/lib/shopify-config';
+import { 
+  testShopifyConnection, 
+  syncProductsToShopify, 
+  getShopifyProducts,
+  ShopifyProduct 
+} from '@/lib/shopify-integration';
 import { unifiedProductCatalog } from '@/lib/unified-product-data';
 
 interface ShopifyIntegrationDashboardProps {
@@ -10,69 +14,35 @@ interface ShopifyIntegrationDashboardProps {
 }
 
 export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardProps> = ({ onRefresh }) => {
-  const [config, setConfig] = useState<ShopifyConfig>({
-    storeDomain: 'darkstreet-llc.myshopify.com',
-    apiVersion: '2024-01',
-    accessToken: '',
-    webhookSecret: '',
-    storeName: 'DarkStreet LLC',
-    currency: 'USD',
-    timezone: 'America/Los_Angeles'
-  });
-  
   const [isConnected, setIsConnected] = useState(false);
   const [isTesting, setIsTesting] = useState(false);
   const [isSyncing, setIsSyncing] = useState(false);
   const [connectionStatus, setConnectionStatus] = useState<string>('');
-  const [syncResult, setSyncResult] = useState<ShopifySyncResult | null>(null);
-  const [shopifyProducts, setShopifyProducts] = useState<any[]>([]);
+  const [syncResult, setSyncResult] = useState<{
+    success: number;
+    failed: number;
+    errors: string[];
+  } | null>(null);
+  const [shopifyProducts, setShopifyProducts] = useState<ShopifyProduct[]>([]);
   const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
-
-  // Load config from localStorage on mount
-  useEffect(() => {
-    const savedConfig = localStorage.getItem('shopify-config');
-    if (savedConfig) {
-      try {
-        const parsedConfig = JSON.parse(savedConfig);
-        setConfig(parsedConfig);
-      } catch (error) {
-        console.error('Failed to parse saved Shopify config:', error);
-      }
-    }
-  }, []);
-
-  // Save config to localStorage when it changes
-  useEffect(() => {
-    localStorage.setItem('shopify-config', JSON.stringify(config));
-  }, [config]);
-
-  const handleConfigChange = (field: keyof ShopifyConfig, value: string) => {
-    setConfig(prev => ({
-      ...prev,
-      [field]: value
-    }));
-  };
 
   const testConnection = async () => {
     setIsTesting(true);
     setConnectionStatus('Testing connection...');
     
     try {
-      const apiService = new ShopifyApiService(config);
-      const result = await apiService.testConnection();
+      const result = await testShopifyConnection();
       
       if (result.success) {
         setIsConnected(true);
-        setConnectionStatus('✅ Connected successfully!');
+        setConnectionStatus(`✅ ${result.message}`);
         
         // Fetch existing products
-        const productsResult = await apiService.getProducts();
-        if (productsResult.success) {
-          setShopifyProducts(productsResult.data || []);
-        }
+        const products = await getShopifyProducts();
+        setShopifyProducts(products);
       } else {
         setIsConnected(false);
-        setConnectionStatus(`❌ Connection failed: ${result.error}`);
+        setConnectionStatus(`❌ ${result.message}`);
       }
     } catch (error) {
       setIsConnected(false);
@@ -87,27 +57,23 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
     setSyncResult(null);
     
     try {
-      const apiService = new ShopifyApiService(config);
       const dsProducts = unifiedProductCatalog.getUnifiedProducts();
-      const result = await apiService.syncAllProducts(dsProducts);
+      const result = await syncProductsToShopify(dsProducts);
       
       setSyncResult(result);
       
-      if (result.success) {
-        setConnectionStatus(`✅ Sync completed: ${result.syncedProducts} products synced`);
+      if (result.success > 0) {
+        setConnectionStatus(`✅ Sync completed: ${result.success} products synced`);
         // Refresh Shopify products
-        const productsResult = await apiService.getProducts();
-        if (productsResult.success) {
-          setShopifyProducts(productsResult.data || []);
-        }
+        const products = await getShopifyProducts();
+        setShopifyProducts(products);
       } else {
-        setConnectionStatus(`❌ Sync failed: ${result.errors.length} errors`);
+        setConnectionStatus(`❌ Sync failed: ${result.failed} products failed`);
       }
     } catch (error) {
       setSyncResult({
-        success: false,
-        syncedProducts: 0,
-        failedProducts: [],
+        success: 0,
+        failed: 0,
         errors: [`Sync error: ${error instanceof Error ? error.message : 'Unknown error'}`]
       });
       setConnectionStatus(`❌ Sync error: ${error instanceof Error ? error.message : 'Unknown error'}`);
@@ -116,12 +82,13 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
     }
   };
 
-  const configValidation = validateShopifyConfig(config);
-
   return (
     <div className="p-6 bg-white rounded-lg shadow-lg">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">Shopify Integration</h2>
+        <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+          <span className="mr-3">🛍️</span>
+          Shopify Integration
+        </h2>
         <button
           onClick={() => setIsConfigModalOpen(true)}
           className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -138,19 +105,13 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
           <span className="text-sm">{connectionStatus || 'Not connected'}</span>
         </div>
         
-        {configValidation.isValid ? (
-          <button
-            onClick={testConnection}
-            disabled={isTesting}
-            className="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
-          >
-            {isTesting ? 'Testing...' : 'Test Connection'}
-          </button>
-        ) : (
-          <div className="mt-3 text-sm text-red-600">
-            Configuration incomplete: {configValidation.errors.join(', ')}
-          </div>
-        )}
+        <button
+          onClick={testConnection}
+          disabled={isTesting}
+          className="mt-3 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 transition-colors"
+        >
+          {isTesting ? 'Testing...' : 'Test Connection'}
+        </button>
       </div>
 
       {/* Sync Section */}
@@ -177,11 +138,11 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
           <h3 className="text-lg font-semibold mb-2">Sync Results</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-green-600">{syncResult.syncedProducts}</div>
+              <div className="text-2xl font-bold text-green-600">{syncResult.success}</div>
               <div className="text-sm text-gray-600">Products Synced</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-red-600">{syncResult.failedProducts.length}</div>
+              <div className="text-2xl font-bold text-red-600">{syncResult.failed}</div>
               <div className="text-sm text-gray-600">Failed</div>
             </div>
             <div className="text-center">
@@ -189,17 +150,6 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
               <div className="text-sm text-gray-600">Errors</div>
             </div>
           </div>
-          
-          {syncResult.failedProducts.length > 0 && (
-            <div className="mt-4">
-              <h4 className="font-semibold text-red-600">Failed Products:</h4>
-              <ul className="text-sm text-red-600">
-                {syncResult.failedProducts.map(productId => (
-                  <li key={productId}>• {productId}</li>
-                ))}
-              </ul>
-            </div>
-          )}
           
           {syncResult.errors.length > 0 && (
             <div className="mt-4">
@@ -250,28 +200,26 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
             <div className="space-y-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Store Domain
+                  Store Name
                 </label>
                 <input
                   type="text"
-                  value={config.storeDomain}
-                  onChange={(e) => handleConfigChange('storeDomain', e.target.value)}
-                  placeholder="your-store.myshopify.com"
+                  placeholder="darkstreetllc"
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+                <p className="text-xs text-gray-500 mt-1">Your Shopify store subdomain</p>
               </div>
               
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Access Token
+                  Admin API Access Token
                 </label>
                 <input
                   type="password"
-                  value={config.accessToken}
-                  onChange={(e) => handleConfigChange('accessToken', e.target.value)}
                   placeholder="shpat_..."
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+                <p className="text-xs text-gray-500 mt-1">Create a private app in your Shopify admin</p>
               </div>
               
               <div>
@@ -280,25 +228,22 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
                 </label>
                 <input
                   type="password"
-                  value={config.webhookSecret}
-                  onChange={(e) => handleConfigChange('webhookSecret', e.target.value)}
                   placeholder="Webhook secret for verification"
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
+                <p className="text-xs text-gray-500 mt-1">Optional: For webhook verification</p>
               </div>
-              
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Store Name
-                </label>
-                <input
-                  type="text"
-                  value={config.storeName}
-                  onChange={(e) => handleConfigChange('storeName', e.target.value)}
-                  placeholder="DarkStreet LLC"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
+            </div>
+            
+            <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+              <h4 className="font-semibold text-blue-900 mb-2">Setup Instructions:</h4>
+              <ol className="text-sm text-blue-800 space-y-1">
+                <li>1. Create a Shopify store at shopify.com</li>
+                <li>2. Go to Settings → Apps and sales channels</li>
+                <li>3. Create a private app with Admin API access</li>
+                <li>4. Copy the access token and enter it above</li>
+                <li>5. Test the connection</li>
+              </ol>
             </div>
             
             <div className="flex justify-end gap-3 mt-6">
@@ -312,7 +257,7 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
                 onClick={() => setIsConfigModalOpen(false)}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
-                Save
+                Save Configuration
               </button>
             </div>
           </div>

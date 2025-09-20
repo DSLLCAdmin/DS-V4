@@ -303,6 +303,7 @@ select:focus {
   --swatch203: #6A8085;
   --swatch204: #3B3929;
   --swatch205: #000000;
+  --swatch206: #FFFFCC; /* DS Checkout Background - Off-white with yellow tint */
 
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;
@@ -392,6 +393,7 @@ select:focus {
   .bg-swatch203 { background-color: var(--swatch203); }
   .bg-swatch204 { background-color: var(--swatch204); }
   .bg-swatch205 { background-color: var(--swatch205); }
+  .bg-swatch206 { background-color: var(--swatch206); }
 
   /* Font weight utilities for Directors Gothic font */
   .font-light { font-weight: 300; }

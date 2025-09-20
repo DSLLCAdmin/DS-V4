@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { useScrollMemory } from '@/hooks/use-scroll-memory';
 import { useRouter } from 'next/navigation';
+import { ShopifyCheckoutButton } from '@/components/ShopifyCheckoutButton';
 
 export default function CartPage() {
   const { cart, loading, updateQuantity, removeFromCart, clearCart } = useCart();
@@ -389,7 +390,16 @@ export default function CartPage() {
                     {loading ? 'Processing...' : 'Proceed to Checkout'}
                   </Button>
 
-                  <p className="text-center text-white/60 text-sm">
+                  <div className="my-4 text-center text-white/60 text-sm">
+                    OR
+                  </div>
+
+                  <ShopifyCheckoutButton 
+                    cartItems={cart.items}
+                    disabled={loading}
+                  />
+
+                  <p className="text-center text-white/60 text-sm mt-4">
                     Secure checkout powered by <DarkStreetsTextLogo />
                   </p>
                 </CardContent>
