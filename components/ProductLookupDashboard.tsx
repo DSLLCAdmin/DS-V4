@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { unifiedProductCatalog, UnifiedProduct } from '@/lib/unified-product-data';
+import { SHOPIFY_PRODUCTS_ENABLED, SHOPIFY_PRODUCT_AVAILABILITY } from '@/lib/shopify-product-filter';
 
 interface ProductLookupDashboardProps {
   onRefresh: () => void;
@@ -305,6 +306,37 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
                     </span>
                   </div>
                   <div><strong>Last Sync:</strong> {selectedProduct.lastSync ? selectedProduct.lastSync.toLocaleString() : 'Never'}</div>
+                </div>
+              </div>
+
+              {/* Shopify Availability Section */}
+              <div className="mb-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <h4 className="font-semibold text-blue-900 mb-2">Shopify Availability</h4>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-blue-700">Master Toggle:</span>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      SHOPIFY_PRODUCTS_ENABLED ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+                    }`}>
+                      {SHOPIFY_PRODUCTS_ENABLED ? 'ENABLED' : 'DISABLED'}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-blue-700">This Product:</span>
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      SHOPIFY_PRODUCT_AVAILABILITY[selectedProduct.id] ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    }`}>
+                      {SHOPIFY_PRODUCT_AVAILABILITY[selectedProduct.id] ? 'AVAILABLE' : 'NOT AVAILABLE'}
+                    </span>
+                  </div>
+                  <div className="text-xs text-blue-600 mt-2">
+                    {!SHOPIFY_PRODUCTS_ENABLED 
+                      ? 'All products managed on DS LLC only'
+                      : SHOPIFY_PRODUCT_AVAILABILITY[selectedProduct.id]
+                        ? 'This product will be included in Shopify operations'
+                        : 'This product will be excluded from Shopify operations'
+                    }
+                  </div>
                 </div>
               </div>
             </div>
