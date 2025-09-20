@@ -66,11 +66,11 @@ export interface SyncError {
   retryCount: number;
 }
 
-// Sample product mappings for DS LLC products (using Shopify IDs as DS Product IDs)
+// Sample product mappings for DS LLC products (using new A-01, B-01 format)
 const sampleMappings: ProductMapping[] = [
-  // Books - Amazon FBA (will use Shopify IDs after migration)
+  // Books - Amazon FBA (Category A: Serials/Books)
   {
-    dsProductId: 'shopify_book_001', // First & Light E-book (Shopify ID)
+    dsProductId: 'A-01', // First & Light E-book
     shopifyId: 'shopify_book_001',
     amazonASIN: 'B0ABC123456',
     isbn: '9781234567890', // Example ISBN for books
@@ -79,43 +79,43 @@ const sampleMappings: ProductMapping[] = [
     syncStatus: 'synced'
   },
   {
-    dsProductId: '1b',
-    amazonASIN: 'B0ABC123457', // First & Light Paperback
+    dsProductId: 'A-02', // First & Light Paperback
+    amazonASIN: 'B0ABC123457',
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
   {
-    dsProductId: '2a',
-    amazonASIN: 'B0ABC123458', // Risque & Safety E-book
+    dsProductId: 'A-03', // Risque & Safety E-book
+    amazonASIN: 'B0ABC123458',
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
   {
-    dsProductId: '2b',
-    amazonASIN: 'B0ABC123459', // Risque & Safety Paperback
+    dsProductId: 'A-04', // Risque & Safety Paperback
+    amazonASIN: 'B0ABC123459',
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
   {
-    dsProductId: '3a',
-    amazonASIN: 'B0ABC123460', // Mercury & Memory E-book
+    dsProductId: 'A-05', // Mercury & Memory E-book
+    amazonASIN: 'B0ABC123460',
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
   {
-    dsProductId: '3b',
-    amazonASIN: 'B0ABC123461', // Mercury & Memory Paperback
+    dsProductId: 'A-06', // Mercury & Memory Paperback
+    amazonASIN: 'B0ABC123461',
     fulfillmentProvider: 'amazon_fba',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
-  // Apparel - Vendor Fulfillment
+  // Apparel - Vendor Fulfillment (Category B: Apparel & Intimate Wear)
   {
-    dsProductId: 'A4',
+    dsProductId: 'B-04', // DarkStreet Tees
     shopifyId: 'shopify_tee_001',
     vendorId: 'apparel_vendor_001',
     fulfillmentProvider: 'apparel_vendor',
@@ -123,7 +123,7 @@ const sampleMappings: ProductMapping[] = [
     syncStatus: 'synced'
   },
   {
-    dsProductId: 'A8',
+    dsProductId: 'B-08', // Hats
     shopifyId: 'shopify_hat_001',
     vendorId: 'apparel_vendor_001',
     fulfillmentProvider: 'apparel_vendor',
@@ -131,7 +131,7 @@ const sampleMappings: ProductMapping[] = [
     syncStatus: 'synced'
   },
   {
-    dsProductId: 'G2',
+    dsProductId: 'H-02', // DarkStreet Mugs (Category H: Culinary & Novelty)
     shopifyId: 'shopify_mug_001',
     vendorId: 'apparel_vendor_002',
     fulfillmentProvider: 'apparel_vendor',
@@ -140,13 +140,13 @@ const sampleMappings: ProductMapping[] = [
   },
   // Digital Products
   {
-    dsProductId: 'E1',
+    dsProductId: 'F-01', // Official DarkStreet Driving Playlists (Category F: Media & Experiences)
     fulfillmentProvider: 'digital',
     lastSync: new Date(),
     syncStatus: 'synced'
   },
   {
-    dsProductId: 'F1',
+    dsProductId: 'G-01', // DS Route Generator App (Category G: Digital & Curated Services)
     fulfillmentProvider: 'digital',
     lastSync: new Date(),
     syncStatus: 'synced'
