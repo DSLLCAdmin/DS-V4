@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { AdminLayout, AdminTabInfo } from '@/components/AdminLayout';
 import { ProductLookupDashboard } from '@/components/ProductLookupDashboard';
+import { GTINAssignmentDashboard } from '@/components/GTINAssignmentDashboard';
 import { exportSettings } from '@/lib/export-settings';
 import { ExportSettingsModal } from '@/components/ExportSettingsModal';
 
@@ -14,6 +15,11 @@ export default function ProductLookupAdminPage() {
       <AdminTabInfo tabId="lookup" />
 
       <ProductLookupDashboard onRefresh={() => {}} />
+
+      {/* GTIN Assignment Section */}
+      <div className="mt-8">
+        <GTINAssignmentDashboard onRefresh={() => {}} />
+      </div>
 
       {/* Export Settings Button */}
       <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
