@@ -100,7 +100,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
           </h1>
           <div className="flex items-center justify-between mb-4">
             <p className="text-xl text-swatch101/80">by {product.author}</p>
-            <p className="text-sm font-mono" style={{ color: '#FBF193' }}>
+            <p className="text-sm text-swatch101/80">
               ID: {product.id}
             </p>
           </div>
