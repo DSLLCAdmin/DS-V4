@@ -304,7 +304,7 @@ select:focus {
   --swatch204: #3B3929;
   --swatch205: #000000;
   --swatch206: #FFFFCC; /* DS Checkout Background - Off-white with yellow tint */
-  --swatch207: #EAEAEA; /* DS Checkout Gradient End - Light gray */
+  --swatch207: #C0C0C0; /* DS Checkout Gradient End - Darker grey */
 
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;

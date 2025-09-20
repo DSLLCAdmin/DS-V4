@@ -25,23 +25,9 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
     setError('');
 
     try {
-      // Check if Shopify is configured
-      const storeName = process.env.NEXT_PUBLIC_SHOPIFY_STORE_NAME || 'darkstreetllc';
-      const accessToken = process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN;
-      
-      if (!accessToken) {
-        throw new Error('Shopify not configured. Please set up your Shopify store first.');
-      }
-
-      // Create Shopify checkout session
-      const checkout = await createShopifyCheckout(cartItems);
-      
-      if (checkout && checkout.web_url) {
-        // Redirect to Shopify checkout
-        window.location.href = checkout.web_url;
-      } else {
-        throw new Error('Failed to create checkout session');
-      }
+      // For now, show a helpful message about Shopify setup
+      // This will be replaced with actual Shopify integration once store is set up
+      throw new Error('Shopify integration coming soon! Please use "Proceed to Checkout" for now.');
     } catch (error) {
       console.error('Shopify checkout error:', error);
       setError(error instanceof Error ? error.message : 'Checkout failed');
@@ -54,7 +40,7 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
       <Button
         onClick={handleShopifyCheckout}
         disabled={disabled || isProcessing || cartItems.length === 0}
-        className={`w-full bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-lg font-bold py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${className}`}
+        className={`w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white text-lg font-bold py-4 rounded-full shadow-lg transition-all duration-300 ${className}`}
       >
         {isProcessing ? (
           <>
@@ -64,20 +50,20 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
         ) : (
           <>
             <CreditCard className="w-6 h-6 mr-3" />
-            Checkout with Shopify
+            Shopify Checkout (Coming Soon)
             <ExternalLink className="w-4 h-4 ml-2" />
           </>
         )}
       </Button>
       
       {error && (
-        <div className="text-red-600 text-sm text-center">
-          ⚠️ {error}
+        <div className="text-blue-600 text-sm text-center bg-blue-50 p-3 rounded-lg">
+          ℹ️ {error}
         </div>
       )}
       
       <div className="text-xs text-gray-500 text-center">
-        Secure checkout powered by Shopify
+        Shopify integration will be available after store setup
       </div>
     </div>
   );
