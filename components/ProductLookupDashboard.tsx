@@ -1,17 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ProductLookup, productLookup } from '@/data/product-lookup';
+import { unifiedProductCatalog, UnifiedProduct } from '@/lib/unified-product-data';
 
 interface ProductLookupDashboardProps {
   onRefresh: () => void;
 }
 
 export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProps) {
-  const [products, setProducts] = useState<ProductLookup[]>([]);
+  const [products, setProducts] = useState<UnifiedProduct[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProvider, setSelectedProvider] = useState<string>('all');
-  const [selectedProduct, setSelectedProduct] = useState<ProductLookup | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<UnifiedProduct | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -20,13 +20,13 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
   }, []);
 
   const loadProducts = () => {
-    const allProducts = productLookup.getAllProducts();
+    const allProducts = unifiedProductCatalog.getUnifiedProducts();
     setProducts(allProducts);
   };
 
   const filteredProducts = products.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      product.dsProductId.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      product.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
       (product.shopifyId && product.shopifyId.toLowerCase().includes(searchTerm.toLowerCase())) ||
       (product.amazonASIN && product.amazonASIN.toLowerCase().includes(searchTerm.toLowerCase()));
     
@@ -66,7 +66,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
     }
   };
 
-  const openModal = (product: ProductLookup) => {
+  const openModal = (product: UnifiedProduct) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
@@ -85,7 +85,23 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
         <h2 className="text-2xl font-bold text-gray-900">Product Lookup Table</h2>
         <button
           onClick={() => {
-            const csvContent = productLookup.exportToCSV();
+            // Generate CSV content from filtered products
+            const headers = ['ID', 'Title', 'Category', 'Price', 'Fulfillment Provider', 'Sync Status', 'Shopify ID', 'Amazon ASIN'];
+            const rows = filteredProducts.map(product => [
+              product.id,
+              product.title,
+              product.category,
+              product.price.toString(),
+              product.fulfillmentProvider || 'N/A',
+              product.syncStatus || 'N/A',
+              product.shopifyId || 'N/A',
+              product.amazonASIN || 'N/A'
+            ]);
+            
+            const csvContent = [headers, ...rows].map(row => 
+              row.map(field => `"${field}"`).join(',')
+            ).join('\n');
+            
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a');
             const url = URL.createObjectURL(blob);
@@ -132,7 +148,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
           >
             {providers.map(provider => (
               <option key={provider} value={provider}>
-                {provider === 'all' ? 'All Providers' : provider.replace('_', ' ').toUpperCase()}
+                {provider === 'all' ? 'All Providers' : (provider || 'Unknown').replace('_', ' ').toUpperCase()}
               </option>
             ))}
           </select>
@@ -146,9 +162,9 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
           <div className="text-2xl font-bold text-blue-800">{products.length}</div>
         </div>
         <div className="bg-green-50 p-4 rounded-lg">
-          <div className="text-sm font-medium text-green-600">Active Products</div>
+          <div className="text-sm font-medium text-green-600">Synced Products</div>
           <div className="text-2xl font-bold text-green-800">
-            {products.filter(p => p.status === 'active').length}
+            {products.filter(p => p.syncStatus === 'synced').length}
           </div>
         </div>
         <div className="bg-orange-50 p-4 rounded-lg">
@@ -189,20 +205,20 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
               </tr>
             ) : (
               filteredProducts.map(product => (
-                <tr key={product.dsProductId} className="border-b border-gray-200 hover:bg-gray-50">
-                  <td className="py-3 px-4 text-sm text-gray-900 font-medium">{product.dsProductId}</td>
+                <tr key={product.id} className="border-b border-gray-200 hover:bg-gray-50">
+                  <td className="py-3 px-4 text-sm text-gray-900 font-medium">{product.id}</td>
                   <td className="py-3 px-4 text-sm text-gray-900">{product.title}</td>
                   <td className="py-3 px-4 text-sm text-gray-900">{product.category}</td>
                   <td className="py-3 px-4 text-sm text-gray-900">{product.shopifyId || '-'}</td>
                   <td className="py-3 px-4 text-sm text-gray-900">{product.amazonASIN || '-'}</td>
                   <td className="py-3 px-4 text-sm">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getProviderColor(product.fulfillmentProvider)}`}>
-                      {product.fulfillmentProvider.replace('_', ' ').toUpperCase()}
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getProviderColor(product.fulfillmentProvider || 'manual')}`}>
+                      {(product.fulfillmentProvider || 'manual').replace('_', ' ').toUpperCase()}
                     </span>
                   </td>
                   <td className="py-3 px-4 text-sm">
-                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(product.status)}`}>
-                      {product.status.charAt(0).toUpperCase() + product.status.slice(1)}
+                    <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(product.syncStatus || 'not_mapped')}`}>
+                      {(product.syncStatus || 'not_mapped').charAt(0).toUpperCase() + (product.syncStatus || 'not_mapped').slice(1)}
                     </span>
                   </td>
                   <td className="py-3 px-4 text-sm">
@@ -239,15 +255,15 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
               <div className="space-y-4">
                 <h4 className="text-lg font-semibold text-gray-800">Basic Information</h4>
                 <div className="space-y-2 text-sm">
-                  <div><strong>DS Product ID:</strong> {selectedProduct.dsProductId}</div>
-                  <div><strong>Original DS ID:</strong> {selectedProduct.originalDsId || 'N/A'}</div>
+                  <div><strong>DS Product ID:</strong> {selectedProduct.id}</div>
+                  <div><strong>Original DS ID:</strong> {selectedProduct.id}</div>
                   <div><strong>Title:</strong> {selectedProduct.title}</div>
                   <div><strong>Category:</strong> {selectedProduct.category}</div>
                   <div><strong>Author:</strong> {selectedProduct.author || 'N/A'}</div>
                   <div><strong>Price:</strong> ${selectedProduct.price}</div>
-                  <div><strong>Status:</strong> 
-                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedProduct.status)}`}>
-                      {selectedProduct.status.charAt(0).toUpperCase() + selectedProduct.status.slice(1)}
+                  <div><strong>Status:</strong>
+                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getStatusColor(selectedProduct.inStock ? 'active' : 'inactive')}`}>
+                      {selectedProduct.inStock ? 'Active' : 'Inactive'}
                     </span>
                   </div>
                 </div>
@@ -258,9 +274,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
                 <h4 className="text-lg font-semibold text-gray-800">Platform Identifiers</h4>
                 <div className="space-y-2 text-sm">
                   <div><strong>Shopify ID:</strong> {selectedProduct.shopifyId || 'Not mapped'}</div>
-                  <div><strong>Shopify Handle:</strong> {selectedProduct.shopifyHandle || 'Not mapped'}</div>
                   <div><strong>Amazon ASIN:</strong> {selectedProduct.amazonASIN || 'Not mapped'}</div>
-                  <div><strong>Amazon SKU:</strong> {selectedProduct.amazonSKU || 'Not mapped'}</div>
                   <div><strong>Vendor ID:</strong> {selectedProduct.vendorId || 'Not mapped'}</div>
                 </div>
               </div>
@@ -281,16 +295,16 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
                 <h4 className="text-lg font-semibold text-gray-800">Fulfillment</h4>
                 <div className="space-y-2 text-sm">
                   <div><strong>Provider:</strong> 
-                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getProviderColor(selectedProduct.fulfillmentProvider)}`}>
-                      {selectedProduct.fulfillmentProvider.replace('_', ' ').toUpperCase()}
+                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getProviderColor(selectedProduct.fulfillmentProvider || 'manual')}`}>
+                      {(selectedProduct.fulfillmentProvider || 'manual').replace('_', ' ').toUpperCase()}
                     </span>
                   </div>
                   <div><strong>Sync Status:</strong> 
-                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getSyncStatusColor(selectedProduct.syncStatus)}`}>
-                      {selectedProduct.syncStatus.charAt(0).toUpperCase() + selectedProduct.syncStatus.slice(1)}
+                    <span className={`ml-2 px-2 py-1 rounded-full text-xs font-medium ${getSyncStatusColor(selectedProduct.syncStatus || 'not_mapped')}`}>
+                      {(selectedProduct.syncStatus || 'not_mapped').charAt(0).toUpperCase() + (selectedProduct.syncStatus || 'not_mapped').slice(1)}
                     </span>
                   </div>
-                  <div><strong>Last Sync:</strong> {selectedProduct.lastSync.toLocaleString()}</div>
+                  <div><strong>Last Sync:</strong> {selectedProduct.lastSync ? selectedProduct.lastSync.toLocaleString() : 'Never'}</div>
                 </div>
               </div>
             </div>
@@ -305,7 +319,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
               <button
                 onClick={() => {
                   // TODO: Implement edit functionality
-                  console.log('Edit product:', selectedProduct.dsProductId);
+                  console.log('Edit product:', selectedProduct.id);
                 }}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
               >
