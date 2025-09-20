@@ -12,7 +12,8 @@ import {
   Lock,
   Unlock,
   BarChart3,
-  Settings
+  Settings,
+  Shield
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -85,6 +86,14 @@ const ADMIN_TABS: AdminTab[] = [
     path: '/admin/shopify',
     description: 'Shopify integration and management',
     services: ['Shopify Store', 'API Integration', 'Webhook Management']
+  },
+  {
+    id: 'credentials',
+    name: 'Credentials',
+    icon: <Shield className="w-4 h-4" />,
+    path: '/admin/credentials',
+    description: 'Secure storage for business credentials and API keys',
+    services: ['API Keys', 'Account Numbers', 'Service Credentials']
   }
 ];
 
