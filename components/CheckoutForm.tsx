@@ -180,7 +180,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                   required
                   value={checkoutData.customer.firstName}
                   onChange={(e) => handleInputChange('customer', 'firstName', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                 />
               </div>
               <div>
@@ -192,7 +192,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                   required
                   value={checkoutData.customer.lastName}
                   onChange={(e) => handleInputChange('customer', 'lastName', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                 />
               </div>
               <div>
@@ -204,7 +204,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                   required
                   value={checkoutData.customer.email}
                   onChange={(e) => handleInputChange('customer', 'email', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                 />
               </div>
               <div>
@@ -215,7 +215,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                   type="tel"
                   value={checkoutData.customer.phone}
                   onChange={(e) => handleInputChange('customer', 'phone', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                 />
               </div>
             </div>
@@ -238,7 +238,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.firstName}
                     onChange={(e) => handleInputChange('shippingAddress', 'firstName', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -250,7 +250,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.lastName}
                     onChange={(e) => handleInputChange('shippingAddress', 'lastName', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -261,7 +261,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     type="text"
                     value={checkoutData.shippingAddress.company}
                     onChange={(e) => handleInputChange('shippingAddress', 'company', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -273,7 +273,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.address1}
                     onChange={(e) => handleInputChange('shippingAddress', 'address1', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div className="md:col-span-2">
@@ -284,7 +284,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     type="text"
                     value={checkoutData.shippingAddress.address2}
                     onChange={(e) => handleInputChange('shippingAddress', 'address2', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -296,7 +296,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.city}
                     onChange={(e) => handleInputChange('shippingAddress', 'city', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -308,7 +308,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.state}
                     onChange={(e) => handleInputChange('shippingAddress', 'state', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -320,7 +320,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.zipCode}
                     onChange={(e) => handleInputChange('shippingAddress', 'zipCode', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   />
                 </div>
                 <div>
@@ -331,7 +331,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                     required
                     value={checkoutData.shippingAddress.country}
                     onChange={(e) => handleInputChange('shippingAddress', 'country', e.target.value)}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                   >
                     <option value="United States">United States</option>
                     <option value="Canada">Canada</option>
@@ -367,7 +367,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.firstName}
                       onChange={(e) => handleInputChange('billingAddress', 'firstName', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -379,7 +379,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.lastName}
                       onChange={(e) => handleInputChange('billingAddress', 'lastName', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -390,7 +390,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       type="text"
                       value={checkoutData.billingAddress.company}
                       onChange={(e) => handleInputChange('billingAddress', 'company', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -402,7 +402,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.address1}
                       onChange={(e) => handleInputChange('billingAddress', 'address1', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -413,7 +413,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       type="text"
                       value={checkoutData.billingAddress.address2}
                       onChange={(e) => handleInputChange('billingAddress', 'address2', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -425,7 +425,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.city}
                       onChange={(e) => handleInputChange('billingAddress', 'city', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -437,7 +437,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.state}
                       onChange={(e) => handleInputChange('billingAddress', 'state', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -449,7 +449,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.zipCode}
                       onChange={(e) => handleInputChange('billingAddress', 'zipCode', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -460,7 +460,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.billingAddress.country}
                       onChange={(e) => handleInputChange('billingAddress', 'country', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     >
                       <option value="United States">United States</option>
                       <option value="Canada">Canada</option>
@@ -486,7 +486,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                   required
                   value={checkoutData.paymentInfo.method}
                   onChange={(e) => handleInputChange('paymentInfo', 'method', e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                 >
                   <option value="credit_card">Credit Card</option>
                   <option value="paypal">PayPal</option>
@@ -506,7 +506,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       required
                       value={checkoutData.paymentInfo.cardholderName}
                       onChange={(e) => handleInputChange('paymentInfo', 'cardholderName', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div>
@@ -520,7 +520,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                       onChange={(e) => handleInputChange('paymentInfo', 'cardNumber', formatCardNumber(e.target.value))}
                       placeholder="1234 5678 9012 3456"
                       maxLength={19}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                     />
                   </div>
                   <div className="grid grid-cols-3 gap-4">
@@ -532,7 +532,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                         required
                         value={checkoutData.paymentInfo.expiryMonth}
                         onChange={(e) => handleInputChange('paymentInfo', 'expiryMonth', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                       >
                         <option value="">MM</option>
                         {Array.from({ length: 12 }, (_, i) => (
@@ -550,7 +550,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                         required
                         value={checkoutData.paymentInfo.expiryYear}
                         onChange={(e) => handleInputChange('paymentInfo', 'expiryYear', e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                       >
                         <option value="">YYYY</option>
                         {Array.from({ length: 10 }, (_, i) => {
@@ -574,7 +574,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
                         onChange={(e) => handleInputChange('paymentInfo', 'cvv', e.target.value.replace(/\D/g, ''))}
                         placeholder="123"
                         maxLength={4}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors duration-200"
                       />
                     </div>
                   </div>
