@@ -10,26 +10,26 @@ import { UnifiedProduct } from './unified-product-data';
  * Set to false to exclude ALL products from Shopify
  * Set to true to include products based on individual availability
  */
-export const SHOPIFY_PRODUCTS_ENABLED = false; // Master toggle - currently OFF
+export const SHOPIFY_PRODUCTS_ENABLED = true; // Master toggle - ENABLED for first 10 products
 
 /**
  * Individual product availability for Shopify
  * Only used when SHOPIFY_PRODUCTS_ENABLED = true
  */
 export const SHOPIFY_PRODUCT_AVAILABILITY: { [productId: string]: boolean } = {
-  // Books - Category A (when enabled)
+  // Books - Category A (6 books for Shopify import)
   'A-01': true,  // First & Light E-book
   'A-02': true,  // First & Light Paperback  
-  'A-03': true,  // First & Light Hardcover
-  'A-04': true,  // DarkStreet Chronicles E-book
-  'A-05': true,  // DarkStreet Chronicles Paperback
-  'A-06': true,  // DarkStreet Chronicles Hardcover
+  'A-03': true,  // Risque & Safety E-book
+  'A-04': true,  // Risque & Safety Paperback
+  'A-05': true,  // Mercury & Memory E-book
+  'A-06': true,  // Mercury & Memory Paperback
   
-  // Apparel - Category B (when enabled)
-  'B-01': true,  // DarkStreet Tees
-  'B-02': true,  // DarkStreet Caps
-  'B-03': true,  // DarkStreet Hoodies
-  'B-04': true,  // DarkStreet Mugs
+  // Apparel - Category B (4 apparel items for Shopify import)
+  'B-01': true,  // DarkStreet Panties
+  'B-02': true,  // Mesh Bodysuits
+  'B-03': true,  // Asphalt Black Denim Jackets
+  'B-04': true,  // DarkStreet Tees
   
   // All other products default to false when master toggle is enabled
 };

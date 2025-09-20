@@ -29,19 +29,19 @@ export interface ImportResult {
  * 6 Books (Category A) + 4 Apparel (Category B)
  */
 export const FIRST_10_PRODUCTS = [
-  // Books - Category A (actual products that exist)
+  // Books - Category A (6 books)
+  'A-01', // First & Light E-book
   'A-02', // First & Light Paperback  
   'A-03', // Risque & Safety E-book
   'A-04', // Risque & Safety Paperback
   'A-05', // Mercury & Memory E-book
   'A-06', // Mercury & Memory Paperback
   
-  // Apparel - Category B (actual products that exist)
+  // Apparel - Category B (4 apparel items)
   'B-01', // DarkStreet Panties
   'B-02', // Mesh Bodysuits
   'B-03', // Asphalt Black Denim Jackets
   'B-04', // DarkStreet Tees
-  'B-05', // Additional apparel item
 ];
 
 /**
