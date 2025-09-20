@@ -25,6 +25,14 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
     setError('');
 
     try {
+      // Check if Shopify is configured
+      const storeName = process.env.NEXT_PUBLIC_SHOPIFY_STORE_NAME || 'darkstreetllc';
+      const accessToken = process.env.NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN;
+      
+      if (!accessToken) {
+        throw new Error('Shopify not configured. Please set up your Shopify store first.');
+      }
+
       // Create Shopify checkout session
       const checkout = await createShopifyCheckout(cartItems);
       

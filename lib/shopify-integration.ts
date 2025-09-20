@@ -289,6 +289,11 @@ export async function getShopifyProducts(): Promise<ShopifyProduct[]> {
  */
 export async function createShopifyCheckout(cartItems: any[]): Promise<ShopifyCheckout | null> {
   try {
+    // Check if Shopify is properly configured
+    if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || SHOPIFY_ADMIN_API_ACCESS_TOKEN === '') {
+      throw new Error('Shopify access token not configured. Please set up your Shopify store first.');
+    }
+
     const checkoutData = {
       checkout: {
         line_items: cartItems.map(item => ({
@@ -311,14 +316,15 @@ export async function createShopifyCheckout(cartItems: any[]): Promise<ShopifyCh
     });
 
     if (!response.ok) {
-      throw new Error(`Shopify API error: ${response.status} ${response.statusText}`);
+      const errorText = await response.text();
+      throw new Error(`Shopify API error: ${response.status} ${response.statusText} - ${errorText}`);
     }
 
     const result = await response.json();
     return result.checkout;
   } catch (error) {
     console.error('Error creating Shopify checkout:', error);
-    return null;
+    throw error; // Re-throw to let the component handle the error message
   }
 }
 

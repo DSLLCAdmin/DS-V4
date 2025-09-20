@@ -62,7 +62,7 @@ export default function CheckoutPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-swatch206 flex items-center justify-center">
+      <div className="min-h-screen bg-checkout-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading checkout...</p>
@@ -73,7 +73,7 @@ export default function CheckoutPage() {
 
   if (error && items.length === 0) {
     return (
-      <div className="min-h-screen bg-swatch206 flex items-center justify-center">
+      <div className="min-h-screen bg-checkout-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="text-red-600 text-xl mb-4">⚠️ {error}</div>
           <button
@@ -88,7 +88,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-swatch206">
+    <div className="min-h-screen bg-checkout-gradient">
       <div className="container mx-auto py-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">

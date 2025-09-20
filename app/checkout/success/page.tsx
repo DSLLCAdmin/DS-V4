@@ -22,7 +22,7 @@ function CheckoutSuccessContent() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-swatch206 flex items-center justify-center">
+      <div className="min-h-screen bg-checkout-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading order details...</p>
@@ -33,7 +33,7 @@ function CheckoutSuccessContent() {
 
   if (!order) {
     return (
-      <div className="min-h-screen bg-swatch206 flex items-center justify-center">
+      <div className="min-h-screen bg-checkout-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="text-red-600 text-xl mb-4">⚠️ Order not found</div>
           <Link href="/shop" className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
@@ -45,7 +45,7 @@ function CheckoutSuccessContent() {
   }
 
   return (
-    <div className="min-h-screen bg-swatch206 py-8">
+    <div className="min-h-screen bg-checkout-gradient py-8">
       <div className="max-w-4xl mx-auto px-4">
         {/* Success Header */}
         <div className="text-center mb-8">
@@ -186,7 +186,7 @@ function CheckoutSuccessContent() {
 export default function CheckoutSuccess() {
   return (
     <Suspense fallback={
-      <div className="min-h-screen bg-swatch206 flex items-center justify-center">
+      <div className="min-h-screen bg-checkout-gradient flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading...</p>

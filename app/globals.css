@@ -304,6 +304,7 @@ select:focus {
   --swatch204: #3B3929;
   --swatch205: #000000;
   --swatch206: #FFFFCC; /* DS Checkout Background - Off-white with yellow tint */
+  --swatch207: #EAEAEA; /* DS Checkout Gradient End - Light gray */
 
   --background: 0 0% 100%;
   --foreground: 222 47% 11%;
@@ -394,6 +395,12 @@ select:focus {
   .bg-swatch204 { background-color: var(--swatch204); }
   .bg-swatch205 { background-color: var(--swatch205); }
   .bg-swatch206 { background-color: var(--swatch206); }
+  .bg-swatch207 { background-color: var(--swatch207); }
+  
+  /* DS Checkout Gradient Background */
+  .bg-checkout-gradient {
+    background: linear-gradient(135deg, var(--swatch206) 0%, var(--swatch207) 100%);
+  }
 
   /* Font weight utilities for Directors Gothic font */
   .font-light { font-weight: 300; }
