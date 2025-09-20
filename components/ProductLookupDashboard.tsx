@@ -31,7 +31,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
       (product.amazonASIN && product.amazonASIN.toLowerCase().includes(searchTerm.toLowerCase()));
     
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
-    const matchesProvider = selectedProvider === 'all' || product.fulfillmentProvider === selectedProvider;
+    const matchesProvider = selectedProvider === 'all' || (product.fulfillmentProvider || 'manual') === selectedProvider;
     
     return matchesSearch && matchesCategory && matchesProvider;
   });
@@ -77,7 +77,7 @@ export function ProductLookupDashboard({ onRefresh }: ProductLookupDashboardProp
   };
 
   const categories = ['all', ...Array.from(new Set(products.map(p => p.category)))];
-  const providers = ['all', ...Array.from(new Set(products.map(p => p.fulfillmentProvider)))];
+  const providers = ['all', ...Array.from(new Set(products.map(p => p.fulfillmentProvider || 'manual')))];
 
   return (
     <div className="p-6 bg-white rounded-lg shadow-lg">
