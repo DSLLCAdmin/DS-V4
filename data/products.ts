@@ -17,7 +17,7 @@ export const products: Product[] = [
     "category": "Serials/Books",
     "title": "First & Light- E-book",
     "author": "Aries Tiger",
-    "price": 0,
+    "price": 4.99,
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-ebook.jpg",
