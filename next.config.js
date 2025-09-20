@@ -12,20 +12,8 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-  // Add CORS headers for local development
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-        ],
-      },
-    ];
-  },
+  // Ensure proper static export
+  distDir: 'out',
 };
 
 module.exports = nextConfig;

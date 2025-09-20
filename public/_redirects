@@ -1,0 +1,9 @@
+# Netlify redirects for Next.js static export
+# Handle client-side routing for admin pages
+
+# Admin routes - redirect to index.html for client-side routing
+/admin/* /admin/index.html 200
+/admin /admin/index.html 200
+
+# Catch all - redirect to index.html for client-side routing
+/* /index.html 200
