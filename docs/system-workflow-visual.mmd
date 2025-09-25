@@ -1,0 +1,49 @@
+graph TD
+    %% Customer Journey
+    A[👤 Customer] --> B[🛍️ DarkStreet Website]
+    B --> C[☁️ Shopify]
+    C --> D[📦 Amazon FBA]
+    
+    %% Admin Systems
+    B --> E[🔐 Admin Dashboard]
+    E --> F[📊 Overview]
+    E --> G[📦 Orders]
+    E --> H[👥 Customers]
+    E --> I[🛍️ Products]
+    E --> J[🔍 Lookup]
+    E --> K[☁️ Shopify]
+    E --> L[📥 Import]
+    E --> M[🔐 Credentials]
+    
+    %% Product Management
+    I --> N[📋 95 Products]
+    N --> O[🏷️ A-01/B-01 IDs]
+    O --> P[📦 GTIN Assignment]
+    P --> Q[✅ Amazon Compliance]
+    
+    %% Secure Storage
+    M --> R[🛍️ Shopify Keys]
+    M --> S[📦 Amazon Creds]
+    M --> T[💳 Payment APIs]
+    M --> U[🌐 Hosting Access]
+    
+    %% Integration Flow
+    C --> V[🔄 Webhooks]
+    V --> E
+    D --> W[📊 Inventory Sync]
+    W --> C
+    
+    %% Styling
+    classDef customer fill:#e1f5fe
+    classDef website fill:#fff3e0
+    classDef shopify fill:#e8f5e8
+    classDef amazon fill:#fff8e1
+    classDef admin fill:#f3e5f5
+    classDef secure fill:#ffebee
+    
+    class A customer
+    class B website
+    class C shopify
+    class D amazon
+    class E,F,G,H,I,J,K,L,M admin
+    class R,S,T,U secure
