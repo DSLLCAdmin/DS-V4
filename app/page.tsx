@@ -195,7 +195,7 @@ export default function Home() {
             </SplashTransition>
 
             {/* Experiences */}
-            <SplashTransition targetUrl={`/shop?category=${encodeURIComponent("Home & Mood & Atmosphere")}`} carType="immersion">
+            <SplashTransition targetUrl={`/shop?category=${encodeURIComponent("Media & Experiences")}`} carType="immersion">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-swatch201 to-swatch202 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Image 

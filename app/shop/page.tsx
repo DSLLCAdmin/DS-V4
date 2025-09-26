@@ -49,6 +49,8 @@ function StreetStoreContent() {
     const categoryParam = searchParams.get('category');
     if (categoryParam && categories.includes(categoryParam)) {
       setSelectedCategory(categoryParam);
+      // Reset scroll to top when category changes
+      window.scrollTo(0, 0);
     }
   }, [searchParams]);
 
@@ -117,17 +119,19 @@ function StreetStoreContent() {
 
   // Restore scroll position when component mounts and products are loaded
   useEffect(() => {
-    // Wait for products to load before restoring scroll
-    if (sortedProducts.length > 0) {
+    // Only restore scroll if no category is selected (coming from homepage)
+    const categoryParam = searchParams.get('category');
+    if (sortedProducts.length > 0 && !categoryParam) {
       console.log(`🔄 Shop page loaded with ${sortedProducts.length} products, attempting scroll restoration...`);
       restoreScrollPosition('/shop', 300);
     }
-  }, [sortedProducts.length]);
+  }, [sortedProducts.length, searchParams]);
 
   // Additional restoration trigger when page becomes visible (handles back navigation)
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (!document.hidden && sortedProducts.length > 0) {
+      const categoryParam = searchParams.get('category');
+      if (!document.hidden && sortedProducts.length > 0 && !categoryParam) {
         console.log(`🔄 Page became visible, attempting scroll restoration...`);
         restoreScrollPosition('/shop', 100);
       }
