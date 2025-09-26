@@ -9,6 +9,7 @@ import { StreetStoreTextLogo } from "../components/StreetStoreTextLogo";
 import { StreetCircleTextLogo } from "../components/StreetCircleTextLogo";
 import { StreetersMapTextLogo } from "../components/StreetersMapTextLogo";
 import { AboutTextLogo } from "../components/AboutTextLogo";
+import { SplashTransition } from "../components/SplashTransition";
 
 export default function Home() {
 
@@ -154,58 +155,64 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Books */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Image 
-                  src="/AncientGrimoire.svg" 
-                  alt="Ancient Grimoire" 
-                  width={80} 
-                  height={80}
-                  className="custom-icon"
-                />
+            <SplashTransition targetUrl="/shop?category=Serials/Books">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="/AncientGrimoire.svg" 
+                    alt="Ancient Grimoire" 
+                    width={80} 
+                    height={80}
+                    className="custom-icon"
+                  />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsTextLogo /> Series</h3>
+                <p className="text-swatch205 leading-relaxed">
+                  Follow Aries Tiger and the Dancer through the neon-lit streets of LA. 
+                  From "First & Light" to "Mercury & Memory, and beyond" cruise the journey.
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-swatch205"><DarkStreetsTextLogo /> Series</h3>
-              <p className="text-swatch205 leading-relaxed">
-                Follow Aries Tiger and the Dancer through the neon-lit streets of LA. 
-                From "First & Light" to "Mercury & Memory, and beyond" cruise the journey.
-              </p>
-            </div>
+            </SplashTransition>
 
             {/* Apparel */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-swatch101 to-swatch102 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Image 
-                  src="/Graffiti_Dancer_4.svg" 
-                  alt="Graffiti Dancer" 
-                  width={80} 
-                  height={80}
-                  className="custom-icon"
-                />
+            <SplashTransition targetUrl="/shop?category=Apparel & Intimate Wear">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-swatch101 to-swatch102 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="/Graffiti_Dancer_4.svg" 
+                    alt="Graffiti Dancer" 
+                    width={80} 
+                    height={80}
+                    className="custom-icon"
+                  />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
+                <p className="text-swatch205 leading-relaxed">
+                  <DarkStreetsTextLogo /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
+                  the essence of the streets. Each piece tells a story.
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-swatch205">Street Culture Apparel</h3>
-              <p className="text-swatch205 leading-relaxed">
-                <DarkStreetsTextLogo /> Streeter tees, mesh bodysuits, denim jackets, and accessories that embody 
-                the essence of the streets. Each piece tells a story.
-              </p>
-            </div>
+            </SplashTransition>
 
             {/* Experiences */}
-            <div className="text-center group">
-              <div className="w-16 h-16 bg-gradient-to-br from-swatch201 to-swatch202 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                <Image 
-                  src="/ImmersiveExp.svg" 
-                  alt="Immersive Experience" 
-                  width={80} 
-                  height={80}
-                  className="custom-icon immersiveexp-vehicle"
-                />
+            <SplashTransition targetUrl="/shop?category=Home & Mood & Atmosphere">
+              <div className="text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-swatch201 to-swatch202 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Image 
+                    src="/ImmersiveExp.svg" 
+                    alt="Immersive Experience" 
+                    width={80} 
+                    height={80}
+                    className="custom-icon immersiveexp-vehicle"
+                  />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-swatch205">Immersive Experiences</h3>
+                <p className="text-swatch205 leading-relaxed">
+                  From scent diffusers to soundscape machines, create your own <DarkStreetsTextLogo /> atmosphere. 
+                  Includes exclusive playlists and guided experiences.
+                </p>
               </div>
-              <h3 className="font-bold text-xl mb-3 text-swatch205">Immersive Experiences</h3>
-              <p className="text-swatch205 leading-relaxed">
-                From scent diffusers to soundscape machines, create your own <DarkStreetsTextLogo /> atmosphere. 
-                Includes exclusive playlists and guided experiences.
-              </p>
-            </div>
+            </SplashTransition>
           </div>
         </div>
 

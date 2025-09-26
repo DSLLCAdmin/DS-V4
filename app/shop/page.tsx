@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { Search, Filter, Star, Heart, ShoppingCart, Package, Truck, Shield, Award, Book, Users, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -16,6 +16,7 @@ import { withDarkStreetLogo } from '@/lib/logo-utils';
 import { isProductInDesign } from '@/lib/product-utils';
 import { InDesignModal } from '@/components/InDesignModal';
 import { useScrollMemory } from '@/hooks/use-scroll-memory';
+import { useSearchParams } from 'next/navigation';
 
 // Filter products to only show actual DS products (exclude empty entries and category headers)
 const dsProducts = products.filter(product => 
@@ -28,6 +29,7 @@ const dsProducts = products.filter(product =>
 const categories = ["All", "Serials/Books", "Apparel & Intimate Wear", "Auto & Mobility", "Accessories", "Home & Mood & Atmosphere", "Media & Experiences", "Digital & Curated Services", "Culinary & Novelty", "Collector & Art-Based", "Live & Social Activation", "Relationship & Erotic & Mystery-Inspired"];
 
 function StreetStoreContent() {
+  const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [sortBy, setSortBy] = useState("images-first"); // Default: images first
@@ -41,6 +43,14 @@ function StreetStoreContent() {
 
   // Auto-save scroll position as user scrolls (lower threshold for better UX)
   useAutoSave('/shop', 50);
+
+  // Handle category from URL parameter
+  useEffect(() => {
+    const categoryParam = searchParams.get('category');
+    if (categoryParam && categories.includes(categoryParam)) {
+      setSelectedCategory(categoryParam);
+    }
+  }, [searchParams]);
 
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -879,7 +889,9 @@ function StreetStoreContent() {
 export default function StreetStore() {
   return (
     <ErrorBoundary fallback={<div className="text-center p-8">Something went wrong loading the shop. Please refresh the page.</div>}>
-      <StreetStoreContent />
+      <Suspense fallback={<div className="text-center p-8">Loading StreetStore...</div>}>
+        <StreetStoreContent />
+      </Suspense>
     </ErrorBoundary>
   );
 }
