@@ -789,40 +789,40 @@ function StreetStoreContent() {
 
         {/* Value Band - Moved to ~1/2 way through products */}
         {visibleProducts >= 12 && (
-          <div className="bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md border border-swatch103/30 rounded-2xl my-16">
+          <div className="bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md border border-swatch103/30 rounded-2xl my-16 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
               <ScrollReveal>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                   <FloatingElement speed={0.02}>
-                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                    <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300 flex-shrink-0">
                         <Truck className="h-7 w-7 text-swatch101" />
                       </div>
-                      <div className="text-left">
-                        <p className="text-swatch204 font-bold text-lg">Free Shipping</p>
-                        <p className="text-swatch203/80 text-sm">Over $50</p>
+                      <div className="text-left flex-1 min-w-0">
+                        <p className="text-swatch204 font-bold text-lg truncate">Free Shipping</p>
+                        <p className="text-swatch203/80 text-sm truncate">Over $50</p>
                       </div>
                     </div>
                   </FloatingElement>
                   <FloatingElement speed={0.025}>
-                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                    <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300 flex-shrink-0">
                         <Shield className="h-7 w-7 text-swatch101" />
                       </div>
-                      <div className="text-left">
-                        <p className="text-swatch204 font-bold text-lg">Secure Payment</p>
-                        <p className="text-swatch203/80 text-sm">100% Guaranteed</p>
+                      <div className="text-left flex-1 min-w-0">
+                        <p className="text-swatch204 font-bold text-lg truncate">Secure Payment</p>
+                        <p className="text-swatch203/80 text-sm truncate">100% Guaranteed</p>
                       </div>
                     </div>
                   </FloatingElement>
                   <FloatingElement speed={0.03}>
-                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                    <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300 flex-shrink-0">
                         <Award className="h-7 w-7 text-swatch101" />
                       </div>
-                      <div className="text-left">
-                        <p className="text-swatch204 font-bold text-lg">30-Day Returns</p>
-                        <p className="text-swatch203/80 text-sm">No Questions Asked</p>
+                      <div className="text-left flex-1 min-w-0">
+                        <p className="text-swatch204 font-bold text-lg truncate">30-Day Returns</p>
+                        <p className="text-swatch203/80 text-sm truncate">No Questions Asked</p>
                       </div>
                     </div>
                   </FloatingElement>
