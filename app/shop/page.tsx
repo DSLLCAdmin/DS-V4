@@ -316,6 +316,32 @@ function StreetStoreContent() {
             </FloatingElement>
           </ScrollReveal>
 
+        {/* Category Selection Band - Moved back to beginning */}
+        <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-md rounded-2xl shadow-xl p-8 my-8 border border-swatch103/30">
+          <ScrollReveal>
+            <div className="text-center">
+              <h3 className="text-2xl font-bold text-swatch204 mb-6">Explore Categories</h3>
+              <div className="flex flex-wrap justify-center gap-3">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    className={`transition-all duration-300 hover:scale-105 font-medium ${
+                      selectedCategory === category
+                        ? "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 shadow-lg"
+                        : "border-2 border-swatch103/30 text-swatch103 hover:bg-swatch103/10 hover:border-swatch103/50"
+                    }`}
+                  >
+                    <Filter className="h-4 w-4 mr-2" />
+                    {category}
+                  </Button>
+                ))}
+              </div>
+            </div>
+          </ScrollReveal>
+        </div>
+
         {/* Products Grid */}
         <div className="mb-6 text-center">
           <p className="text-white text-lg font-semibold">
@@ -828,33 +854,6 @@ function StreetStoreContent() {
         </div>
       </div>
 
-        {/* Category Selection Band - Moved to ~2/3 way down */}
-        {visibleProducts >= 18 && (
-          <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-md rounded-2xl shadow-xl p-8 my-16 border border-swatch103/30">
-            <ScrollReveal>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-swatch204 mb-6">Explore Other Categories</h3>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {categories.map((category) => (
-                    <Button
-                      key={category}
-                      variant={selectedCategory === category ? "default" : "outline"}
-                      onClick={() => setSelectedCategory(category)}
-                      className={`transition-all duration-300 hover:scale-105 font-medium ${
-                        selectedCategory === category
-                          ? "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 shadow-lg"
-                          : "border-2 border-swatch103/30 text-swatch103 hover:bg-swatch103/10 hover:border-swatch103/50"
-                      }`}
-                    >
-                      <Filter className="h-4 w-4 mr-2" />
-                      {category}
-                    </Button>
-                  ))}
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        )}
 
         {filteredProducts.length === 0 && (
           <ScrollReveal>
