@@ -34,27 +34,27 @@ export function SplashTransition({ targetUrl, children, className = "", carType 
     setShowSplash(true);
     setAnimationPhase('appear');
     
-    // Animation sequence
-    setTimeout(() => setAnimationPhase('zoom'), 200);
-    setTimeout(() => setAnimationPhase('drift'), 800);
-    setTimeout(() => setAnimationPhase('complete'), 1500);
+    // Animation sequence - smoother timing
+    setTimeout(() => setAnimationPhase('zoom'), 300);
+    setTimeout(() => setAnimationPhase('drift'), 1000);
+    setTimeout(() => setAnimationPhase('complete'), 1800);
     
     // Navigate after animation completes
     setTimeout(() => {
       router.push(targetUrl);
-    }, 2000);
+    }, 2200);
   };
 
   const getCarAnimationClass = () => {
     switch (animationPhase) {
       case 'appear':
-        return 'animate-pulse scale-150 opacity-100';
+        return 'animate-pulse scale-[4] opacity-100';
       case 'zoom':
-        return 'scale-100 transition-all duration-600 ease-out';
+        return 'scale-100 transition-all duration-700 ease-out';
       case 'drift':
-        return 'animate-bounce transition-all duration-700 ease-in-out';
+        return 'animate-bounce transition-all duration-800 ease-in-out';
       case 'complete':
-        return 'opacity-0 scale-50 transition-all duration-300';
+        return 'opacity-0 scale-50 transition-all duration-400 ease-in';
       default:
         return '';
     }
@@ -68,6 +68,16 @@ export function SplashTransition({ targetUrl, children, className = "", carType 
         '-translate-x-16 translate-y-8 -rotate-8',
         'translate-x-12 translate-y-12 rotate-6',
         '-translate-x-20 -translate-y-6 -rotate-12'
+      ];
+      return directions[Math.floor(Math.random() * directions.length)];
+    }
+    if (animationPhase === 'complete') {
+      // Continue drift during fade for smooth transition
+      const directions = [
+        'translate-x-32 -translate-y-20 rotate-24',
+        '-translate-x-28 translate-y-16 -rotate-16',
+        'translate-x-24 translate-y-24 rotate-12',
+        '-translate-x-32 -translate-y-12 -rotate-24'
       ];
       return directions[Math.floor(Math.random() * directions.length)];
     }
@@ -108,6 +118,24 @@ export function SplashTransition({ targetUrl, children, className = "", carType 
                   <div className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce"></div>
                   <div className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
                   <div className="w-3 h-3 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                </div>
+              </div>
+            )}
+            
+            {/* Page Zoom-in Effect - starts during car fade */}
+            {animationPhase === 'complete' && (
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-400 to-slate-600 opacity-0 animate-[zoomIn_0.4s_ease-in_forwards]">
+                <div className="w-full h-full flex items-center justify-center">
+                  <div className="text-center">
+                    <h1 className="text-4xl font-bold text-white mb-4">
+                      Loading <span className="text-yellow-400">DarkStreet</span>...
+                    </h1>
+                    <div className="flex justify-center space-x-3">
+                      <div className="w-4 h-4 bg-yellow-400 rounded-full animate-bounce"></div>
+                      <div className="w-4 h-4 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-4 h-4 bg-yellow-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
