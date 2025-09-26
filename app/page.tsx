@@ -155,7 +155,7 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Books */}
-            <SplashTransition targetUrl="/shop?category=Serials/Books">
+            <SplashTransition targetUrl="/shop?category=Serials/Books" carType="books">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Image 
@@ -175,7 +175,7 @@ export default function Home() {
             </SplashTransition>
 
             {/* Apparel */}
-            <SplashTransition targetUrl="/shop?category=Apparel & Intimate Wear">
+            <SplashTransition targetUrl="/shop?category=Apparel & Intimate Wear" carType="apparel">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-swatch101 to-swatch102 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Image 
@@ -195,7 +195,7 @@ export default function Home() {
             </SplashTransition>
 
             {/* Experiences */}
-            <SplashTransition targetUrl="/shop?category=Home & Mood & Atmosphere">
+            <SplashTransition targetUrl="/shop?category=Home & Mood & Atmosphere" carType="immersion">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-swatch201 to-swatch202 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                   <Image 
