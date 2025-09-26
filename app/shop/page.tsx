@@ -57,7 +57,13 @@ function StreetStoreContent() {
       (product.description && product.description.toLowerCase().includes(searchTerm.toLowerCase()));
     
     // Handle category filtering
-    let matchesCategory = selectedCategory === "All" || product.category === selectedCategory;
+    let matchesCategory = false;
+    if (selectedCategory === "All") {
+      matchesCategory = true;
+    } else {
+      matchesCategory = product.category === selectedCategory;
+    }
+    
     return matchesSearch && matchesCategory;
   });
 
@@ -254,51 +260,9 @@ function StreetStoreContent() {
         </FloatingElement>
       </div>
 
-      {/* Features Banner */}
-      <div className="bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md border-b border-swatch103/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <ScrollReveal>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-              <FloatingElement speed={0.02}>
-                <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                  <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
-                    <Truck className="h-7 w-7 text-swatch101" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-swatch204 font-bold text-lg">Free Shipping</p>
-                    <p className="text-swatch203/80 text-sm">Over $50</p>
-                  </div>
-                </div>
-              </FloatingElement>
-              <FloatingElement speed={0.025}>
-                <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                  <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
-                    <Shield className="h-7 w-7 text-swatch101" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-swatch204 font-bold text-lg">Secure Payment</p>
-                    <p className="text-swatch203/80 text-sm">100% Guaranteed</p>
-                  </div>
-                </div>
-              </FloatingElement>
-              <FloatingElement speed={0.03}>
-                <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
-                  <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
-                    <Award className="h-7 w-7 text-swatch101" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-swatch204 font-bold text-lg">30-Day Returns</p>
-                    <p className="text-swatch203/80 text-sm">No Questions Asked</p>
-                  </div>
-                </div>
-              </FloatingElement>
-            </div>
-          </ScrollReveal>
-        </div>
-      </div>
 
 
-      {/* Search and Filter Section */}
+      {/* Search Section */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <ScrollReveal>
             <FloatingElement speed={0.03}>
@@ -314,28 +278,6 @@ function StreetStoreContent() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                       className="pl-12 h-14 text-lg border-2 border-swatch103/30 focus:border-swatch103 focus:ring-2 focus:ring-swatch103/20 rounded-xl transition-all duration-300"
                     />
-                  </div>
-                  
-                  {/* Category Filters */}
-                  <div className="text-center">
-                    <h3 className="text-lg font-semibold text-swatch204 mb-4">Browse Categories</h3>
-                    <div className="flex flex-wrap justify-center gap-3">
-                      {categories.map((category) => (
-                        <Button
-                          key={category}
-                          variant={selectedCategory === category ? "default" : "outline"}
-                          onClick={() => setSelectedCategory(category)}
-                          className={`transition-all duration-300 hover:scale-105 font-medium ${
-                            selectedCategory === category
-                              ? "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 shadow-lg"
-                              : "border-2 border-swatch103/30 text-swatch103 hover:bg-swatch103/10 hover:border-swatch103/50"
-                          }`}
-                        >
-                          <Filter className="h-4 w-4 mr-2" />
-                          {category}
-                        </Button>
-                      ))}
-                    </div>
                   </div>
 
                   {/* Sort Options */}
@@ -842,6 +784,79 @@ function StreetStoreContent() {
             >
               Load More Products ({sortedProducts.length - visibleProducts} remaining)
             </Button>
+          </div>
+        )}
+
+        {/* Value Band - Moved to ~1/2 way through products */}
+        {visibleProducts >= 12 && (
+          <div className="bg-gradient-to-r from-swatch101/95 to-swatch101/85 backdrop-blur-md border border-swatch103/30 rounded-2xl my-16">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+              <ScrollReveal>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                  <FloatingElement speed={0.02}>
+                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                        <Truck className="h-7 w-7 text-swatch101" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-swatch204 font-bold text-lg">Free Shipping</p>
+                        <p className="text-swatch203/80 text-sm">Over $50</p>
+                      </div>
+                    </div>
+                  </FloatingElement>
+                  <FloatingElement speed={0.025}>
+                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                        <Shield className="h-7 w-7 text-swatch101" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-swatch204 font-bold text-lg">Secure Payment</p>
+                        <p className="text-swatch203/80 text-sm">100% Guaranteed</p>
+                      </div>
+                    </div>
+                  </FloatingElement>
+                  <FloatingElement speed={0.03}>
+                    <div className="group flex items-center justify-center space-x-4 hover:scale-105 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10">
+                      <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300">
+                        <Award className="h-7 w-7 text-swatch101" />
+                      </div>
+                      <div className="text-left">
+                        <p className="text-swatch204 font-bold text-lg">30-Day Returns</p>
+                        <p className="text-swatch203/80 text-sm">No Questions Asked</p>
+                      </div>
+                    </div>
+                  </FloatingElement>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        )}
+
+        {/* Category Selection Band - Moved to ~2/3 way down */}
+        {visibleProducts >= 18 && (
+          <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-md rounded-2xl shadow-xl p-8 my-16 border border-swatch103/30">
+            <ScrollReveal>
+              <div className="text-center">
+                <h3 className="text-2xl font-bold text-swatch204 mb-6">Explore Other Categories</h3>
+                <div className="flex flex-wrap justify-center gap-3">
+                  {categories.map((category) => (
+                    <Button
+                      key={category}
+                      variant={selectedCategory === category ? "default" : "outline"}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`transition-all duration-300 hover:scale-105 font-medium ${
+                        selectedCategory === category
+                          ? "bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch103 text-swatch101 shadow-lg"
+                          : "border-2 border-swatch103/30 text-swatch103 hover:bg-swatch103/10 hover:border-swatch103/50"
+                      }`}
+                    >
+                      <Filter className="h-4 w-4 mr-2" />
+                      {category}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         )}
 
