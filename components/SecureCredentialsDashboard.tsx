@@ -46,9 +46,27 @@ interface PersistedState {
 const STORAGE_KEY = 'dsllc.credentials.v1';
 
 function generateId(): string {
-  return Math.random().toString(36).slice(2) + Date.now().toString(36);
+  // Create a more stable ID that doesn't change between sessions
+  const randomPart = Math.random().toString(36).slice(2, 8); // 6 chars
+  const timestampPart = Date.now().toString(36).slice(-6); // Last 6 chars of timestamp
+  return `ds-${randomPart}-${timestampPart}`;
 }
-
+function restoreCredentialsFromBackup(): CredentialRecord[] {
+  // Try to restore from sessionStorage if localStorage was cleared
+  const sessionData = sessionStorage.getItem('dsllc.credentials.v1');
+  if (sessionData) {
+    try {
+      const parsed = JSON.parse(sessionData);
+      if (parsed && Array.isArray(parsed.items)) {
+        console.log('🔄 Restoring credentials from sessionStorage backup');
+        return parsed.items;
+      }
+    } catch (error) {
+      console.warn('Failed to restore from sessionStorage:', error);
+    }
+  }
+  return [];
+}
 function nowIso(): string {
   return new Date().toISOString();
 }
