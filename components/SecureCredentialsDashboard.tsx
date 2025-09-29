@@ -140,7 +140,13 @@ function envBadge(env: 'test' | 'live') {
 // Component
 // ----------------------------
 export default function SecureCredentialsDashboard() {
-  const deviceId = useMemo(getDefaultDeviceId, []);
+  console.log('🏗️ SecureCredentialsDashboard component mounted/re-mounted');
+  
+  const deviceId = useMemo(() => {
+    const id = getDefaultDeviceId();
+    console.log('🆔 Device ID generated/retrieved:', id);
+    return id;
+  }, []);
 
   const [records, setRecords] = useState<CredentialRecord[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -159,12 +165,17 @@ export default function SecureCredentialsDashboard() {
 
   // Load or seed
   useEffect(() => {
+    console.log('🔄 useEffect triggered - checking for persisted data...');
     const persisted = loadPersisted();
+    console.log('📊 Persisted data found:', persisted);
+    
     if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
       console.log('✅ Loading persisted credentials:', persisted.items.length, 'items');
+      console.log('📋 Credential names:', persisted.items.map(item => item.name));
       setRecords(persisted.items);
     } else {
       console.log('⚠️ No persisted credentials found, starting with empty array');
+      console.log('🔍 Persisted data was:', persisted);
       // DO NOT seed empty data - this overwrites existing credentials!
       setRecords([]);
     }
