@@ -9,11 +9,10 @@ export const Slot = React.forwardRef<any, any>(({ children, ...props }, forwarde
   if (React.isValidElement(children)) {
     return React.cloneElement(children, {
       ...props,
-      ...children.props,
       ref: forwardedRef,
-    });
+    } as any);
   }
-  return React.createElement(React.Fragment, { ...props, ref: forwardedRef }, children);
+  return React.createElement('div', { ...props, ref: forwardedRef }, children);
 });
 
 // Mock Dialog components
