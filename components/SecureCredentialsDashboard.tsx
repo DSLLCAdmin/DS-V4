@@ -112,14 +112,24 @@ function loadPersisted(): PersistedState | null {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return null;
-    return JSON.parse(raw) as PersistedState;
-  } catch {
+    const parsed = JSON.parse(raw) as PersistedState;
+    // Validate the structure
+    if (!parsed || !Array.isArray(parsed.items)) return null;
+    return parsed;
+  } catch (error) {
+    console.warn('Failed to load persisted credentials:', error);
     return null;
   }
 }
 
 function savePersisted(state: PersistedState) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    console.log('Credentials saved successfully:', state.items.length, 'items');
+  } catch (error) {
+    console.error('Failed to save credentials:', error);
+    alert('Failed to save credentials. Please check browser storage permissions.');
+  }
 }
 
 function humanCount<T>(arr: T[], pred: (t: T) => boolean): number {
@@ -169,9 +179,10 @@ export default function SecureCredentialsDashboard() {
   // Load or seed
   useEffect(() => {
     const persisted = loadPersisted();
-    if (persisted && Array.isArray(persisted.items)) {
+    if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
       setRecords(persisted.items);
     } else {
+      // Only seed if no persisted data exists at all
       const seeded = seedMockData();
       const state: PersistedState = {
         version: 1,
@@ -183,7 +194,7 @@ export default function SecureCredentialsDashboard() {
       setRecords(seeded);
     }
     setIsLoading(false);
-  }, [deviceId]);
+  }, []); // Remove deviceId dependency to prevent re-seeding
 
   // Save helper with overwrite guard by timestamp
   function persistWithGuard(next: CredentialRecord[]) {
@@ -199,6 +210,15 @@ export default function SecureCredentialsDashboard() {
     } else {
       savePersisted({ version: 1, updatedAt: nextUpdatedAt, deviceId, items: next });
     }
+  }
+
+  // Debug function to check persistence
+  function debugPersistence() {
+    const persisted = loadPersisted();
+    console.log('Debug - Persisted data:', persisted);
+    console.log('Debug - Current records:', records);
+    console.log('Debug - Device ID:', deviceId);
+    console.log('Debug - Storage key:', STORAGE_KEY);
   }
 
   // CRUD
@@ -335,6 +355,13 @@ export default function SecureCredentialsDashboard() {
           <button onClick={onExport} className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200">
             <Download className="h-4 w-4 inline mr-2" /> Export
           </button>
+          <button 
+            onClick={debugPersistence} 
+            className="px-3 py-2 bg-yellow-100 text-yellow-700 rounded-lg hover:bg-yellow-200"
+            title="Debug persistence (check console)"
+          >
+            🔍 Debug
+          </button>
           <button
             onClick={() => setShowAdd(true)}
             className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
@@ -467,22 +494,22 @@ export default function SecureCredentialsDashboard() {
               >
                 ×
               </button>
-            </div>
-            
+              </div>
+
             {/* Content */}
             <div className="flex-1 p-6 overflow-y-auto">
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                    <input
+                <input
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Credential Name"
                       value={form.name || ''}
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                    />
-                  </div>
-                  <div>
+                />
+              </div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
                     <select
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -496,10 +523,10 @@ export default function SecureCredentialsDashboard() {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                </div>
-                
+              </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Environment</label>
                     <select
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -509,21 +536,21 @@ export default function SecureCredentialsDashboard() {
                       <option value="test">Test</option>
                       <option value="live">Live</option>
                     </select>
-                  </div>
-                  <div className="flex items-center">
+              </div>
+              <div className="flex items-center">
                     <label className="inline-flex items-center gap-2 text-sm">
-                      <input
-                        type="checkbox"
+                <input
+                  type="checkbox"
                         checked={!!form.encrypted}
                         onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
                         className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                       />
                       Mark as encrypted (value masked in UI)
-                    </label>
+                </label>
                   </div>
-                </div>
-                
-                <div>
+              </div>
+
+              <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Credential Value</label>
                   <div className="relative">
                     <textarea
@@ -547,8 +574,8 @@ export default function SecureCredentialsDashboard() {
                   </p>
                 </div>
               </div>
-            </div>
-            
+              </div>
+
             {/* Footer */}
             <div className="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50">
               <div className="text-sm text-gray-500">
@@ -586,22 +613,22 @@ export default function SecureCredentialsDashboard() {
               >
                 ×
               </button>
-            </div>
-            
+              </div>
+
             {/* Content */}
             <div className="flex-1 p-6 overflow-y-auto">
               <div className="space-y-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                    <input
+                <input
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                       placeholder="Credential Name"
                       value={form.name || ''}
                       onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                    />
-                  </div>
-                  <div>
+                />
+              </div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
                     <select
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -615,10 +642,10 @@ export default function SecureCredentialsDashboard() {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                </div>
-                
+              </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
+              <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">Environment</label>
                     <select
                       className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -628,21 +655,21 @@ export default function SecureCredentialsDashboard() {
                       <option value="test">Test</option>
                       <option value="live">Live</option>
                     </select>
-                  </div>
-                  <div className="flex items-center">
+              </div>
+              <div className="flex items-center">
                     <label className="inline-flex items-center gap-2 text-sm">
-                      <input
-                        type="checkbox"
+                <input
+                  type="checkbox"
                         checked={!!form.encrypted}
                         onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
                         className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                       />
                       Mark as encrypted (value masked in UI)
-                    </label>
+                </label>
                   </div>
-                </div>
-                
-                <div>
+              </div>
+
+              <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Credential Value</label>
                   <div className="relative">
                     <textarea
@@ -666,8 +693,8 @@ export default function SecureCredentialsDashboard() {
                   </p>
                 </div>
               </div>
-            </div>
-            
+              </div>
+
             {/* Footer */}
             <div className="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50">
               <div className="text-sm text-gray-500">
