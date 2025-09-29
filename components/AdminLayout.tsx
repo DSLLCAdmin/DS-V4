@@ -122,10 +122,21 @@ export function AdminLayout({ children, currentPage }: AdminLayoutProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Check if user is already authenticated
+    // Check if user is already authenticated with session timeout
     const authStatus = localStorage.getItem('admin-authenticated');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
+    const authTime = localStorage.getItem('admin-auth-time');
+    
+    if (authStatus === 'true' && authTime) {
+      const sessionDuration = 2 * 60 * 60 * 1000; // 2 hours
+      const timeSinceAuth = Date.now() - parseInt(authTime);
+      
+      if (timeSinceAuth < sessionDuration) {
+        setIsAuthenticated(true);
+      } else {
+        // Session expired
+        localStorage.removeItem('admin-authenticated');
+        localStorage.removeItem('admin-auth-time');
+      }
     }
     setIsLoading(false);
   }, []);
@@ -136,6 +147,7 @@ export function AdminLayout({ children, currentPage }: AdminLayoutProps) {
     if (pin === 'DS24') {
       setIsAuthenticated(true);
       localStorage.setItem('admin-authenticated', 'true');
+      localStorage.setItem('admin-auth-time', Date.now().toString());
       setPin('');
     } else {
       alert('Invalid PIN');
@@ -146,6 +158,7 @@ export function AdminLayout({ children, currentPage }: AdminLayoutProps) {
   const handleLogout = () => {
     setIsAuthenticated(false);
     localStorage.removeItem('admin-authenticated');
+    localStorage.removeItem('admin-auth-time');
     router.push('/admin');
   };
 
