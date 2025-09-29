@@ -64,48 +64,8 @@ function getDefaultDeviceId(): string {
 }
 
 function seedMockData(): CredentialRecord[] {
-  return [
-    {
-      id: generateId(),
-      name: 'Stripe Live Secret Key',
-      type: 'stripe',
-      environment: 'live',
-      encrypted: true,
-      value: 'sk_live_xxx',
-      lastUsed: new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString(),
-      updatedAt: nowIso(),
-    },
-    {
-      id: generateId(),
-      name: 'Shopify Admin API Access',
-      type: 'shopify',
-      environment: 'live',
-      encrypted: true,
-      value: 'shppa_xxx',
-      lastUsed: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString(),
-      updatedAt: nowIso(),
-    },
-    {
-      id: generateId(),
-      name: 'Email Setup',
-      type: 'email',
-      environment: 'live',
-      encrypted: false,
-      value: 'smtp://user:pass@host',
-      lastUsed: new Date(Date.now() - 15 * 60 * 1000).toISOString(),
-      updatedAt: nowIso(),
-    },
-    {
-      id: generateId(),
-      name: 'Database Connection',
-      type: 'database',
-      environment: 'live',
-      encrypted: true,
-      value: 'postgres://user:pass@host/db',
-      lastUsed: new Date(Date.now() - 5 * 60 * 1000).toISOString(),
-      updatedAt: nowIso(),
-    },
-  ];
+  // No dummy data - start with empty credentials
+  return [];
 }
 
 function loadPersisted(): PersistedState | null {

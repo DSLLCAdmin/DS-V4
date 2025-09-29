@@ -50,39 +50,11 @@ export default function StripePaymentDashboard() {
   const [balance, setBalance] = useState({ available: 0, pending: 0 });
 
   useEffect(() => {
-    // Mock data initialization
-    const mockTransactions: PaymentTransaction[] = [
-      {
-        id: 'pi_123456789',
-        amount: 29.99,
-        currency: 'usd',
-        status: 'succeeded',
-        description: 'Dark Street eBook Purchase',
-        created: new Date(Date.now() - 2 * 60 * 60 * 1000),
-        customer: 'customer_123'
-      },
-      {
-        id: 'pi_987654321',
-        amount: 15.99,
-        currency: 'usd',
-        status: 'succeeded',
-        description: 'Shipping & Handling',
-        created: new Date(Date.now() - 5 * 60 * 60 * 1000),
-        customer: 'customer_456'
-      },
-      {
-        id: 'pi_456789123',
-        amount: 19.99,
-        currency: 'usd',
-        status: 'pending',
-        description: 'New eBook Release',
-        created: new Date(Date.now() - 30 * 60 * 1000),
-        customer: 'customer_789'
-      }
-    ];
+    // Initialize with empty data - no dummy transactions
+    const mockTransactions: PaymentTransaction[] = [];
 
     setTransactions(mockTransactions);
-    setBalance({ available: 1250.75, pending: 89.32 });
+    setBalance({ available: 0, pending: 0 });
     setIsLoading(false);
   }, []);
 
