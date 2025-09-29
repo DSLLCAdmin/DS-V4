@@ -445,128 +445,248 @@ export default function SecureCredentialsDashboard() {
                 </div>
                 </div>
               <div className="mt-2 text-sm text-gray-800">
-                <span className="font-mono px-2 py-1 bg-gray-100 rounded">
+                <div className="font-mono px-3 py-2 bg-gray-100 rounded whitespace-pre-wrap">
                   {showValues[cred.id] ? cred.value : '••••••••••••••••'}
-                </span>
+                </div>
               </div>
             </div>
         ))}
         </div>
       </div>
 
-      {/* Add Modal */}
+      {/* Add Modal - Full Screen */}
       {showAdd && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
-            <h3 className="text-lg font-semibold mb-4">Add Credential</h3>
-            <div className="space-y-3">
-              <input
-                className="w-full px-3 py-2 border rounded"
-                placeholder="Name"
-                value={form.name || ''}
-                onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              />
-              <select
-                className="w-full px-3 py-2 border rounded"
-                value={form.type as string}
-                onChange={(e) => setForm((f) => ({ ...f, type: e.target.value as any }))}
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full h-full max-w-none max-h-none flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <h3 className="text-xl font-semibold">Add Credential</h3>
+              <button 
+                onClick={() => setShowAdd(false)}
+                className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
               >
-                <option value="stripe">Stripe</option>
-                <option value="shopify">Shopify</option>
-                <option value="email">Email</option>
-                <option value="database">Database</option>
-                <option value="other">Other</option>
-              </select>
-                <select
-                className="w-full px-3 py-2 border rounded"
-                value={form.environment as string}
-                onChange={(e) => setForm((f) => ({ ...f, environment: e.target.value as any }))}
-              >
-                <option value="test">Test</option>
-                <option value="live">Live</option>
-                </select>
-              <label className="inline-flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={!!form.encrypted}
-                  onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
-                />
-                Mark as encrypted (value masked in UI)
-                </label>
-                <textarea
-                className="w-full px-3 py-2 border rounded font-mono"
-                rows={3}
-                placeholder="Secret / Value"
-                value={form.value || ''}
-                onChange={(e) => setForm((f) => ({ ...f, value: e.target.value }))}
-                />
+                ×
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 p-6 overflow-y-auto">
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Credential Name"
+                      value={form.name || ''}
+                      onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                    <select
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={form.type as string}
+                      onChange={(e) => setForm((f) => ({ ...f, type: e.target.value as any }))}
+                    >
+                      <option value="stripe">Stripe</option>
+                      <option value="shopify">Shopify</option>
+                      <option value="email">Email</option>
+                      <option value="database">Database</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Environment</label>
+                    <select
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={form.environment as string}
+                      onChange={(e) => setForm((f) => ({ ...f, environment: e.target.value as any }))}
+                    >
+                      <option value="test">Test</option>
+                      <option value="live">Live</option>
+                    </select>
+                  </div>
+                  <div className="flex items-center">
+                    <label className="inline-flex items-center gap-2 text-sm">
+                      <input
+                        type="checkbox"
+                        checked={!!form.encrypted}
+                        onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      />
+                      Mark as encrypted (value masked in UI)
+                    </label>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Credential Value</label>
+                  <div className="relative">
+                    <textarea
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      rows={20}
+                      placeholder="Enter credentials here...&#10;&#10;Example format:&#10;API_KEY=your_api_key_here&#10;API_SECRET=your_api_secret_here&#10;SHOP_NAME=your-shop-name.myshopify.com&#10;ACCESS_TOKEN=your_access_token_here"
+                      value={form.value || ''}
+                      onChange={(e) => setForm((f) => ({ ...f, value: e.target.value }))}
+                      style={{ 
+                        fontFamily: 'Monaco, Menlo, "Ubuntu Mono", monospace',
+                        lineHeight: '1.5',
+                        whiteSpace: 'pre-wrap'
+                      }}
+                    />
+                    <div className="absolute top-2 right-2 text-xs text-gray-500 bg-white px-2 py-1 rounded">
+                      {form.value ? form.value.split('\n').length : 0} lines
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    💡 Tip: Use line breaks to separate different credentials for better readability
+                  </p>
+                </div>
               </div>
-            <div className="mt-5 flex gap-3 justify-end">
-              <button className="px-4 py-2 bg-gray-200 rounded" onClick={() => setShowAdd(false)}>
+            </div>
+            
+            {/* Footer */}
+            <div className="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50">
+              <div className="text-sm text-gray-500">
+                Device: {deviceId.slice(0, 8)} • Changes are saved locally
+              </div>
+              <div className="flex gap-3">
+                <button 
+                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" 
+                  onClick={() => setShowAdd(false)}
+                >
                   Cancel
-              </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded" onClick={onAdd}>
-                Save
-              </button>
+                </button>
+                <button 
+                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors" 
+                  onClick={onAdd}
+                >
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* Edit Modal */}
+      {/* Edit Modal - Full Screen */}
       {showEditId && (
-        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg">
-            <h3 className="text-lg font-semibold mb-4">Edit Credential</h3>
-            <div className="space-y-3">
-              <input
-                className="w-full px-3 py-2 border rounded"
-                placeholder="Name"
-                value={form.name || ''}
-                onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-              />
-              <select
-                className="w-full px-3 py-2 border rounded"
-                value={form.type as string}
-                onChange={(e) => setForm((f) => ({ ...f, type: e.target.value as any }))}
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-lg w-full h-full max-w-none max-h-none flex flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-gray-200">
+              <h3 className="text-xl font-semibold">Edit Credential</h3>
+              <button 
+                onClick={() => setShowEditId(null)}
+                className="text-gray-400 hover:text-gray-600 text-2xl font-bold"
               >
-                <option value="stripe">Stripe</option>
-                <option value="shopify">Shopify</option>
-                <option value="email">Email</option>
-                <option value="database">Database</option>
-                <option value="other">Other</option>
-              </select>
-                <select
-                className="w-full px-3 py-2 border rounded"
-                value={form.environment as string}
-                onChange={(e) => setForm((f) => ({ ...f, environment: e.target.value as any }))}
-              >
-                <option value="test">Test</option>
-                <option value="live">Live</option>
-                </select>
-              <label className="inline-flex items-center gap-2 text-sm">
-                <input
-                  type="checkbox"
-                  checked={!!form.encrypted}
-                  onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
-                />
-                Mark as encrypted (value masked in UI)
-                </label>
-                <textarea
-                className="w-full px-3 py-2 border rounded font-mono"
-                rows={3}
-                placeholder="Secret / Value"
-                value={form.value || ''}
-                onChange={(e) => setForm((f) => ({ ...f, value: e.target.value }))}
-                />
+                ×
+              </button>
+            </div>
+            
+            {/* Content */}
+            <div className="flex-1 p-6 overflow-y-auto">
+              <div className="space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                    <input
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      placeholder="Credential Name"
+                      value={form.name || ''}
+                      onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                    <select
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={form.type as string}
+                      onChange={(e) => setForm((f) => ({ ...f, type: e.target.value as any }))}
+                    >
+                      <option value="stripe">Stripe</option>
+                      <option value="shopify">Shopify</option>
+                      <option value="email">Email</option>
+                      <option value="database">Database</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Environment</label>
+                    <select
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      value={form.environment as string}
+                      onChange={(e) => setForm((f) => ({ ...f, environment: e.target.value as any }))}
+                    >
+                      <option value="test">Test</option>
+                      <option value="live">Live</option>
+                    </select>
+                  </div>
+                  <div className="flex items-center">
+                    <label className="inline-flex items-center gap-2 text-sm">
+                      <input
+                        type="checkbox"
+                        checked={!!form.encrypted}
+                        onChange={(e) => setForm((f) => ({ ...f, encrypted: e.target.checked }))}
+                        className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      />
+                      Mark as encrypted (value masked in UI)
+                    </label>
+                  </div>
+                </div>
+                
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Credential Value</label>
+                  <div className="relative">
+                    <textarea
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                      rows={20}
+                      placeholder="Enter credentials here...&#10;&#10;Example format:&#10;API_KEY=your_api_key_here&#10;API_SECRET=your_api_secret_here&#10;SHOP_NAME=your-shop-name.myshopify.com&#10;ACCESS_TOKEN=your_access_token_here"
+                      value={form.value || ''}
+                      onChange={(e) => setForm((f) => ({ ...f, value: e.target.value }))}
+                      style={{ 
+                        fontFamily: 'Monaco, Menlo, "Ubuntu Mono", monospace',
+                        lineHeight: '1.5',
+                        whiteSpace: 'pre-wrap'
+                      }}
+                    />
+                    <div className="absolute top-2 right-2 text-xs text-gray-500 bg-white px-2 py-1 rounded">
+                      {form.value ? form.value.split('\n').length : 0} lines
+                    </div>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-1">
+                    💡 Tip: Use line breaks to separate different credentials for better readability
+                  </p>
+                </div>
               </div>
-            <div className="mt-5 flex gap-3 justify-end">
-              <button className="px-4 py-2 bg-gray-200 rounded" onClick={() => setShowEditId(null)}>
-                Cancel
-              </button>
-              <button className="px-4 py-2 bg-blue-600 text-white rounded" onClick={onEditSave}>
+            </div>
+            
+            {/* Footer */}
+            <div className="flex items-center justify-between p-6 border-t border-gray-200 bg-gray-50">
+              <div className="text-sm text-gray-500">
+                Device: {deviceId.slice(0, 8)} • Changes are saved locally
+              </div>
+              <div className="flex gap-3">
+                <button 
+                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition-colors" 
+                  onClick={() => setShowEditId(null)}
+                >
+                  Cancel
+                </button>
+                <button 
+                  className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors" 
+                  onClick={onEditSave}
+                >
                   Save Changes
-              </button>
+                </button>
+              </div>
             </div>
           </div>
         </div>
