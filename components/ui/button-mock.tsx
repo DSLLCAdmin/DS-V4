@@ -11,9 +11,8 @@ export const Slot = React.forwardRef<any, SlotProps>(({ children, ...props }, fo
   if (React.isValidElement(children)) {
     return React.cloneElement(children, {
       ...props,
-      ...children.props,
       ref: forwardedRef,
-    });
+    } as any);
   }
   return React.createElement(React.Fragment, { ...props, ref: forwardedRef }, children);
 });
