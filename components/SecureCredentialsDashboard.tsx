@@ -308,7 +308,7 @@ export default function SecureCredentialsDashboard() {
   const liveCount = humanCount(records, (r) => r.environment === 'live');
   const recentCount = humanCount(
     records,
-    (r) => r.lastUsed && new Date().getTime() - new Date(r.lastUsed).getTime() < 24 * 60 * 60 * 1000
+    (r) => !!r.lastUsed && new Date().getTime() - new Date(r.lastUsed).getTime() < 24 * 60 * 60 * 1000
   );
 
   if (isLoading) {
