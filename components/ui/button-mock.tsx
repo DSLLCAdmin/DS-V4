@@ -14,7 +14,7 @@ export const Slot = React.forwardRef<any, SlotProps>(({ children, ...props }, fo
       ref: forwardedRef,
     } as any);
   }
-  return React.createElement(React.Fragment, { ...props, ref: forwardedRef }, children);
+  return React.createElement('div', { ...props, ref: forwardedRef }, children);
 });
 
 Slot.displayName = 'Slot';
