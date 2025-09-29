@@ -99,3 +99,13 @@ cache/
 # Generated files
 generated/
 auto-generated/
+
+# CRITICAL SECURITY: Chat backups contain sensitive data
+chat-backups/
+*.chat-backup
+*.backup-encrypted
+
+# Sensitive credential files (if any exist)
+*credentials*
+*sensitive*
+*secret*
