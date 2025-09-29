@@ -13,7 +13,8 @@ import {
   Unlock,
   BarChart3,
   Settings,
-  Shield
+  Shield,
+  CreditCard
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -94,6 +95,22 @@ const ADMIN_TABS: AdminTab[] = [
     path: '/admin/credentials',
     description: 'Secure storage for business credentials and API keys',
     services: ['API Keys', 'Account Numbers', 'Service Credentials']
+  },
+  {
+    id: 'cloud-backup',
+    name: 'Cloud Backup',
+    icon: <Cloud className="w-4 h-4" />,
+    path: '/admin/cloud-backup',
+    description: 'Secure cloud backup and synchronization system',
+    services: ['Automated Backup', 'Data Sync', 'Recovery Options']
+  },
+  {
+    id: 'stripe-payments',
+    name: 'Stripe Payments',
+    icon: <CreditCard className="w-4 h-4" />,
+    path: '/admin/stripe-payments',
+    description: 'Payment processing and Stripe integration management',
+    services: ['Payment Processing', 'Transaction History', 'Account Management']
   }
 ];
 
