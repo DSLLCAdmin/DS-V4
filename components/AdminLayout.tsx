@@ -111,6 +111,22 @@ const ADMIN_TABS: AdminTab[] = [
     path: '/admin/stripe-payments',
     description: 'Payment processing and Stripe integration management',
     services: ['Payment Processing', 'Transaction History', 'Account Management']
+  },
+  {
+    id: 'shopify-payments',
+    name: 'Shopify Payments',
+    icon: <CreditCard className="w-4 h-4" />,
+    path: '/admin/shopify-payments',
+    description: 'Shopify payment gateway management and configuration',
+    services: ['Payment Gateways', 'Gateway Status', 'Security Settings']
+  },
+  {
+    id: 'shopify-policies',
+    name: 'Shopify Policies',
+    icon: <Shield className="w-4 h-4" />,
+    path: '/admin/shopify-policies',
+    description: 'Legal policies and compliance management',
+    services: ['Privacy Policy', 'Terms of Service', 'Legal Compliance']
   }
 ];
 

@@ -1,0 +1,27 @@
+{
+  "name": "ds2-chat-backup",
+  "version": "1.0.0",
+  "description": "Automated chat backup system for DS_2 project",
+  "main": "chat-backup.js",
+  "scripts": {
+    "backup": "node chat-backup.js",
+    "backup:win": "scripts\\chat-backup.bat",
+    "backup:unix": "bash scripts/chat-backup.sh",
+    "backup:auto": "node scripts/auto-backup.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "moment": "^2.29.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "backup",
+    "chat",
+    "ds2",
+    "automation"
+  ],
+  "author": "DS_2 Project",
+  "license": "MIT"
+}
