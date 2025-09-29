@@ -370,13 +370,37 @@ export async function testShopifyConnection(): Promise<{
   storeInfo?: any;
 }> {
   try {
+    // Check if credentials are available
+    if (!SHOPIFY_ADMIN_API_ACCESS_TOKEN || SHOPIFY_ADMIN_API_ACCESS_TOKEN === '') {
+      return {
+        success: false,
+        message: 'Shopify credentials not configured. Please add your Shopify API credentials in the Admin Credentials section.'
+      };
+    }
+
+    if (!SHOPIFY_STORE_NAME || SHOPIFY_STORE_NAME === '') {
+      return {
+        success: false,
+        message: 'Shopify store name not configured. Please set SHOPIFY_STORE_NAME in environment variables.'
+      };
+    }
+
+    console.log('🔍 Testing Shopify connection to:', SHOPIFY_STORE_NAME);
+    
     const response = await fetch(`${SHOPIFY_ADMIN_API_URL}/shop.json`, {
       headers: {
-        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_ACCESS_TOKEN,
+        'Content-Type': 'application/json'
       }
     });
 
     if (!response.ok) {
+      if (response.status === 401) {
+        return {
+          success: false,
+          message: 'Invalid Shopify access token. Please check your credentials.'
+        };
+      }
       return {
         success: false,
         message: `Connection failed: ${response.status} ${response.statusText}`
@@ -384,15 +408,26 @@ export async function testShopifyConnection(): Promise<{
     }
 
     const shopInfo = await response.json();
+    console.log('✅ Shopify connection successful:', shopInfo.shop.name);
+    
     return {
       success: true,
       message: `Connected to ${shopInfo.shop.name}`,
       storeInfo: shopInfo.shop
     };
   } catch (error) {
+    console.error('❌ Shopify connection error:', error);
+    
+    if (error instanceof TypeError && error.message.includes('Failed to fetch')) {
+      return {
+        success: false,
+        message: 'Network error: Unable to connect to Shopify. Please check your internet connection and Shopify credentials.'
+      };
+    }
+    
     return {
       success: false,
-      message: `Connection error: ${error}`
+      message: `Connection error: ${error instanceof Error ? error.message : 'Unknown error'}`
     };
   }
 }

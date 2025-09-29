@@ -70,12 +70,30 @@ function seedMockData(): CredentialRecord[] {
 
 function loadPersisted(): PersistedState | null {
   try {
+    // Try localStorage first
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return null;
-    const parsed = JSON.parse(raw) as PersistedState;
-    // Validate the structure
-    if (!parsed || !Array.isArray(parsed.items)) return null;
-    return parsed;
+    if (raw) {
+      const parsed = JSON.parse(raw) as PersistedState;
+      if (parsed && Array.isArray(parsed.items)) {
+        console.log('✅ Loaded credentials from localStorage:', parsed.items.length, 'items');
+        return parsed;
+      }
+    }
+    
+    // Try sessionStorage as backup
+    const sessionRaw = sessionStorage.getItem(STORAGE_KEY);
+    if (sessionRaw) {
+      const parsed = JSON.parse(sessionRaw) as PersistedState;
+      if (parsed && Array.isArray(parsed.items)) {
+        console.log('✅ Loaded credentials from sessionStorage:', parsed.items.length, 'items');
+        // Restore to localStorage
+        localStorage.setItem(STORAGE_KEY, sessionRaw);
+        return parsed;
+      }
+    }
+    
+    console.log('⚠️ No persisted credentials found');
+    return null;
   } catch (error) {
     console.warn('Failed to load persisted credentials:', error);
     return null;
@@ -84,10 +102,13 @@ function loadPersisted(): PersistedState | null {
 
 function savePersisted(state: PersistedState) {
   try {
+    // Save to both localStorage and sessionStorage for redundancy
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    console.log('Credentials saved successfully:', state.items.length, 'items');
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    console.log('✅ Credentials saved successfully:', state.items.length, 'items');
+    console.log('📁 Saved to localStorage and sessionStorage');
   } catch (error) {
-    console.error('Failed to save credentials:', error);
+    console.error('❌ Failed to save credentials:', error);
     alert('Failed to save credentials. Please check browser storage permissions.');
   }
 }
@@ -179,6 +200,29 @@ export default function SecureCredentialsDashboard() {
     console.log('Debug - Current records:', records);
     console.log('Debug - Device ID:', deviceId);
     console.log('Debug - Storage key:', STORAGE_KEY);
+  }
+
+  // Manual backup function
+  function manualBackup() {
+    const backupData = {
+      timestamp: new Date().toISOString(),
+      deviceId: deviceId,
+      credentials: records,
+      version: 1
+    };
+    
+    const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `ds-credentials-backup-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    
+    console.log('✅ Manual backup created:', records.length, 'credentials');
+    alert(`✅ Manual backup created with ${records.length} credentials!`);
   }
 
   // CRUD
@@ -321,6 +365,13 @@ export default function SecureCredentialsDashboard() {
             title="Debug persistence (check console)"
           >
             🔍 Debug
+          </button>
+          <button 
+            onClick={manualBackup} 
+            className="px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200"
+            title="Create manual backup of credentials"
+          >
+            💾 Backup
           </button>
           <button
             onClick={() => setShowAdd(true)}
