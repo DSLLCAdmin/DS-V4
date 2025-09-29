@@ -161,18 +161,12 @@ export default function SecureCredentialsDashboard() {
   useEffect(() => {
     const persisted = loadPersisted();
     if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
+      console.log('✅ Loading persisted credentials:', persisted.items.length, 'items');
       setRecords(persisted.items);
     } else {
-      // Only seed if no persisted data exists at all
-      const seeded = seedMockData();
-      const state: PersistedState = {
-        version: 1,
-        updatedAt: nowIso(),
-        deviceId,
-        items: seeded,
-      };
-      savePersisted(state);
-      setRecords(seeded);
+      console.log('⚠️ No persisted credentials found, starting with empty array');
+      // DO NOT seed empty data - this overwrites existing credentials!
+      setRecords([]);
     }
     setIsLoading(false);
   }, []); // Remove deviceId dependency to prevent re-seeding
@@ -182,13 +176,18 @@ export default function SecureCredentialsDashboard() {
     const existing = loadPersisted();
     const nextUpdatedAt = nowIso();
 
+    console.log('💾 Persisting credentials:', next.length, 'items');
+    console.log('📊 Existing data:', existing ? `${existing.items.length} items` : 'none');
+
     if (existing) {
       // if existing.updatedAt is newer than now (clock skew) just keep monotonic
       const safeUpdatedAt = new Date(existing.updatedAt) > new Date(nextUpdatedAt)
         ? existing.updatedAt
         : nextUpdatedAt;
+      console.log('🔄 Updating existing credentials');
       savePersisted({ version: 1, updatedAt: safeUpdatedAt, deviceId, items: next });
     } else {
+      console.log('🆕 Creating new credentials storage');
       savePersisted({ version: 1, updatedAt: nextUpdatedAt, deviceId, items: next });
     }
   }
@@ -241,6 +240,7 @@ export default function SecureCredentialsDashboard() {
     const next = [rec, ...records];
     setRecords(next);
     persistWithGuard(next);
+    console.log('✅ Added new credential:', rec.name);
     setShowAdd(false);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
   }
