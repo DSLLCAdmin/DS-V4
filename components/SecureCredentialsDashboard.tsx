@@ -328,9 +328,9 @@ export default function SecureCredentialsDashboard() {
     return id;
   }, []);
 
-  // STATIC DATA: Load from data/credentials.ts (like products.ts)
+  // Start with static data, then hydrate from server JSON if available
   const [records, setRecords] = useState<CredentialRecord[]>(credentials);
-  const [isLoading, setIsLoading] = useState(false); // No loading needed for static data
+  const [isLoading, setIsLoading] = useState(true);
   const [showAdd, setShowAdd] = useState(false);
   const [showEditId, setShowEditId] = useState<string | null>(null);
   const [showValues, setShowValues] = useState<Record<string, boolean>>({});
@@ -344,15 +344,32 @@ export default function SecureCredentialsDashboard() {
     value: '',
   });
 
-  // STATIC DATA: No useEffect needed - data is already loaded from import
-  console.log('✅ STATIC DATA: Loaded credentials from data/credentials.ts:', records.length, 'items');
+  // Hydrate from server-backed JSON file so admin-added creds persist across builds
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch('/api/admin/credentials?adminPin=DS24');
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data.credentials) && data.credentials.length > 0) {
+            setRecords(data.credentials as CredentialRecord[]);
+          }
+        }
+      } catch {}
+      setIsLoading(false);
+    })();
+  }, []);
 
-  // STATIC DATA: Simple state updates (no complex persistence needed)
-  function updateRecords(next: CredentialRecord[]) {
+  // Persist to server JSON and update state
+  async function saveAndSet(next: CredentialRecord[]) {
     setRecords(next);
-    console.log('✅ STATIC DATA: Updated records:', next.length, 'items');
-    // Note: In a real app, you'd want to save changes back to data/credentials.ts
-    // For now, this demonstrates the working pattern
+    try {
+      await fetch('/api/admin/credentials', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ credentials: next, timestamp: new Date().toISOString(), adminPin: 'DS24' })
+      });
+    } catch {}
   }
 
   // Debug function to check persistence
@@ -388,7 +405,7 @@ export default function SecureCredentialsDashboard() {
   }
 
   // CRUD - STATIC DATA APPROACH
-  function onAdd() {
+  async function onAdd() {
     if (!form.name || !form.value) return;
     const rec: CredentialRecord = {
       id: generateId(),
@@ -401,7 +418,7 @@ export default function SecureCredentialsDashboard() {
       updatedAt: nowIso(),
     };
     const next = [rec, ...records];
-    updateRecords(next);
+    await saveAndSet(next);
     console.log('✅ Added new credential:', rec.name);
     setShowAdd(false);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
@@ -414,7 +431,7 @@ export default function SecureCredentialsDashboard() {
     setShowEditId(id);
   }
 
-  function onEditSave() {
+  async function onEditSave() {
     if (!showEditId) return;
     const idx = records.findIndex((r) => r.id === showEditId);
     if (idx < 0) return;
@@ -429,14 +446,14 @@ export default function SecureCredentialsDashboard() {
     };
     const next = [...records];
     next[idx] = updated;
-    updateRecords(next);
+    await saveAndSet(next);
     setShowEditId(null);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
   }
 
-  function onDelete(id: string) {
+  async function onDelete(id: string) {
     const next = records.filter((r) => r.id !== id);
-    updateRecords(next);
+    await saveAndSet(next);
   }
 
   function onCopy(rec: CredentialRecord) {
