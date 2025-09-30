@@ -64,7 +64,7 @@ function restoreCredentialsFromBackup(): CredentialRecord[] {
     } catch (error) {
       console.warn('Failed to restore from sessionStorage:', error);
     }
-  }
+  }  
   return [];
 }
 function nowIso(): string {
