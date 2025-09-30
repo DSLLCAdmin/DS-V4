@@ -87,17 +87,20 @@ function nowIso(): string {
 
 function getDefaultDeviceId(): string {
   const KEY = 'dsllc.credentials.deviceId';
-  let id = localStorage.getItem(KEY);
+  const PERMANENT_ID = 'ds-admin-device-permanent';
   
-  if (!id) {
-    // Use the simple, permanent device ID
-    id = generateStableDeviceId();
-    console.log('🆔 Generated permanent device ID:', id);
-  } else {
-    console.log('🆔 Retrieved existing device ID:', id);
+  // FORCE MIGRATION: Clear any old device ID and use permanent one
+  const oldId = localStorage.getItem(KEY);
+  if (oldId && oldId !== PERMANENT_ID) {
+    console.log('🔄 FORCE MIGRATION: Clearing old device ID:', oldId);
+    localStorage.removeItem(KEY);
   }
   
-  return id;
+  // Always set the permanent device ID
+  localStorage.setItem(KEY, PERMANENT_ID);
+  console.log('🆔 Using permanent device ID:', PERMANENT_ID);
+  
+  return PERMANENT_ID;
 }
 
 function seedMockData(): CredentialRecord[] {
@@ -283,7 +286,7 @@ function envBadge(env: 'test' | 'live') {
 // ----------------------------
 export default function SecureCredentialsDashboard() {
   console.log('🏗️ SecureCredentialsDashboard component mounted/re-mounted');
-  // TEST: Credential persistence fix - stable device ID + multi-layer storage
+  // FORCE MIGRATION: Clear old device ID and use permanent one
   
   const deviceId = useMemo(() => {
     const id = getDefaultDeviceId();
