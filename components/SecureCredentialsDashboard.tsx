@@ -344,63 +344,61 @@ export default function SecureCredentialsDashboard() {
     value: '',
   });
 
-  // Hydrate from server-backed JSON file so admin-added creds persist across builds
+  // Load from localStorage (works with static export)
   useEffect(() => {
-    (async () => {
-      console.log('🔄 useEffect: Loading credentials from server...');
-      try {
-        const res = await fetch('/api/admin/credentials?adminPin=DS24');
-        console.log('🔄 useEffect: Server response status:', res.status);
-        
-        if (res.ok) {
-          const data = await res.json();
-          console.log('🔄 useEffect: Server response data:', data);
-          
-          if (Array.isArray(data.credentials) && data.credentials.length > 0) {
-            console.log('✅ useEffect: Loading', data.credentials.length, 'credentials from server');
-            setRecords(data.credentials as CredentialRecord[]);
-          } else {
-            console.log('⚠️ useEffect: No server credentials found, using static data');
-            setRecords(credentials);
-          }
-        } else {
-          console.log('⚠️ useEffect: Server request failed, using static data');
-          setRecords(credentials);
+    console.log('🔄 useEffect: Loading credentials from localStorage...');
+    
+    try {
+      // Try to load from localStorage first
+      const stored = localStorage.getItem('dsllc.credentials.v1');
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed && Array.isArray(parsed.items) && parsed.items.length > 0) {
+          console.log('✅ useEffect: Loading', parsed.items.length, 'credentials from localStorage');
+          setRecords(parsed.items);
+          setIsLoading(false);
+          return;
         }
-      } catch (error) {
-        console.error('❌ useEffect: Server load error:', error);
-        console.log('⚠️ useEffect: Using static data due to error');
-        setRecords(credentials);
       }
-      setIsLoading(false);
-    })();
+      
+      // Fallback to static data
+      console.log('⚠️ useEffect: No localStorage data found, using static data');
+      setRecords(credentials);
+    } catch (error) {
+      console.error('❌ useEffect: localStorage load error:', error);
+      console.log('⚠️ useEffect: Using static data due to error');
+      setRecords(credentials);
+    }
+    
+    setIsLoading(false);
   }, []);
 
-  // Persist to server JSON and update state
-  async function saveAndSet(next: CredentialRecord[]) {
+  // Persist to localStorage (works with static export)
+  function saveAndSet(next: CredentialRecord[]) {
     console.log('💾 saveAndSet: Starting save of', next.length, 'credentials');
     console.log('💾 saveAndSet: Credential names:', next.map(c => c.name));
     
     setRecords(next);
     
     try {
-      const response = await fetch('/api/admin/credentials', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ credentials: next, timestamp: new Date().toISOString(), adminPin: 'DS24' })
-      });
+      // Save to localStorage
+      const state: PersistedState = {
+        version: 1,
+        updatedAt: new Date().toISOString(),
+        deviceId: deviceId,
+        items: next
+      };
       
-      if (response.ok) {
-        const result = await response.json();
-        console.log('✅ saveAndSet: Server save successful:', result);
-      } else {
-        const errorText = await response.text();
-        console.error('❌ saveAndSet: Server save failed:', response.status, errorText);
-        alert(`Failed to save credentials: ${response.status} ${errorText}`);
-      }
+      localStorage.setItem('dsllc.credentials.v1', JSON.stringify(state));
+      console.log('✅ saveAndSet: localStorage save successful');
+      
+      // Also save to sessionStorage as backup
+      sessionStorage.setItem('dsllc.credentials.v1', JSON.stringify(state));
+      console.log('✅ saveAndSet: sessionStorage backup saved');
+      
     } catch (error) {
-      console.error('❌ saveAndSet: Network error:', error);
-      alert(`Network error saving credentials: ${error}`);
+      console.error('❌ saveAndSet: localStorage save error:', error);
+      alert(`Failed to save credentials: ${error}`);
     }
   }
 
@@ -436,8 +434,8 @@ export default function SecureCredentialsDashboard() {
     alert(`✅ Manual backup created with ${records.length} credentials!`);
   }
 
-  // CRUD - STATIC DATA APPROACH
-  async function onAdd() {
+  // CRUD - LOCALSTORAGE APPROACH
+  function onAdd() {
     if (!form.name || !form.value) return;
     const rec: CredentialRecord = {
       id: generateId(),
@@ -450,7 +448,7 @@ export default function SecureCredentialsDashboard() {
       updatedAt: nowIso(),
     };
     const next = [rec, ...records];
-    await saveAndSet(next);
+    saveAndSet(next);
     console.log('✅ Added new credential:', rec.name);
     setShowAdd(false);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
@@ -463,7 +461,7 @@ export default function SecureCredentialsDashboard() {
     setShowEditId(id);
   }
 
-  async function onEditSave() {
+  function onEditSave() {
     if (!showEditId) return;
     const idx = records.findIndex((r) => r.id === showEditId);
     if (idx < 0) return;
@@ -478,14 +476,14 @@ export default function SecureCredentialsDashboard() {
     };
     const next = [...records];
     next[idx] = updated;
-    await saveAndSet(next);
+    saveAndSet(next);
     setShowEditId(null);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
   }
 
-  async function onDelete(id: string) {
+  function onDelete(id: string) {
     const next = records.filter((r) => r.id !== id);
-    await saveAndSet(next);
+    saveAndSet(next);
   }
 
   function onCopy(rec: CredentialRecord) {
