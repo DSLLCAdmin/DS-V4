@@ -347,29 +347,61 @@ export default function SecureCredentialsDashboard() {
   // Hydrate from server-backed JSON file so admin-added creds persist across builds
   useEffect(() => {
     (async () => {
+      console.log('🔄 useEffect: Loading credentials from server...');
       try {
         const res = await fetch('/api/admin/credentials?adminPin=DS24');
+        console.log('🔄 useEffect: Server response status:', res.status);
+        
         if (res.ok) {
           const data = await res.json();
+          console.log('🔄 useEffect: Server response data:', data);
+          
           if (Array.isArray(data.credentials) && data.credentials.length > 0) {
+            console.log('✅ useEffect: Loading', data.credentials.length, 'credentials from server');
             setRecords(data.credentials as CredentialRecord[]);
+          } else {
+            console.log('⚠️ useEffect: No server credentials found, using static data');
+            setRecords(credentials);
           }
+        } else {
+          console.log('⚠️ useEffect: Server request failed, using static data');
+          setRecords(credentials);
         }
-      } catch {}
+      } catch (error) {
+        console.error('❌ useEffect: Server load error:', error);
+        console.log('⚠️ useEffect: Using static data due to error');
+        setRecords(credentials);
+      }
       setIsLoading(false);
     })();
   }, []);
 
   // Persist to server JSON and update state
   async function saveAndSet(next: CredentialRecord[]) {
+    console.log('💾 saveAndSet: Starting save of', next.length, 'credentials');
+    console.log('💾 saveAndSet: Credential names:', next.map(c => c.name));
+    
     setRecords(next);
+    
     try {
-      await fetch('/api/admin/credentials', {
+      const response = await fetch('/api/admin/credentials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ credentials: next, timestamp: new Date().toISOString(), adminPin: 'DS24' })
       });
-    } catch {}
+      
+      if (response.ok) {
+        const result = await response.json();
+        console.log('✅ saveAndSet: Server save successful:', result);
+      } else {
+        const errorText = await response.text();
+        console.error('❌ saveAndSet: Server save failed:', response.status, errorText);
+        alert(`Failed to save credentials: ${response.status} ${errorText}`);
+      }
+    } catch (error) {
+      console.error('❌ saveAndSet: Network error:', error);
+      alert(`Network error saving credentials: ${error}`);
+    }
   }
 
   // Debug function to check persistence
