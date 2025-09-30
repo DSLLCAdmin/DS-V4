@@ -310,6 +310,15 @@ export default function Home() {
               📱 Scan to explore on mobile • 🔗 Click to visit live site
             </p>
           </div>
+
+          {/* Discreet Secure Access */}
+          <div className="mt-4">
+            <Link href="/admin" className="inline-block">
+              <Button className="bg-slate-700 hover:bg-slate-800 text-white text-sm font-semibold px-4 py-2 rounded-md">
+                Secure Access
+              </Button>
+            </Link>
+          </div>
           
           <p className="text-sm text-swatch101/60 mb-4">
             &copy; 2025 <DarkStreetsTextLogo /> LLC. All rights reserved.
