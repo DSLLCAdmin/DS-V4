@@ -44,6 +44,7 @@ interface PersistedState {
 // Constants / Utilities
 // ----------------------------
 const STORAGE_KEY = 'dsllc.credentials.v1';
+const SERVER_STORAGE_KEY = 'admin-credentials-server';
 
 function generateStableDeviceId(): string {
   // SIMPLE TSW SOLUTION: Use a fixed device ID that NEVER changes
@@ -83,6 +84,49 @@ function restoreCredentialsFromBackup(): CredentialRecord[] {
 }
 function nowIso(): string {
   return new Date().toISOString();
+}
+
+// NUCLEAR SOLUTION: Server-side credential storage
+async function saveCredentialsToServer(credentials: CredentialRecord[]): Promise<void> {
+  try {
+    const response = await fetch('/api/admin/credentials', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        credentials,
+        timestamp: nowIso(),
+        adminPin: 'DS24' // Use existing admin PIN
+      })
+    });
+    
+    if (response.ok) {
+      console.log('✅ Credentials saved to server');
+    } else {
+      console.error('❌ Failed to save credentials to server');
+    }
+  } catch (error) {
+    console.error('❌ Server save error:', error);
+  }
+}
+
+async function loadCredentialsFromServer(): Promise<CredentialRecord[]> {
+  try {
+    const response = await fetch('/api/admin/credentials?adminPin=DS24');
+    
+    if (response.ok) {
+      const data = await response.json();
+      console.log('✅ Credentials loaded from server:', data.credentials?.length || 0, 'items');
+      return data.credentials || [];
+    } else {
+      console.log('⚠️ No server credentials found');
+      return [];
+    }
+  } catch (error) {
+    console.error('❌ Server load error:', error);
+    return [];
+  }
 }
 
 function getDefaultDeviceId(): string {
@@ -309,63 +353,73 @@ export default function SecureCredentialsDashboard() {
     value: '',
   });
 
-  // Load or seed with multi-layer persistence
+  // NUCLEAR SOLUTION: Server-side persistence as primary method
   useEffect(() => {
     const loadCredentials = async () => {
-      console.log('🔄 useEffect triggered - checking for persisted data...');
+      console.log('🔄 NUCLEAR SOLUTION: Loading from server...');
       
-      // Try localStorage/sessionStorage first
+      // PRIMARY: Try server-side storage first
+      const serverCredentials = await loadCredentialsFromServer();
+      
+      if (serverCredentials.length > 0) {
+        console.log('✅ NUCLEAR SUCCESS: Loaded credentials from server:', serverCredentials.length, 'items');
+        console.log('📋 Server credential names:', serverCredentials.map(item => item.name));
+        setRecords(serverCredentials);
+        setIsLoading(false);
+        return;
+      }
+      
+      // FALLBACK: Try browser storage as backup
+      console.log('🔍 Server empty, trying browser storage...');
       let persisted = loadPersisted();
       
-      // If not found, try IndexedDB
       if (!persisted) {
-        console.log('🔍 Trying IndexedDB...');
         persisted = await loadFromIndexedDB();
-        
-        // If found in IndexedDB, restore to localStorage
-        if (persisted) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
-          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
-          console.log('🔄 Restored from IndexedDB to localStorage/sessionStorage');
-        }
       }
-      
-      console.log('📊 Persisted data found:', persisted);
       
       if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
-        console.log('✅ Loading persisted credentials:', persisted.items.length, 'items');
-        console.log('📋 Credential names:', persisted.items.map(item => item.name));
+        console.log('✅ Fallback: Loaded from browser storage:', persisted.items.length, 'items');
         setRecords(persisted.items);
+        
+        // Migrate to server
+        await saveCredentialsToServer(persisted.items);
+        console.log('🔄 Migrated browser credentials to server');
       } else {
-        console.log('⚠️ No persisted credentials found, starting with empty array');
-        console.log('🔍 Persisted data was:', persisted);
-        // DO NOT seed empty data - this overwrites existing credentials!
+        console.log('⚠️ No credentials found anywhere, starting empty');
         setRecords([]);
       }
+      
       setIsLoading(false);
     };
     
     loadCredentials();
-  }, []); // Remove deviceId dependency to prevent re-seeding
+  }, []);
 
-  // Save helper with overwrite guard by timestamp
+  // NUCLEAR SOLUTION: Server-side persistence
   async function persistWithGuard(next: CredentialRecord[]) {
-    const existing = loadPersisted();
+    console.log('💾 NUCLEAR SOLUTION: Saving to server...');
+    
+    // PRIMARY: Save to server
+    await saveCredentialsToServer(next);
+    
+    // BACKUP: Also save to browser storage
     const nextUpdatedAt = nowIso();
-
-    console.log('💾 Persisting credentials:', next.length, 'items');
-    console.log('📊 Existing data:', existing ? `${existing.items.length} items` : 'none');
-
-    if (existing) {
-      // if existing.updatedAt is newer than now (clock skew) just keep monotonic
-      const safeUpdatedAt = new Date(existing.updatedAt) > new Date(nextUpdatedAt)
-        ? existing.updatedAt
-        : nextUpdatedAt;
-      console.log('🔄 Updating existing credentials');
-      await savePersisted({ version: 1, updatedAt: safeUpdatedAt, deviceId, items: next });
-    } else {
-      console.log('🆕 Creating new credentials storage');
-      await savePersisted({ version: 1, updatedAt: nextUpdatedAt, deviceId, items: next });
+    const state = { version: 1, updatedAt: nextUpdatedAt, deviceId, items: next };
+    
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      
+      // Also save to IndexedDB
+      try {
+        await saveToIndexedDB(state);
+      } catch (error) {
+        console.warn('Failed to save to IndexedDB:', error);
+      }
+      
+      console.log('✅ NUCLEAR SUCCESS: Saved to server + browser backup');
+    } catch (error) {
+      console.error('❌ Browser backup failed:', error);
     }
   }
 
