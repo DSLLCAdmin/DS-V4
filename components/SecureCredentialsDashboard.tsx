@@ -330,7 +330,7 @@ function envBadge(env: 'test' | 'live') {
 // ----------------------------
 export default function SecureCredentialsDashboard() {
   console.log('🏗️ SecureCredentialsDashboard component mounted/re-mounted');
-  // PERSISTENCE TEST: Device ID now stable at ds-admin-device-permanent
+  // FILE-BASED SOLUTION: Server writes to JSON file that survives deployments
   
   const deviceId = useMemo(() => {
     const id = getDefaultDeviceId();
