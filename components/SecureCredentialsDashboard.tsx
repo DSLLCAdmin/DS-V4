@@ -45,11 +45,44 @@ interface PersistedState {
 // ----------------------------
 const STORAGE_KEY = 'dsllc.credentials.v1';
 
+function generateStableDeviceId(): string {
+  // Create a stable device ID based on browser fingerprint
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  if (ctx) {
+    ctx.textBaseline = 'top';
+    ctx.font = '14px Arial';
+    ctx.fillText('DS Device Fingerprint', 2, 2);
+  }
+  
+  const fingerprint = [
+    navigator.userAgent,
+    navigator.language,
+    screen.width + 'x' + screen.height,
+    new Date().getTimezoneOffset(),
+    canvas.toDataURL(),
+    navigator.hardwareConcurrency || 'unknown',
+    navigator.platform
+  ].join('|');
+  
+  // Create a hash-like ID from the fingerprint
+  let hash = 0;
+  for (let i = 0; i < fingerprint.length; i++) {
+    const char = fingerprint.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  
+  // Convert to base36 and ensure it's always positive
+  const stableId = Math.abs(hash).toString(36);
+  return `ds-stable-${stableId}`;
+}
+
 function generateId(): string {
-  // Create a more stable ID that doesn't change between sessions
-  const randomPart = Math.random().toString(36).slice(2, 8); // 6 chars
-  const timestampPart = Date.now().toString(36).slice(-6); // Last 6 chars of timestamp
-  return `ds-${randomPart}-${timestampPart}`;
+  // For credential records, use timestamp-based ID (these should be unique)
+  const randomPart = Math.random().toString(36).slice(2, 8);
+  const timestampPart = Date.now().toString(36).slice(-6);
+  return `cred-${randomPart}-${timestampPart}`;
 }
 function restoreCredentialsFromBackup(): CredentialRecord[] {
   // Try to restore from sessionStorage if localStorage was cleared
@@ -75,8 +108,11 @@ function getDefaultDeviceId(): string {
   const KEY = 'dsllc.credentials.deviceId';
   let id = localStorage.getItem(KEY);
   if (!id) {
-    id = generateId();
+    id = generateStableDeviceId();
     localStorage.setItem(KEY, id);
+    console.log('🆔 Generated new stable device ID:', id);
+  } else {
+    console.log('🆔 Retrieved existing device ID:', id);
   }
   return id;
 }
@@ -84,6 +120,82 @@ function getDefaultDeviceId(): string {
 function seedMockData(): CredentialRecord[] {
   // No dummy data - start with empty credentials
   return [];
+}
+
+async function loadFromIndexedDB(): Promise<PersistedState | null> {
+  return new Promise((resolve) => {
+    if (!('indexedDB' in window)) {
+      resolve(null);
+      return;
+    }
+    
+    const request = indexedDB.open('DS_Credentials', 1);
+    
+    request.onerror = () => {
+      console.warn('IndexedDB not available');
+      resolve(null);
+    };
+    
+    request.onsuccess = () => {
+      const db = request.result;
+      const transaction = db.transaction(['credentials'], 'readonly');
+      const store = transaction.objectStore('credentials');
+      const getRequest = store.get('main');
+      
+      getRequest.onsuccess = () => {
+        const result = getRequest.result;
+        if (result && Array.isArray(result.items)) {
+          console.log('✅ Loaded credentials from IndexedDB:', result.items.length, 'items');
+          resolve(result);
+        } else {
+          resolve(null);
+        }
+      };
+      
+      getRequest.onerror = () => resolve(null);
+    };
+    
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains('credentials')) {
+        db.createObjectStore('credentials');
+      }
+    };
+  });
+}
+
+async function saveToIndexedDB(state: PersistedState): Promise<void> {
+  return new Promise((resolve, reject) => {
+    if (!('indexedDB' in window)) {
+      resolve();
+      return;
+    }
+    
+    const request = indexedDB.open('DS_Credentials', 1);
+    
+    request.onsuccess = () => {
+      const db = request.result;
+      const transaction = db.transaction(['credentials'], 'readwrite');
+      const store = transaction.objectStore('credentials');
+      const putRequest = store.put(state, 'main');
+      
+      putRequest.onsuccess = () => {
+        console.log('✅ Saved credentials to IndexedDB');
+        resolve();
+      };
+      
+      putRequest.onerror = () => reject(putRequest.error);
+    };
+    
+    request.onerror = () => reject(request.error);
+    
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains('credentials')) {
+        db.createObjectStore('credentials');
+      }
+    };
+  });
 }
 
 function loadPersisted(): PersistedState | null {
@@ -110,7 +222,7 @@ function loadPersisted(): PersistedState | null {
       }
     }
     
-    console.log('⚠️ No persisted credentials found');
+    console.log('⚠️ No persisted credentials found in localStorage/sessionStorage');
     return null;
   } catch (error) {
     console.warn('Failed to load persisted credentials:', error);
@@ -118,13 +230,21 @@ function loadPersisted(): PersistedState | null {
   }
 }
 
-function savePersisted(state: PersistedState) {
+async function savePersisted(state: PersistedState) {
   try {
-    // Save to both localStorage and sessionStorage for redundancy
+    // Save to localStorage and sessionStorage
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    
+    // Also save to IndexedDB for additional persistence
+    try {
+      await saveToIndexedDB(state);
+    } catch (error) {
+      console.warn('Failed to save to IndexedDB:', error);
+    }
+    
     console.log('✅ Credentials saved successfully:', state.items.length, 'items');
-    console.log('📁 Saved to localStorage and sessionStorage');
+    console.log('📁 Saved to localStorage, sessionStorage, and IndexedDB');
   } catch (error) {
     console.error('❌ Failed to save credentials:', error);
     alert('Failed to save credentials. Please check browser storage permissions.');
@@ -181,27 +301,47 @@ export default function SecureCredentialsDashboard() {
     value: '',
   });
 
-  // Load or seed
+  // Load or seed with multi-layer persistence
   useEffect(() => {
-    console.log('🔄 useEffect triggered - checking for persisted data...');
-    const persisted = loadPersisted();
-    console.log('📊 Persisted data found:', persisted);
+    const loadCredentials = async () => {
+      console.log('🔄 useEffect triggered - checking for persisted data...');
+      
+      // Try localStorage/sessionStorage first
+      let persisted = loadPersisted();
+      
+      // If not found, try IndexedDB
+      if (!persisted) {
+        console.log('🔍 Trying IndexedDB...');
+        persisted = await loadFromIndexedDB();
+        
+        // If found in IndexedDB, restore to localStorage
+        if (persisted) {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
+          sessionStorage.setItem(STORAGE_KEY, JSON.stringify(persisted));
+          console.log('🔄 Restored from IndexedDB to localStorage/sessionStorage');
+        }
+      }
+      
+      console.log('📊 Persisted data found:', persisted);
+      
+      if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
+        console.log('✅ Loading persisted credentials:', persisted.items.length, 'items');
+        console.log('📋 Credential names:', persisted.items.map(item => item.name));
+        setRecords(persisted.items);
+      } else {
+        console.log('⚠️ No persisted credentials found, starting with empty array');
+        console.log('🔍 Persisted data was:', persisted);
+        // DO NOT seed empty data - this overwrites existing credentials!
+        setRecords([]);
+      }
+      setIsLoading(false);
+    };
     
-    if (persisted && Array.isArray(persisted.items) && persisted.items.length > 0) {
-      console.log('✅ Loading persisted credentials:', persisted.items.length, 'items');
-      console.log('📋 Credential names:', persisted.items.map(item => item.name));
-      setRecords(persisted.items);
-    } else {
-      console.log('⚠️ No persisted credentials found, starting with empty array');
-      console.log('🔍 Persisted data was:', persisted);
-      // DO NOT seed empty data - this overwrites existing credentials!
-      setRecords([]);
-    }
-    setIsLoading(false);
+    loadCredentials();
   }, []); // Remove deviceId dependency to prevent re-seeding
 
   // Save helper with overwrite guard by timestamp
-  function persistWithGuard(next: CredentialRecord[]) {
+  async function persistWithGuard(next: CredentialRecord[]) {
     const existing = loadPersisted();
     const nextUpdatedAt = nowIso();
 
@@ -214,10 +354,10 @@ export default function SecureCredentialsDashboard() {
         ? existing.updatedAt
         : nextUpdatedAt;
       console.log('🔄 Updating existing credentials');
-      savePersisted({ version: 1, updatedAt: safeUpdatedAt, deviceId, items: next });
+      await savePersisted({ version: 1, updatedAt: safeUpdatedAt, deviceId, items: next });
     } else {
       console.log('🆕 Creating new credentials storage');
-      savePersisted({ version: 1, updatedAt: nextUpdatedAt, deviceId, items: next });
+      await savePersisted({ version: 1, updatedAt: nextUpdatedAt, deviceId, items: next });
     }
   }
 
@@ -254,7 +394,7 @@ export default function SecureCredentialsDashboard() {
   }
 
   // CRUD
-  function onAdd() {
+  async function onAdd() {
     if (!form.name || !form.value) return;
     const rec: CredentialRecord = {
       id: generateId(),
@@ -268,7 +408,7 @@ export default function SecureCredentialsDashboard() {
     };
     const next = [rec, ...records];
     setRecords(next);
-    persistWithGuard(next);
+    await persistWithGuard(next);
     console.log('✅ Added new credential:', rec.name);
     setShowAdd(false);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
@@ -281,7 +421,7 @@ export default function SecureCredentialsDashboard() {
     setShowEditId(id);
   }
 
-  function onEditSave() {
+  async function onEditSave() {
     if (!showEditId) return;
     const idx = records.findIndex((r) => r.id === showEditId);
     if (idx < 0) return;
@@ -297,15 +437,15 @@ export default function SecureCredentialsDashboard() {
     const next = [...records];
     next[idx] = updated;
     setRecords(next);
-    persistWithGuard(next);
+    await persistWithGuard(next);
     setShowEditId(null);
     setForm({ name: '', type: 'other', environment: 'test', encrypted: false, value: '' });
   }
 
-  function onDelete(id: string) {
+  async function onDelete(id: string) {
     const next = records.filter((r) => r.id !== id);
     setRecords(next);
-    persistWithGuard(next);
+    await persistWithGuard(next);
   }
 
   function onCopy(rec: CredentialRecord) {
