@@ -279,6 +279,7 @@ function envBadge(env: 'test' | 'live') {
 // ----------------------------
 export default function SecureCredentialsDashboard() {
   console.log('🏗️ SecureCredentialsDashboard component mounted/re-mounted');
+  // TEST: Credential persistence fix - stable device ID + multi-layer storage
   
   const deviceId = useMemo(() => {
     const id = getDefaultDeviceId();
