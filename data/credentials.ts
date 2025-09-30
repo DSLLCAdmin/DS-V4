@@ -11,15 +11,22 @@ export interface CredentialRecord {
 
 // STATIC CREDENTIALS DATA - Like products.ts, this survives builds
 export const credentials: CredentialRecord[] = [
-  // Add your credentials here - they will persist across builds!
-  // Example:
-  // {
-  //   id: "cred-001",
-  //   name: "Stripe Live Key",
-  //   type: "stripe",
-  //   environment: "live",
-  //   encrypted: true,
-  //   value: "sk_live_your_stripe_key_here",
-  //   updatedAt: "2025-09-29T21:45:00.000Z"
-  // }
+  {
+    id: "cred-test-1",
+    name: "Test Credential 1",
+    type: "stripe",
+    environment: "live",
+    encrypted: true,
+    value: "sk_live_test_key_12345",
+    updatedAt: "2025-09-29T21:50:00.000Z"
+  },
+  {
+    id: "cred-test-2", 
+    name: "Test Credential 2",
+    type: "shopify",
+    environment: "test",
+    encrypted: false,
+    value: "shpat_test_token_67890",
+    updatedAt: "2025-09-29T21:50:00.000Z"
+  }
 ];
