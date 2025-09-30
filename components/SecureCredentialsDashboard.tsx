@@ -286,7 +286,7 @@ function envBadge(env: 'test' | 'live') {
 // ----------------------------
 export default function SecureCredentialsDashboard() {
   console.log('🏗️ SecureCredentialsDashboard component mounted/re-mounted');
-  // FORCE MIGRATION: Clear old device ID and use permanent one
+  // PERSISTENCE TEST: Device ID now stable at ds-admin-device-permanent
   
   const deviceId = useMemo(() => {
     const id = getDefaultDeviceId();
