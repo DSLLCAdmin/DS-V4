@@ -46,36 +46,17 @@ interface PersistedState {
 const STORAGE_KEY = 'dsllc.credentials.v1';
 
 function generateStableDeviceId(): string {
-  // Create a stable device ID based on browser fingerprint
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d');
-  if (ctx) {
-    ctx.textBaseline = 'top';
-    ctx.font = '14px Arial';
-    ctx.fillText('DS Device Fingerprint', 2, 2);
+  // SIMPLE TSW SOLUTION: Use a fixed device ID that NEVER changes
+  // This is more reliable than complex fingerprinting that fails across builds
+  const FIXED_DEVICE_ID = 'ds-admin-device-permanent';
+  
+  // Store it in localStorage to ensure it persists
+  if (!localStorage.getItem('dsllc.credentials.deviceId')) {
+    localStorage.setItem('dsllc.credentials.deviceId', FIXED_DEVICE_ID);
+    console.log('🆔 Created permanent device ID:', FIXED_DEVICE_ID);
   }
   
-  const fingerprint = [
-    navigator.userAgent,
-    navigator.language,
-    screen.width + 'x' + screen.height,
-    new Date().getTimezoneOffset(),
-    canvas.toDataURL(),
-    navigator.hardwareConcurrency || 'unknown',
-    navigator.platform
-  ].join('|');
-  
-  // Create a hash-like ID from the fingerprint
-  let hash = 0;
-  for (let i = 0; i < fingerprint.length; i++) {
-    const char = fingerprint.charCodeAt(i);
-    hash = ((hash << 5) - hash) + char;
-    hash = hash & hash; // Convert to 32-bit integer
-  }
-  
-  // Convert to base36 and ensure it's always positive
-  const stableId = Math.abs(hash).toString(36);
-  return `ds-stable-${stableId}`;
+  return FIXED_DEVICE_ID;
 }
 
 function generateId(): string {
@@ -107,13 +88,15 @@ function nowIso(): string {
 function getDefaultDeviceId(): string {
   const KEY = 'dsllc.credentials.deviceId';
   let id = localStorage.getItem(KEY);
+  
   if (!id) {
+    // Use the simple, permanent device ID
     id = generateStableDeviceId();
-    localStorage.setItem(KEY, id);
-    console.log('🆔 Generated new stable device ID:', id);
+    console.log('🆔 Generated permanent device ID:', id);
   } else {
     console.log('🆔 Retrieved existing device ID:', id);
   }
+  
   return id;
 }
 
@@ -219,6 +202,27 @@ function loadPersisted(): PersistedState | null {
         // Restore to localStorage
         localStorage.setItem(STORAGE_KEY, sessionRaw);
         return parsed;
+      }
+    }
+    
+    // CRITICAL: Try to find credentials with ANY device ID
+    // This handles the case where device ID changed but data exists
+    const allKeys = Object.keys(localStorage);
+    const credentialKeys = allKeys.filter(key => key.startsWith('dsllc.credentials'));
+    
+    for (const key of credentialKeys) {
+      try {
+        const raw = localStorage.getItem(key);
+        if (raw) {
+          const parsed = JSON.parse(raw) as PersistedState;
+          if (parsed && Array.isArray(parsed.items) && parsed.items.length > 0) {
+            console.log('🔄 Found credentials with different device ID, migrating...');
+            console.log('📋 Found credentials:', parsed.items.map(item => item.name));
+            return parsed;
+          }
+        }
+      } catch (error) {
+        console.warn('Failed to parse credential key:', key, error);
       }
     }
     
