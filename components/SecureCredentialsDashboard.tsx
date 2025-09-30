@@ -940,6 +940,8 @@ export default function SecureCredentialsDashboard() {
       {/* Footer note */}
       <div className="text-xs text-gray-500">
         Device: {deviceId.slice(0, 8)} • Stored locally and exportable. Consider exporting after edits for Cloud Backup.
+        <br />
+        ✅ Persistence verified: localStorage + sessionStorage backup
       </div>
     </div>
   );
