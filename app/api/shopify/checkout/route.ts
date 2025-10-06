@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Shopify configuration - these should be moved to environment variables
-const SHOPIFY_STORE_DOMAIN = 'ds-llc-store.myshopify.com';
-const SHOPIFY_ADMIN_API_TOKEN = 'shpat_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890'; // Placeholder
+const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
+const SHOPIFY_ADMIN_API_TOKEN = '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';
 const SHOPIFY_API_VERSION = '2024-04';
 
 interface CartItem {
@@ -39,9 +39,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Shopify is properly configured
-    if (!SHOPIFY_ADMIN_API_TOKEN || 
-        SHOPIFY_ADMIN_API_TOKEN === 'shpat_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890' ||
-        SHOPIFY_ADMIN_API_TOKEN === '[REPLACE_WITH_ACTUAL_ADMIN_TOKEN]') {
+    if (!SHOPIFY_ADMIN_API_TOKEN) {
       return NextResponse.json(
         { 
           success: false, 
