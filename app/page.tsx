@@ -337,6 +337,11 @@ export default function Home() {
                 Web Fonts
               </a>
             </p>
+            
+            {/* Deployment timestamp for debugging */}
+            <p className="text-xs text-swatch101/30 mt-2">
+              Deployed: 2025-01-27 14:40 - CSS Fixed
+            </p>
           </div>
         </div>
       </footer>
