@@ -45,6 +45,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://dsllc.com',
   },
+  // Force cache refresh
+  other: {
+    'cache-control': 'no-cache',
+  },
 };
 
 export default function RootLayout({
