@@ -335,6 +335,32 @@ export default function SecureCredentialsDashboard() {
   const [showEditId, setShowEditId] = useState<string | null>(null);
   const [showValues, setShowValues] = useState<Record<string, boolean>>({});
 
+  // Simple PIN gate (client-side) to protect credentials page
+  const [authorized, setAuthorized] = useState(false);
+  const [pinInput, setPinInput] = useState('');
+  const [pinError, setPinError] = useState('');
+
+  useEffect(() => {
+    try {
+      const ok = sessionStorage.getItem('dsllc.admin.auth.credentials') === 'true';
+      if (ok) setAuthorized(true);
+    } catch {}
+  }, []);
+
+  function handlePinSubmit(e?: React.FormEvent) {
+    if (e) e.preventDefault();
+    const validPins = ['DS24', 'DS24_SECURE_CREDS'];
+    if (validPins.includes(pinInput.trim())) {
+      setAuthorized(true);
+      setPinError('');
+      try {
+        sessionStorage.setItem('dsllc.admin.auth.credentials', 'true');
+      } catch {}
+    } else {
+      setPinError('Invalid password');
+    }
+  }
+
   // Form state (shared for add/edit)
   const [form, setForm] = useState<Partial<CredentialRecord>>({
     name: '',
@@ -552,6 +578,51 @@ export default function SecureCredentialsDashboard() {
 
   return (
     <div className="space-y-6">
+      {!authorized && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="w-full max-w-sm rounded-lg bg-white p-6 shadow-xl">
+            <div className="mb-4 flex items-center gap-2">
+              <Lock className="h-5 w-5 text-gray-700" />
+              <h2 className="text-lg font-semibold text-gray-800">Secure Access Required</h2>
+            </div>
+            <form onSubmit={handlePinSubmit}>
+              <label className="block text-sm text-gray-700 mb-2">Enter Password</label>
+              <input
+                type="password"
+                value={pinInput}
+                onChange={(e) => setPinInput(e.target.value)}
+                className="w-full rounded border border-gray-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                placeholder="••••••"
+                autoFocus
+              />
+              {pinError && (
+                <div className="mt-2 text-sm text-red-600 flex items-center gap-1">
+                  <AlertCircle className="h-4 w-4" />
+                  {pinError}
+                </div>
+              )}
+              <div className="mt-4 flex justify-end gap-2">
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded border border-gray-300 text-gray-700 hover:bg-gray-100"
+                  onClick={() => {
+                    setPinInput('');
+                    setPinError('');
+                  }}
+                >
+                  Clear
+                </button>
+                <button
+                  type="submit"
+                  className="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700"
+                >
+                  Unlock
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
