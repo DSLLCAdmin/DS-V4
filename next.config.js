@@ -14,8 +14,7 @@ const nextConfig = {
   },
   // Ensure proper static export
   distDir: 'out',
-  // Domain configuration
-  assetPrefix: process.env.NODE_ENV === 'production' ? 'https://dsllc.com' : '',
+  // Domain configuration - REMOVED assetPrefix to fix CSS loading
   basePath: '',
   // Canonical domain
   env: {
