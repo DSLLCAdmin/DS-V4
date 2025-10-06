@@ -119,33 +119,22 @@ export class EmailNotificationService {
 '  </div>' +
 '</body>' +
 '</html>',
-      textContent: `
-        DS LLC - Order Confirmation
-        
-        Thank you for your order, {{customerName}}!
-        
-        Order Details:
-        Order Number: {{orderNumber}}
-        Order Date: {{orderDate}}
-        
-        Items Ordered:
-        {{#each items}}
-        - {{name}} (Qty: {{quantity}}) - ${{price}}
-        {{/each}}
-        
-        Total: ${{totalAmount}}
-        
-        Shipping Address:
-        {{shippingAddress.street}}
-        {{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}
-        {{shippingAddress.country}}
-        
-        We'll send you another email when your order ships with tracking information.
-        If you have any questions, please contact us at support@dsllc.com
-        
-        DS LLC - Dark Streets Publishing
-        www.dsllc.com
-      `,
+      textContent: 'DS LLC - Order Confirmation\n\n' +
+        'Thank you for your order, {{customerName}}!\n\n' +
+        'Order Details:\n' +
+        'Order Number: {{orderNumber}}\n' +
+        'Order Date: {{orderDate}}\n\n' +
+        'Items Ordered:\n' +
+        '{{itemsList}}\n\n' +
+        'Total: ${{totalAmount}}\n\n' +
+        'Shipping Address:\n' +
+        '{{shippingAddress.street}}\n' +
+        '{{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}\n' +
+        '{{shippingAddress.country}}\n\n' +
+        'We\'ll send you another email when your order ships with tracking information.\n' +
+        'If you have any questions, please contact us at support@dsllc.com\n\n' +
+        'DS LLC - Dark Streets Publishing\n' +
+        'www.dsllc.com',
       variables: ['customerName', 'orderNumber', 'orderDate', 'items', 'totalAmount', 'shippingAddress']
     });
 
@@ -308,8 +297,15 @@ export class EmailNotificationService {
         </div>`
       ).join('');
       
-      // Replace the items placeholder
+      const itemsText = variables.items.map((item: any) => 
+        `- ${item.name} (Qty: ${item.quantity}) - $${item.price}`
+      ).join('\n');
+      
+      // Replace the items placeholder in HTML
       processed = processed.replace('<div id="items-list">\n          <!-- Items will be inserted here -->\n        </div>', itemsHtml);
+      
+      // Replace the items placeholder in text
+      processed = processed.replace('{{itemsList}}', itemsText);
     }
 
     return processed;

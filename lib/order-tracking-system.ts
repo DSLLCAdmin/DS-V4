@@ -13,7 +13,7 @@ export interface OrderTrackingData {
   customerId: string;
   customerEmail: string;
   customerName: string;
-  status: 'pending' | 'processing' | 'paid' | 'shipped' | 'delivered' | 'cancelled' | 'refunded';
+  status: 'pending' | 'processing' | 'paid' | 'shipped' | 'delivered' | 'cancelled' | 'refunded' | 'payment_failed';
   paymentStatus: 'pending' | 'paid' | 'failed' | 'refunded';
   items: Array<{
     id: string;
