@@ -2,16 +2,16 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { CreditCard, ExternalLink, Loader2 } from 'lucide-react';
-import { createShopifyCheckout } from '@/lib/shopify-integration';
+import { CreditCard, ExternalLink, Loader2, AlertCircle } from 'lucide-react';
 
 interface ShopifyCheckoutButtonProps {
   cartItems: any[];
   className?: string;
   disabled?: boolean;
+  onFallback?: () => void; // Callback for Stripe fallback
 }
 
-export function ShopifyCheckoutButton({ cartItems, className, disabled }: ShopifyCheckoutButtonProps) {
+export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallback }: ShopifyCheckoutButtonProps) {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState('');
 
@@ -25,12 +25,42 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
     setError('');
 
     try {
-      // For now, show a helpful message about Shopify setup
-      // This will be replaced with actual Shopify integration once store is set up
-      throw new Error('Shopify integration coming soon! Please use "Proceed to Checkout" for now.');
+      // Create checkout session with Shopify
+      const response = await fetch('/api/shopify/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          items: cartItems,
+          customer: {
+            email: 'customer@example.com', // This should come from a form
+            firstName: 'Customer',
+            lastName: 'Name'
+          }
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Redirect to Shopify checkout
+        window.location.href = result.checkoutUrl;
+      } else {
+        // Check if we should fallback to Stripe
+        if (result.fallback && onFallback) {
+          setError('Shopify checkout unavailable. Redirecting to alternative payment...');
+          setTimeout(() => {
+            onFallback();
+          }, 2000);
+        } else {
+          setError(result.error || 'Checkout failed');
+        }
+      }
     } catch (error) {
       console.error('Shopify checkout error:', error);
-      setError(error instanceof Error ? error.message : 'Checkout failed');
+      setError('Checkout failed. Please try again.');
+    } finally {
       setIsProcessing(false);
     }
   };
@@ -40,7 +70,7 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
       <Button
         onClick={handleShopifyCheckout}
         disabled={disabled || isProcessing || cartItems.length === 0}
-        className={`w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white text-lg font-bold py-4 rounded-full shadow-lg transition-all duration-300 ${className}`}
+        className={`w-full bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-lg font-bold py-4 rounded-full shadow-lg transition-all duration-300 hover:scale-105 ${className}`}
       >
         {isProcessing ? (
           <>
@@ -50,20 +80,34 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled }: Shopif
         ) : (
           <>
             <CreditCard className="w-6 h-6 mr-3" />
-            Shopify Checkout (Coming Soon)
+            Shopify Checkout
             <ExternalLink className="w-4 h-4 ml-2" />
           </>
         )}
       </Button>
       
       {error && (
-        <div className="text-blue-600 text-sm text-center bg-blue-50 p-3 rounded-lg">
-          ℹ️ {error}
+        <div className={`text-sm text-center p-3 rounded-lg ${
+          error.includes('unavailable') || error.includes('alternative') 
+            ? 'text-blue-600 bg-blue-50' 
+            : 'text-red-600 bg-red-50'
+        }`}>
+          {error.includes('unavailable') || error.includes('alternative') ? (
+            <>
+              <AlertCircle className="w-4 h-4 inline mr-1" />
+              {error}
+            </>
+          ) : (
+            <>
+              <AlertCircle className="w-4 h-4 inline mr-1" />
+              {error}
+            </>
+          )}
         </div>
       )}
       
       <div className="text-xs text-gray-500 text-center">
-        Shopify integration will be available after store setup
+        Secure checkout powered by Shopify
       </div>
     </div>
   );

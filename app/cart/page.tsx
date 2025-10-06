@@ -383,11 +383,11 @@ export default function CartPage() {
 
                   <Button
                     onClick={() => router.push('/checkout')}
-                    className="w-full bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white text-lg font-bold py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105"
+                    className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white text-lg font-bold py-4 rounded-full shadow-lg transition-all duration-300"
                     disabled={loading}
                   >
                     <CreditCard className="w-6 h-6 mr-3" />
-                    {loading ? 'Processing...' : 'Proceed to Checkout'}
+                    {loading ? 'Processing...' : 'Alternative Payment'}
                   </Button>
 
                   <div className="my-4 text-center text-white/60 text-sm">
@@ -397,6 +397,7 @@ export default function CartPage() {
                   <ShopifyCheckoutButton 
                     cartItems={cart.items}
                     disabled={loading}
+                    onFallback={() => router.push('/checkout')}
                   />
 
                   <p className="text-center text-white/60 text-sm mt-4">
