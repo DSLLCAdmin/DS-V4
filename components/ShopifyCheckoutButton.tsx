@@ -42,6 +42,8 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallba
       });
 
       const result = await response.json();
+      
+      console.log('Shopify checkout response:', result);
 
       if (result.success) {
         // Redirect to Shopify checkout

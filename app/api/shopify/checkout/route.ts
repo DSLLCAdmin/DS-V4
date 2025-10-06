@@ -39,7 +39,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Shopify is properly configured
-    if (!SHOPIFY_ADMIN_API_TOKEN || SHOPIFY_ADMIN_API_TOKEN === 'shpat_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890') {
+    if (!SHOPIFY_ADMIN_API_TOKEN || 
+        SHOPIFY_ADMIN_API_TOKEN === 'shpat_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890' ||
+        SHOPIFY_ADMIN_API_TOKEN === '[REPLACE_WITH_ACTUAL_ADMIN_TOKEN]') {
       return NextResponse.json(
         { 
           success: false, 
@@ -53,10 +55,15 @@ export async function POST(request: NextRequest) {
     // Create Shopify checkout session
     const checkoutData = {
       checkout: {
-        line_items: items.map(item => ({
-          variant_id: item.shopifyVariantId || 1, // Fallback to first variant
-          quantity: item.quantity
-        })),
+        line_items: items.map(item => {
+          // For testing, we'll use a placeholder variant ID
+          // In production, each product should have a shopifyVariantId
+          const variantId = item.shopifyVariantId || 1; // Fallback to first variant
+          return {
+            variant_id: variantId,
+            quantity: item.quantity
+          };
+        }),
         email: customer.email,
         shipping_address: {
           first_name: customer.firstName,
