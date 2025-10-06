@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "out"  # Static export output directory
+  publish = ".next"  # Enable API routes for serverless functions
 
 [build.environment]
   NODE_VERSION = "18"
