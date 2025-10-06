@@ -62,68 +62,63 @@ export class EmailNotificationService {
       id: 'order_confirmation',
       name: 'Order Confirmation',
       subject: 'Order Confirmation - DS LLC Order #{{orderNumber}}',
-      htmlContent: `
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Order Confirmation</title>
-          <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #1a1a1a; color: white; padding: 20px; text-align: center; }
-            .content { padding: 20px; background: #f9f9f9; }
-            .order-details { background: white; padding: 15px; margin: 15px 0; border-radius: 5px; }
-            .item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }
-            .total { font-weight: bold; font-size: 18px; }
-            .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
-          </style>
-        </head>
-        <body>
-          <div class="container">
-            <div class="header">
-              <h1>DS LLC - Order Confirmation</h1>
-            </div>
-            <div class="content">
-              <h2>Thank you for your order, {{customerName}}!</h2>
-              <p>Your order has been confirmed and is being processed.</p>
-              
-              <div class="order-details">
-                <h3>Order Details</h3>
-                <p><strong>Order Number:</strong> {{orderNumber}}</p>
-                <p><strong>Order Date:</strong> {{orderDate}}</p>
-                
-                <h4>Items Ordered:</h4>
-                {{#each items}}
-                <div class="item">
-                  <span>{{name}} (Qty: {{quantity}})</span>
-                  <span>${{price}}</span>
-                </div>
-                {{/each}}
-                
-                <div class="total">
-                  <p>Total: ${{totalAmount}}</p>
-                </div>
-              </div>
-              
-              <div class="order-details">
-                <h3>Shipping Address</h3>
-                <p>{{shippingAddress.street}}<br>
-                {{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}<br>
-                {{shippingAddress.country}}</p>
-              </div>
-              
-              <p>We'll send you another email when your order ships with tracking information.</p>
-              <p>If you have any questions, please contact us at support@dsllc.com</p>
-            </div>
-            <div class="footer">
-              <p>DS LLC - Dark Streets Publishing<br>
-              <a href="https://dsllc.com">www.dsllc.com</a></p>
-            </div>
-          </div>
-        </body>
-        </html>
-      `,
+      htmlContent: '<!DOCTYPE html>' +
+'<html>' +
+'<head>' +
+'  <meta charset="utf-8">' +
+'  <title>Order Confirmation</title>' +
+'  <style>' +
+'    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }' +
+'    .container { max-width: 600px; margin: 0 auto; padding: 20px; }' +
+'    .header { background: #1a1a1a; color: white; padding: 20px; text-align: center; }' +
+'    .content { padding: 20px; background: #f9f9f9; }' +
+'    .order-details { background: white; padding: 15px; margin: 15px 0; border-radius: 5px; }' +
+'    .item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #eee; }' +
+'    .total { font-weight: bold; font-size: 18px; }' +
+'    .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }' +
+'  </style>' +
+'</head>' +
+'<body>' +
+'  <div class="container">' +
+'    <div class="header">' +
+'      <h1>DS LLC - Order Confirmation</h1>' +
+'    </div>' +
+'    <div class="content">' +
+'      <h2>Thank you for your order, {{customerName}}!</h2>' +
+'      <p>Your order has been confirmed and is being processed.</p>' +
+'      ' +
+'      <div class="order-details">' +
+'        <h3>Order Details</h3>' +
+'        <p><strong>Order Number:</strong> {{orderNumber}}</p>' +
+'        <p><strong>Order Date:</strong> {{orderDate}}</p>' +
+'        ' +
+'        <h4>Items Ordered:</h4>' +
+'        <div id="items-list">' +
+'          <!-- Items will be inserted here -->' +
+'        </div>' +
+'        ' +
+'        <div class="total">' +
+'          <p>Total: ${{totalAmount}}</p>' +
+'        </div>' +
+'      </div>' +
+'      ' +
+'      <div class="order-details">' +
+'        <h3>Shipping Address</h3>' +
+'        <p>{{shippingAddress.street}}<br>' +
+'        {{shippingAddress.city}}, {{shippingAddress.state}} {{shippingAddress.zipCode}}<br>' +
+'        {{shippingAddress.country}}</p>' +
+'      </div>' +
+'      ' +
+'      <p>We\'ll send you another email when your order ships with tracking information.</p>' +
+'      <p>If you have any questions, please contact us at support@dsllc.com</p>' +
+'    </div>' +
+'    <div class="footer">' +
+'      <p>DS LLC - Dark Streets Publishing<br>' +
+'      <a href="https://dsllc.com">www.dsllc.com</a></p>' +
+'    </div>' +
+'  </div>' +
+'</body>' +
+'</html>',
       textContent: `
         DS LLC - Order Confirmation
         
@@ -304,16 +299,17 @@ export class EmailNotificationService {
       processed = processed.replace(regex, String(value));
     });
 
-    // Handle array variables (items)
+    // Handle array variables (items) - replace the items placeholder
     if (variables.items && Array.isArray(variables.items)) {
-      const itemsHtml = variables.items.map(item => 
+      const itemsHtml = variables.items.map((item: any) => 
         `<div class="item">
           <span>${item.name} (Qty: ${item.quantity})</span>
           <span>$${item.price}</span>
         </div>`
       ).join('');
-      processed = processed.replace('{{#each items}}', '').replace('{{/each}}', '');
-      processed = processed.replace('{{name}} (Qty: {{quantity}})', itemsHtml);
+      
+      // Replace the items placeholder
+      processed = processed.replace('<div id="items-list">\n          <!-- Items will be inserted here -->\n        </div>', itemsHtml);
     }
 
     return processed;
