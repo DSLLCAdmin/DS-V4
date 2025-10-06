@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dsllc.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /api/
+
+# Allow all other content
+Allow: /shop/
+Allow: /products/
+Allow: /about/
+Allow: /contact/
+Allow: /lookup/
