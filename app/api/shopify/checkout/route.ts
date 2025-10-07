@@ -28,8 +28,16 @@ interface CustomerData {
 }
 
 export async function POST(request: NextRequest) {
+  console.log('=== SHOPIFY CHECKOUT API ROUTE STARTED ===');
+  console.log('Request method:', request.method);
+  console.log('Request URL:', request.url);
+  console.log('Request headers:', Object.fromEntries(request.headers.entries()));
+  
   try {
-    const { items, customer }: { items: CartItem[]; customer: CustomerData } = await request.json();
+    const body = await request.json();
+    console.log('Request body received:', JSON.stringify(body, null, 2));
+    
+    const { items, customer }: { items: CartItem[]; customer: CustomerData } = body;
 
     if (!items || items.length === 0) {
       return NextResponse.json(
@@ -305,12 +313,17 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Shopify checkout error:', error);
+    console.error('=== SHOPIFY CHECKOUT API ROUTE ERROR ===');
+    console.error('Error type:', typeof error);
+    console.error('Error message:', error instanceof Error ? error.message : String(error));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    console.error('Full error object:', error);
     
     return NextResponse.json(
       { 
         success: false, 
         error: 'Checkout processing failed',
+        details: error instanceof Error ? error.message : String(error),
         fallback: true // Signal to use Stripe fallback
       },
       { status: 500 }
