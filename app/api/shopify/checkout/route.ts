@@ -121,13 +121,137 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // If we get here, the API is working! Now let's try to create a real checkout
-    // For now, return success but signal to use fallback until we implement full checkout
+    // If we get here, the API is working! Now create a real checkout
+    console.log('Creating Shopify checkout with items:', items);
+
+    // Create checkout with line items
+    const checkoutMutation = `
+      mutation checkoutCreate($input: CheckoutCreateInput!) {
+        checkoutCreate(input: $input) {
+          checkout {
+            id
+            webUrl
+            totalPrice {
+              amount
+              currencyCode
+            }
+            lineItems(first: 10) {
+              edges {
+                node {
+                  id
+                  title
+                  quantity
+                  variant {
+                    id
+                    title
+                    price {
+                      amount
+                      currencyCode
+                    }
+                  }
+                }
+              }
+            }
+          }
+          checkoutUserErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
+
+    // Map cart items to Shopify line items
+    const lineItems = items.map(item => ({
+      variantId: item.shopifyVariantId ? `gid://shopify/ProductVariant/${item.shopifyVariantId}` : 'gid://shopify/ProductVariant/1', // Fallback to variant 1
+      quantity: item.quantity
+    }));
+
+    const checkoutInput = {
+      email: customer.email,
+      lineItems: lineItems
+    };
+
+    console.log('Checkout input:', JSON.stringify(checkoutInput, null, 2));
+
+    const checkoutResponse = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
+      },
+      body: JSON.stringify({
+        query: checkoutMutation,
+        variables: { input: checkoutInput }
+      })
+    });
+
+    if (!checkoutResponse.ok) {
+      const errorText = await checkoutResponse.text();
+      console.error('Shopify checkout creation error:', checkoutResponse.status, errorText);
+      
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Checkout creation failed: ${checkoutResponse.status}`,
+          details: errorText,
+          fallback: true
+        },
+        { status: checkoutResponse.status }
+      );
+    }
+
+    const checkoutResult = await checkoutResponse.json();
+    console.log('Shopify checkout result:', JSON.stringify(checkoutResult, null, 2));
+
+    // Handle checkout creation response
+    if (checkoutResult.errors) {
+      console.error('GraphQL checkout errors:', checkoutResult.errors);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Checkout creation failed: ${checkoutResult.errors[0].message}`,
+          details: checkoutResult.errors,
+          fallback: true
+        },
+        { status: 400 }
+      );
+    }
+
+    const checkout = checkoutResult.data?.checkoutCreate?.checkout;
+    const userErrors = checkoutResult.data?.checkoutCreate?.checkoutUserErrors;
+
+    if (userErrors && userErrors.length > 0) {
+      console.error('Checkout user errors:', userErrors);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Checkout validation failed: ${userErrors[0].message}`,
+          details: userErrors,
+          fallback: true
+        },
+        { status: 400 }
+      );
+    }
+
+    if (!checkout || !checkout.webUrl) {
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: 'No checkout URL returned from Shopify',
+          fallback: true
+        },
+        { status: 400 }
+      );
+    }
+
+    // Success! Return the checkout URL
     return NextResponse.json({
       success: true,
-      message: 'Storefront API is working! Ready for checkout implementation.',
-      shop: shop,
-      fallback: true // Use fallback until we implement full checkout creation
+      checkoutUrl: checkout.webUrl,
+      checkoutId: checkout.id,
+      totalPrice: checkout.totalPrice,
+      message: 'Shopify checkout created successfully!'
     });
 
   } catch (error) {

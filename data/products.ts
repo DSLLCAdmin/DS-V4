@@ -9,6 +9,7 @@ export interface Product {
   image: string;
   inStock: boolean;
   badge?: string;
+  shopifyVariantId?: number; // Shopify product variant ID for checkout
 }
 
 export const products: Product[] = [
@@ -22,7 +23,8 @@ export const products: Product[] = [
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 1
   },
   {
     "id": "A-02",
@@ -34,7 +36,8 @@ export const products: Product[] = [
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-PaperBack.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 2
   },
   {
     "id": "A-03",
@@ -46,7 +49,8 @@ export const products: Product[] = [
     "longDescription": "Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!?\r",
     "image": "/product-images/2a_risque-safety-ebook.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 3
   },
   {
     "id": "A-04",
