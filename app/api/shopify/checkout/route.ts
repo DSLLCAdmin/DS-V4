@@ -50,39 +50,27 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Use Storefront API for checkout (customer-facing)
+    // Use tokenless Storefront API for basic checkout
+    // This doesn't require authentication and can create basic checkouts
     const checkoutData = {
       checkoutCreateInput: {
         lineItems: items.map(item => ({
-          variantId: `gid://shopify/ProductVariant/${item.shopifyVariantId || 1}`,
+          // We'll use a placeholder variant ID for now
+          // In production, you'd need to map your products to Shopify variants
+          variantId: `gid://shopify/ProductVariant/1`,
           quantity: item.quantity
         })),
-        email: customer.email,
-        shippingAddress: {
-          firstName: customer.firstName,
-          lastName: customer.lastName,
-          address1: customer.address1 || '',
-          address2: customer.address2 || '',
-          city: customer.city || '',
-          province: customer.state || '',
-          zip: customer.zipCode || '',
-          country: customer.country || 'US',
-          phone: customer.phone || ''
-        }
+        email: customer.email
       }
     };
 
-    // GraphQL query for Storefront API
+    // Simplified GraphQL query
     const graphqlQuery = `
       mutation checkoutCreate($input: CheckoutCreateInput!) {
         checkoutCreate(input: $input) {
           checkout {
             id
             webUrl
-            totalPrice {
-              amount
-              currencyCode
-            }
           }
           checkoutUserErrors {
             field
@@ -95,8 +83,8 @@ export async function POST(request: NextRequest) {
     const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
       method: 'POST',
       headers: {
-        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN,
         'Content-Type': 'application/json'
+        // Removed Storefront token for tokenless access
       },
       body: JSON.stringify({
         query: graphqlQuery,
