@@ -50,31 +50,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // TEMPORARY: Create a minimal checkout to test API connectivity
-    // This will help us determine if the issue is with variant IDs or something else
-    const checkoutData = {
-      checkoutCreateInput: {
-        email: customer.email
-        // Removed lineItems temporarily to test basic checkout creation
-      }
-    };
-
+    // TEST: Try a simple query instead of mutation to test API connectivity
+    // This will help us determine if the Storefront API token is working at all
     const graphqlQuery = `
-      mutation checkoutCreate($input: CheckoutCreateInput!) {
-        checkoutCreate(input: $input) {
-          checkout {
-            id
-            webUrl
-          }
-          checkoutUserErrors {
-            field
-            message
-          }
+      query {
+        shop {
+          name
+          id
         }
       }
     `;
 
-    console.log('Creating checkout with Storefront API GraphQL:', JSON.stringify(checkoutData, null, 2));
+    console.log('Testing Storefront API connectivity with simple query');
 
     const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
       method: 'POST',
@@ -83,15 +70,14 @@ export async function POST(request: NextRequest) {
         'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
       },
       body: JSON.stringify({
-        query: graphqlQuery,
-        variables: { input: checkoutData.checkoutCreateInput }
+        query: graphqlQuery
       })
     });
 
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Shopify API error:', response.status, errorText);
-      console.error('Request data:', JSON.stringify(checkoutData, null, 2));
+      console.error('GraphQL query:', graphqlQuery);
       
       return NextResponse.json(
         { 
@@ -115,43 +101,32 @@ export async function POST(request: NextRequest) {
         { 
           success: false, 
           error: `GraphQL error: ${result.errors[0].message}`,
+          details: result.errors,
           fallback: true
         },
         { status: 400 }
       );
     }
 
-    const checkout = result.data?.checkoutCreate?.checkout;
-    const errors = result.data?.checkoutCreate?.checkoutUserErrors;
+    const shop = result.data?.shop;
 
-    if (errors && errors.length > 0) {
-      console.error('Checkout user errors:', errors);
+    if (!shop) {
       return NextResponse.json(
         { 
           success: false, 
-          error: `Checkout error: ${errors[0].message}`,
-          details: errors,
+          error: 'No shop data returned',
           fallback: true
         },
         { status: 400 }
       );
     }
 
-    if (!checkout) {
-      return NextResponse.json(
-        { 
-          success: false, 
-          error: 'No checkout created',
-          fallback: true
-        },
-        { status: 400 }
-      );
-    }
-
+    // If we get here, the API is working! Return success with shop info
     return NextResponse.json({
       success: true,
-      checkoutUrl: checkout.webUrl,
-      checkoutId: checkout.id
+      message: 'Storefront API is working!',
+      shop: shop,
+      fallback: true // Still use fallback since this is just a test
     });
 
   } catch (error) {
