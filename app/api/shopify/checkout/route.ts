@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 // Shopify configuration - these should be moved to environment variables
 const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
-const SHOPIFY_ADMIN_API_TOKEN = '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';
-const SHOPIFY_API_VERSION = '2024-10'; // Use stable version instead of 2025-10
+const SHOPIFY_STOREFRONT_API_TOKEN = '42ec4a86d00bfb85a44c99bd24a4f5f2';
+const SHOPIFY_API_VERSION = '2024-10'; // Use stable version
 
 interface CartItem {
   id: string;
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Check if Shopify is properly configured
-    if (!SHOPIFY_ADMIN_API_TOKEN) {
+    if (!SHOPIFY_STOREFRONT_API_TOKEN) {
       return NextResponse.json(
         { 
           success: false, 
@@ -50,27 +50,45 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Try Admin API REST approach instead of GraphQL
-    // This is simpler and more reliable for basic checkout creation
+    // Use Storefront API GraphQL with proper authentication
+    // This is the correct approach for client-side checkout creation
     const checkoutData = {
-      checkout: {
-        line_items: items.map(item => ({
-          variant_id: 1, // Use simple numeric ID instead of GraphQL GID
+      checkoutCreateInput: {
+        lineItems: items.map(item => ({
+          variantId: `gid://shopify/ProductVariant/1`, // Use GraphQL GID format
           quantity: item.quantity
         })),
         email: customer.email
       }
     };
 
-    console.log('Creating checkout with Admin API REST:', JSON.stringify(checkoutData, null, 2));
+    const graphqlQuery = `
+      mutation checkoutCreate($input: CheckoutCreateInput!) {
+        checkoutCreate(input: $input) {
+          checkout {
+            id
+            webUrl
+          }
+          checkoutUserErrors {
+            field
+            message
+          }
+        }
+      }
+    `;
 
-    const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/checkouts.json`, {
+    console.log('Creating checkout with Storefront API GraphQL:', JSON.stringify(checkoutData, null, 2));
+
+    const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_TOKEN
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
       },
-      body: JSON.stringify(checkoutData)
+      body: JSON.stringify({
+        query: graphqlQuery,
+        variables: { input: checkoutData.checkoutCreateInput }
+      })
     });
 
     if (!response.ok) {
@@ -91,22 +109,35 @@ export async function POST(request: NextRequest) {
 
     const result = await response.json();
     
-    console.log('Shopify Admin API response:', JSON.stringify(result, null, 2));
+    console.log('Shopify Storefront API response:', JSON.stringify(result, null, 2));
     
-    // Handle Admin API REST response
+    // Handle GraphQL response
     if (result.errors) {
-      console.error('Admin API errors:', result.errors);
+      console.error('GraphQL errors:', result.errors);
       return NextResponse.json(
         { 
           success: false, 
-          error: `Admin API error: ${result.errors}`,
+          error: `GraphQL error: ${result.errors[0].message}`,
           fallback: true
         },
         { status: 400 }
       );
     }
 
-    const checkout = result.checkout;
+    const checkout = result.data?.checkoutCreate?.checkout;
+    const errors = result.data?.checkoutCreate?.checkoutUserErrors;
+
+    if (errors && errors.length > 0) {
+      console.error('Checkout user errors:', errors);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Checkout error: ${errors[0].message}`,
+          fallback: true
+        },
+        { status: 400 }
+      );
+    }
 
     if (!checkout) {
       return NextResponse.json(
@@ -121,9 +152,8 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      checkoutUrl: checkout.web_url,
-      checkoutId: checkout.id,
-      totalPrice: checkout.total_price
+      checkoutUrl: checkout.webUrl,
+      checkoutId: checkout.id
     });
 
   } catch (error) {
