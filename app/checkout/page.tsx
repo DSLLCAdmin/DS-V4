@@ -99,18 +99,11 @@ export default function CheckoutPage() {
           </p>
         </div>
         
-        {error && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
-            <div className="text-red-800">
-              <strong>Error:</strong> {error}
-            </div>
-          </div>
-        )}
-        
         <CheckoutForm
           items={items}
           onSuccess={handleCheckoutSuccess}
           onError={handleCheckoutError}
+          error={error}
         />
       </div>
     </div>

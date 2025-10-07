@@ -49,11 +49,14 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallba
         // Redirect to Shopify checkout
         window.location.href = result.checkoutUrl;
       } else if (result.fallback && onFallback) {
-        // Use fallback to Stripe
-        setError('Shopify checkout unavailable. Redirecting to alternative payment...');
-        setTimeout(() => {
-          onFallback();
-        }, 2000);
+        // COMMENTED OUT: Use fallback to Stripe - testing Shopify only
+        // setError('Shopify checkout unavailable. Redirecting to alternative payment...');
+        // setTimeout(() => {
+        //   onFallback();
+        // }, 2000);
+        
+        // Instead, show error and don't fallback
+        setError('Shopify checkout failed. Please check console logs for details.');
       } else {
         setError(result.error || 'Checkout failed');
       }

@@ -381,6 +381,7 @@ export default function CartPage() {
                     </div>
                   </div>
 
+                  {/* COMMENTED OUT: Alternative Payment button - testing Shopify only
                   <Button
                     onClick={() => router.push('/checkout')}
                     className="w-full bg-gradient-to-r from-gray-400 to-gray-500 hover:from-gray-500 hover:to-gray-600 text-white text-lg font-bold py-4 rounded-full shadow-lg transition-all duration-300"
@@ -392,6 +393,11 @@ export default function CartPage() {
 
                   <div className="my-4 text-center text-white/60 text-sm">
                     OR
+                  </div>
+                  */}
+
+                  <div className="text-center text-white/80 text-sm mb-4">
+                    Testing Shopify Checkout Only
                   </div>
 
                   <ShopifyCheckoutButton 

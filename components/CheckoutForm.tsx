@@ -16,9 +16,10 @@ interface CheckoutFormProps {
   items: OrderItem[];
   onSuccess: (orderId: string) => void;
   onError: (error: string) => void;
+  error?: string;
 }
 
-export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, onError }) => {
+export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, onError, error }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [checkoutData, setCheckoutData] = useState<CheckoutData>({
@@ -637,6 +638,15 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
             </button>
           )}
         </div>
+        
+        {/* Error message displayed right below Complete Order button */}
+        {error && (
+          <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="text-red-800">
+              <strong>Error:</strong> {error}
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );
