@@ -179,7 +179,7 @@ export async function POST(request: NextRequest) {
       })
     });
     
-    let productsResult = null;
+    let productsResult: any = null;
     if (productsResponse.ok) {
       productsResult = await productsResponse.json();
       console.log('Available products and variants:', JSON.stringify(productsResult, null, 2));
