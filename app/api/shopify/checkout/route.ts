@@ -95,11 +95,14 @@ export async function POST(request: NextRequest) {
     if (!response.ok) {
       const errorText = await response.text();
       console.error('Shopify API error:', response.status, errorText);
+      console.error('Request data:', JSON.stringify(checkoutData, null, 2));
+      console.error('GraphQL query:', graphqlQuery);
       
       return NextResponse.json(
         { 
           success: false, 
           error: `Shopify checkout failed: ${response.status}`,
+          details: errorText,
           fallback: true // Signal to use Stripe fallback
         },
         { status: response.status }
@@ -107,6 +110,8 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await response.json();
+    
+    console.log('Shopify API response:', JSON.stringify(result, null, 2));
     
     // Handle GraphQL response
     if (result.errors) {
