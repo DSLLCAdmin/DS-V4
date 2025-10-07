@@ -85,7 +85,9 @@ function CheckoutSuccessContent() {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Order Date:</span>
-                <span className="font-medium">{order.createdAt.toLocaleDateString()}</span>
+                <span className="font-medium">
+                  {new Date(order.createdAt).toLocaleDateString()}
+                </span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Total:</span>

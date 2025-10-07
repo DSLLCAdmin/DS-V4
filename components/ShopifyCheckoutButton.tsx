@@ -45,19 +45,17 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallba
       
       console.log('Shopify checkout response:', result);
 
-      if (result.success) {
+      if (result.success && result.checkoutUrl) {
         // Redirect to Shopify checkout
         window.location.href = result.checkoutUrl;
+      } else if (result.fallback && onFallback) {
+        // Use fallback to Stripe
+        setError('Shopify checkout unavailable. Redirecting to alternative payment...');
+        setTimeout(() => {
+          onFallback();
+        }, 2000);
       } else {
-        // Check if we should fallback to Stripe
-        if (result.fallback && onFallback) {
-          setError('Shopify checkout unavailable. Redirecting to alternative payment...');
-          setTimeout(() => {
-            onFallback();
-          }, 2000);
-        } else {
-          setError(result.error || 'Checkout failed');
-        }
+        setError(result.error || 'Checkout failed');
       }
     } catch (error) {
       console.error('Shopify checkout error:', error);

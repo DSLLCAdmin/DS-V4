@@ -121,12 +121,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // If we get here, the API is working! Return success with shop info
+    // If we get here, the API is working! Now let's try to create a real checkout
+    // For now, return success but signal to use fallback until we implement full checkout
     return NextResponse.json({
       success: true,
-      message: 'Storefront API is working!',
+      message: 'Storefront API is working! Ready for checkout implementation.',
       shop: shop,
-      fallback: true // Still use fallback since this is just a test
+      fallback: true // Use fallback until we implement full checkout creation
     });
 
   } catch (error) {
