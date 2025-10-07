@@ -50,15 +50,12 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Use Storefront API GraphQL with proper authentication
-    // This is the correct approach for client-side checkout creation
+    // TEMPORARY: Create a minimal checkout to test API connectivity
+    // This will help us determine if the issue is with variant IDs or something else
     const checkoutData = {
       checkoutCreateInput: {
-        lineItems: items.map(item => ({
-          variantId: `gid://shopify/ProductVariant/1`, // Use GraphQL GID format
-          quantity: item.quantity
-        })),
         email: customer.email
+        // Removed lineItems temporarily to test basic checkout creation
       }
     };
 
@@ -133,6 +130,7 @@ export async function POST(request: NextRequest) {
         { 
           success: false, 
           error: `Checkout error: ${errors[0].message}`,
+          details: errors,
           fallback: true
         },
         { status: 400 }
