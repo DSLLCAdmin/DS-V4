@@ -186,36 +186,40 @@ export async function POST(request: NextRequest) {
       console.log('Failed to query products:', productsResponse.status);
     }
 
-    // Create checkout with line items
-    const checkoutMutation = `
-      mutation checkoutCreate($input: CheckoutCreateInput!) {
-        checkoutCreate(input: $input) {
-          checkout {
+    // Create cart with line items (Storefront API uses cartCreate, not checkoutCreate)
+    const cartMutation = `
+      mutation cartCreate($input: CartInput!) {
+        cartCreate(input: $input) {
+          cart {
             id
-            webUrl
-            totalPrice {
-              amount
-              currencyCode
+            checkoutUrl
+            totalQuantity
+            cost {
+              totalAmount {
+                amount
+                currencyCode
+              }
             }
-            lineItems(first: 10) {
+            lines(first: 10) {
               edges {
                 node {
                   id
-                  title
                   quantity
-                  variant {
-                    id
-                    title
-                    price {
-                      amount
-                      currencyCode
+                  merchandise {
+                    ... on ProductVariant {
+                      id
+                      title
+                      price {
+                        amount
+                        currencyCode
+                      }
                     }
                   }
                 }
               }
             }
           }
-          checkoutUserErrors {
+          userErrors {
             field
             message
           }
@@ -223,76 +227,99 @@ export async function POST(request: NextRequest) {
       }
     `;
 
-    // Map cart items to Shopify line items
-    const lineItems = items.map(item => ({
-      variantId: item.shopifyVariantId ? `gid://shopify/ProductVariant/${item.shopifyVariantId}` : 'gid://shopify/ProductVariant/1', // Fallback to variant 1
-      quantity: item.quantity
-    }));
+    // Map cart items to Shopify line items with correct variant IDs
+    const lineItems = items.map(item => {
+      // Find the correct variant ID from the products we queried
+      const product = productsResult.data.products.edges.find(edge => 
+        edge.node.title.includes(item.title.split('-')[0].trim())
+      );
+      
+      if (product && product.node.variants.edges.length > 0) {
+        return {
+          merchandiseId: product.node.variants.edges[0].node.id,
+          quantity: item.quantity
+        };
+      }
+      
+      // Fallback to first available variant
+      return {
+        merchandiseId: 'gid://shopify/ProductVariant/42143320834146', // First & Light Paperback variant
+        quantity: item.quantity
+      };
+    });
 
-    const checkoutInput = {
-      email: customer.email,
-      lineItems: lineItems
+    const cartInput = {
+      lines: lineItems
     };
 
-    console.log('Checkout input:', JSON.stringify(checkoutInput, null, 2));
+    console.log('Cart input:', JSON.stringify(cartInput, null, 2));
 
-    const checkoutResponse = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
+    const cartResponse = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
       },
       body: JSON.stringify({
-        query: checkoutMutation,
-        variables: { input: checkoutInput }
+        query: cartMutation,
+        variables: { input: cartInput }
       })
     });
 
-    if (!checkoutResponse.ok) {
-      const errorText = await checkoutResponse.text();
-      console.error('Shopify checkout creation error:', checkoutResponse.status, errorText);
+    if (!cartResponse.ok) {
+      const errorText = await cartResponse.text();
+      console.error('=== SHOPIFY CART API ERROR ===');
+      console.error('Response status:', cartResponse.status);
+      console.error('Response headers:', Object.fromEntries(cartResponse.headers.entries()));
+      console.error('Error text:', errorText);
+      console.error('GraphQL query:', cartMutation);
+      console.error('Request headers sent:', {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
+      });
       
       return NextResponse.json(
         { 
           success: false, 
-          error: `Checkout creation failed: ${checkoutResponse.status}`,
+          error: `Shopify cart creation failed: ${cartResponse.status}`,
           details: errorText,
+          status: cartResponse.status,
           fallback: true
         },
-        { status: checkoutResponse.status }
+        { status: cartResponse.status }
       );
     }
 
-    const checkoutResult = await checkoutResponse.json();
-    console.log('Shopify checkout result:', JSON.stringify(checkoutResult, null, 2));
+    const cartResult = await cartResponse.json();
+    console.log('Shopify cart result:', JSON.stringify(cartResult, null, 2));
     
     // Log specific details for debugging
-    console.log('Checkout response status:', checkoutResponse.status);
-    console.log('Checkout response headers:', Object.fromEntries(checkoutResponse.headers.entries()));
+    console.log('Cart response status:', cartResponse.status);
+    console.log('Cart response headers:', Object.fromEntries(cartResponse.headers.entries()));
 
-    // Handle checkout creation response
-    if (checkoutResult.errors) {
-      console.error('GraphQL checkout errors:', checkoutResult.errors);
+    // Handle cart creation response
+    if (cartResult.errors) {
+      console.error('GraphQL cart errors:', cartResult.errors);
       return NextResponse.json(
         { 
           success: false, 
-          error: `Checkout creation failed: ${checkoutResult.errors[0].message}`,
-          details: checkoutResult.errors,
+          error: `Cart creation failed: ${cartResult.errors[0].message}`,
+          details: cartResult.errors,
           fallback: true
         },
         { status: 400 }
       );
     }
 
-    const checkout = checkoutResult.data?.checkoutCreate?.checkout;
-    const userErrors = checkoutResult.data?.checkoutCreate?.checkoutUserErrors;
+    const cart = cartResult.data?.cartCreate?.cart;
+    const userErrors = cartResult.data?.cartCreate?.userErrors;
 
     if (userErrors && userErrors.length > 0) {
-      console.error('Checkout user errors:', userErrors);
+      console.error('Cart user errors:', userErrors);
       return NextResponse.json(
         { 
           success: false, 
-          error: `Checkout validation failed: ${userErrors[0].message}`,
+          error: `Cart validation failed: ${userErrors[0].message}`,
           details: userErrors,
           fallback: true
         },
@@ -300,7 +327,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!checkout || !checkout.webUrl) {
+    if (!cart || !cart.checkoutUrl) {
       return NextResponse.json(
         { 
           success: false, 
@@ -314,10 +341,10 @@ export async function POST(request: NextRequest) {
     // Success! Return the checkout URL
     return NextResponse.json({
       success: true,
-      checkoutUrl: checkout.webUrl,
-      checkoutId: checkout.id,
-      totalPrice: checkout.totalPrice,
-      message: 'Shopify checkout created successfully!'
+      checkoutUrl: cart.checkoutUrl,
+      cartId: cart.id,
+      totalAmount: cart.cost.totalAmount,
+      message: 'Shopify cart created successfully!'
     });
 
   } catch (error) {
