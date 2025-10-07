@@ -123,6 +123,52 @@ export async function POST(request: NextRequest) {
 
     // If we get here, the API is working! Now create a real checkout
     console.log('Creating Shopify checkout with items:', items);
+    
+    // First, let's query available products to see what variants exist
+    const productsQuery = `
+      query {
+        products(first: 10) {
+          edges {
+            node {
+              id
+              title
+              variants(first: 10) {
+                edges {
+                  node {
+                    id
+                    title
+                    price {
+                      amount
+                      currencyCode
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+    
+    console.log('Querying available products and variants...');
+    
+    const productsResponse = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
+      },
+      body: JSON.stringify({
+        query: productsQuery
+      })
+    });
+    
+    if (productsResponse.ok) {
+      const productsResult = await productsResponse.json();
+      console.log('Available products and variants:', JSON.stringify(productsResult, null, 2));
+    } else {
+      console.log('Failed to query products:', productsResponse.status);
+    }
 
     // Create checkout with line items
     const checkoutMutation = `
@@ -203,6 +249,10 @@ export async function POST(request: NextRequest) {
 
     const checkoutResult = await checkoutResponse.json();
     console.log('Shopify checkout result:', JSON.stringify(checkoutResult, null, 2));
+    
+    // Log specific details for debugging
+    console.log('Checkout response status:', checkoutResponse.status);
+    console.log('Checkout response headers:', Object.fromEntries(checkoutResponse.headers.entries()));
 
     // Handle checkout creation response
     if (checkoutResult.errors) {
