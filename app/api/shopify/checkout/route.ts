@@ -50,58 +50,25 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Use Storefront API for checkout (customer-facing)
+    // Create a simple checkout URL using Admin API
+    // Since we don't have Storefront API access, we'll create a basic checkout
     const checkoutData = {
-      checkoutCreateInput: {
-        lineItems: items.map(item => ({
-          variantId: `gid://shopify/ProductVariant/${item.shopifyVariantId || 1}`,
+      checkout: {
+        line_items: items.map(item => ({
+          variant_id: item.shopifyVariantId || 1,
           quantity: item.quantity
         })),
-        email: customer.email,
-        shippingAddress: {
-          firstName: customer.firstName,
-          lastName: customer.lastName,
-          address1: customer.address1 || '',
-          address2: customer.address2 || '',
-          city: customer.city || '',
-          province: customer.state || '',
-          zip: customer.zipCode || '',
-          country: customer.country || 'US',
-          phone: customer.phone || ''
-        }
+        email: customer.email
       }
     };
 
-    // GraphQL query for Storefront API
-    const graphqlQuery = `
-      mutation checkoutCreate($input: CheckoutCreateInput!) {
-        checkoutCreate(input: $input) {
-          checkout {
-            id
-            webUrl
-            totalPrice {
-              amount
-              currencyCode
-            }
-          }
-          checkoutUserErrors {
-            field
-            message
-          }
-        }
-      }
-    `;
-
-    const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
+    const response = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/admin/api/${SHOPIFY_API_VERSION}/checkouts.json`, {
       method: 'POST',
       headers: {
-        'X-Shopify-Storefront-Access-Token': SHOPIFY_ADMIN_API_TOKEN, // Using Admin token as fallback
+        'X-Shopify-Access-Token': SHOPIFY_ADMIN_API_TOKEN,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        query: graphqlQuery,
-        variables: { input: checkoutData.checkoutCreateInput }
-      })
+      body: JSON.stringify(checkoutData)
     });
 
     if (!response.ok) {
@@ -119,34 +86,7 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await response.json();
-    
-    // Handle GraphQL response
-    if (result.errors) {
-      console.error('GraphQL errors:', result.errors);
-      return NextResponse.json(
-        { 
-          success: false, 
-          error: `GraphQL error: ${result.errors[0].message}`,
-          fallback: true
-        },
-        { status: 400 }
-      );
-    }
-
-    const checkout = result.data?.checkoutCreate?.checkout;
-    const errors = result.data?.checkoutCreate?.checkoutUserErrors;
-
-    if (errors && errors.length > 0) {
-      console.error('Checkout user errors:', errors);
-      return NextResponse.json(
-        { 
-          success: false, 
-          error: `Checkout error: ${errors[0].message}`,
-          fallback: true
-        },
-        { status: 400 }
-      );
-    }
+    const checkout = result.checkout;
 
     if (!checkout) {
       return NextResponse.json(
@@ -161,9 +101,9 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      checkoutUrl: checkout.webUrl,
+      checkoutUrl: checkout.web_url,
       checkoutId: checkout.id,
-      totalPrice: checkout.totalPrice
+      token: checkout.token
     });
 
   } catch (error) {
