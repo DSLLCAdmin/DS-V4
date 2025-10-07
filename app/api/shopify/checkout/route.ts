@@ -84,15 +84,23 @@ export async function POST(request: NextRequest) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('Shopify API error:', response.status, errorText);
+      console.error('=== SHOPIFY API ERROR ===');
+      console.error('Response status:', response.status);
+      console.error('Response headers:', Object.fromEntries(response.headers.entries()));
+      console.error('Error text:', errorText);
       console.error('GraphQL query:', graphqlQuery);
+      console.error('Request headers sent:', {
+        'Content-Type': 'application/json',
+        'X-Shopify-Storefront-Access-Token': SHOPIFY_STOREFRONT_API_TOKEN
+      });
       
       return NextResponse.json(
         { 
           success: false, 
-          error: `Shopify checkout failed: ${response.status}`,
+          error: `Shopify API error: ${response.status}`,
           details: errorText,
-          fallback: true // Signal to use Stripe fallback
+          status: response.status,
+          fallback: true
         },
         { status: response.status }
       );
