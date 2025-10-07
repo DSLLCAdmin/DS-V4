@@ -232,7 +232,7 @@ export async function POST(request: NextRequest) {
     const lineItems = items.map(item => {
       // Find the correct variant ID from the products we queried
       if (productsResult && productsResult.data && productsResult.data.products) {
-        const product = productsResult.data.products.edges.find(edge => 
+        const product = productsResult.data.products.edges.find((edge: any) => 
           edge.node.title.includes(item.title.split('-')[0].trim())
         );
         
