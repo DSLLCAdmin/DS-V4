@@ -342,6 +342,11 @@ export async function POST(request: NextRequest) {
     }
 
     // Success! Return the checkout URL
+    console.log('=== CHECKOUT URL DEBUG ===');
+    console.log('Cart checkoutUrl:', cart.checkoutUrl);
+    console.log('Cart ID:', cart.id);
+    console.log('Total amount:', cart.cost.totalAmount);
+    
     return NextResponse.json({
       success: true,
       checkoutUrl: cart.checkoutUrl,
