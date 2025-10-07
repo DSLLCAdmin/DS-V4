@@ -179,8 +179,9 @@ export async function POST(request: NextRequest) {
       })
     });
     
+    let productsResult = null;
     if (productsResponse.ok) {
-      const productsResult = await productsResponse.json();
+      productsResult = await productsResponse.json();
       console.log('Available products and variants:', JSON.stringify(productsResult, null, 2));
     } else {
       console.log('Failed to query products:', productsResponse.status);
@@ -230,15 +231,17 @@ export async function POST(request: NextRequest) {
     // Map cart items to Shopify line items with correct variant IDs
     const lineItems = items.map(item => {
       // Find the correct variant ID from the products we queried
-      const product = productsResult.data.products.edges.find(edge => 
-        edge.node.title.includes(item.title.split('-')[0].trim())
-      );
-      
-      if (product && product.node.variants.edges.length > 0) {
-        return {
-          merchandiseId: product.node.variants.edges[0].node.id,
-          quantity: item.quantity
-        };
+      if (productsResult && productsResult.data && productsResult.data.products) {
+        const product = productsResult.data.products.edges.find(edge => 
+          edge.node.title.includes(item.title.split('-')[0].trim())
+        );
+        
+        if (product && product.node.variants.edges.length > 0) {
+          return {
+            merchandiseId: product.node.variants.edges[0].node.id,
+            quantity: item.quantity
+          };
+        }
       }
       
       // Fallback to first available variant
