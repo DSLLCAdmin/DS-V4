@@ -22,7 +22,8 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [isAdded, setIsAdded] = useState(false);
   const [showInDesignModal, setShowInDesignModal] = useState(false);
   const { images, loading } = useProductImages(product.id);
-  const [selectedSize, setSelectedSize] = useState<string>('S');
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [showSizeError, setShowSizeError] = useState(false);
   
   const isInDesign = isProductInDesign(product);
 
@@ -33,11 +34,18 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
       return;
     }
     
+    // Validate size selection for apparel products
+    if (product.category === 'Apparel' && !selectedSize) {
+      setShowSizeError(true);
+      setTimeout(() => setShowSizeError(false), 1000); // Wiggle for 1 second
+      return;
+    }
+    
     if (!product.inStock) return;
     
     setIsAdding(true);
     try {
-      const success = await addToCart(product.id, 1, { size: selectedSize });
+      const success = await addToCart(product.id, 1, product.category === 'Apparel' ? { size: selectedSize || '' } : undefined);
       if (success) {
         setIsAdded(true);
         setTimeout(() => setIsAdded(false), 2000);
@@ -138,7 +146,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
 
         {/* Size selector for Apparel */}
         {product.category === 'Apparel' && product.sizeGuide && (
-          <div className="space-y-3">
+          <div className={`space-y-3 ${showSizeError ? 'animate-wiggle' : ''}`}>
             <div className="text-sm font-semibold text-swatch101/80">Size</div>
             <div className="flex flex-wrap gap-2">
               {Object.keys(product.sizeGuide.imperial).map((sizeKey) => (
@@ -148,7 +156,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
                   className={`px-4 py-2 rounded-full border transition-all ${
                     selectedSize === sizeKey
                       ? 'bg-swatch101 text-white border-swatch103'
-                      : 'bg-white text-swatch101 border-swatch103/30 hover:border-swatch103'
+                      : 'bg-white text-[#6A8085] border-swatch103/30 hover:border-swatch103'
                   }`}
                 >
                   {sizeKey}
@@ -277,6 +285,21 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
         isOpen={showInDesignModal}
         onClose={() => setShowInDesignModal(false)}
       />
+
+      {/* Wiggle Animation CSS */}
+      <style jsx global>{`
+        @keyframes wiggle {
+          0% { transform: translateX(0); }
+          20% { transform: translateX(-5px); }
+          40% { transform: translateX(5px); }
+          60% { transform: translateX(-5px); }
+          80% { transform: translateX(5px); }
+          100% { transform: translateX(0); }
+        }
+        .animate-wiggle {
+          animation: wiggle 0.3s ease-in-out 3; /* Wiggle 3 times */
+        }
+      `}</style>
     </div>
   );
 }
