@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shipping, Package, Truck, Clock, CheckCircle } from 'lucide-react';
+import { Package, Truck, Clock, CheckCircle, MapPin } from 'lucide-react';
 
 export default function ShippingPage() {
   return (
@@ -76,7 +76,7 @@ export default function ShippingPage() {
 
             {/* Physical Books */}
             <div className="text-center">
-              <Shipping className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+              <MapPin className="w-12 h-12 text-orange-400 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">Physical Books</h3>
               <p className="text-white/70">
                 Printed on-demand and shipped directly from our publishing partner.
