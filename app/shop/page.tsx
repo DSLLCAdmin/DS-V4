@@ -185,7 +185,13 @@ function StreetStoreContent() {
 
   const formatPrice = (salePrice: string, originalPrice?: string) => {
     if (!salePrice || salePrice === "$-") return "Contact for Price";
-    return salePrice;
+    
+    // Convert string to number for proper formatting
+    const price = parseFloat(salePrice);
+    if (isNaN(price)) return "Contact for Price";
+    
+    // Always format with $ and two decimal places
+    return `$${price.toFixed(2)}`;
   };
 
   const hasDiscount = (salePrice: string, originalPrice?: string) => {
@@ -546,7 +552,7 @@ function StreetStoreContent() {
                         ) : (
                           <div className="space-y-2">
                             <div className="flex items-center space-x-3">
-                              <span className="text-3xl font-black text-swatch103 drop-shadow-sm">
+                              <span className="text-2xl font-black text-swatch103 drop-shadow-sm">
                                 {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0")}
                               </span>
                               {false && (

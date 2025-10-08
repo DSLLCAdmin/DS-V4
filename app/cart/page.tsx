@@ -392,10 +392,7 @@ export default function CartPage() {
                             </div>
                             <div className="border-t border-swatch103/30 pt-3">
                               <div className="text-sm text-white/70 text-center mb-2">
-                                Tax/Shipping calculated by Shopify
-                              </div>
-                              <div className="text-lg font-semibold text-white text-center">
-                                Final total shown at checkout
+                                Tax/Shipping calculated and total shown before Shopify checkout.
                               </div>
                             </div>
                           </div>
