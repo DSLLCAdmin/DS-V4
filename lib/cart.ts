@@ -138,7 +138,8 @@ class CartManager {
         return {
           title: product.title,
           price: product.price || 0,
-          image: product.image
+          image: product.image,
+          shopifyVariantId: product.shopifyVariantId
         };
       }
       return null;
