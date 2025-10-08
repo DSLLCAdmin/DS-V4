@@ -29,7 +29,7 @@ export const SizeGuide: React.FC<SizeGuideProps> = ({ sizeGuide, sizeGuideImages
       {/* Size Guide Button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors text-sm"
+        className="flex items-center space-x-2 text-yellow-300 hover:text-yellow-200 transition-colors text-sm"
       >
         <Ruler className="w-4 h-4" />
         <span>Size Guide</span>
@@ -78,39 +78,18 @@ export const SizeGuide: React.FC<SizeGuideProps> = ({ sizeGuide, sizeGuideImages
 
             {/* Content */}
             <div className="p-6">
-              {/* Size Guide Images */}
-              {sizeGuideImages && (
+              {/* Size Selector Visual (keep only selector image to avoid duplicate guides) */}
+              {sizeGuideImages?.selector && (
                 <div className="mb-8">
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Size Guide Chart */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gray-900">
-                        Size Chart ({unit === 'imperial' ? 'Inches' : 'Centimeters'})
-                      </h3>
-                      <div className="relative">
-                        <Image
-                          src={unit === 'imperial' ? sizeGuideImages.imperial : sizeGuideImages.metric}
-                          alt={`Size guide in ${unit}`}
-                          width={400}
-                          height={300}
-                          className="rounded-lg border"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Size Selector */}
-                    <div className="space-y-4">
-                      <h3 className="text-lg font-semibold text-gray-900">Size Selector</h3>
-                      <div className="relative">
-                        <Image
-                          src={sizeGuideImages.selector}
-                          alt="Size selector interface"
-                          width={400}
-                          height={200}
-                          className="rounded-lg border"
-                        />
-                      </div>
-                    </div>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Size Selector</h3>
+                  <div className="relative">
+                    <Image
+                      src={sizeGuideImages.selector}
+                      alt="Size selector interface"
+                      width={600}
+                      height={260}
+                      className="rounded-lg border"
+                    />
                   </div>
                 </div>
               )}

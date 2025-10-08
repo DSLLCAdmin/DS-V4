@@ -14,11 +14,11 @@ export function useCart() {
     setCart(cartManager.getCart());
   };
 
-  // Add item to cart
-  const addToCart = async (productId: string, quantity: number = 1) => {
+  // Add item to cart (supports attributes like size)
+  const addToCart = async (productId: string, quantity: number = 1, attributes?: Record<string, string>) => {
     setLoading(true);
     try {
-      const success = await cartManager.addToCart(productId, quantity);
+      const success = await cartManager.addToCart(productId, quantity, attributes);
       if (success) {
         updateCart();
       }

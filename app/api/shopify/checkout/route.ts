@@ -237,7 +237,8 @@ export async function POST(request: NextRequest) {
         console.log(`Using shopifyVariantId: ${item.shopifyVariantId} for ${item.title}`);
         return {
           merchandiseId: `gid://shopify/ProductVariant/${item.shopifyVariantId}`,
-          quantity: item.quantity
+          quantity: item.quantity,
+          attributes: item.attributes ? Object.entries(item.attributes).map(([key, value]) => ({ key, value })) : undefined
         };
       }
       
@@ -251,7 +252,8 @@ export async function POST(request: NextRequest) {
           console.log(`Found matching product: ${product.node.title} for ${item.title}`);
           return {
             merchandiseId: product.node.variants.edges[0].node.id,
-            quantity: item.quantity
+            quantity: item.quantity,
+            attributes: item.attributes ? Object.entries(item.attributes).map(([key, value]) => ({ key, value })) : undefined
           };
         }
       }

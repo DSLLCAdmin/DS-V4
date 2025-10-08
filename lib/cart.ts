@@ -7,6 +7,7 @@ export interface CartItem {
   image?: string;
   variant_id?: string;
   shopifyVariantId?: number; // Add Shopify variant ID
+  attributes?: Record<string, string>; // e.g., { size: 'M' }
 }
 
 export interface Cart {
@@ -30,13 +31,14 @@ class CartManager {
   }
 
   // Add item to cart
-  async addToCart(productId: string, quantity: number = 1) {
+  async addToCart(productId: string, quantity: number = 1, attributes?: Record<string, string>) {
     try {
       // For now, we'll use a local cart implementation
       // This can be enhanced later with Shopify Storefront API
       
       // Find existing item in cart
-      const existingItemIndex = this.cart.items.findIndex(item => item.id === productId);
+      // Consider attributes when finding an existing line (e.g., different sizes are different lines)
+      const existingItemIndex = this.cart.items.findIndex(item => item.id === productId && JSON.stringify(item.attributes || {}) === JSON.stringify(attributes || {}));
       
       if (existingItemIndex >= 0) {
         // Update existing item quantity
@@ -53,7 +55,8 @@ class CartManager {
             quantity: quantity,
             image: product.image,
             variant_id: productId, // Keep for compatibility
-            shopifyVariantId: product.shopifyVariantId // Add actual Shopify variant ID
+            shopifyVariantId: product.shopifyVariantId, // Add actual Shopify variant ID
+            attributes
           });
         } else {
           console.error('Product not found:', productId);

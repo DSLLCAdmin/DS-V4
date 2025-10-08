@@ -22,6 +22,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [isAdded, setIsAdded] = useState(false);
   const [showInDesignModal, setShowInDesignModal] = useState(false);
   const { images, loading } = useProductImages(product.id);
+  const [selectedSize, setSelectedSize] = useState<string>('S');
   
   const isInDesign = isProductInDesign(product);
 
@@ -36,7 +37,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
     
     setIsAdding(true);
     try {
-      const success = await addToCart(product.id);
+      const success = await addToCart(product.id, 1, { size: selectedSize });
       if (success) {
         setIsAdded(true);
         setTimeout(() => setIsAdded(false), 2000);
@@ -134,6 +135,28 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
         <div className="text-3xl font-bold text-swatch101">
           {formatPrice(product.price)}
         </div>
+
+        {/* Size selector for Apparel */}
+        {product.category === 'Apparel' && product.sizeGuide && (
+          <div className="space-y-3">
+            <div className="text-sm font-semibold text-swatch101/80">Size</div>
+            <div className="flex flex-wrap gap-2">
+              {Object.keys(product.sizeGuide.imperial).map((sizeKey) => (
+                <button
+                  key={sizeKey}
+                  onClick={() => setSelectedSize(sizeKey)}
+                  className={`px-4 py-2 rounded-full border transition-all ${
+                    selectedSize === sizeKey
+                      ? 'bg-swatch101 text-white border-swatch103'
+                      : 'bg-white text-swatch101 border-swatch103/30 hover:border-swatch103'
+                  }`}
+                >
+                  {sizeKey}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Add to Cart Button */}
         <div className="space-y-4">
