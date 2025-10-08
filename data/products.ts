@@ -71,7 +71,7 @@ export const products: Product[] = [
             "category": "Apparel",
             "title": "DarkStreets Tee - V-Neck",
             "author": "DarkStreets",
-            "price": 24.99,
+            "price": 35.00,
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
