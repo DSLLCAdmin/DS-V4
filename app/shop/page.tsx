@@ -822,7 +822,7 @@ function StreetStoreContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <ScrollReveal>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
+              <Link href="/shipping" className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden cursor-pointer">
                 <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300 flex-shrink-0">
                   <Truck className="h-7 w-7 text-swatch101" />
                 </div>
@@ -830,7 +830,7 @@ function StreetStoreContent() {
                   <p className="text-swatch204 font-bold text-lg truncate">Free Shipping</p>
                   <p className="text-swatch203/80 text-sm truncate">Orders $50+</p>
                 </div>
-              </div>
+              </Link>
               <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
                 <div className="p-3 bg-gradient-to-br from-swatch103 to-swatch104 rounded-full group-hover:shadow-lg transition-all duration-300 flex-shrink-0">
                   <Shield className="h-7 w-7 text-swatch101" />

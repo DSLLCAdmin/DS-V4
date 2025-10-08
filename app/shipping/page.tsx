@@ -150,6 +150,39 @@ export default function ShippingPage() {
           </div>
         </div>
 
+        {/* Multiple Products & Mixed Orders */}
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 mb-16">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">
+            Multiple Products & Mixed Orders
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Digital + Physical Products</h3>
+              <p className="text-white/80 text-lg mb-4">
+                When you order both digital and physical products, shipping is calculated only for the physical items.
+              </p>
+              <ul className="space-y-2 text-white/70">
+                <li>• Digital products: Instant download, no shipping</li>
+                <li>• Physical products: Standard shipping rates apply</li>
+                <li>• Mixed orders: Only physical items count toward shipping</li>
+                <li>• Free shipping threshold applies to total order value</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-4">Multiple Physical Products</h3>
+              <p className="text-white/80 text-lg mb-4">
+                Order multiple physical items? Shipping is still a flat rate regardless of quantity.
+              </p>
+              <ul className="space-y-2 text-white/70">
+                <li>• 1 item or 10 items: Same shipping cost</li>
+                <li>• All items ship together in one package</li>
+                <li>• Free shipping applies to total order value ($50+)</li>
+                <li>• Express shipping available for faster delivery</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         {/* FAQ Section */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
           <h2 className="text-3xl font-bold text-white mb-8 text-center">
@@ -163,6 +196,7 @@ export default function ShippingPage() {
               <p className="text-white/70">
                 Shipping is calculated based on order total and selected delivery method. 
                 Orders $50+ get free standard shipping. Orders under $50 pay $4.99 standard or $9.99 express.
+                Digital products never require shipping.
               </p>
             </div>
             <div>
@@ -190,6 +224,33 @@ export default function ShippingPage() {
               <p className="text-white/70">
                 Yes, we ship to PO Boxes for standard shipping. Express shipping requires 
                 a physical address for delivery confirmation.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                What's the difference between Standard and Express shipping?
+              </h3>
+              <p className="text-white/70">
+                Standard shipping ($4.99) takes 5-8 business days. Express shipping ($9.99) 
+                delivers in 2-4 business days with priority handling. Both include tracking.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                If I order 5 books, do I pay shipping 5 times?
+              </h3>
+              <p className="text-white/70">
+                No! Shipping is a flat rate regardless of quantity. Whether you order 1 item 
+                or 10 items, you pay the same shipping cost ($4.99 standard or $9.99 express).
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-white mb-2">
+                Can I get express shipping on digital products?
+              </h3>
+              <p className="text-white/70">
+                Digital products (e-books) are delivered instantly via download, so no shipping 
+                is needed. Express shipping only applies to physical products that require delivery.
               </p>
             </div>
           </div>
