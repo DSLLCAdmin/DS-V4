@@ -9,6 +9,8 @@ import { Product } from '@/data/products';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { isProductInDesign } from '@/lib/product-utils';
 import { InDesignModal } from '@/components/InDesignModal';
+import { ProductImageGallery, useProductImages } from '@/components/ProductImageGallery';
+import { SizeGuide } from '@/components/SizeGuide';
 
 interface ProductPageClientProps {
   product: Product;
@@ -19,6 +21,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [isAdding, setIsAdding] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [showInDesignModal, setShowInDesignModal] = useState(false);
+  const { images, loading } = useProductImages(product.id);
   
   const isInDesign = isProductInDesign(product);
 
@@ -65,15 +68,30 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
 
   return (
     <div className="flex flex-col lg:flex-row gap-8">
-      {/* Product Image */}
+      {/* Product Image Gallery */}
       <div className="lg:w-1/2">
         <div className="relative bg-gradient-to-br from-swatch101/20 to-swatch101/10 rounded-2xl p-8 border border-swatch103/20">
-          {product.image && product.image !== "/product-images/placeholder.jpg" ? (
-            <img
-              src={product.image}
-              alt={product.title}
-              className="w-full h-auto max-h-96 object-contain rounded-lg"
+          {loading ? (
+            <div className="w-full h-96 bg-gradient-to-br from-swatch201/30 to-swatch202/20 rounded-lg flex items-center justify-center">
+              <div className="text-center text-swatch204">
+                <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-swatch103 mx-auto mb-4"></div>
+                <p className="text-lg font-medium">Loading Images...</p>
+              </div>
+            </div>
+          ) : images.length > 0 ? (
+            <ProductImageGallery
+              images={images}
+              productTitle={product.title}
+              className="w-full"
             />
+          ) : product.image && product.image !== "/product-images/placeholder.jpg" ? (
+            <div className="relative">
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-auto max-h-96 object-contain rounded-lg"
+              />
+            </div>
           ) : (
             <div className="w-full h-96 bg-gradient-to-br from-swatch201/30 to-swatch202/20 rounded-lg flex items-center justify-center">
               <div className="text-center text-swatch204">
@@ -84,7 +102,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
           )}
           
           {product.badge && (
-            <Badge className={`absolute top-4 right-4 ${getBadgeColor(product.badge)} font-bold text-sm px-3 py-1`}>
+            <Badge className={`absolute top-4 right-4 z-10 ${getBadgeColor(product.badge)} font-bold text-sm px-3 py-1`}>
               {product.badge}
             </Badge>
           )}
@@ -154,6 +172,16 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
               </>
             )}
           </Button>
+
+          {/* Size Guide for Apparel */}
+          {product.category === "Apparel" && (
+            <div className="flex justify-center">
+              <SizeGuide
+                sizeGuide={product.sizeGuide}
+                sizeGuideImages={product.sizeGuideImages}
+              />
+            </div>
+          )}
 
           {isInDesign && (
             <div className="text-center">
