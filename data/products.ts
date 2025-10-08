@@ -78,6 +78,7 @@ export const products: Product[] = [
     "inStock": true,
     "badge": "New",
     "printfulVariantId": "93425083",
+    "shopifyVariantId": 42143321030754,
     "requiresShipping": true,
     "sizeGuide": {
       imperial: {

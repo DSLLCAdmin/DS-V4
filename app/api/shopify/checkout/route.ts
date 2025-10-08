@@ -230,13 +230,25 @@ export async function POST(request: NextRequest) {
 
     // Map cart items to Shopify line items with correct variant IDs
     const lineItems = items.map(item => {
-      // Find the correct variant ID from the products we queried
+      console.log(`Processing cart item: ${item.title} (ID: ${item.id})`);
+      
+      // First, try to use the shopifyVariantId if available
+      if (item.shopifyVariantId) {
+        console.log(`Using shopifyVariantId: ${item.shopifyVariantId} for ${item.title}`);
+        return {
+          merchandiseId: `gid://shopify/ProductVariant/${item.shopifyVariantId}`,
+          quantity: item.quantity
+        };
+      }
+      
+      // Fallback: Find the correct variant ID from the products we queried
       if (productsResult && productsResult.data && productsResult.data.products) {
         const product = productsResult.data.products.edges.find((edge: any) => 
           edge.node.title.includes(item.title.split('-')[0].trim())
         );
         
         if (product && product.node.variants.edges.length > 0) {
+          console.log(`Found matching product: ${product.node.title} for ${item.title}`);
           return {
             merchandiseId: product.node.variants.edges[0].node.id,
             quantity: item.quantity
@@ -244,11 +256,9 @@ export async function POST(request: NextRequest) {
         }
       }
       
-      // Fallback to first available variant
-      return {
-        merchandiseId: 'gid://shopify/ProductVariant/42143320834146', // First & Light Paperback variant
-        quantity: item.quantity
-      };
+      // If no match found, return error instead of hardcoded fallback
+      console.error(`No Shopify variant found for item: ${item.title} (ID: ${item.id})`);
+      throw new Error(`No Shopify variant found for product: ${item.title}`);
     });
 
     const cartInput = {

@@ -6,6 +6,7 @@ export interface CartItem {
   quantity: number;
   image?: string;
   variant_id?: string;
+  shopifyVariantId?: number; // Add Shopify variant ID
 }
 
 export interface Cart {
@@ -51,7 +52,8 @@ class CartManager {
             price: product.price,
             quantity: quantity,
             image: product.image,
-            variant_id: productId // Using product ID as variant ID for now
+            variant_id: productId, // Keep for compatibility
+            shopifyVariantId: product.shopifyVariantId // Add actual Shopify variant ID
           });
         } else {
           console.error('Product not found:', productId);
