@@ -306,7 +306,9 @@ export const products: Product[] = [
     "longDescription": "\r",
     "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 42143321325666, // Using Dark Street Mugs variant (same price)
+    "requiresShipping": true
   },
   {
     "id": "C-03",
