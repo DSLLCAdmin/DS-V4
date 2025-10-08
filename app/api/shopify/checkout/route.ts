@@ -281,11 +281,13 @@ export async function POST(request: NextRequest) {
             // CRITICAL: Validate totals match between DS LLC cart and Shopify
             const dsSubtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
             const dsShipping = dsSubtotal >= 50 ? 0 : 4.99; // Match our shipping policy
-            const dsTotal = dsSubtotal + dsShipping;
+            const dsTax = Math.round((dsSubtotal + dsShipping) * 0.085 * 100) / 100; // 8.5% CA tax
+            const dsTotal = dsSubtotal + dsShipping + dsTax;
             
             console.log(`🔍 DS LLC Cart Validation:`);
             console.log(`  Subtotal: $${dsSubtotal.toFixed(2)}`);
             console.log(`  Shipping: $${dsShipping.toFixed(2)}`);
+            console.log(`  Tax: $${dsTax.toFixed(2)}`);
             console.log(`  Total: $${dsTotal.toFixed(2)}`);
 
             const cartInput = {

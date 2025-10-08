@@ -66,12 +66,12 @@ export const products: Product[] = [
     "shopifyVariantId": 42143320866914, // Correct Shopify variant ID for $4.99 e-book
     "requiresShipping": false
   },
-  {
-    "id": "T-01",
-    "category": "Apparel",
-    "title": "DarkStreets Tee - V-Neck",
-    "author": "DarkStreets",
-    "price": 35.00,
+          {
+            "id": "T-01",
+            "category": "Apparel",
+            "title": "DarkStreets Tee - V-Neck",
+            "author": "DarkStreets",
+            "price": 24.99,
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
