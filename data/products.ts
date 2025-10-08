@@ -78,7 +78,7 @@ export const products: Product[] = [
     "inStock": true,
     "badge": "New",
     "printfulVariantId": "93425083",
-    "shopifyVariantId": 42224116826210, // Correct Shopify variant ID for $35.00 Tee (L size)
+    "shopifyVariantId": 42224116760674, // Correct Shopify variant ID for $35.00 Tee (S size)
     "requiresShipping": true,
     "sizeGuide": {
       imperial: {
