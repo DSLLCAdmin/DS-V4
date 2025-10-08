@@ -49,7 +49,7 @@ export const products: Product[] = [
     "image": "/product-images/1a_first-light-PaperBack.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 42143320834146, // Correct Shopify variant ID for $9.99 paperback
+    "shopifyVariantId": 42146492383330, // CORRECTED: Actual Shopify variant ID for $9.99 paperback
     "requiresShipping": true
   },
   {
@@ -71,7 +71,7 @@ export const products: Product[] = [
             "category": "Apparel",
             "title": "DarkStreets Tee - V-Neck",
             "author": "DarkStreets",
-            "price": 35.00,
+            "price": 24.99, // CORRECTED: Match Shopify price
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
@@ -258,7 +258,9 @@ export const products: Product[] = [
     "longDescription": "\r",
     "image": "/product-images/A8_hats.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 42143382306914, // DS Cap variant ID
+    "requiresShipping": true
   },
   {
     "id": "B-09",

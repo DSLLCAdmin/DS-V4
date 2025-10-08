@@ -175,8 +175,8 @@ class CartManager {
         const savedCart = localStorage.getItem('ds-cart');
         if (savedCart) {
           this.cart = JSON.parse(savedCart);
-          // Ensure all cart items have shopifyVariantId
-          this.enrichCartItemsWithShopifyData();
+          // Ensure all cart items have shopifyVariantId - do this synchronously
+          this.enrichCartItemsWithShopifyDataSync();
         }
       } catch (error) {
         console.error('Error loading cart from storage:', error);
@@ -185,23 +185,28 @@ class CartManager {
     }
   }
 
-  // Enrich existing cart items with Shopify variant IDs
-  private async enrichCartItemsWithShopifyData() {
+  // Enrich existing cart items with Shopify variant IDs (synchronous version)
+  private enrichCartItemsWithShopifyDataSync() {
     try {
-      const { products } = await import('../data/products');
+      // Import products data synchronously
+      const { products } = require('../data/products');
       
+      let enriched = false;
       for (const item of this.cart.items) {
         if (!item.shopifyVariantId) {
-          const product = products.find(p => String(p.id) === item.id);
+          const product = products.find((p: any) => String(p.id) === item.id);
           if (product && product.shopifyVariantId) {
             item.shopifyVariantId = product.shopifyVariantId;
+            enriched = true;
             console.log(`🔄 Enriched cart item ${item.title} with shopifyVariantId: ${product.shopifyVariantId}`);
           }
         }
       }
       
-      // Save the enriched cart back to storage
-      this.saveCartToStorage();
+      // Save the enriched cart back to storage if any items were enriched
+      if (enriched) {
+        this.saveCartToStorage();
+      }
     } catch (error) {
       console.error('Error enriching cart items:', error);
     }
