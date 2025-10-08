@@ -396,6 +396,10 @@ export default function CartPage() {
                         {cartTotals.shipping === 0 ? "FREE" : `$${cartTotals.shipping.toFixed(2)}`}
                       </span>
                     </div>
+                    <div className="flex justify-between text-white">
+                      <span>Tax</span>
+                      <span>${cartTotals.tax.toFixed(2)}</span>
+                    </div>
                     <div className="border-t border-swatch103/30 pt-3">
                       <div className="flex justify-between text-xl font-bold text-white">
                         <span>Total</span>
