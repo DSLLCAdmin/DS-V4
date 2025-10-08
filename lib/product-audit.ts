@@ -300,4 +300,5 @@ export async function performComprehensiveProductAudit(): Promise<void> {
 }
 
 // Export for use in other modules
-export { AuditResult, auditDsProduct, fetchShopifyProducts };
+export type { AuditResult };
+export { auditDsProduct, fetchShopifyProducts };
