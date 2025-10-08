@@ -13,6 +13,7 @@ import Link from 'next/link';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { useScrollMemory } from '@/hooks/use-scroll-memory';
 import { useRouter } from 'next/navigation';
+import { calculateCheckoutTotals } from '@/lib/checkout';
 import { ShopifyCheckoutButton } from '@/components/ShopifyCheckoutButton';
 
 export default function CartPage() {
@@ -76,6 +77,26 @@ export default function CartPage() {
   const getProductById = (id: string) => {
     return products.find(p => p.id === id);
   };
+
+  // Calculate proper shipping and totals
+  const calculateCartTotals = () => {
+    const cartItems = cart.items.map(item => {
+      const product = getProductById(item.id);
+      return {
+        id: item.id,
+        title: item.title,
+        author: product?.author,
+        price: item.price,
+        quantity: item.quantity,
+        image: item.image,
+        category: product?.category || 'Unknown'
+      };
+    });
+
+    return calculateCheckoutTotals(cartItems, 'standard');
+  };
+
+  const cartTotals = calculateCartTotals();
 
   if (cart.items.length === 0) {
     return (
@@ -367,16 +388,18 @@ export default function CartPage() {
                   <div className="space-y-3">
                     <div className="flex justify-between text-white">
                       <span>Items ({cart.itemCount})</span>
-                      <span>${cart.total.toFixed(2)}</span>
+                      <span>${cartTotals.subtotal.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-white">
                       <span>Shipping</span>
-                      <span className="text-green-400">FREE</span>
+                      <span className={cartTotals.shipping === 0 ? "text-green-400" : "text-white"}>
+                        {cartTotals.shipping === 0 ? "FREE" : `$${cartTotals.shipping.toFixed(2)}`}
+                      </span>
                     </div>
                     <div className="border-t border-swatch103/30 pt-3">
                       <div className="flex justify-between text-xl font-bold text-white">
                         <span>Total</span>
-                        <span>${cart.total.toFixed(2)}</span>
+                        <span>${cartTotals.total.toFixed(2)}</span>
                       </div>
                     </div>
                   </div>

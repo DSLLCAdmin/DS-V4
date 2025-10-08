@@ -278,6 +278,16 @@ export async function POST(request: NextRequest) {
 
             console.log(`Proceeding with ${lineItems.length} valid line items out of ${items.length} cart items`);
 
+            // CRITICAL: Validate totals match between DS LLC cart and Shopify
+            const dsSubtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            const dsShipping = dsSubtotal >= 50 ? 0 : 4.99; // Match our shipping policy
+            const dsTotal = dsSubtotal + dsShipping;
+            
+            console.log(`🔍 DS LLC Cart Validation:`);
+            console.log(`  Subtotal: $${dsSubtotal.toFixed(2)}`);
+            console.log(`  Shipping: $${dsShipping.toFixed(2)}`);
+            console.log(`  Total: $${dsTotal.toFixed(2)}`);
+
             const cartInput = {
               lines: lineItems
             };
@@ -368,6 +378,35 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // CRITICAL: Validate totals match between DS LLC and Shopify
+    const shopifyTotal = parseFloat(cart.cost.totalAmount.amount);
+    const totalDifference = Math.abs(shopifyTotal - dsTotal);
+    
+    console.log(`🔍 Total Validation:`);
+    console.log(`  DS LLC Total: $${dsTotal.toFixed(2)}`);
+    console.log(`  Shopify Total: $${shopifyTotal.toFixed(2)}`);
+    console.log(`  Difference: $${totalDifference.toFixed(2)}`);
+    
+    // Allow small rounding differences (up to $0.10)
+    if (totalDifference > 0.10) {
+      console.error(`❌ CRITICAL: Total mismatch detected! Difference: $${totalDifference.toFixed(2)}`);
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: `Total mismatch detected. DS LLC: $${dsTotal.toFixed(2)}, Shopify: $${shopifyTotal.toFixed(2)}. Please contact support.`,
+          fallback: true,
+          details: {
+            dsTotal: dsTotal.toFixed(2),
+            shopifyTotal: shopifyTotal.toFixed(2),
+            difference: totalDifference.toFixed(2)
+          }
+        },
+        { status: 400 }
+      );
+    }
+
+    console.log(`✅ Total validation passed. Difference: $${totalDifference.toFixed(2)}`);
+
     // Success! Return the checkout URL
     console.log('=== CHECKOUT URL DEBUG ===');
     console.log('Cart checkoutUrl:', cart.checkoutUrl);
@@ -379,7 +418,12 @@ export async function POST(request: NextRequest) {
       checkoutUrl: cart.checkoutUrl,
       cartId: cart.id,
       totalAmount: cart.cost.totalAmount,
-      message: 'Shopify cart created successfully!'
+      message: 'Shopify cart created successfully!',
+      validation: {
+        dsTotal: dsTotal.toFixed(2),
+        shopifyTotal: shopifyTotal.toFixed(2),
+        difference: totalDifference.toFixed(2)
+      }
     });
 
   } catch (error) {
