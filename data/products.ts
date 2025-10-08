@@ -29,13 +29,13 @@ export const products: Product[] = [
     "category": "Serials/Books",
     "title": "First & Light- E-book",
     "author": "Aries Tiger",
-    "price": 4.99,
+    "price": 0.00, // FREE giveaway by KDP to get readers started on DS series
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 42143320866914, // Correct Shopify variant ID for $4.99 e-book
+    "shopifyVariantId": 42143382044770, // CORRECTED: Actual Shopify variant ID for FREE e-book
     "requiresShipping": false
   },
   {
@@ -71,7 +71,7 @@ export const products: Product[] = [
             "category": "Apparel",
             "title": "DarkStreets Tee - V-Neck",
             "author": "DarkStreets",
-            "price": 24.99, // CORRECTED: Match Shopify price
+            "price": 35.00, // CORRECTED: Match Shopify price
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
@@ -114,7 +114,9 @@ export const products: Product[] = [
     "longDescription": " Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!? but who they are. If only they could remember!?\r",
     "image": "/product-images/2a_risque-safety-PaperBack.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 42146492448866, // CORRECTED: Actual Shopify variant ID for Risque & Safety Paperback
+    "requiresShipping": true
   },
   {
     "id": "A-05",
@@ -138,7 +140,9 @@ export const products: Product[] = [
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
     "image": "/product-images/3a_mercury-memory-PaperBack.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "shopifyVariantId": 42146492547170, // CORRECTED: Actual Shopify variant ID for Mercury & Memory Paperback
+    "requiresShipping": true
   },
   {
     "id": "A-07",
