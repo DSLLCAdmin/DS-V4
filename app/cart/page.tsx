@@ -385,28 +385,20 @@ export default function CartPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-white">
-                      <span>Items ({cart.itemCount})</span>
-                      <span>${cartTotals.subtotal.toFixed(2)}</span>
-                    </div>
-                    <div className="flex justify-between text-white">
-                      <span>Shipping</span>
-                      <span className={cartTotals.shipping === 0 ? "text-green-400" : "text-white"}>
-                        {cartTotals.shipping === 0 ? "FREE" : `$${cartTotals.shipping.toFixed(2)}`}
-                      </span>
-                    </div>
-                    <div className="flex justify-between text-white">
-                      <span>Tax</span>
-                      <span>${cartTotals.tax.toFixed(2)}</span>
-                    </div>
-                    <div className="border-t border-swatch103/30 pt-3">
-                      <div className="flex justify-between text-xl font-bold text-white">
-                        <span>Total</span>
-                        <span>${cartTotals.total.toFixed(2)}</span>
-                      </div>
-                    </div>
-                  </div>
+                          <div className="space-y-3">
+                            <div className="flex justify-between text-white">
+                              <span>Items ({cart.itemCount})</span>
+                              <span>${cartTotals.subtotal.toFixed(2)}</span>
+                            </div>
+                            <div className="border-t border-swatch103/30 pt-3">
+                              <div className="text-sm text-white/70 text-center mb-2">
+                                Tax/Shipping calculated by Shopify
+                              </div>
+                              <div className="text-lg font-semibold text-white text-center">
+                                Final total shown at checkout
+                              </div>
+                            </div>
+                          </div>
 
                   {/* COMMENTED OUT: Alternative Payment button - testing Shopify only
                   <Button
