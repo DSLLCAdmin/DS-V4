@@ -78,7 +78,7 @@ export const products: Product[] = [
     "inStock": true,
     "badge": "New",
     "printfulVariantId": "93425083",
-    "shopifyVariantId": 42143382306914, // TEMPORARY: Using DS Cap variant for testing (Printful issue)
+    // REMOVED: shopifyVariantId - let dynamic resolution handle this
     "requiresShipping": true,
     "sizeGuide": {
       imperial: {
@@ -197,18 +197,6 @@ export const products: Product[] = [
     "description": "Denim with hidden pocket sleeves.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
-    "badge": "New"
-  },
-  {
-    "id": "B-04",
-    "category": "Apparel & Intimate Wear",
-    "title": "DarkStreet Tees",
-    "author": "DS LLC",
-    "price": 24.99,
-    "description": "Quotes + neon visuals",
-    "longDescription": "\r",
-    "image": "/product-images/Tees-2.jpg",
     "inStock": true,
     "badge": "New"
   },
