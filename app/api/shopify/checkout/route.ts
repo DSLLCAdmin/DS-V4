@@ -12,6 +12,7 @@ interface CartItem {
   quantity: number;
   image?: string;
   shopifyVariantId?: number;
+  attributes?: Record<string, string>; // Add attributes property
 }
 
 interface CustomerData {
