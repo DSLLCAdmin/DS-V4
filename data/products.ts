@@ -11,9 +11,15 @@ export interface Product {
   badge?: string;
   shopifyVariantId?: number; // Shopify product variant ID for checkout
   printfulVariantId?: string; // Printful product variant ID for fulfillment
+  requiresShipping?: boolean; // Whether product requires physical shipping
   sizeGuide?: {
     imperial: { [key: string]: { length: string; width: string } };
     metric: { [key: string]: { length: string; width: string } };
+  };
+  sizeGuideImages?: {
+    imperial: string; // Path to imperial size guide image
+    metric: string; // Path to metric size guide image
+    selector: string; // Path to size selector UI image
   };
 }
 
@@ -29,7 +35,8 @@ export const products: Product[] = [
     "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 1
+    "shopifyVariantId": 1,
+    "requiresShipping": false
   },
   {
     "id": "A-02",
@@ -42,7 +49,8 @@ export const products: Product[] = [
     "image": "/product-images/1a_first-light-PaperBack.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 2
+    "shopifyVariantId": 2,
+    "requiresShipping": true
   },
   {
     "id": "A-03",
@@ -55,7 +63,8 @@ export const products: Product[] = [
     "image": "/product-images/2a_risque-safety-ebook.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 3
+    "shopifyVariantId": 3,
+    "requiresShipping": false
   },
   {
     "id": "T-01",
@@ -65,10 +74,11 @@ export const products: Product[] = [
     "price": 35.00,
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
-    "image": "/product-images/darkstreets-tee-vneck.jpg",
+    "image": "/product-images/Tees-0.png",
     "inStock": true,
     "badge": "New",
     "printfulVariantId": "93425083",
+    "requiresShipping": true,
     "sizeGuide": {
       imperial: {
         "XS": { length: "26 ⅛", width: "16 ½" },
@@ -86,6 +96,11 @@ export const products: Product[] = [
         "XL": { length: "78.1", width: "61" },
         "2XL": { length: "80.7", width: "66" }
       }
+    },
+    "sizeGuideImages": {
+      imperial: "/product-images/Tee-SizeGuide-Imp.png",
+      metric: "/product-images/Tee-SizeGuide-Metric.png",
+      selector: "/product-images/Tee-SizeSelector.png"
     }
   },
   {

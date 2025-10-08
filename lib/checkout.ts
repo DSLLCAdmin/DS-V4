@@ -111,6 +111,18 @@ function generateOrderNumber(): string {
 
 // Calculate shipping cost
 function calculateShipping(items: OrderItem[], shippingMethod: string = 'standard'): number {
+  // Check if any items require shipping
+  const itemsRequiringShipping = items.filter(item => {
+    // Find the product in our products array to check requiresShipping flag
+    const product = require('@/data/products').products.find((p: any) => p.id === item.id);
+    return product?.requiresShipping !== false; // Default to true if not specified
+  });
+
+  // If no items require shipping, return 0
+  if (itemsRequiringShipping.length === 0) {
+    return 0;
+  }
+
   // Free shipping for orders over $50
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   if (subtotal >= 50) {
