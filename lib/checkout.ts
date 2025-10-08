@@ -44,6 +44,13 @@ export interface PaymentInfo {
   cardholderName?: string;
 }
 
+export interface ShippingMethod {
+  id: string;
+  name: string;
+  price: number;
+  estimatedDays: string;
+}
+
 export interface OrderItem {
   id: string;
   title: string;
@@ -77,6 +84,7 @@ export interface CheckoutData {
   shippingAddress: ShippingAddress;
   billingAddress: BillingAddress;
   paymentInfo: PaymentInfo;
+  shippingMethod: string;
   items: OrderItem[];
   subtotal: number;
   shipping: number;
@@ -102,15 +110,21 @@ function generateOrderNumber(): string {
 }
 
 // Calculate shipping cost
-function calculateShipping(items: OrderItem[]): number {
+function calculateShipping(items: OrderItem[], shippingMethod: string = 'standard'): number {
   // Free shipping for orders over $50
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   if (subtotal >= 50) {
     return 0;
   }
   
-  // $5.99 flat rate shipping
-  return 5.99;
+  // Shipping rates based on method
+  switch (shippingMethod) {
+    case 'express':
+      return 9.99;
+    case 'standard':
+    default:
+      return 4.99;
+  }
 }
 
 // Calculate tax (simplified - 8.5% for CA)
@@ -283,9 +297,9 @@ export function updateOrderStatus(orderId: string, status: Order['status']): boo
 }
 
 // Calculate checkout totals
-export function calculateCheckoutTotals(items: OrderItem[]): { subtotal: number; shipping: number; tax: number; total: number } {
+export function calculateCheckoutTotals(items: OrderItem[], shippingMethod: string = 'standard'): { subtotal: number; shipping: number; tax: number; total: number } {
   const subtotal = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = calculateShipping(items);
+  const shipping = calculateShipping(items, shippingMethod);
   const tax = calculateTax(subtotal, shipping);
   const total = subtotal + shipping + tax;
 

@@ -10,6 +10,11 @@ export interface Product {
   inStock: boolean;
   badge?: string;
   shopifyVariantId?: number; // Shopify product variant ID for checkout
+  printfulVariantId?: string; // Printful product variant ID for fulfillment
+  sizeGuide?: {
+    imperial: { [key: string]: { length: string; width: string } };
+    metric: { [key: string]: { length: string; width: string } };
+  };
 }
 
 export const products: Product[] = [
@@ -51,6 +56,37 @@ export const products: Product[] = [
     "inStock": true,
     "badge": "New",
     "shopifyVariantId": 3
+  },
+  {
+    "id": "T-01",
+    "category": "Apparel",
+    "title": "DarkStreets Tee - V-Neck",
+    "author": "DarkStreets",
+    "price": 35.00,
+    "description": "Unisex Short Sleeve V-Neck T-Shirt",
+    "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
+    "image": "/product-images/darkstreets-tee-vneck.jpg",
+    "inStock": true,
+    "badge": "New",
+    "printfulVariantId": "93425083",
+    "sizeGuide": {
+      imperial: {
+        "XS": { length: "26 ⅛", width: "16 ½" },
+        "S": { length: "27 ⅛", width: "18" },
+        "M": { length: "28 ⅛", width: "20" },
+        "L": { length: "29 ⅛", width: "22" },
+        "XL": { length: "30 ⅛", width: "24" },
+        "2XL": { length: "31 ⅛", width: "26" }
+      },
+      metric: {
+        "XS": { length: "68", width: "42" },
+        "S": { length: "70.5", width: "45.7" },
+        "M": { length: "73", width: "50.8" },
+        "L": { length: "75.6", width: "55.9" },
+        "XL": { length: "78.1", width: "61" },
+        "2XL": { length: "80.7", width: "66" }
+      }
+    }
   },
   {
     "id": "A-04",

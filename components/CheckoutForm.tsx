@@ -60,6 +60,7 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ items, onSuccess, on
       cvv: '',
       cardholderName: ''
     },
+    shippingMethod: 'standard',
     items,
     subtotal: 0,
     shipping: 0,

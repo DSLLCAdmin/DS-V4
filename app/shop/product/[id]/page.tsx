@@ -75,7 +75,7 @@ export default async function ProductPage({ params }: { params: Promise<{ id: st
                   </div>
                   <div className="text-left">
                     <p className="text-white font-bold text-lg">Free Shipping</p>
-                    <p className="text-white/80 text-sm">On Orders Over $50</p>
+                    <p className="text-white/80 text-sm">Orders $50+</p>
                   </div>
                 </div>
               </FloatingElement>

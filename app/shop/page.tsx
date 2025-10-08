@@ -828,7 +828,7 @@ function StreetStoreContent() {
                 </div>
                 <div className="text-left flex-1 min-w-0">
                   <p className="text-swatch204 font-bold text-lg truncate">Free Shipping</p>
-                  <p className="text-swatch203/80 text-sm truncate">Over $50</p>
+                  <p className="text-swatch203/80 text-sm truncate">Orders $50+</p>
                 </div>
               </div>
               <div className="group flex items-center justify-center space-x-4 transition-all duration-300 p-4 rounded-xl hover:bg-swatch103/10 overflow-hidden">
