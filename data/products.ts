@@ -35,7 +35,7 @@ export const products: Product[] = [
     "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 1,
+    "shopifyVariantId": 42143320866914, // Correct Shopify variant ID for $4.99 e-book
     "requiresShipping": false
   },
   {
@@ -49,7 +49,7 @@ export const products: Product[] = [
     "image": "/product-images/1a_first-light-PaperBack.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 2,
+    "shopifyVariantId": 42143320834146, // Correct Shopify variant ID for $9.99 paperback
     "requiresShipping": true
   },
   {
@@ -63,7 +63,7 @@ export const products: Product[] = [
     "image": "/product-images/2a_risque-safety-ebook.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 3,
+    "shopifyVariantId": 42143320866914, // Correct Shopify variant ID for $4.99 e-book
     "requiresShipping": false
   },
   {
