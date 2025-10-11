@@ -394,6 +394,12 @@ export default function CartPage() {
                               <div className="text-sm text-white/70 text-center mb-2">
                                 Tax/Shipping calculated and total shown before Shopify checkout.
                               </div>
+                              <div className="text-xs text-yellow-400/80 text-center">
+                                Note: Tax will be calculated by Shopify based on your shipping address.
+                                <a href="/tax-information" className="underline hover:text-yellow-300 ml-1">
+                                  Learn more about taxes
+                                </a>
+                              </div>
                             </div>
                           </div>
 
