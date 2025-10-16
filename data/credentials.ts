@@ -17,12 +17,26 @@ export const credentials: CredentialRecord[] = [
     type: "stripe",
     environment: "live",
     encrypted: true,
-    value: `STRIPE_PUBLISHABLE_KEY (live): [REDACTED - See admin credentials]
-STRIPE_SECRET_KEY (live): [REDACTED - See admin credentials]
-STRIPE_PUBLISHABLE_KEY_TEST (test): [REDACTED - See admin credentials]
-STRIPE_SECRET_KEY_TEST (test): [REDACTED - See admin credentials]
-STRIPE_WEBHOOK_SECRET (optional): [REDACTED - See admin credentials]`,
+    value: `STRIPE_PUBLISHABLE_KEY (live): See admin-credentials.ts
+STRIPE_SECRET_KEY (live): See admin-credentials.ts
+STRIPE_PUBLISHABLE_KEY_TEST (test): See admin-credentials.ts
+STRIPE_SECRET_KEY_TEST (test): See admin-credentials.ts
+STRIPE_WEBHOOK_SECRET (optional): See admin-credentials.ts`,
     updatedAt: "2025-01-27T22:15:00.000Z"
+  },
+  {
+    id: "cred-mercury",
+    name: "Mercury Business Banking",
+    type: "other",
+    environment: "live",
+    encrypted: true,
+    value: `MERCURY_ACCOUNT_NUMBER: 202501258413
+MERCURY_ROUTING_NUMBER: 091311229
+MERCURY_ACCOUNT_STATUS: Approved
+MERCURY_INTEGRATION: Connected to Stripe & Shopify
+MERCURY_BUSINESS_NAME: DS LLC
+MERCURY_ACCOUNT_TYPE: Business Checking`,
+    updatedAt: "2025-01-27T22:20:00.000Z"
   },
   {
     id: "cred-shopify",
