@@ -1,0 +1,36 @@
+{
+  "passed": 2,
+  "failed": 4,
+  "tests": [
+    {
+      "name": "Shopify Store Access",
+      "status": "PASS",
+      "details": "Found 50 products"
+    },
+    {
+      "name": "Product Sync",
+      "status": "FAIL",
+      "details": "No DS LLC products found"
+    },
+    {
+      "name": "Checkout Redirect",
+      "status": "FAIL",
+      "details": "Status: 403"
+    },
+    {
+      "name": "Payment Configuration",
+      "status": "FAIL",
+      "details": "Stripe status: 401"
+    },
+    {
+      "name": "Webhook Endpoints",
+      "status": "FAIL",
+      "details": "Status: 404"
+    },
+    {
+      "name": "Mercury Account Integration",
+      "status": "PASS",
+      "details": "Account: 202501258413, Routing: 091311229"
+    }
+  ]
+}

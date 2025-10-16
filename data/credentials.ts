@@ -17,12 +17,12 @@ export const credentials: CredentialRecord[] = [
     type: "stripe",
     environment: "live",
     encrypted: true,
-    value: `STRIPE_PUBLISHABLE_KEY (live): pk_live_51Oq01aJ21234567890abcdefghijKLMNOpqrstuvwxyZ01234567890
-STRIPE_SECRET_KEY (live): sk_live_51Oq01aJ21234567890abcdefghijKLMNOpqrstuvwxyZ01234567890
-STRIPE_PUBLISHABLE_KEY_TEST (test): pk_test_51Oq01aJ21234567890abcdefghijKLMNOpqrstuvwxyZ01234567890
-STRIPE_SECRET_KEY_TEST (test): sk_test_51Oq01aJ21234567890abcdefghijKLMNOpqrstuvwxyZ01234567890
-STRIPE_WEBHOOK_SECRET (optional): whsec_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890`,
-    updatedAt: "2025-01-27T21:50:00.000Z"
+    value: `STRIPE_PUBLISHABLE_KEY (live): [REDACTED - See admin credentials]
+STRIPE_SECRET_KEY (live): [REDACTED - See admin credentials]
+STRIPE_PUBLISHABLE_KEY_TEST (test): [REDACTED - See admin credentials]
+STRIPE_SECRET_KEY_TEST (test): [REDACTED - See admin credentials]
+STRIPE_WEBHOOK_SECRET (optional): [REDACTED - See admin credentials]`,
+    updatedAt: "2025-01-27T22:15:00.000Z"
   },
   {
     id: "cred-shopify",

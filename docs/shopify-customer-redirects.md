@@ -1,0 +1,221 @@
+# Shopify Customer Redirect Implementation
+
+## 🎯 **Redirect Strategy**
+
+### **Goal**
+Redirect any customers who accidentally access Shopify store directly to DS LLC website.
+
+### **Implementation Methods**
+
+#### **1. Theme-Level Redirects**
+
+Add to `theme.liquid` (in Shopify admin):
+```liquid
+<script>
+// Redirect all product pages to DS LLC website
+if (window.location.pathname.includes('/products/')) {
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+
+// Redirect all collection pages to DS LLC website
+if (window.location.pathname.includes('/collections/')) {
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+
+// Redirect search results to DS LLC website
+if (window.location.pathname.includes('/search')) {
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+
+// Redirect cart page to DS LLC website
+if (window.location.pathname.includes('/cart')) {
+  window.location.href = 'https://darkstreetllc.com/cart';
+}
+
+// Redirect checkout page to DS LLC website
+if (window.location.pathname.includes('/checkout')) {
+  window.location.href = 'https://darkstreetllc.com/cart';
+}
+</script>
+```
+
+#### **2. Server-Level Redirects**
+
+Add to `.htaccess` (if using Apache):
+```apache
+# Redirect all product pages
+RedirectMatch 301 ^/products/.*$ https://darkstreetllc.com/shop
+
+# Redirect all collection pages
+RedirectMatch 301 ^/collections/.*$ https://darkstreetllc.com/shop
+
+# Redirect search pages
+RedirectMatch 301 ^/search.*$ https://darkstreetllc.com/shop
+
+# Redirect cart page
+RedirectMatch 301 ^/cart$ https://darkstreetllc.com/cart
+
+# Redirect checkout page
+RedirectMatch 301 ^/checkout.*$ https://darkstreetllc.com/cart
+```
+
+#### **3. DNS-Level Redirects**
+
+Configure DNS CNAME records:
+```bash
+# Point Shopify store to DS LLC website
+darkstreetllc-backend.myshopify.com CNAME darkstreetllc.com
+```
+
+#### **4. Shopify App-Level Redirects**
+
+Use Shopify App to implement redirects:
+```javascript
+// Shopify App code
+Shopify.redirect = function(url) {
+  window.location.href = url;
+};
+
+// Redirect on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const currentPath = window.location.pathname;
+  
+  if (currentPath.includes('/products/') || 
+      currentPath.includes('/collections/') || 
+      currentPath.includes('/search')) {
+    Shopify.redirect('https://darkstreetllc.com/shop');
+  }
+});
+```
+
+### **5. SEO Redirects**
+
+#### **Meta Tags**
+Add to all product pages:
+```html
+<meta http-equiv="refresh" content="0; url=https://darkstreetllc.com/shop">
+<meta name="robots" content="noindex, nofollow">
+```
+
+#### **Canonical URLs**
+```html
+<link rel="canonical" href="https://darkstreetllc.com/shop">
+```
+
+### **6. Advanced Redirect Logic**
+
+#### **Conditional Redirects**
+```javascript
+// Only redirect if not coming from DS LLC website
+const referrer = document.referrer;
+const isFromDSWebsite = referrer.includes('darkstreetllc.com');
+
+if (!isFromDSWebsite) {
+  // Redirect to DS LLC website
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+```
+
+#### **User Agent Detection**
+```javascript
+// Detect if user is a bot/crawler
+const userAgent = navigator.userAgent.toLowerCase();
+const isBot = userAgent.includes('bot') || 
+              userAgent.includes('crawler') || 
+              userAgent.includes('spider');
+
+if (isBot) {
+  // Redirect bots to DS LLC website
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+```
+
+### **7. Testing Redirects**
+
+#### **Test Scenarios**
+1. **Direct Access**: Type Shopify URL directly
+2. **Search Engine**: Click Shopify link from Google
+3. **Social Media**: Click Shopify link from social platforms
+4. **Bookmarks**: Access bookmarked Shopify pages
+5. **Mobile**: Test on mobile devices
+
+#### **Test URLs**
+```bash
+# Test these URLs redirect to DS LLC website
+https://darkstreetllc-backend.myshopify.com/products/first-light-ebook
+https://darkstreetllc-backend.myshopify.com/collections/books
+https://darkstreetllc-backend.myshopify.com/search?q=first+light
+https://darkstreetllc-backend.myshopify.com/cart
+https://darkstreetllc-backend.myshopify.com/checkout
+```
+
+### **8. Monitoring Redirects**
+
+#### **Analytics Tracking**
+```javascript
+// Track redirect events
+gtag('event', 'shopify_redirect', {
+  'event_category': 'redirect',
+  'event_label': 'shopify_to_dsllc',
+  'value': 1
+});
+```
+
+#### **Error Monitoring**
+```javascript
+// Monitor redirect failures
+window.addEventListener('error', function(e) {
+  if (e.message.includes('redirect')) {
+    console.error('Redirect failed:', e.message);
+    // Send to error tracking service
+  }
+});
+```
+
+### **9. Fallback Strategy**
+
+#### **If Redirects Fail**
+```javascript
+// Fallback: Show message instead of redirect
+if (window.location.pathname.includes('/products/')) {
+  document.body.innerHTML = `
+    <div style="text-align: center; padding: 50px;">
+      <h1>This product is available at our main website</h1>
+      <p>Please visit <a href="https://darkstreetllc.com/shop">darkstreetllc.com/shop</a></p>
+      <button onclick="window.location.href='https://darkstreetllc.com/shop'">
+        Go to Main Website
+      </button>
+    </div>
+  `;
+}
+```
+
+### **10. Implementation Priority**
+
+#### **Phase 1: Basic Redirects**
+1. Implement theme-level redirects
+2. Test with direct access
+3. Monitor for issues
+
+#### **Phase 2: Advanced Redirects**
+1. Add server-level redirects
+2. Implement SEO redirects
+3. Add analytics tracking
+
+#### **Phase 3: Monitoring**
+1. Set up error monitoring
+2. Track redirect success rates
+3. Optimize based on data
+
+---
+
+## 🎯 **Expected Results**
+
+- **100% redirect rate** for accidental Shopify access
+- **Zero customer confusion** about where to shop
+- **Maintained SEO** for DS LLC website
+- **Seamless user experience** across all touchpoints
+
+---
+
+*This implementation ensures Shopify remains completely invisible to customers while maintaining backend functionality.*
