@@ -136,6 +136,11 @@ export function mapShopifyToDSProduct(shopifyProduct: ShopifyProduct): any {
   // Extract variant ID number from GraphQL ID
   const variantId = primaryVariant.id.split('/').pop();
   
+  if (!variantId) {
+    console.error('Could not extract variant ID from:', primaryVariant.id);
+    return null;
+  }
+  
   return {
     id: generateDSProductId(shopifyProduct.title),
     category: mapProductTypeToCategory(shopifyProduct.productType),
