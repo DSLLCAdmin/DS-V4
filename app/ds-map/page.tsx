@@ -161,6 +161,19 @@ export default function DSMap() {
 			{/* Subtle metallic overlay */}
 			<div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-black/10 pointer-events-none"></div>
       <Nav />
+      
+      {/* In Construction Banner */}
+      <div className="relative w-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 py-4 px-4">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative max-w-7xl mx-auto text-center">
+          <div className="text-4xl md:text-6xl font-black text-white transform -rotate-12 drop-shadow-2xl">
+            🚧 IN CONSTRUCTION 🚧
+          </div>
+          <div className="text-lg md:text-xl font-bold text-white mt-2 drop-shadow-lg">
+            Come Back Soon for more Streeter Stuff.
+          </div>
+        </div>
+      </div>
 
       {/* Floating Background Elements */}
       <div className="fixed inset-0 pointer-events-none">

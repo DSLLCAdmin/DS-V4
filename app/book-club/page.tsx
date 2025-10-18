@@ -46,6 +46,20 @@ export default function StreetCircle() {
 			<div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/20 pointer-events-none"></div>
 			<div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.1)_0%,_transparent_70%)] pointer-events-none"></div>
 			<Navigation />
+			
+			{/* In Construction Banner */}
+			<div className="relative w-full bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 py-4 px-4">
+				<div className="absolute inset-0 bg-black/20"></div>
+				<div className="relative max-w-7xl mx-auto text-center">
+					<div className="text-4xl md:text-6xl font-black text-white transform -rotate-12 drop-shadow-2xl">
+						🚧 IN CONSTRUCTION 🚧
+					</div>
+					<div className="text-lg md:text-xl font-bold text-white mt-2 drop-shadow-lg">
+						Come Back Soon for more Streeter Stuff.
+					</div>
+				</div>
+			</div>
+			
 			<div className="max-w-5xl mx-auto px-4 py-16">
 				<ScrollReveal>
 					<h1 className="text-5xl font-bold text-white mb-10 text-center drop-shadow-lg">

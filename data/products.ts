@@ -90,7 +90,7 @@ export const products: Product[] = [
     "inStock": true,
     "badge": "New",
     "printfulVariantId": "93425083",
-    // REMOVED: shopifyVariantId - let dynamic resolution handle this
+    "shopifyVariantId": 42224116793442, // Medium size variant - CORRECTED: Actual Shopify variant ID
     "requiresShipping": true,
     "sizeGuide": {
       imperial: {
