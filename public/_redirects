@@ -1,9 +1,3 @@
-# Netlify redirects for Next.js static export
-# Handle client-side routing for admin pages
-
-# Admin routes - redirect to index.html for client-side routing
-/admin/* /admin/index.html 200
-/admin /admin/index.html 200
-
-# Catch all - redirect to index.html for client-side routing
-/* /index.html 200
+# Redirect darkstreetllc.com to working Netlify subdomain
+https://darkstreetllc.com/* https://ds-v5.netlify.app/:splat 301!
+http://darkstreetllc.com/* https://ds-v5.netlify.app/:splat 301!
