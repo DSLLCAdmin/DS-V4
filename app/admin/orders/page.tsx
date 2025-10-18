@@ -39,12 +39,16 @@ export default function OrdersPage() {
       const mockOrders: Order[] = [
         {
           id: 'ORD-001',
-          orderNumber: 'DS-2025-001',
+          customerId: 'CUST-001',
           customerEmail: 'customer@example.com',
           customerName: 'First Customer',
-          status: 'delivered',
-          totalAmount: 24.99,
-          currency: 'USD',
+          customerAddress: {
+            street: '123 Main Street',
+            city: 'Anytown',
+            state: 'CA',
+            zipCode: '90210',
+            country: 'United States'
+          },
           items: [
             {
               productId: 'A-02',
@@ -54,22 +58,14 @@ export default function OrdersPage() {
               image: '/product-images/1a_first-light-PaperBack.jpg'
             }
           ],
-          shippingAddress: {
-            name: 'First Customer',
-            address1: '123 Main Street',
-            city: 'Anytown',
-            state: 'CA',
-            zip: '90210',
-            country: 'United States'
-          },
-          paymentMethod: 'Credit Card',
-          paymentStatus: 'paid',
-          fulfillmentStatus: 'fulfilled',
+          status: 'delivered',
+          totalAmount: 6.99,
+          shippingCost: 0,
+          tax: 0.59,
           createdAt: new Date(),
           updatedAt: new Date(),
-          notes: 'First successful sale!',
           trackingNumber: 'TRK123456789',
-          estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString()
+          retryCount: 0
         }
       ];
       
