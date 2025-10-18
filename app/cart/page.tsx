@@ -425,7 +425,7 @@ export default function CartPage() {
                   <ShopifyCheckoutButton 
                     cartItems={cart.items}
                     disabled={loading}
-                    onFallback={() => router.push('/checkout')}
+                    onFallback={() => router.push('/checkout/confirmation')}
                   />
 
                   <p className="text-center text-white/60 text-sm mt-4">
