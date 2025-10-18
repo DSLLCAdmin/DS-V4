@@ -15,6 +15,8 @@ import { useScrollMemory } from '@/hooks/use-scroll-memory';
 import { useRouter } from 'next/navigation';
 import { calculateCheckoutTotals } from '@/lib/checkout';
 import { ShopifyCheckoutButton } from '@/components/ShopifyCheckoutButton';
+import { isKDPProduct } from '@/lib/kdp-fulfillment';
+import KDPCheckout from '@/components/KDPCheckout';
 
 export default function CartPage() {
   const { cart, loading, updateQuantity, removeFromCart, clearCart } = useCart();
@@ -97,6 +99,17 @@ export default function CartPage() {
   };
 
   const cartTotals = calculateCartTotals();
+
+  // Check if cart contains KDP products
+  const hasKDPProducts = cart.items.some(item => {
+    const product = getProductById(item.id);
+    return product && isKDPProduct(product);
+  });
+
+  const hasNonKDPProducts = cart.items.some(item => {
+    const product = getProductById(item.id);
+    return product && !isKDPProduct(product);
+  });
 
   if (cart.items.length === 0) {
     return (
@@ -419,14 +432,67 @@ export default function CartPage() {
                   */}
 
                   <div className="text-center text-white/80 text-sm mb-4">
-                    Testing Shopify Checkout Only
+                    {hasKDPProducts && hasNonKDPProducts 
+                      ? 'Mixed Cart - Books via KDP, Other items via Shopify'
+                      : hasKDPProducts 
+                        ? 'Books fulfilled via Kindle Direct Publishing'
+                        : 'Testing Shopify Checkout Only'
+                    }
                   </div>
 
-                  <ShopifyCheckoutButton 
-                    cartItems={cart.items}
-                    disabled={loading}
-                    onFallback={() => router.push('/checkout/confirmation')}
-                  />
+                  {/* Show KDP checkout for books */}
+                  {hasKDPProducts && (
+                    <div className="mb-6">
+                      {cart.items
+                        .filter(item => {
+                          const product = getProductById(item.id);
+                          return product && isKDPProduct(product);
+                        })
+                        .map(item => {
+                          const product = getProductById(item.id);
+                          if (!product) return null;
+                          
+                          return (
+                            <div key={item.id} className="mb-4">
+                              <KDPCheckout 
+                                product={product}
+                                onComplete={() => {
+                                  // Remove KDP items from cart after successful redirect
+                                  removeFromCart(item.id);
+                                }}
+                              />
+                            </div>
+                          );
+                        })}
+                    </div>
+                  )}
+
+                  {/* Show Shopify checkout for non-KDP products */}
+                  {hasNonKDPProducts && (
+                    <>
+                      {hasKDPProducts && (
+                        <div className="my-4 text-center text-white/60 text-sm">
+                          AND
+                        </div>
+                      )}
+                      
+                      <ShopifyCheckoutButton 
+                        cartItems={cart.items.filter(item => {
+                          const product = getProductById(item.id);
+                          return product && !isKDPProduct(product);
+                        })}
+                        disabled={loading}
+                        onFallback={() => router.push('/checkout/confirmation')}
+                      />
+                    </>
+                  )}
+
+                  {/* Show message if cart is empty after filtering */}
+                  {!hasKDPProducts && !hasNonKDPProducts && (
+                    <div className="text-center text-white/60 text-sm">
+                      No valid products in cart
+                    </div>
+                  )}
 
                   <p className="text-center text-white/60 text-sm mt-4">
                     Secure checkout powered by <DarkStreetsTextLogo />

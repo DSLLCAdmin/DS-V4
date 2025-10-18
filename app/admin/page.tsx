@@ -103,6 +103,10 @@ export default function AdminOverviewPage() {
                 <span className="text-sm">Payment Processing</span>
                 <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Live</span>
               </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm">Domain (darkstreetllc.com)</span>
+                <span className="px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">Propagating</span>
+              </div>
             </div>
           </CardContent>
         </Card>

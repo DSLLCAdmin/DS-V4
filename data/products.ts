@@ -12,6 +12,9 @@ export interface Product {
   shopifyVariantId?: number; // Shopify product variant ID for checkout
   printfulVariantId?: string; // Printful product variant ID for fulfillment
   requiresShipping?: boolean; // Whether product requires physical shipping
+  fulfillmentProvider?: 'kdp' | 'printful' | 'manual' | 'digital'; // Fulfillment provider
+  kdpASIN?: string; // KDP ASIN for Amazon integration
+  kdpType?: 'ebook' | 'paperback'; // Type of KDP product
   sizeGuide?: {
     imperial: { [key: string]: { length: string; width: string } };
     metric: { [key: string]: { length: string; width: string } };
@@ -29,42 +32,51 @@ export const products: Product[] = [
     "category": "Serials/Books",
     "title": "First & Light- E-book",
     "author": "Aries Tiger",
-    "price": 0.00, // FREE giveaway by KDP to get readers started on DS series
+    "price": 2.99, // KDP price: $2.99 USD (free for Kindle Unlimited subscribers)
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-ebook.jpg",
     "inStock": true,
     "badge": "New",
     "shopifyVariantId": 42143382044770, // CORRECTED: Actual Shopify variant ID for FREE e-book
-    "requiresShipping": false
+    "requiresShipping": false,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FDH86NJJ", // E-book ASIN - CORRECTED
+    "kdpType": "ebook"
   },
   {
     "id": "A-02",
     "category": "Serials/Books",
     "title": "First & Light- Paperback",
     "author": "Aries Tiger",
-    "price": 9.99,
+    "price": 6.99,
     "description": "Stage One- First & Light",
     "longDescription": "We meet Aries Tiger a 'Streeter extraodinaire. He confuses thrill with meaning but is learning how they intertwine. He prefers grey zones over the cut and dry of black and white. We cross paths with the Dancer. Dance is exposing exposure towards safety. Her memories unfolding from a life of trauma is pushing her to dark streets in search of control. They 'Street in style in Prowler a big cat on wheels and a growler that knows the highways and byways of LA's infamous DarkStreets.\r",
     "image": "/product-images/1a_first-light-PaperBack.jpg",
     "inStock": true,
     "badge": "New",
-    "shopifyVariantId": 42146492383330, // CORRECTED: Actual Shopify variant ID for $9.99 paperback
-    "requiresShipping": true
+    "shopifyVariantId": 42146492383330, // CORRECTED: Actual Shopify variant ID for $6.99 paperback
+    "requiresShipping": true,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FTX9YQFB", // Paperback ASIN (you found this one)
+    "kdpType": "paperback"
   },
   {
     "id": "A-03",
     "category": "Serials/Books",
     "title": "Risque & Safety- E-book",
     "author": "Aries Tiger",
-    "price": 4.99,
+    "price": 4.99, // KDP price: $4.99 USD
     "description": "Stage Two- Risque & Safety",
     "longDescription": "Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!?\r",
     "image": "/product-images/2a_risque-safety-ebook.jpg",
     "inStock": true,
     "badge": "New",
     "shopifyVariantId": 42143320866914, // Correct Shopify variant ID for $4.99 e-book
-    "requiresShipping": false
+    "requiresShipping": false,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FFZWJ26Q", // E-book ASIN - CORRECTED
+    "kdpType": "ebook"
   },
           {
             "id": "T-01",
@@ -109,40 +121,49 @@ export const products: Product[] = [
     "category": "Serials/Books",
     "title": "Risque & Safety- Paperback",
     "author": "Aries Tiger",
-    "price": 9.99,
+    "price": 9.99, // KDP price: $9.99 USD (in review, no ASIN yet)
     "description": "Stage Two- Risque & Safety",
     "longDescription": " Aries and Dance find graffitti of themselves from the Ruins. The glitched memory is coming back to remind them not only about where they've been but who they are. If only they could remember!? but who they are. If only they could remember!?\r",
     "image": "/product-images/2a_risque-safety-PaperBack.jpg",
-    "inStock": true,
-    "badge": "New",
+    "inStock": false, // DEACTIVATED - In review, no ASIN yet
+    "badge": "Coming Soon",
     "shopifyVariantId": 42146492448866, // CORRECTED: Actual Shopify variant ID for Risque & Safety Paperback
-    "requiresShipping": true
+    "requiresShipping": true,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": undefined, // No ASIN yet - in review
+    "kdpType": "paperback"
   },
   {
     "id": "A-05",
     "category": "Serials/Books",
     "title": "Mercury & Memory- E-book",
     "author": "Aries Tiger",
-    "price": 4.99,
+    "price": 4.99, // KDP price: $4.99 USD
     "description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight",
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
     "image": "/product-images/3a_mercury-memory-ebook.jpg",
     "inStock": true,
-    "badge": "New"
+    "badge": "New",
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FKGH8XWP", // E-book ASIN - CORRECTED
+    "kdpType": "ebook"
   },
   {
     "id": "A-06",
     "category": "Serials/Books",
     "title": "Mercury & Memory- Paperback",
     "author": "Aries Tiger",
-    "price": 9.99,
+    "price": 9.99, // KDP price: $9.99 USD
     "description": "Stage Three- Aries is distracted by Dance's slip. Prowler turns a dimensional corner and finds themselves in TheWay station. Iridescent daylight",
     "longDescription": "A low hum and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream? and the steering wheel disappearing are just the beginning. Is it TheWay or just a dream?\r",
     "image": "/product-images/3a_mercury-memory-PaperBack.jpg",
     "inStock": true,
     "badge": "New",
     "shopifyVariantId": 42146492547170, // CORRECTED: Actual Shopify variant ID for Mercury & Memory Paperback
-    "requiresShipping": true
+    "requiresShipping": true,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FTXBJBVR", // Paperback ASIN - CORRECTED
+    "kdpType": "paperback"
   },
   {
     "id": "A-07",
@@ -153,8 +174,11 @@ export const products: Product[] = [
     "description": "Compilation of Stages 1-10 ",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
-    "badge": "New"
+    "inStock": false, // DEACTIVATED - Not ready for publication
+    "badge": "Coming Soon",
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": undefined, // No ASIN - not published yet
+    "kdpType": "ebook"
   },
   {
     "id": "A-08",
@@ -165,8 +189,11 @@ export const products: Product[] = [
     "description": "Compilation of Stages 1-10 ",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
-    "badge": "New"
+    "inStock": false, // DEACTIVATED - Not ready for publication
+    "badge": "Coming Soon",
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": undefined, // No ASIN - not published yet
+    "kdpType": "paperback"
   },
   {
     "id": "B-01",
