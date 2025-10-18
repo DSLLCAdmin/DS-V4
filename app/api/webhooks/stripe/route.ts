@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { StripePaymentService } from '@/lib/stripe-payment-service';
 import crypto from 'crypto';
 
-const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || 'whsec_1234567890abcdefghijKLMNOpqrstuvwxyZ01234567890';
+const STRIPE_WEBHOOK_SECRET = process.env.STRIPE_WEBHOOK_SECRET || 'whsec_nGnYhPqCeXVBivDPhcTXcJXNn1OkDrxf';
 
 function verifyStripeWebhook(payload: string, signature: string, secret: string): boolean {
   const elements = signature.split(',');
