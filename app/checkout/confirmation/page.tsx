@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { loadCartFromStorage, clearCart } from '@/lib/cart';
-import { formatPrice } from '@/lib/utils';
+import { useCart } from '@/hooks/use-cart';
+
+const formatPrice = (price: number) => {
+  return `$${price.toFixed(2)}`;
+};
 
 interface CartItem {
   id: string;
@@ -48,6 +51,7 @@ const SHIPPING_METHODS: ShippingMethod[] = [
 
 export default function OrderConfirmationPage() {
   const router = useRouter();
+  const { cart, clearCart } = useCart();
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedShipping, setSelectedShipping] = useState<ShippingMethod>(SHIPPING_METHODS[0]);
   const [isProcessing, setIsProcessing] = useState(false);
@@ -63,13 +67,12 @@ export default function OrderConfirmationPage() {
   });
 
   useEffect(() => {
-    const cart = loadCartFromStorage();
     setCartItems(cart.items);
     
     if (cart.items.length === 0) {
       router.push('/cart');
     }
-  }, [router]);
+  }, [cart.items, router]);
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const shipping = subtotal >= 50 ? 0 : selectedShipping.price;

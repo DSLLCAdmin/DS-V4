@@ -47,11 +47,11 @@ export default function OrdersPage() {
           currency: 'USD',
           items: [
             {
-              id: 'A-01',
-              name: 'First & Light - Paperback',
+              productId: 'A-02',
+              title: 'First & Light - Paperback',
               quantity: 1,
-              price: 24.99,
-              image: '/images/products/first-light-paperback.jpg'
+              price: 6.99,
+              image: '/product-images/1a_first-light-PaperBack.jpg'
             }
           ],
           shippingAddress: {
