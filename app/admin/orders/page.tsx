@@ -65,8 +65,8 @@ export default function OrdersPage() {
           paymentMethod: 'Credit Card',
           paymentStatus: 'paid',
           fulfillmentStatus: 'fulfilled',
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
           notes: 'First successful sale!',
           trackingNumber: 'TRK123456789',
           estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString()
