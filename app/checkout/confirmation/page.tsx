@@ -3,19 +3,11 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/hooks/use-cart';
+import { CartItem } from '@/lib/cart';
 
 const formatPrice = (price: number) => {
   return `$${price.toFixed(2)}`;
 };
-
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-  shopifyVariantId?: number;
-}
 
 interface ShippingMethod {
   id: string;
@@ -158,11 +150,11 @@ export default function OrderConfirmationPage() {
                 <div key={item.id} className="flex items-center space-x-4">
                   <img
                     src={item.image}
-                    alt={item.name}
+                    alt={item.title}
                     className="w-16 h-16 object-cover rounded-lg"
                   />
                   <div className="flex-1">
-                    <h3 className="font-medium text-gray-900">{item.name}</h3>
+                    <h3 className="font-medium text-gray-900">{item.title}</h3>
                     <p className="text-sm text-gray-600">Quantity: {item.quantity}</p>
                   </div>
                   <div className="text-right">
