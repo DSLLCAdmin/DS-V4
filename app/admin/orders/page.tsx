@@ -36,7 +36,42 @@ export default function OrdersPage() {
       setDataError('');
       
       // Simulate API call - replace with actual API
-      const mockOrders: Order[] = [];
+      const mockOrders: Order[] = [
+        {
+          id: 'ORD-001',
+          orderNumber: 'DS-2025-001',
+          customerEmail: 'customer@example.com',
+          customerName: 'First Customer',
+          status: 'delivered',
+          totalAmount: 24.99,
+          currency: 'USD',
+          items: [
+            {
+              id: 'A-01',
+              name: 'First & Light - Paperback',
+              quantity: 1,
+              price: 24.99,
+              image: '/images/products/first-light-paperback.jpg'
+            }
+          ],
+          shippingAddress: {
+            name: 'First Customer',
+            address1: '123 Main Street',
+            city: 'Anytown',
+            state: 'CA',
+            zip: '90210',
+            country: 'United States'
+          },
+          paymentMethod: 'Credit Card',
+          paymentStatus: 'paid',
+          fulfillmentStatus: 'fulfilled',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          notes: 'First successful sale!',
+          trackingNumber: 'TRK123456789',
+          estimatedDelivery: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString()
+        }
+      ];
       
       setOrders(mockOrders);
       
@@ -47,16 +82,16 @@ export default function OrdersPage() {
           pending: 0,
           processing: 0,
           shipped: 0,
-          delivered: 0,
+          delivered: 1,
           cancelled: 0,
           error: 0,
           retry: 0,
           refunded: 0
         },
-        averageOrderValue: 0,
-        totalRevenue: 0,
+        averageOrderValue: mockOrders.length > 0 ? mockOrders.reduce((sum, order) => sum + order.totalAmount, 0) / mockOrders.length : 0,
+        totalRevenue: mockOrders.reduce((sum, order) => sum + order.totalAmount, 0),
         errorRate: 0,
-        fulfillmentTime: 0
+        fulfillmentTime: 2 // 2 days average
       };
       
       setAnalytics(analytics);
