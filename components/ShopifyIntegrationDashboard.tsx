@@ -31,6 +31,7 @@ export const ShopifyIntegrationDashboard: React.FC<ShopifyIntegrationDashboardPr
     shopify: { status: 'Active', lastEvent: 'orders/create', totalEvents: 5 },
     stripe: { status: 'Active', lastEvent: 'payment_intent.succeeded', totalEvents: 1 }
   });
+  const [isConfigModalOpen, setIsConfigModalOpen] = useState(false);
 
   const testConnection = async () => {
     setIsTesting(true);
