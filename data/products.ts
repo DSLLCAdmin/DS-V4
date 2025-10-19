@@ -87,7 +87,7 @@ export const products: Product[] = [
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New",
     "printfulVariantId": "93425083",
     "shopifyVariantId": 42224116793442, // Medium size variant - CORRECTED: Actual Shopify variant ID
@@ -204,7 +204,7 @@ export const products: Product[] = [
     "description": "Printed quotes Still here.  You smell like asphalt",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -216,7 +216,7 @@ export const products: Product[] = [
     "description": "\"Inspired by Dancer's wardrobe with \"\"Streetin\"\" detailing.\"",
     "longDescription": "\r",
     "image": "/product-images/A2_mesh-bodysuits.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -228,7 +228,7 @@ export const products: Product[] = [
     "description": "Denim with hidden pocket sleeves.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -240,7 +240,7 @@ export const products: Product[] = [
     "description": "Graffiti-tagged street names (Memory & Mercury).",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -252,7 +252,7 @@ export const products: Product[] = [
     "description": "Blackout: No Eyes No Rules print inside the waistband.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -264,7 +264,7 @@ export const products: Product[] = [
     "description": "Ribbed rib-cage hugging with DS tattoos or maplines",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -276,8 +276,8 @@ export const products: Product[] = [
     "description": "Baseball Caps",
     "longDescription": "\r",
     "image": "/product-images/A8_hats.jpg",
-    "inStock": true,
-    "badge": "New",
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY - Will be reactivated after vendor setup
+    "badge": "Coming Soon",
     "shopifyVariantId": 42143382306914, // DS Cap variant ID
     "requiresShipping": true
   },
@@ -290,7 +290,7 @@ export const products: Product[] = [
     "description": "Inside lining printed with scene excerpts.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -302,7 +302,7 @@ export const products: Product[] = [
     "description": "From streetlight to backseat.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -314,7 +314,7 @@ export const products: Product[] = [
     "description": "Streeter Mode with remote noir hues.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -326,7 +326,7 @@ export const products: Product[] = [
     "description": "Prowlers Leather  Bleach & Bourbon.",
     "longDescription": "\r",
     "image": "/product-images/B2_Dark-Streets-Scent-Diffusers.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New",
     "shopifyVariantId": 42143321325666, // Using Dark Street Mugs variant (same price)
     "requiresShipping": true
@@ -340,7 +340,7 @@ export const products: Product[] = [
     "description": "Shades printed with silhouettes of Dancer mid-pirouette and iconic car kisses.",
     "longDescription": "\r",
     "image": "/product-images/B3_window-shades.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -352,7 +352,7 @@ export const products: Product[] = [
     "description": "Recordable voice note keychains.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -364,7 +364,7 @@ export const products: Product[] = [
     "description": "Embroidered with Feel the Wind. Follow the Heat.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -376,7 +376,7 @@ export const products: Product[] = [
     "description": "Mini Travel packs with wipes condoms pepper spray gum.",
     "longDescription": "\r",
     "image": "/product-images/D6_neon-light-wall-signs.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -388,7 +388,7 @@ export const products: Product[] = [
     "description": "Tiny dancers streetlight beads black feathers.",
     "longDescription": "\r",
     "image": "/product-images/B7_mirror-charms.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -400,7 +400,7 @@ export const products: Product[] = [
     "description": "Glovebox Zines Micro-stories printed like erotic manuals.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -412,7 +412,7 @@ export const products: Product[] = [
     "description": "No Rules After Midnight.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -424,7 +424,7 @@ export const products: Product[] = [
     "description": "Stealthy black embroidered with moon phases.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -436,7 +436,7 @@ export const products: Product[] = [
     "description": "Aries Blackout & Dancer Glare",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -448,7 +448,7 @@ export const products: Product[] = [
     "description": "Matte black engraved with DS quotes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -460,7 +460,7 @@ export const products: Product[] = [
     "description": "Zippo-style with scene titles etched in chrome.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -472,7 +472,7 @@ export const products: Product[] = [
     "description": "Phrases like Bangin Joy Outta Satisfaction.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -484,7 +484,7 @@ export const products: Product[] = [
     "description": "Noir symbols quotes GPS coordinates.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -496,7 +496,7 @@ export const products: Product[] = [
     "description": "We Rehearse in the Ruins DSA Memory+Mercury.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -508,7 +508,7 @@ export const products: Product[] = [
     "description": "Engraved with single words: Risk. Safety. Lust. Control.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -520,7 +520,7 @@ export const products: Product[] = [
     "description": "Stickers for sticking",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -532,7 +532,7 @@ export const products: Product[] = [
     "description": "Still Thinking? & car outline silhouettes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -544,7 +544,7 @@ export const products: Product[] = [
     "description": "Featuring neon saints of the street on suction cups",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -556,7 +556,7 @@ export const products: Product[] = [
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -568,7 +568,7 @@ export const products: Product[] = [
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -580,7 +580,7 @@ export const products: Product[] = [
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -592,7 +592,7 @@ export const products: Product[] = [
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -604,7 +604,7 @@ export const products: Product[] = [
     "description": "Featuring the scent of the street in mason jars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -616,7 +616,7 @@ export const products: Product[] = [
     "description": "Phrases: Youre Art Feel the Wind.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -628,7 +628,7 @@ export const products: Product[] = [
     "description": "Erotic scents from afar",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -640,7 +640,7 @@ export const products: Product[] = [
     "description": "Cast your city's skyline to  silhouette your ceiling. (LA NYC CHI)",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -652,7 +652,7 @@ export const products: Product[] = [
     "description": "Prowler engine purr soft panting vinyl crackle.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -664,7 +664,7 @@ export const products: Product[] = [
     "description": "Stash drawers + noir glow w/silhouette of dancer.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -676,7 +676,7 @@ export const products: Product[] = [
     "description": "DS themes: 'The Driver'  'The Dancer' 'The Signal'.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -688,7 +688,7 @@ export const products: Product[] = [
     "description": "Dissolve into deep shadowy hues. Mist in a bottle.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -700,7 +700,7 @@ export const products: Product[] = [
     "description": "High-contrast car scenes dancers in streetlight halos.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -712,7 +712,7 @@ export const products: Product[] = [
     "description": "Chalk spray and DS stencils for home art.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -724,7 +724,7 @@ export const products: Product[] = [
     "description": "Spotify/Apple collabs.",
     "longDescription": "\r",
     "image": "/product-images/E1_Official Dark Streets Driving Playlists.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -736,7 +736,7 @@ export const products: Product[] = [
     "description": "Become the Car. Be the Curve.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -748,7 +748,7 @@ export const products: Product[] = [
     "description": "Erotic Soundtracks Lo-fi noir beats + DS dialogue intercuts.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -760,7 +760,7 @@ export const products: Product[] = [
     "description": "Choose-your-own-street drama.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -772,7 +772,7 @@ export const products: Product[] = [
     "description": "Digital or IRL read by the characters.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -784,7 +784,7 @@ export const products: Product[] = [
     "description": "Episodes adapted from key scenes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -796,7 +796,7 @@ export const products: Product[] = [
     "description": "Digital experience & memorabilia",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -808,7 +808,7 @@ export const products: Product[] = [
     "description": "cheeky online video/ebook for adventurous fans.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -820,7 +820,7 @@ export const products: Product[] = [
     "description": "Photo Filters (like stickers as overlay to photos)",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -832,7 +832,7 @@ export const products: Product[] = [
     "description": "Curated confessions.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -844,7 +844,7 @@ export const products: Product[] = [
     "description": "Find the darkest streets in your city.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -856,7 +856,7 @@ export const products: Product[] = [
     "description": "Analyze your mood suggest music + scent + route",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -868,7 +868,7 @@ export const products: Product[] = [
     "description": "50 micro-tales unlocked by GPS.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -880,7 +880,7 @@ export const products: Product[] = [
     "description": "Daily noir thoughts or quotes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -892,7 +892,7 @@ export const products: Product[] = [
     "description": "Point your phone at an alley watch DS unfold.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -904,7 +904,7 @@ export const products: Product[] = [
     "description": "Text-based storytelling.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -916,7 +916,7 @@ export const products: Product[] = [
     "description": "Write the memory you'd street away. Etchasketch shakabily",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -928,7 +928,7 @@ export const products: Product[] = [
     "description": "Black lemon tonic bittersweet gin mocktails.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -940,7 +940,7 @@ export const products: Product[] = [
     "description": "Joe on the Road",
     "longDescription": "\r",
     "image": "/product-images/G2_dark-street-mug_Front.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -952,7 +952,7 @@ export const products: Product[] = [
     "description": "Mini glass bottles labeled by mood.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -964,7 +964,7 @@ export const products: Product[] = [
     "description": "Glow LED cubes for drinks.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -976,7 +976,7 @@ export const products: Product[] = [
     "description": "Curved black flask + secret shot vial.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -988,7 +988,7 @@ export const products: Product[] = [
     "description": "Alternate POV stories or Aries' and Dancer's private journals.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1000,7 +1000,7 @@ export const products: Product[] = [
     "description": "illustrated DS episodes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1012,7 +1012,7 @@ export const products: Product[] = [
     "description": "Each a unique and abstract routes through North Hollywood.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1024,7 +1024,7 @@ export const products: Product[] = [
     "description": "Noir RPG-style attributes and secrets.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1036,7 +1036,7 @@ export const products: Product[] = [
     "description": "Found-footage style shots from iconic scenes.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1048,7 +1048,7 @@ export const products: Product[] = [
     "description": "Scent swatches texture cards audio clips.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1060,7 +1060,7 @@ export const products: Product[] = [
     "description": "For display collectors (adult and subtle).",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1072,7 +1072,7 @@ export const products: Product[] = [
     "description": "Couple's improv prompt cards for car confessionals.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1084,7 +1084,7 @@ export const products: Product[] = [
     "description": "City-based DS clues",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1096,7 +1096,7 @@ export const products: Product[] = [
     "description": "DS-branded limited times/locations.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1108,7 +1108,7 @@ export const products: Product[] = [
     "description": "Exclusive story readings at dive bars",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1120,7 +1120,7 @@ export const products: Product[] = [
     "description": "Create your own DS scene.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1132,7 +1132,7 @@ export const products: Product[] = [
     "description": "DS visual mixtapes + merch trucks.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1144,7 +1144,7 @@ export const products: Product[] = [
     "description": "Window fog' 'Dash grip' 'Soft scream.'",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1156,7 +1156,7 @@ export const products: Product[] = [
     "description": "'What Are You Seeing?'  poetic prompt cards.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1168,7 +1168,7 @@ export const products: Product[] = [
     "description": "prewritten mystery notes to leave behind.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1180,7 +1180,7 @@ export const products: Product[] = [
     "description": "Vanity mirrors etched with sensual prompts.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1192,7 +1192,7 @@ export const products: Product[] = [
     "description": "Flip-phone with auto-loaded audio drops.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1204,7 +1204,7 @@ export const products: Product[] = [
     "description": "Noir hues reflect emotional temp.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1216,7 +1216,7 @@ export const products: Product[] = [
     "description": "'Crash Like You Mean It' with Cover Art",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   },
   {
@@ -1228,7 +1228,7 @@ export const products: Product[] = [
     "description": "USB drives with encrypted secret stories/visuals.",
     "longDescription": "\r",
     "image": "/product-images/placeholder.jpg",
-    "inStock": true,
+    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
   }
 ];
