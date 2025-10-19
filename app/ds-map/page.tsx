@@ -623,6 +623,7 @@ export default function DSMap() {
           </div>
         </ScrollReveal>
       </div>
+      </div> {/* Close pt-32 wrapper */}
 
       <Nav variant="footer" />
     </div>
