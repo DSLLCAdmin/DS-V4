@@ -41,23 +41,50 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallba
         })
       });
 
+      console.log('=== CLIENT CHECKOUT REQUEST ===');
+      console.log('Request URL:', '/api/shopify/checkout');
+      console.log('Request method:', 'POST');
+      console.log('Cart items sent:', cartItems);
+      console.log('Cart items with variant IDs:', cartItems.map(item => ({
+        id: item.id,
+        title: item.title,
+        shopifyVariantId: item.shopifyVariantId,
+        price: item.price,
+        quantity: item.quantity
+      })));
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('❌ CHECKOUT FAILED - HTTP Error');
+        console.error('Status:', response.status);
+        console.error('Status text:', response.statusText);
+        console.error('Response text:', errorText);
+        
+        try {
+          const result = JSON.parse(errorText);
+          console.error('Parsed error:', result);
+        } catch (e) {
+          console.error('Could not parse error as JSON');
+        }
+        
+        setError(`Checkout failed: ${response.status} ${response.statusText}`);
+        setIsProcessing(false);
+        return;
+      }
+      
       const result = await response.json();
       
-      console.log('Shopify checkout response:', result);
+      console.log('=== CLIENT CHECKOUT RESPONSE ===');
       console.log('Response status:', response.status);
+      console.log('Shopify checkout response:', result);
       
       // Log detailed error information
-      if (!response.ok || !result.success) {
-        console.error('❌ CHECKOUT FAILED - Full error details:');
-        console.error('Status:', response.status);
+      if (!result.success) {
+        console.error('❌ CHECKOUT FAILED - API Error:');
+        console.error('Success:', result.success);
         console.error('Error:', result.error);
         console.error('Details:', result.details);
-        console.error('Cart items sent:', cartItems);
-        console.error('Cart items with variant IDs:', cartItems.map(item => ({
-          id: item.id,
-          title: item.title,
-          shopifyVariantId: item.shopifyVariantId
-        })));
+        console.error('Status:', result.status);
       }
 
       if (result.success && result.checkoutUrl) {

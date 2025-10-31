@@ -314,7 +314,12 @@ export async function POST(request: NextRequest) {
               lines: validLineItems
             };
 
+    console.log('=== SHOPIFY CART INPUT ===');
     console.log('Cart input:', JSON.stringify(cartInput, null, 2));
+    console.log('Valid line items count:', validLineItems.length);
+    validLineItems.forEach((item, index) => {
+      console.log(`  Line ${index + 1}:`, JSON.stringify(item, null, 2));
+    });
 
     const cartResponse = await fetch(`https://${SHOPIFY_STORE_DOMAIN}/api/${SHOPIFY_API_VERSION}/graphql.json`, {
       method: 'POST',
@@ -353,11 +358,20 @@ export async function POST(request: NextRequest) {
     }
 
     const cartResult = await cartResponse.json();
-    console.log('Shopify cart result:', JSON.stringify(cartResult, null, 2));
+    console.log('=== SHOPIFY CART API RESPONSE ===');
+    console.log('Response status:', cartResponse.status);
+    console.log('Response headers:', Object.fromEntries(cartResponse.headers.entries()));
+    console.log('Cart result (full):', JSON.stringify(cartResult, null, 2));
     
-    // Log specific details for debugging
-    console.log('Cart response status:', cartResponse.status);
-    console.log('Cart response headers:', Object.fromEntries(cartResponse.headers.entries()));
+    // Log errors immediately if present
+    if (cartResult.errors) {
+      console.error('=== GRAPHQL ERRORS ===');
+      console.error(JSON.stringify(cartResult.errors, null, 2));
+    }
+    if (cartResult.data?.cartCreate?.userErrors) {
+      console.error('=== USER ERRORS ===');
+      console.error(JSON.stringify(cartResult.data.cartCreate.userErrors, null, 2));
+    }
 
     // Handle cart creation response
     if (cartResult.errors) {
