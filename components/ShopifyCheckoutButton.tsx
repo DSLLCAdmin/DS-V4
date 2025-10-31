@@ -44,6 +44,21 @@ export function ShopifyCheckoutButton({ cartItems, className, disabled, onFallba
       const result = await response.json();
       
       console.log('Shopify checkout response:', result);
+      console.log('Response status:', response.status);
+      
+      // Log detailed error information
+      if (!response.ok || !result.success) {
+        console.error('❌ CHECKOUT FAILED - Full error details:');
+        console.error('Status:', response.status);
+        console.error('Error:', result.error);
+        console.error('Details:', result.details);
+        console.error('Cart items sent:', cartItems);
+        console.error('Cart items with variant IDs:', cartItems.map(item => ({
+          id: item.id,
+          title: item.title,
+          shopifyVariantId: item.shopifyVariantId
+        })));
+      }
 
       if (result.success && result.checkoutUrl) {
         // Redirect to Shopify checkout

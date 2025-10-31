@@ -233,12 +233,15 @@ export async function POST(request: NextRequest) {
             // DYNAMIC VARIANT RESOLUTION: Map cart items to Shopify line items
             const lineItems = await Promise.all(items.map(async item => {
               console.log(`Processing cart item: ${item.title} (ID: ${item.id})`);
+              console.log(`  Cart item has shopifyVariantId: ${item.shopifyVariantId || 'MISSING'}`);
               
               // Strategy 1: Use existing shopifyVariantId if available and valid
               if (item.shopifyVariantId) {
+                const merchandiseId = `gid://shopify/ProductVariant/${item.shopifyVariantId}`;
                 console.log(`Using existing shopifyVariantId: ${item.shopifyVariantId} for ${item.title}`);
+                console.log(`  Generated merchandiseId: ${merchandiseId}`);
                 return {
-                  merchandiseId: `gid://shopify/ProductVariant/${item.shopifyVariantId}`,
+                  merchandiseId: merchandiseId,
                   quantity: item.quantity,
                   attributes: item.attributes ? Object.entries(item.attributes).map(([key, value]) => ({ key, value })) : undefined
                 };

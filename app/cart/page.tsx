@@ -479,7 +479,14 @@ export default function CartPage() {
                       <ShopifyCheckoutButton 
                         cartItems={cart.items.filter(item => {
                           const product = getProductById(item.id);
-                          return product && !isKDPProduct(product);
+                          if (product && !isKDPProduct(product)) {
+                            // Ensure shopifyVariantId is included from product data
+                            if (!item.shopifyVariantId && product.shopifyVariantId) {
+                              item.shopifyVariantId = product.shopifyVariantId;
+                            }
+                            return true;
+                          }
+                          return false;
                         })}
                         disabled={loading}
                         onFallback={() => router.push('/checkout/confirmation')}
