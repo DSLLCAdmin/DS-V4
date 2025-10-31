@@ -90,7 +90,7 @@ export const products: Product[] = [
     "inStock": true, // ACTIVE IN SHOPIFY (Updated: 10/31/2025)
     "badge": "New",
     "printfulVariantId": "93425083",
-    "shopifyVariantId": 42224116793442, // Medium size variant - CORRECTED: Actual Shopify variant ID
+    "shopifyVariantId": 42224116793442, // Shopify Variant ID (Medium size) - Product: 7425246101602 - Verified 10/31/2025
     "requiresShipping": true,
     "sizeGuide": {
       imperial: {
@@ -270,7 +270,7 @@ export const products: Product[] = [
   {
     "id": "B-08",
     "category": "Apparel & Intimate Wear",
-    "title": "DarkStreets Otto Cap 18-772",
+    "title": "DarkStreets' Otto Cap",
     "author": "DS LLC",
     "price": 22.00, // Printful retail price: $22
     "description": "Premium 6-Panel Low Profile Garment Washed Cotton Twill Dad Hat",
@@ -278,8 +278,8 @@ export const products: Product[] = [
     "image": "/product-images/A8_hats.jpg",
     "inStock": true, // ACTIVE IN SHOPIFY - Printful product (Updated: 10/31/2025)
     "badge": "New",
-    "shopifyVariantId": 42283613552738, // Printful product ID: #42283613552738 - Otto Cap 18-772
-    "printfulVariantId": "42283613552738", // Printful variant ID
+    "shopifyVariantId": 42283613552738, // Shopify Variant ID (Product: 7448102666338) - Verified 10/31/2025
+    "printfulVariantId": "8178204_24534", // Printful SKU
     "fulfillmentProvider": "printful",
     "requiresShipping": true
   },
