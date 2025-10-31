@@ -87,7 +87,7 @@ export const products: Product[] = [
     "description": "Unisex Short Sleeve V-Neck T-Shirt",
     "longDescription": "This unisex tee has a classic v-neck cut and fits like a well-loved favorite. Made from 100% combed ring spun cotton with pre-shrunk fabric. Features side-seamed construction, coverstitched v-neck and hemmed sleeves, and shoulder-to-shoulder taping. Blank product sourced from Nicaragua, Guatemala, or the US.",
     "image": "/product-images/Tees-0.png",
-    "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
+    "inStock": true, // ACTIVE IN SHOPIFY (Updated: 10/31/2025)
     "badge": "New",
     "printfulVariantId": "93425083",
     "shopifyVariantId": 42224116793442, // Medium size variant - CORRECTED: Actual Shopify variant ID

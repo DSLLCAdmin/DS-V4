@@ -12,6 +12,7 @@ export interface ShopifyProduct {
   id: string;
   title: string;
   handle: string;
+  status: 'ACTIVE' | 'DRAFT' | 'ARCHIVED'; // Product status in Shopify
   variants: {
     edges: Array<{
       node: {
@@ -22,7 +23,9 @@ export interface ShopifyProduct {
           currencyCode: string;
         };
         sku?: string;
-        inventoryQuantity: number;
+        inventoryQuantity: number | null; // Can be null if inventory not tracked
+        inventoryPolicy?: string; // 'DENY' or 'CONTINUE'
+        inventoryManagement?: string | null; // Can be null if inventory not tracked
       };
     }>;
   };
@@ -61,6 +64,7 @@ export async function fetchShopifyProducts(): Promise<ShopifyProduct[]> {
             id
             title
             handle
+            status
             description
             productType
             tags
@@ -75,6 +79,8 @@ export async function fetchShopifyProducts(): Promise<ShopifyProduct[]> {
                   }
                   sku
                   inventoryQuantity
+                  inventoryPolicy
+                  inventoryManagement
                 }
               }
             }
@@ -141,6 +147,20 @@ export function mapShopifyToDSProduct(shopifyProduct: ShopifyProduct): any {
     return null;
   }
   
+  // Determine inStock status:
+  // 1. If product status is ACTIVE in Shopify, it's available
+  // 2. If inventory is tracked and quantity > 0, it's in stock
+  // 3. If inventory is NOT tracked (inventoryManagement is null) and status is ACTIVE, it's available
+  const isInventoryTracked = primaryVariant.inventoryManagement !== null;
+  const hasInventory = primaryVariant.inventoryQuantity !== null && primaryVariant.inventoryQuantity > 0;
+  const isActiveInShopify = shopifyProduct.status === 'ACTIVE';
+  
+  // Product is in stock if:
+  // - Shopify status is ACTIVE AND
+  //   - Inventory is not tracked (always available when active), OR
+  //   - Inventory is tracked AND quantity > 0
+  const inStock = isActiveInShopify && (!isInventoryTracked || hasInventory);
+  
   return {
     id: generateDSProductId(shopifyProduct.title),
     category: mapProductTypeToCategory(shopifyProduct.productType),
@@ -149,7 +169,7 @@ export function mapShopifyToDSProduct(shopifyProduct: ShopifyProduct): any {
     price: parseFloat(primaryVariant.price.amount),
     description: shopifyProduct.description || '',
     image: primaryImage?.url || '/product-images/placeholder.jpg',
-    inStock: primaryVariant.inventoryQuantity > 0,
+    inStock: inStock,
     badge: shopifyProduct.tags.includes('new') ? 'New' : undefined,
     shopifyVariantId: parseInt(variantId),
     requiresShipping: !shopifyProduct.tags.includes('digital'),

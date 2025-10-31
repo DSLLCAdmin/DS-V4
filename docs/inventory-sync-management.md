@@ -1,0 +1,269 @@
+# 📦 INVENTORY SYNC MANAGEMENT - DS LLC & SHOPIFY
+
+**Date:** October 31, 2025  
+**Status:** Active - Manual sync required (automated sync in development)
+
+---
+
+## 🎯 **PROBLEM:**
+
+**Inventory Mismatch Between Platforms:**
+- DSLLC website shows "Out of Stock" (`inStock: false` in `data/products.ts`)
+- Shopify shows product as "Active" and available
+- Result: Customers cannot purchase on DSLLC website even though product is available in Shopify
+
+---
+
+## 🔍 **ROOT CAUSE:**
+
+### **1. Manual Data Source:**
+- DSLLC website reads from `data/products.ts` (static file)
+- `inStock` field must be manually updated
+- No automatic sync with Shopify inventory status
+
+### **2. Shopify Inventory Tracking:**
+- Some products have "Inventory not tracked" in Shopify
+- These products show as "Active" when available
+- Current sync logic only checks `inventoryQuantity > 0`
+- Doesn't account for "Inventory not tracked" + "Active" status
+
+### **3. Status vs Inventory:**
+- Shopify uses **Status** (Active/Draft/Archived) to control availability
+- Shopify uses **Inventory** (tracked/not tracked, quantity) for stock management
+- DSLLC website only uses `inStock` boolean (single source of truth)
+
+---
+
+## ✅ **IMMEDIATE FIX:**
+
+### **Update `data/products.ts` Manually:**
+
+1. **For V-Neck Tee (T-01):**
+   ```typescript
+   "inStock": true, // ACTIVE IN SHOPIFY
+   ```
+
+2. **Check Shopify Status:**
+   - Go to: Shopify Admin → Products
+   - Find product: "DarkStreets Tee - V-Neck"
+   - Check "Status" column: Should be "Active" (green pill)
+   - Check "Inventory" column: May show "Inventory not tracked"
+
+3. **Update `data/products.ts`:**
+   - If Shopify Status = "Active" → Set `inStock: true`
+   - If Shopify Status = "Draft" → Set `inStock: false`
+   - If Shopify Status = "Archived" → Set `inStock: false`
+
+---
+
+## 🔄 **INVENTORY SYNC STRATEGY:**
+
+### **Option 1: Manual Sync (Current Method)**
+
+**Process:**
+1. Check Shopify Admin → Products → Status column
+2. For each product:
+   - **Active** in Shopify → Set `inStock: true` in `data/products.ts`
+   - **Draft** in Shopify → Set `inStock: false` in `data/products.ts`
+3. Commit and push changes
+4. Netlify will rebuild website automatically
+
+**Pros:**
+- Simple and immediate
+- No API dependencies
+- Full control over sync timing
+
+**Cons:**
+- Manual process (error-prone)
+- No real-time updates
+- Must remember to sync regularly
+
+---
+
+### **Option 2: Automated Sync (Via API)**
+
+**Process:**
+1. Use `/api/shopify/sync-products` endpoint
+2. Fetches products from Shopify Admin API
+3. Updates `data/products.ts` automatically
+4. Can be triggered:
+   - Manually (via dashboard button)
+   - Automatically (via webhook when Shopify product changes)
+   - Scheduled (daily/hourly cron job)
+
+**Implementation:**
+- Endpoint: `GET /api/shopify/sync-products`
+- Logic: `lib/shopify-product-sync.ts` (already enhanced)
+- Updates: `inStock` based on Shopify status + inventory
+
+**Sync Logic:**
+```typescript
+// Product is in stock if:
+// 1. Shopify status is ACTIVE AND
+// 2. (Inventory not tracked) OR (Inventory tracked AND quantity > 0)
+const inStock = isActiveInShopify && (!isInventoryTracked || hasInventory);
+```
+
+**Pros:**
+- Automatic updates
+- Reduces manual errors
+- Real-time or near real-time sync
+
+**Cons:**
+- Requires Shopify API access
+- Must handle API rate limits
+- More complex setup
+
+---
+
+### **Option 3: Webhook-Based Sync (Future)**
+
+**Process:**
+1. Shopify sends webhook when product status/inventory changes
+2. DSLLC API endpoint receives webhook
+3. Updates `data/products.ts` automatically
+4. Triggers Netlify rebuild
+
+**Implementation:**
+- Webhook endpoint: `POST /api/shopify/webhooks/product-update`
+- Webhook events: `products/update`, `products/create`
+- Updates only changed products
+
+**Pros:**
+- Real-time updates
+- Efficient (only updates changed products)
+- No polling required
+
+**Cons:**
+- Requires webhook setup in Shopify
+- More complex error handling
+- Webhook delivery reliability
+
+---
+
+## 📋 **SYNC CHECKLIST:**
+
+### **For Each Product Activation:**
+
+1. **In Shopify:**
+   - [ ] Product status set to "Active"
+   - [ ] Price verified and correct
+   - [ ] Inventory settings configured (tracked or not tracked)
+   - [ ] Product appears in store
+
+2. **In DSLLC Website:**
+   - [ ] `data/products.ts` updated with `inStock: true`
+   - [ ] `shopifyVariantId` matches Shopify variant
+   - [ ] Price matches Shopify price
+   - [ ] Product appears on shop page (not "Out of Stock")
+
+3. **Testing:**
+   - [ ] Visit DSLLC shop page → Product shows as available
+   - [ ] Add product to cart → Works correctly
+   - [ ] Checkout process → Redirects to Shopify correctly
+
+---
+
+## 🛠️ **TOOLS & SCRIPTS:**
+
+### **1. Manual Sync Script (To Be Created):**
+
+```javascript
+// scripts/sync-inventory-status.js
+// Fetches products from Shopify
+// Compares status with data/products.ts
+// Reports mismatches
+// Optionally updates data/products.ts
+```
+
+### **2. API Endpoint:**
+
+```typescript
+// app/api/shopify/sync-products/route.ts
+// GET /api/shopify/sync-products - Fetch and display sync status
+// POST /api/shopify/sync-products - Update data/products.ts
+```
+
+### **3. Admin Dashboard Button:**
+
+```typescript
+// components/ShopifyIntegrationDashboard.tsx
+// "Sync Inventory Status" button
+// Triggers API sync and displays results
+```
+
+---
+
+## 🎯 **CURRENT STATUS:**
+
+### **Products Updated:**
+- ✅ **T-01 (V-Neck Tee):** `inStock: true` (Active in Shopify)
+
+### **Sync Logic Enhanced:**
+- ✅ Shopify product sync now checks:
+  - Product status (ACTIVE/DRAFT/ARCHIVED)
+  - Inventory tracking (tracked/not tracked)
+  - Inventory quantity (if tracked)
+
+### **Pending:**
+- ⏳ Create manual sync script
+- ⏳ Add sync button to admin dashboard
+- ⏳ Set up webhook-based sync (future)
+
+---
+
+## 📊 **INVENTORY STATUS MAPPING:**
+
+### **Shopify → DSLLC:**
+
+| Shopify Status | Inventory Tracked | Inventory Qty | DSLLC `inStock` |
+|---------------|-------------------|---------------|----------------|
+| ACTIVE        | No                | N/A           | `true` ✅       |
+| ACTIVE        | Yes               | > 0           | `true` ✅       |
+| ACTIVE        | Yes               | = 0           | `false` ❌      |
+| DRAFT         | Any               | Any           | `false` ❌      |
+| ARCHIVED      | Any               | Any           | `false` ❌      |
+
+---
+
+## 🚨 **TROUBLESHOOTING:**
+
+### **Issue: Product shows "Out of Stock" but is Active in Shopify**
+
+**Check:**
+1. Shopify Admin → Products → Status = "Active"?
+2. `data/products.ts` → `inStock: true`?
+3. Clear browser cache
+4. Check Netlify build logs (did changes deploy?)
+
+**Fix:**
+1. Update `data/products.ts` → Set `inStock: true`
+2. Commit and push
+3. Wait for Netlify rebuild (2-3 minutes)
+
+---
+
+### **Issue: Product shows as available but should be Draft**
+
+**Check:**
+1. Shopify Admin → Products → Status = "Draft"?
+2. `data/products.ts` → `inStock: false`?
+3. Recent changes in Shopify?
+
+**Fix:**
+1. Update `data/products.ts` → Set `inStock: false`
+2. Commit and push
+3. Wait for Netlify rebuild
+
+---
+
+## 📝 **NOTES:**
+
+- **Inventory Not Tracked:** When Shopify shows "Inventory not tracked", the product is always available when "Active" (print-on-demand, vendor fulfillment, etc.)
+- **Manual Sync Required:** Until automated sync is fully implemented, check Shopify status weekly and update `data/products.ts` accordingly
+- **Product Activation:** Always update `data/products.ts` when activating products in Shopify
+
+---
+
+**Last Updated:** October 31, 2025  
+**Next Review:** After implementing automated sync
