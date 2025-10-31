@@ -270,15 +270,17 @@ export const products: Product[] = [
   {
     "id": "B-08",
     "category": "Apparel & Intimate Wear",
-    "title": "Hats",
+    "title": "DarkStreets Otto Cap 18-772",
     "author": "DS LLC",
-    "price": 24.99,
-    "description": "Baseball Caps",
-    "longDescription": "\r",
+    "price": 22.00, // Printful retail price: $22
+    "description": "Premium 6-Panel Low Profile Garment Washed Cotton Twill Dad Hat",
+    "longDescription": "Embrace the essence of the streets with the DarkStreets Otto Cap 18-772. This premium 6-panel, low-profile dad hat is crafted from garment-washed cotton twill, offering a comfortable, broken-in feel from day one. Featuring the iconic DarkStreets logo with a sleek car silhouette, it's the perfect accessory to showcase your style and passion for the urban landscape. Durable, stylish, and effortlessly cool, this cap is designed for those who live and breathe the DarkStreets vibe. The classic dad hat profile sits comfortably while making a bold statement about your connection to the streets.\r",
     "image": "/product-images/A8_hats.jpg",
-    "inStock": false, // MOVED TO DRAFT IN SHOPIFY - Will be reactivated after vendor setup
-    "badge": "Coming Soon",
-    "shopifyVariantId": 42143382306914, // DS Cap variant ID
+    "inStock": true, // ACTIVE IN SHOPIFY - Printful product (Updated: 10/31/2025)
+    "badge": "New",
+    "shopifyVariantId": 42283613552738, // Printful product ID: #42283613552738 - Otto Cap 18-772
+    "printfulVariantId": "42283613552738", // Printful variant ID
+    "fulfillmentProvider": "printful",
     "requiresShipping": true
   },
   {
