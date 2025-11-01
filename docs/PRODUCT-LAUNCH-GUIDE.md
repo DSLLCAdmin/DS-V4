@@ -164,6 +164,32 @@ This guide provides a step-by-step process for launching new products on the DSL
 - **KDP:** No direct integration - manual redirect to Amazon
 - **Other Vendors:** Configure fulfillment service in Shopify
 
+### **Step 2.5: Publishing Channels (CRITICAL FOR PRINTFUL)**
+
+**⚠️ REQUIRED FOR PRINTFUL PRODUCTS:**
+
+1. **During Publish Dialog:**
+   - Look for **"Add to collections"** option at bottom
+   - ✅ **Select "Home page"** (or published collection)
+   - This is when Printful allows collection assignment
+
+2. **After Publishing:**
+   - Go to: Shopify Admin → Products → [Your Product]
+   - **"Publishing" section → Click "Manage"**
+   - ✅ **Enable "DS Website Integration"** toggle
+   - ✅ Verify **"Online Store"** is enabled
+   - Click **"Done"**
+
+3. **Verify Collection:**
+   - "Product organization" → "Collections"
+   - Should show **"Home page"** (or assigned collection)
+   - If missing, add it manually
+
+**Why This Matters:**
+- Printful products **require collections** for Storefront API visibility
+- "DS Website Integration" channel ensures proper API sync
+- Books work WITHOUT collections (different fulfillment)
+
 ---
 
 ## 💻 **PHASE 3: DSLLC WEBSITE INTEGRATION**
