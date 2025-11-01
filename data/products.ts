@@ -312,7 +312,7 @@ export const products: Product[] = [
     "badge": "New",
     "shopifyVariantId": 0, // TODO: Get actual Shopify Variant ID from Product: 7448341971042 - Use script: node scripts/get-product-variant-id.js 7448341971042
     "printfulVariantId": undefined, // TBD - Check if Printful product
-    "fulfillmentProvider": "printful" // Assumed Printful - confirm if different
+    "fulfillmentProvider": "printful", // Assumed Printful - confirm if different
     "requiresShipping": true
   },
   {
