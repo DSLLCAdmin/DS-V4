@@ -151,14 +151,19 @@ export default function PaymentPage() {
             {/* Shipping Method */}
             <div className="mb-6">
               <h3 className="font-semibold text-gray-900 mb-2">Shipping Method:</h3>
-              <p className="text-gray-700">
+              <p className="text-gray-700 mb-2">
                 {checkoutData.shipping.method === 'standard' && 'Standard Shipping'}
                 {checkoutData.shipping.method === 'express' && 'Express Shipping'}
                 {checkoutData.shipping.method === 'overnight' && 'Overnight Shipping'}
               </p>
-              <p className="text-sm text-gray-600">
-                Estimated delivery: {checkoutData.shipping.estimatedDays}
-              </p>
+              <div className="p-3 bg-blue-50 border border-blue-200 rounded-md">
+                <p className="text-sm font-semibold text-blue-900">
+                  Estimated Delivery: <span className="text-blue-700">{checkoutData.shipping.estimatedDays}</span>
+                </p>
+                <p className="text-xs text-blue-700 mt-1">
+                  Your package will arrive within this timeframe after order processing
+                </p>
+              </div>
             </div>
 
             {/* Order Totals */}
