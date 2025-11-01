@@ -1,0 +1,78 @@
+# 🔧 Fix: Streeter Mug Image 0 Loading Issue
+
+## ❌ Problem
+
+**Error:** `H6_streeter-mug-0.jpg` returns 404 Not Found  
+**Symptom:** First image in carousel is blank  
+**Cause:** Image 0 file doesn't exist yet
+
+---
+
+## ✅ Solution Options
+
+### **Option 1: Convert PNG to JPG (Recommended)**
+
+The source file `Streeter-Mug-0.png` exists but needs conversion:
+
+1. **Open** `public/product-images/Streeter-Mug-0.png` in an image editor
+2. **Export/Save As** JPG format
+   - Quality: 85-90%
+   - Name: `H6_streeter-mug-0.jpg`
+   - Location: `public/product-images/`
+3. **Verify** file exists: `public/product-images/H6_streeter-mug-0.jpg`
+4. **Commit** to Git:
+   ```bash
+   git add public/product-images/H6_streeter-mug-0.jpg
+   git commit -m "Add Streeter Mug image 0 (H6_streeter-mug-0.jpg)"
+   git push origin main
+   ```
+
+### **Option 2: Use Existing JPG File**
+
+If `Streeter-Mug.jpg` exists and is suitable for view 0:
+
+```powershell
+# From project root directory
+Rename-Item -Path "public/product-images/Streeter-Mug.jpg" -NewName "H6_streeter-mug-0.jpg" -Force
+git add public/product-images/H6_streeter-mug-0.jpg
+git commit -m "Add Streeter Mug image 0 from existing JPG"
+git push origin main
+```
+
+---
+
+## 📋 Verification
+
+After fixing, verify:
+
+1. **File exists:**
+   ```powershell
+   Get-ChildItem "public/product-images/H6_streeter-mug-*.jpg" | Select-Object Name
+   ```
+   Should show all 4 files:
+   - `H6_streeter-mug-0.jpg`
+   - `H6_streeter-mug-1.jpg`
+   - `H6_streeter-mug-2.jpg`
+   - `H6_streeter-mug-3.jpg`
+
+2. **Wait for Netlify deployment** (~2-3 minutes)
+
+3. **Test on website:**
+   - Go to: Product page for H-06
+   - Carousel should show all 4 images
+   - Image 0 should load correctly
+   - No 404 errors in console
+
+---
+
+## 🎯 Current Status
+
+✅ **Images 1-3:** Working correctly  
+❌ **Image 0:** Missing (404 error)  
+⏳ **Action:** Convert PNG to JPG or use existing JPG
+
+---
+
+**Last Updated:** October 31, 2025  
+**Status:** Image 0 needs to be added
+
