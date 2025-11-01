@@ -1,0 +1,75 @@
+# ✅ Streeter Mug Image Carousel Setup Complete
+
+## 📸 Images Renamed (3 of 4)
+
+✅ **H6_streeter-mug-1.jpg** (View 1) - Renamed from `Streeter-Mug_1.jpg`  
+✅ **H6_streeter-mug-2.jpg** (View 2 - **HOME IMAGE**) - Renamed from `Streeter-Mug_2.jpg`  
+✅ **H6_streeter-mug-3.jpg** (View 3) - Renamed from `Streeter-Mug_3.jpg`
+
+## ⚠️ Image 0 Still Needs Conversion
+
+**Missing:** `H6_streeter-mug-0.jpg`  
+**Source:** `Streeter-Mug-0.png` (currently PNG format)
+
+### **Action Required:**
+
+1. **Convert `Streeter-Mug-0.png` to JPG:**
+   - Open `public/product-images/Streeter-Mug-0.png` in an image editor
+   - Save/Export as JPG (quality: 85-90%)
+   - Save as: `H6_streeter-mug-0.jpg` in `public/product-images/` folder
+
+2. **Or use an existing JPG:**
+   - If `Streeter-Mug.jpg` exists and is suitable for view 0, rename it to `H6_streeter-mug-0.jpg`
+
+## 📋 Image Carousel Setup
+
+### **Code Changes Completed:**
+
+✅ **`components/ProductImageGallery.tsx`** - Added H-06 image set:
+```typescript
+'H-06': [
+  '/product-images/H6_streeter-mug-0.jpg', // View 0
+  '/product-images/H6_streeter-mug-1.jpg', // View 1
+  '/product-images/H6_streeter-mug-2.jpg', // View 2 - HOME IMAGE
+  '/product-images/H6_streeter-mug-3.jpg'  // View 3
+]
+```
+
+✅ **`data/products.ts`** - Updated H-06 product:
+```typescript
+"image": "/product-images/H6_streeter-mug-2.jpg", // Home image (image 2)
+```
+
+## 🎯 Image Order (Wrap-Around)
+
+- **Image 0:** First wrap-around view (needs PNG→JPG conversion)
+- **Image 1:** Second wrap-around view ✅
+- **Image 2:** Third wrap-around view (**HOME IMAGE shown in shop listing**) ✅
+- **Image 3:** Fourth wrap-around view ✅
+
+## 🚀 Next Steps
+
+1. ✅ Convert `Streeter-Mug-0.png` to `H6_streeter-mug-0.jpg`
+2. ✅ Verify all 4 images exist: `H6_streeter-mug-0.jpg` through `H6_streeter-mug-3.jpg`
+3. ✅ Commit the new image file to Git
+4. ✅ Push to GitHub
+5. ✅ Wait for Netlify deployment
+6. ✅ Test the carousel on product page
+
+## ✅ What's Working
+
+- ✅ Carousel system is set up (same as tee shirt)
+- ✅ Image 2 is configured as home image
+- ✅ Product page will show all 4 images in carousel
+- ✅ Shop listing will show image 2
+- ✅ Code deployed to GitHub
+
+## ⏳ Pending
+
+- ⏳ Image 0 conversion (PNG → JPG)
+
+---
+
+**Last Updated:** October 31, 2025  
+**Status:** 3 of 4 images ready, image 0 needs PNG→JPG conversion
+
