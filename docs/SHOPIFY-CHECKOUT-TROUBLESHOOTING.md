@@ -1,0 +1,127 @@
+# 🔧 Shopify Checkout Troubleshooting Guide
+
+## ❌ Current Issue: Checkout Failing with 400 Error
+
+**Error Message:**
+```
+Cart validation failed: The merchandise with id gid://shopify/ProductVariant/42224116793442 does not exist.
+```
+
+**Root Cause:**
+- Products are ACTIVE and published in Admin API
+- Variants have `availableForSale: true` 
+- Inventory quantity: 9999
+- **BUT Storefront API still cannot see the variants**
+
+---
+
+## ✅ Verified Product Configuration:
+
+### Tee Shirt (T-01):
+- Product ID: `7425246101602`
+- Variant ID (M): `42224116793442`
+- Status: ACTIVE
+- Published At: `2025-10-08T03:07:07Z`
+- Available For Sale: ✅ Yes
+- Inventory: 9999
+
+### Cap (B-08):
+- Product ID: `7448102666338`
+- Variant ID: `42283613552738`
+- Status: ACTIVE
+- Published At: `2025-10-31T20:28:59Z`
+- Available For Sale: ✅ Yes
+- Inventory: 9999
+
+---
+
+## 🔍 Possible Causes:
+
+1. **Storefront API Token Permissions**
+   - Token might not have access to published products
+   - Token might be expired or invalid
+
+2. **Shopify Sync Delay**
+   - Storefront API may take 5-10 minutes to sync after publishing
+   - Products published but not yet visible in Storefront API
+
+3. **Product Channel Visibility**
+   - Products published to "Online Store" but not accessible via Storefront API
+   - May need to be in specific collections or have specific metafields
+
+4. **Storefront API Configuration**
+   - Storefront API might require additional setup
+   - API version compatibility issues
+
+---
+
+## 🛠️ Solutions to Try:
+
+### Solution 1: Verify Storefront API Token
+1. Go to Shopify Admin → Settings → Apps and sales channels
+2. Click on "Develop apps" or "Private apps"
+3. Find your Storefront API token
+4. Verify it has "unauthenticated_read_product_listings" and "unauthenticated_read_product_inventory" scopes
+5. Regenerate if needed
+
+### Solution 2: Re-publish Products
+1. Go to Shopify Admin → Products
+2. Open "DarkStreets Tee - V-Neck"
+3. Click "Save" (even if no changes)
+4. Repeat for "DarkStreets' Otto Cap"
+5. Wait 5-10 minutes
+
+### Solution 3: Verify Product Visibility
+1. Go to Shopify Admin → Products
+2. Open each product
+3. Scroll to bottom
+4. Click "View in online store" link
+5. If link is missing or broken, product is not fully published
+
+### Solution 4: Check Product Availability
+1. Go to Shopify Admin → Products
+2. Open each product
+3. Check "Availability" section
+4. Ensure "Online Store" is checked/enabled
+5. Ensure product is not "Hidden" or "Draft"
+
+### Solution 5: Test Storefront API Directly
+```bash
+# Test if products are visible via Storefront API
+node scripts/check-storefront-api.js
+```
+
+---
+
+## 📝 Next Steps:
+
+1. **Verify Products Page is accessible**
+   - Click Shopify logo to go to main Admin
+   - Look for "Products" in main navigation
+
+2. **Check Storefront API Token**
+   - Verify token permissions
+   - Regenerate if needed
+
+3. **Re-test Checkout**
+   - Wait 5-10 minutes after any changes
+   - Clear browser cache
+   - Test checkout again
+
+4. **Contact Shopify Support**
+   - If products are published but Storefront API can't see them
+   - May be a Shopify platform issue
+
+---
+
+## 🔗 Quick Links:
+
+- **Products Page:** `https://admin.shopify.com/store/wenugu-5b/products`
+- **Store Settings:** `https://admin.shopify.com/store/wenugu-5b/settings`
+- **Apps and Sales Channels:** `https://admin.shopify.com/store/wenugu-5b/settings/apps`
+
+---
+
+**Last Updated:** October 31, 2025  
+**Status:** Products configured correctly but Storefront API visibility issue persists
+
