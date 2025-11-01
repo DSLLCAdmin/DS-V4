@@ -186,7 +186,14 @@ export default function OrderConfirmationPage() {
                         </span>
                       </div>
                       <p className="text-sm text-gray-600">{method.description}</p>
-                      <p className="text-sm text-gray-500">Estimated delivery: {method.estimatedDays}</p>
+                      <div className="mt-1 p-2 bg-blue-50 border border-blue-200 rounded-md">
+                        <p className="text-sm font-semibold text-blue-900">
+                          Estimated Delivery: <span className="text-blue-700">{method.estimatedDays}</span>
+                        </p>
+                        <p className="text-xs text-blue-700 mt-0.5">
+                          Your package will arrive within this timeframe after order processing
+                        </p>
+                      </div>
                     </div>
                   </label>
                 ))}

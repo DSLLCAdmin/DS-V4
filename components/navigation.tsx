@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Users, ShoppingCart, Home, ArrowLeft, MapPin } from 'lucide-react';
+import { Users, ShoppingCart, Home, ArrowLeft, MapPin, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useScrollPosition } from '@/hooks/use-scroll';
@@ -29,6 +29,7 @@ export function Navigation({ variant = 'header' }: NavigationProps) {
     { href: '/shop', label: 'StreetStore', icon: ShoppingCart },
     { href: '/book-club', label: 'StreetCircle', icon: Users },
     { href: '/ds-map', label: 'StreetersMap', icon: MapPin },
+    { href: '/faq', label: 'FAQ', icon: HelpCircle },
   ];
 
   if (variant === 'footer') {

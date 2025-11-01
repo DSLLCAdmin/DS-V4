@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { CheckCircle, ShoppingBag, ArrowLeft, Package, Mail, Phone } from 'lucide-react';
+import { CheckCircle, ShoppingBag, ArrowLeft, Package, Mail, Phone, HelpCircle, Clock } from 'lucide-react';
 import { Order, getOrder } from '@/lib/checkout';
 
 function CheckoutSuccessContent() {
@@ -171,13 +171,54 @@ function CheckoutSuccessContent() {
           </Link>
         </div>
 
+        {/* Delivery Timeline */}
+        <div className="mt-8 bg-white rounded-lg shadow-lg p-6">
+          <div className="flex items-center justify-center mb-4">
+            <Clock className="w-6 h-6 text-swatch103 mr-2" />
+            <h3 className="text-xl font-semibold text-gray-900">Expected Delivery Timeline</h3>
+          </div>
+          <div className="space-y-3 text-gray-700">
+            <div className="flex justify-between items-center py-2 border-b border-gray-200">
+              <span className="font-medium">Order Processing:</span>
+              <span>1-2 business days</span>
+            </div>
+            <div className="flex justify-between items-center py-2 border-b border-gray-200">
+              <span className="font-medium">Production (Printful items):</span>
+              <span>2-3 business days</span>
+            </div>
+            <div className="flex justify-between items-center py-2">
+              <span className="font-medium">Shipping:</span>
+              <span>5-7 business days (Standard)</span>
+            </div>
+            <div className="mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+              <p className="text-sm text-blue-900">
+                <strong>Total Estimated Delivery:</strong> 8-12 business days from order date. 
+                You will receive tracking information via email once your order ships.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Additional Info */}
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-4">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <p className="text-blue-800">
               <strong>What's next?</strong> You will receive an email confirmation shortly with your order details. 
               We'll process your order and send you tracking information once it ships.
             </p>
+          </div>
+          
+          <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+            <p className="text-gray-700 mb-3">
+              Have questions about your order or delivery? Check our FAQ for detailed information.
+            </p>
+            <Link 
+              href="/faq"
+              className="inline-flex items-center px-4 py-2 bg-swatch103 text-white rounded-lg font-medium hover:bg-swatch104 transition-colors"
+            >
+              <HelpCircle className="w-4 h-4 mr-2" />
+              View FAQ
+            </Link>
           </div>
         </div>
       </div>
