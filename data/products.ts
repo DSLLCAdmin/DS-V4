@@ -284,14 +284,14 @@ export const products: Product[] = [
     "requiresShipping": true
   },
   {
-    "id": "H-02",
+    "id": "H-06",
     "category": "Culinary & Novelty",
     "title": "Streeter Mug",
     "author": "DS LLC",
     "price": 12.00, // Default to 11 oz variant - Product: 7448146477154
     "description": "Black Glossy Mug - This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea.",
     "longDescription": "This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea. Features ceramic construction, lead and BPA-free material, glossy finish, and is dishwasher and microwave safe. Available in 11 oz and 15 oz sizes.",
-    "image": "/product-images/placeholder.jpg", // TODO: Add mug image
+    "image": "/product-images/placeholder.jpg", // TODO: Add Streeter Mug image - Use unique filename (e.g., H6_streeter-mug.jpg)
     "inStock": true, // ACTIVE IN SHOPIFY - Published with "Home page" collection - ✅ CHECKOUT WORKS!
     "badge": "New",
     "shopifyVariantId": 42284001329250, // Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
