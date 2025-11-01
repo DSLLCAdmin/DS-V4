@@ -304,15 +304,15 @@ export const products: Product[] = [
     "category": "Vehicle Accessories",
     "title": "StreeterMagnet",
     "author": "DS LLC",
-    "price": 15.00, // TODO: Update with actual Shopify price - Product: 7448341971042
+    "price": 8.50, // Printful retail price: $8.50 - Product: 7448341971042
     "description": "Bumper Magnet - Add your vibe to your ride with this sleek magnetic decal. These car magnets stick strong and stay sharp—rain or shine.",
     "longDescription": "Add your vibe to your ride with this sleek magnetic decal. These car magnets stick strong and stay sharp—rain or shine. With a matte finish, they're made to last and swap around as often as your mood changes. Features 100% vinyl construction, matte finish, black magnetic backing, and weather-resistant design. Blank product sourced from the US. Perfect for showcasing your DarkStreets connection on any metal surface.",
     "image": "/product-images/car-magnets-white-10x3-front-69063a80be934.png", // Primary front view image
     "inStock": true, // ACTIVE IN SHOPIFY - Published with "Home page" and "All Current Available Products" collections
     "badge": "New",
-    "shopifyVariantId": 0, // TODO: Get actual Shopify Variant ID from Product: 7448341971042 - Use script: node scripts/get-product-variant-id.js 7448341971042
+    "shopifyVariantId": 7448341971042, // Shopify Variant ID - Product: 7448341971042 - Verified 11/1/2025
     "printfulVariantId": undefined, // TBD - Check if Printful product
-    "fulfillmentProvider": "printful", // Assumed Printful - confirm if different
+    "fulfillmentProvider": "printful", // Confirmed Printful product
     "requiresShipping": true
   },
   {

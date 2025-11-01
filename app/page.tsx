@@ -311,6 +311,17 @@ export default function Home() {
             </p>
           </div>
 
+          {/* FAQ Button */}
+          <div className="flex justify-center mb-6">
+            <Link 
+              href="/faq"
+              className="inline-flex items-center px-6 py-3 bg-swatch103 text-white rounded-lg font-medium hover:bg-swatch104 transition-colors shadow-lg hover:shadow-xl"
+            >
+              <span className="mr-2">❓</span>
+              Frequently Asked Questions
+            </Link>
+          </div>
+
           {/* Discreet Secure Access */}
           <div className="mt-4">
             <Link href="/admin" className="inline-block">
