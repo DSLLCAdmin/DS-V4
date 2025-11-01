@@ -223,6 +223,12 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/Tees-3b.png',
       '/product-images/Tees-3c.png',
       '/product-images/Tees-3d.png'
+    ],
+    'H-06': [ // Streeter Mug - Wrap-around views (0-3), Image 2 is home image
+      '/product-images/H6_streeter-mug-0.jpg', // View 0
+      '/product-images/H6_streeter-mug-1.jpg', // View 1
+      '/product-images/H6_streeter-mug-2.jpg', // View 2 - HOME IMAGE (shown in shop listing)
+      '/product-images/H6_streeter-mug-3.jpg'  // View 3
     ]
   };
 
