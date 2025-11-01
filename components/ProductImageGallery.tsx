@@ -229,6 +229,13 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/H6_streeter-mug-1.jpg', // View 1
       '/product-images/H6_streeter-mug-2.jpg', // View 2 - HOME IMAGE (shown in shop listing)
       '/product-images/H6_streeter-mug-3.jpg'  // View 3
+    ],
+    'M-01': [ // StreeterMagnet - 5 views (4 front views + product details)
+      '/product-images/car-magnets-white-10x3-front-69063a80be934.png', // Primary front view (HOME IMAGE)
+      '/product-images/car-magnets-white-10x3-front-69063a80be7fa.png', // Front view 2
+      '/product-images/car-magnets-white-10x3-front-69063a80be8c7.png', // Front view 3
+      '/product-images/car-magnets-white-10x3-front-69063a80be8fe.png', // Front view 4
+      '/product-images/car-magnets-white-10x3-product-details-69063a80be877.png' // Product details view
     ]
   };
 
