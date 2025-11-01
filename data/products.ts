@@ -284,6 +284,22 @@ export const products: Product[] = [
     "requiresShipping": true
   },
   {
+    "id": "H-02",
+    "category": "Culinary & Novelty",
+    "title": "Streeter Mug",
+    "author": "DS LLC",
+    "price": 12.00, // Default to 11 oz variant - Product: 7448146477154
+    "description": "Black Glossy Mug - This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea.",
+    "longDescription": "This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea. Features ceramic construction, lead and BPA-free material, glossy finish, and is dishwasher and microwave safe. Available in 11 oz and 15 oz sizes.",
+    "image": "/product-images/placeholder.jpg", // TODO: Add mug image
+    "inStock": true, // ACTIVE IN SHOPIFY - Published with "Home page" collection - ✅ CHECKOUT WORKS!
+    "badge": "New",
+    "shopifyVariantId": 42284001329250, // Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
+    "printfulVariantId": "6360577_9323", // Printful SKU (11 oz)
+    "fulfillmentProvider": "printful",
+    "requiresShipping": true
+  },
+  {
     "id": "B-09",
     "category": "Apparel & Intimate Wear",
     "title": "Limited-Edition Hoodies",
@@ -932,22 +948,6 @@ export const products: Product[] = [
     "image": "/product-images/placeholder.jpg",
     "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
-  },
-  {
-    "id": "H-02",
-    "category": "Culinary & Novelty",
-    "title": "Streeter Mug",
-    "author": "DS LLC",
-    "price": 12.00, // Default to 11 oz variant - Product: 7448146477154
-    "description": "Black Glossy Mug - This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea.",
-    "longDescription": "This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea. Features ceramic construction, lead and BPA-free material, glossy finish, and is dishwasher and microwave safe. Available in 11 oz and 15 oz sizes.",
-    "image": "/product-images/placeholder.jpg", // TODO: Add mug image
-    "inStock": true, // ACTIVE IN SHOPIFY - Published with "Home page" collection - Testing if collections fix Storefront API visibility
-    "badge": "New",
-    "shopifyVariantId": 42284001329250, // Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
-    "printfulVariantId": "6360577_9323", // Printful SKU (11 oz)
-    "fulfillmentProvider": "printful",
-    "requiresShipping": true
   },
   {
     "id": "H-03",
