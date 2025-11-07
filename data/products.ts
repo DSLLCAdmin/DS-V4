@@ -1,16 +1,26 @@
+export interface ProductVariant {
+  size?: string; // Variant size (e.g., "11 oz", "15 oz", "S", "M", "L")
+  price: number;
+  shopifyVariantId: number; // Shopify product variant ID for checkout
+  printfulVariantId?: string; // Printful product variant ID for fulfillment
+  inStock: boolean;
+  imageSetKey?: string; // Key to link to variant-specific image set in ProductImageGallery
+}
+
 export interface Product {
   id: string;
   category: string;
   title: string;
   author: string;
-  price: number;
+  price: number; // Default/fallback price (use first variant price if variants exist)
   description: string;
   longDescription?: string;
-  image: string;
+  image: string; // Default/fallback home image
   inStock: boolean;
   badge?: string;
-  shopifyVariantId?: number; // Shopify product variant ID for checkout
-  printfulVariantId?: string; // Printful product variant ID for fulfillment
+  shopifyVariantId?: number; // Legacy: Shopify product variant ID for checkout (use variants array instead)
+  printfulVariantId?: string; // Legacy: Printful product variant ID for fulfillment (use variants array instead)
+  variants?: ProductVariant[]; // Array of product variants (size, color, etc.)
   requiresShipping?: boolean; // Whether product requires physical shipping
   fulfillmentProvider?: 'kdp' | 'printful' | 'manual' | 'digital'; // Fulfillment provider
   kdpASIN?: string; // KDP ASIN for Amazon integration
@@ -275,7 +285,7 @@ export const products: Product[] = [
     "price": 22.00, // Printful retail price: $22
     "description": "Premium 6-Panel Low Profile Garment Washed Cotton Twill Dad Hat",
     "longDescription": "Embrace the essence of the streets with the DarkStreets Otto Cap 18-772. This premium 6-panel, low-profile dad hat is crafted from garment-washed cotton twill, offering a comfortable, broken-in feel from day one. Featuring the iconic DarkStreets logo with a sleek car silhouette, it's the perfect accessory to showcase your style and passion for the urban landscape. Durable, stylish, and effortlessly cool, this cap is designed for those who live and breathe the DarkStreets vibe. The classic dad hat profile sits comfortably while making a bold statement about your connection to the streets.\r",
-    "image": "/product-images/A8_hats.jpg",
+    "image": "/product-images/otto-cap-18-772-black-front-690e44034c5ed.jpg", // New Printful mock-up - Front view (HOME IMAGE)
     "inStock": true, // ACTIVE IN SHOPIFY - Printful product (Updated: 10/31/2025)
     "badge": "New",
     "shopifyVariantId": 42283613552738, // Shopify Variant ID (Product: 7448102666338) - Verified 10/31/2025
@@ -291,11 +301,29 @@ export const products: Product[] = [
     "price": 12.00, // Default to 11 oz variant - Product: 7448146477154
     "description": "Black Glossy Mug - This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea.",
     "longDescription": "This cupboard essential is sturdy, sleek, and perfect for your morning java or afternoon tea. Features ceramic construction, lead and BPA-free material, glossy finish, and is dishwasher and microwave safe. Available in 11 oz and 15 oz sizes.",
-    "image": "/product-images/H6_streeter-mug-2.jpg", // Home image (image 2 of wrap-around carousel)
+    "image": "/product-images/black-glossy-mug-black-11-oz-front-690e36e668bb4.jpg", // Default home image (11 oz)
     "inStock": true, // ACTIVE IN SHOPIFY - Published with "Home page" collection - ✅ CHECKOUT WORKS!
     "badge": "New",
-    "shopifyVariantId": 42284001329250, // Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
-    "printfulVariantId": "6360577_9323", // Printful SKU (11 oz)
+    "shopifyVariantId": 42284001329250, // Legacy: Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
+    "printfulVariantId": "6360577_9323", // Legacy: Printful SKU (11 oz)
+    "variants": [
+      {
+        "size": "11 oz",
+        "price": 12.00,
+        "shopifyVariantId": 42284001329250, // Shopify Variant ID (11 oz) - Product: 7448146477154 - Verified 10/31/2025
+        "printfulVariantId": "6360577_9323", // Printful SKU (11 oz)
+        "inStock": true,
+        "imageSetKey": "H-06-11oz" // Key for variant-specific images
+      },
+      {
+        "size": "15 oz",
+        "price": 15.00, // TODO: Verify actual price for 15 oz variant
+        "shopifyVariantId": 0, // TODO: Get Shopify Variant ID for 15 oz variant from Shopify Admin
+        "printfulVariantId": "6360577_9324", // TODO: Verify Printful SKU for 15 oz
+        "inStock": true,
+        "imageSetKey": "H-06-15oz" // Key for variant-specific images
+      }
+    ],
     "fulfillmentProvider": "printful",
     "requiresShipping": true
   },

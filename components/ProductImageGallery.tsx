@@ -171,7 +171,7 @@ export const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
 };
 
 // Hook for managing product images
-export const useProductImages = (productId: string) => {
+export const useProductImages = (productId: string, variantImageSetKey?: string) => {
   const [images, setImages] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -183,8 +183,9 @@ export const useProductImages = (productId: string) => {
         const product = products.find(p => p.id === productId);
         
         if (product) {
-          // Get all images for this product
-          const productImages = await getProductImageSet(productId);
+          // If variant-specific image set key is provided, use it; otherwise use product ID
+          const imageSetKey = variantImageSetKey || productId;
+          const productImages = await getProductImageSet(imageSetKey);
           setImages(productImages);
         }
       } catch (error) {
@@ -195,7 +196,7 @@ export const useProductImages = (productId: string) => {
     };
 
     loadProductImages();
-  }, [productId]);
+  }, [productId, variantImageSetKey]);
 
   return { images, loading };
 };
@@ -224,11 +225,41 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/Tees-3c.png',
       '/product-images/Tees-3d.png'
     ],
-    'H-06': [ // Streeter Mug - Wrap-around views (0-3), Image 2 is home image
-      '/product-images/H6_streeter-mug-0.jpg', // View 0
-      '/product-images/H6_streeter-mug-1.jpg', // View 1
-      '/product-images/H6_streeter-mug-2.jpg', // View 2 - HOME IMAGE (shown in shop listing)
-      '/product-images/H6_streeter-mug-3.jpg'  // View 3
+    'B-08': [ // DarkStreets' Otto Cap - New Printful mock-ups
+      '/product-images/otto-cap-18-772-black-front-690e44034c5ed.jpg', // Front view (HOME IMAGE)
+      '/product-images/otto-cap-18-772-black-left-front-690e44034cbd6.jpg', // Left-front view
+      '/product-images/otto-cap-18-772-black-right-front-690e44034ce78.jpg', // Right-front view
+      '/product-images/otto-cap-18-772-black-back-690e44034c966.jpg' // Back view
+    ],
+    'H-06': [ // Streeter Mug - Legacy: Default images (11 oz)
+      '/product-images/black-glossy-mug-black-11-oz-front-690e36e668bb4.jpg', // Front view 1
+      '/product-images/black-glossy-mug-black-11-oz-front-690e36e669b4a.jpg', // Front view 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e668fe4.jpg', // Handle left 1
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e66975a.jpg', // Handle left 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e669f27.jpg', // Handle left 3
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e668717.jpg', // Handle right 1
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e6693ad.jpg', // Handle right 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e66a2f0.jpg' // Handle right 3
+    ],
+    'H-06-11oz': [ // Streeter Mug 11 oz - New Printful mock-ups
+      '/product-images/black-glossy-mug-black-11-oz-front-690e36e668bb4.jpg', // Front view 1 (HOME IMAGE)
+      '/product-images/black-glossy-mug-black-11-oz-front-690e36e669b4a.jpg', // Front view 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e668fe4.jpg', // Handle left 1
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e66975a.jpg', // Handle left 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-left-690e36e669f27.jpg', // Handle left 3
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e668717.jpg', // Handle right 1
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e6693ad.jpg', // Handle right 2
+      '/product-images/black-glossy-mug-black-11-oz-handle-on-right-690e36e66a2f0.jpg' // Handle right 3
+    ],
+    'H-06-15oz': [ // Streeter Mug 15 oz - New Printful mock-ups
+      '/product-images/black-glossy-mug-black-15-oz-front-690e36e668dd7.jpg', // Front view 1 (HOME IMAGE)
+      '/product-images/black-glossy-mug-black-15-oz-front-690e36e669d56.jpg', // Front view 2
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-left-690e36e6691c3.jpg', // Handle left 1
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-left-690e36e669967.jpg', // Handle left 2
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-left-690e36e66a10e.jpg', // Handle left 3
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-right-690e36e66893d.jpg', // Handle right 1
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-right-690e36e66957d.jpg', // Handle right 2
+      '/product-images/black-glossy-mug-black-15-oz-handle-on-right-690e36e66a4bc.jpg' // Handle right 3
     ],
     'M-01': [ // StreeterMagnet - 5 views (4 front views + product details)
       '/product-images/car-magnets-white-10x3-front-69063a80be934.png', // Primary front view (HOME IMAGE)
