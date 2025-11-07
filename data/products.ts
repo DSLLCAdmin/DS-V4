@@ -317,9 +317,9 @@ export const products: Product[] = [
       },
       {
         "size": "15 oz",
-        "price": 15.00, // TODO: Verify actual price for 15 oz variant
-        "shopifyVariantId": 0, // TODO: Get Shopify Variant ID for 15 oz variant from Shopify Admin
-        "printfulVariantId": "6360577_9324", // TODO: Verify Printful SKU for 15 oz
+        "price": 13.50, // Verified from Shopify Admin - Product: 7448146477154
+        "shopifyVariantId": 42284001362018, // Shopify Variant ID (15 oz) - Product: 7448146477154 - Verified 11/7/2025
+        "printfulVariantId": "6360577_9324", // Printful SKU (15 oz)
         "inStock": true,
         "imageSetKey": "H-06-15oz" // Key for variant-specific images
       }
