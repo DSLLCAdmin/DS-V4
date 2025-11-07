@@ -262,11 +262,11 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/black-glossy-mug-black-15-oz-handle-on-right-690e36e66a4bc.jpg' // Handle right 3
     ],
     'M-01': [ // StreeterMagnet - 5 views (4 front views + product details)
-      '/product-images/car-magnets-white-10x3-front-69063a80be934.png', // Primary front view (HOME IMAGE)
-      '/product-images/car-magnets-white-10x3-front-69063a80be7fa.png', // Front view 2
-      '/product-images/car-magnets-white-10x3-front-69063a80be8c7.png', // Front view 3
-      '/product-images/car-magnets-white-10x3-front-69063a80be8fe.png', // Front view 4
-      '/product-images/car-magnets-white-10x3-product-details-69063a80be877.png' // Product details view
+      '/product-images/car-magnets-white-10x3-front-690e315a31d57.png', // Primary front view (HOME IMAGE)
+      '/product-images/car-magnets-white-10x3-front-690e315a31f21.png', // Front view 2
+      '/product-images/car-magnets-white-10x3-front-690e315a31f8e.png', // Front view 3
+      '/product-images/car-magnets-white-10x3-front-690e315a32009.png', // Front view 4
+      '/product-images/car-magnets-white-10x3-product-details-690e315a31e07.png' // Product details view
     ]
   };
 
