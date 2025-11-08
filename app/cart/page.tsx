@@ -77,7 +77,9 @@ export default function CartPage() {
   };
 
   const getProductById = (id: string) => {
-    return products.find(p => p.id === id);
+    // Handle variant-specific IDs (e.g., "H-06-42284001362018" -> "H-06")
+    const baseId = id.split('-').slice(0, 2).join('-'); // Extract base product ID
+    return products.find(p => p.id === baseId || p.id === id);
   };
 
   // Calculate proper shipping and totals
@@ -239,7 +241,18 @@ export default function CartPage() {
           <div className="lg:col-span-2 space-y-6">
             {cart.items.map((item) => {
               const product = getProductById(item.id);
-              if (!product) return null;
+              if (!product) {
+                console.warn('Product not found for cart item:', item.id);
+                return null;
+              }
+
+              // Use item image if available, otherwise use product image
+              const displayImage = item.image || product.image;
+              // Use item price (variant-specific) if available, otherwise use product price
+              const displayPrice = item.price || product.price;
+              // Extract variant info from attributes
+              const variantSize = item.attributes?.variant;
+              const displayTitle = variantSize ? `${product.title} - ${variantSize}` : product.title;
 
               return (
                 <ScrollReveal key={item.id}>
@@ -250,13 +263,23 @@ export default function CartPage() {
                         {/* Product Image and Details */}
                         <div className="flex items-start space-x-4">
                           <div className="flex-shrink-0">
-                            {product.image && product.image !== "/product-images/placeholder.jpg" ? (
+                            {displayImage && displayImage !== "/product-images/placeholder.jpg" ? (
                               <img
-                                src={product.image}
-                                alt={product.title}
+                                src={displayImage}
+                                alt={displayTitle}
                                 className="w-16 h-16 object-cover rounded-lg"
+                                onError={(e) => {
+                                  // Fallback to product image if item image fails
+                                  if (displayImage !== product.image && product.image) {
+                                    e.currentTarget.src = product.image;
+                                  } else {
+                                    e.currentTarget.style.display = 'none';
+                                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                  }
+                                }}
                               />
-                            ) : (
+                            ) : null}
+                            {(!displayImage || displayImage === "/product-images/placeholder.jpg") && (
                               <div className="w-16 h-16 bg-gradient-to-br from-swatch201/30 to-swatch202/20 rounded-lg flex items-center justify-center">
                                 <ShoppingCart className="h-6 w-6 text-swatch204 opacity-50" />
                               </div>
@@ -264,11 +287,11 @@ export default function CartPage() {
                           </div>
                           <div className="flex-grow min-w-0">
                             <h3 className="text-lg font-bold text-white mb-1 truncate">
-                              {product.title}
+                              {displayTitle}
                             </h3>
                             <p className="text-white/80 text-sm mb-1">by {product.author}</p>
                             <p className="text-lg font-bold text-swatch103">
-                              {formatPrice(product.price)}
+                              {formatPrice(displayPrice)}
                             </p>
                           </div>
                         </div>
@@ -319,13 +342,23 @@ export default function CartPage() {
                       <div className="hidden sm:flex items-center space-x-6">
                         {/* Product Image */}
                         <div className="flex-shrink-0">
-                          {product.image && product.image !== "/product-images/placeholder.jpg" ? (
+                          {displayImage && displayImage !== "/product-images/placeholder.jpg" ? (
                             <img
-                              src={product.image}
-                              alt={product.title}
+                              src={displayImage}
+                              alt={displayTitle}
                               className="w-20 h-20 object-cover rounded-lg"
+                              onError={(e) => {
+                                // Fallback to product image if item image fails
+                                if (displayImage !== product.image && product.image) {
+                                  e.currentTarget.src = product.image;
+                                } else {
+                                  e.currentTarget.style.display = 'none';
+                                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                                }
+                              }}
                             />
-                          ) : (
+                          ) : null}
+                          {(!displayImage || displayImage === "/product-images/placeholder.jpg") && (
                             <div className="w-20 h-20 bg-gradient-to-br from-swatch201/30 to-swatch202/20 rounded-lg flex items-center justify-center">
                               <ShoppingCart className="h-8 w-8 text-swatch204 opacity-50" />
                             </div>
@@ -335,11 +368,11 @@ export default function CartPage() {
                         {/* Product Details */}
                         <div className="flex-grow">
                           <h3 className="text-xl font-bold text-white mb-2">
-                            {product.title}
+                            {displayTitle}
                           </h3>
                           <p className="text-white/80 mb-2">by {product.author}</p>
                           <p className="text-lg font-bold text-swatch103">
-                            {formatPrice(product.price)}
+                            {formatPrice(displayPrice)}
                           </p>
                         </div>
 
@@ -436,7 +469,7 @@ export default function CartPage() {
                       ? 'Mixed Cart - Books via KDP, Other items via Shopify'
                       : hasKDPProducts 
                         ? 'Books fulfilled via Kindle Direct Publishing'
-                        : 'Testing Shopify Checkout Only'
+                        : 'Shopify Checkout'
                     }
                   </div>
 
