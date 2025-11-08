@@ -14,7 +14,7 @@ All production code files have been updated to use environment variables instead
 **Before:**
 ```typescript
 const SHOPIFY_STOREFRONT_API_TOKEN = '42ec4a86d00bfb85a44c99bd24a4f5f2';
-const SHOPIFY_ADMIN_API_TOKEN = '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';
+const SHOPIFY_ADMIN_API_TOKEN = 'your_admin_api_token_here';
 ```
 
 **After:**

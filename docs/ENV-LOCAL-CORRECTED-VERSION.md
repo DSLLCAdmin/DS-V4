@@ -57,10 +57,10 @@ SHOPIFY_ACCESS_TOKEN=your_access_token_here
 
 ## ⚠️ **IMPORTANT: Verify Your Storefront Token**
 
-You have **two different tokens** that might be storefront tokens:
+You may have **two different tokens** that might be storefront tokens:
 
-1. **`bf047891809b4ec2ed669031d9ad08bf`** - From the "Storefront API access token" line
-2. **`shpat_2e9f78d4bc1c0498600c5535547f`** - From `NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN`
+1. **`[your_storefront_token_1]`** - From the "Storefront API access token" line
+2. **`[your_storefront_token_2]`** - From `NEXT_PUBLIC_SHOPIFY_ACCESS_TOKEN`
 
 **Action Required:**
 - Check your **NEW Shopify App v2** credentials in Shopify Admin
