@@ -36,9 +36,21 @@ class CartManager {
       // For now, we'll use a local cart implementation
       // This can be enhanced later with Shopify Storefront API
       
+      // Extract variant-specific information from attributes
+      const variantShopifyId = attributes?.shopifyVariantId ? parseInt(attributes.shopifyVariantId) : undefined;
+      const variantSize = attributes?.variant;
+      
       // Find existing item in cart
       // Consider attributes when finding an existing line (e.g., different sizes are different lines)
-      const existingItemIndex = this.cart.items.findIndex(item => item.id === productId && JSON.stringify(item.attributes || {}) === JSON.stringify(attributes || {}));
+      // Use shopifyVariantId for matching if available, otherwise use attributes
+      const existingItemIndex = this.cart.items.findIndex(item => {
+        if (variantShopifyId && item.shopifyVariantId) {
+          // Match by Shopify variant ID if both have it
+          return item.id === productId && item.shopifyVariantId === variantShopifyId;
+        }
+        // Fallback to attribute matching
+        return item.id === productId && JSON.stringify(item.attributes || {}) === JSON.stringify(attributes || {});
+      });
       
       if (existingItemIndex >= 0) {
         // Update existing item quantity
@@ -46,16 +58,23 @@ class CartManager {
       } else {
         // Add new item to cart
         // We'll need to get product details from our local products data
-        const product = await this.getProductDetails(productId);
+        const product = await this.getProductDetails(productId, variantSize, variantShopifyId);
         if (product) {
+          // Create unique cart item ID that includes variant info
+          const cartItemId = variantShopifyId 
+            ? `${productId}-${variantShopifyId}` 
+            : variantSize 
+              ? `${productId}-${variantSize}` 
+              : productId;
+          
           this.cart.items.push({
-            id: productId,
+            id: cartItemId,
             title: product.title,
-            price: product.price,
+            price: product.price, // Use variant-specific price if available
             quantity: quantity,
             image: product.image,
             variant_id: productId, // Keep for compatibility
-            shopifyVariantId: product.shopifyVariantId, // Add actual Shopify variant ID
+            shopifyVariantId: product.shopifyVariantId, // Use variant-specific Shopify variant ID
             attributes
           });
         } else {
@@ -131,13 +150,40 @@ class CartManager {
   }
 
   // Get product details from local products data
-  private async getProductDetails(productId: string) {
+  private async getProductDetails(productId: string, variantSize?: string, variantShopifyId?: number) {
     try {
       // Import products data dynamically to avoid circular imports
       const { products } = await import('../data/products');
       const product = products.find(p => String(p.id) === productId);
       
       if (product) {
+        // If variant information is provided, use variant-specific data
+        if (variantSize && product.variants && product.variants.length > 0) {
+          const variant = product.variants.find(v => v.size === variantSize);
+          if (variant) {
+            return {
+              title: `${product.title} - ${variant.size}`,
+              price: variant.price,
+              image: product.image, // Could be variant-specific image in future
+              shopifyVariantId: variant.shopifyVariantId
+            };
+          }
+        }
+        
+        // If variantShopifyId is provided, find matching variant
+        if (variantShopifyId && product.variants && product.variants.length > 0) {
+          const variant = product.variants.find(v => v.shopifyVariantId === variantShopifyId);
+          if (variant) {
+            return {
+              title: `${product.title} - ${variant.size}`,
+              price: variant.price,
+              image: product.image,
+              shopifyVariantId: variant.shopifyVariantId
+            };
+          }
+        }
+        
+        // Default to product's base data
         return {
           title: product.title,
           price: product.price || 0,

@@ -78,10 +78,19 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
         attributes.variant = selectedVariant.size;
       }
       
-      // Add variant ID to attributes for checkout
+      // CRITICAL: Add variant ID to attributes for checkout - this ensures correct variant is used
       if (shopifyVariantId) {
         attributes.shopifyVariantId = shopifyVariantId.toString();
       }
+      
+      // Log for debugging
+      console.log('🛒 Adding to cart:', {
+        productId: product.id,
+        variant: selectedVariant?.size,
+        shopifyVariantId: shopifyVariantId,
+        price: selectedVariant?.price || product.price,
+        attributes
+      });
       
       const success = await addToCart(product.id, 1, Object.keys(attributes).length > 0 ? attributes : undefined);
       if (success) {
