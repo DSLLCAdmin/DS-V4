@@ -21,11 +21,24 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [isAdding, setIsAdding] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [showInDesignModal, setShowInDesignModal] = useState(false);
-  const { images, loading } = useProductImages(product.id);
+  
+  // Variant selection state
+  const [selectedVariant, setSelectedVariant] = useState<typeof product.variants extends (infer U)[] ? U : never | null>(
+    product.variants && product.variants.length > 0 ? product.variants[0] : null
+  );
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [showSizeError, setShowSizeError] = useState(false);
   
+  // Get images based on selected variant or default product ID
+  const variantImageSetKey = selectedVariant?.imageSetKey;
+  const { images, loading } = useProductImages(product.id, variantImageSetKey);
+  
   const isInDesign = isProductInDesign(product);
+  
+  // Get current price from selected variant or product default
+  const currentPrice = selectedVariant?.price ?? product.price;
+  // Get current Shopify variant ID from selected variant or product default
+  const currentShopifyVariantId = selectedVariant?.shopifyVariantId ?? product.shopifyVariantId;
 
   const handleAddToCart = async () => {
     // Check if product is In-Design first
@@ -41,11 +54,36 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
       return;
     }
     
+    // Validate variant selection for products with variants (like mugs)
+    if (product.variants && product.variants.length > 0 && !selectedVariant) {
+      setShowSizeError(true);
+      setTimeout(() => setShowSizeError(false), 1000);
+      return;
+    }
+    
     if (!product.inStock) return;
+    if (selectedVariant && !selectedVariant.inStock) return;
     
     setIsAdding(true);
     try {
-      const success = await addToCart(product.id, 1, product.category === 'Apparel' ? { size: selectedSize || '' } : undefined);
+      // Use selected variant's Shopify ID if available, otherwise use product's default
+      const shopifyVariantId = currentShopifyVariantId;
+      
+      // Create cart item with variant information
+      const attributes: Record<string, string> = {};
+      if (product.category === 'Apparel' && selectedSize) {
+        attributes.size = selectedSize;
+      }
+      if (selectedVariant?.size) {
+        attributes.variant = selectedVariant.size;
+      }
+      
+      // Add variant ID to attributes for checkout
+      if (shopifyVariantId) {
+        attributes.shopifyVariantId = shopifyVariantId.toString();
+      }
+      
+      const success = await addToCart(product.id, 1, Object.keys(attributes).length > 0 ? attributes : undefined);
       if (success) {
         setIsAdded(true);
         setTimeout(() => setIsAdded(false), 2000);
@@ -55,6 +93,11 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
     } finally {
       setIsAdding(false);
     }
+  };
+  
+  // Handle variant selection (for products with variants like mugs)
+  const handleVariantSelect = (variant: typeof product.variants extends (infer U)[] ? U : never) => {
+    setSelectedVariant(variant);
   };
 
   const formatPrice = (price: number) => {
@@ -139,10 +182,58 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
           )}
         </div>
 
-        {/* Price */}
-        <div className="text-3xl font-bold text-swatch101">
-          {formatPrice(product.price)}
+        {/* Price - Show range if variants exist */}
+        <div className="space-y-2">
+          <div className="text-3xl font-bold text-swatch101">
+            {product.variants && product.variants.length > 0 ? (
+              (() => {
+                const prices = product.variants.map(v => v.price).filter(p => p > 0);
+                const minPrice = Math.min(...prices);
+                const maxPrice = Math.max(...prices);
+                const hasRange = minPrice !== maxPrice;
+                return hasRange ? `${formatPrice(minPrice)} - ${formatPrice(maxPrice)}` : formatPrice(currentPrice);
+              })()
+            ) : (
+              formatPrice(currentPrice)
+            )}
+          </div>
+          {product.variants && product.variants.length > 0 && selectedVariant && (
+            <p className="text-sm text-swatch101/70">
+              Selected: {selectedVariant.size} - {formatPrice(selectedVariant.price)}
+            </p>
+          )}
         </div>
+
+        {/* Variant selector for products with variants (e.g., Mug sizes) */}
+        {product.variants && product.variants.length > 0 && (
+          <div className={`space-y-3 mt-4 p-4 bg-swatch101/10 rounded-lg border border-swatch103/30 ${showSizeError ? 'animate-wiggle' : ''}`}>
+            <div className="text-base font-bold text-swatch101 mb-3">Select Size:</div>
+            <div className="flex flex-wrap gap-3">
+              {product.variants.map((variant) => (
+                <button
+                  key={variant.size || variant.shopifyVariantId}
+                  onClick={() => handleVariantSelect(variant)}
+                  disabled={!variant.inStock}
+                  className={`px-6 py-3 rounded-lg border-2 font-semibold transition-all ${
+                    selectedVariant?.size === variant.size
+                      ? 'bg-swatch103 text-white border-swatch103 shadow-lg scale-105'
+                      : variant.inStock
+                        ? 'bg-white text-swatch101 border-swatch103/50 hover:border-swatch103 hover:shadow-md'
+                        : 'bg-gray-200 text-gray-400 border-gray-300 cursor-not-allowed'
+                  }`}
+                >
+                  <div className="flex flex-col items-center">
+                    <span className="text-lg">{variant.size}</span>
+                    <span className={`text-sm ${selectedVariant?.size === variant.size ? 'text-white' : 'text-swatch101/70'}`}>
+                      {formatPrice(variant.price)}
+                    </span>
+                  </div>
+                  {!variant.inStock && <span className="text-xs mt-1">(Out of Stock)</span>}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Size selector for Apparel */}
         {product.category === 'Apparel' && product.sizeGuide && (
