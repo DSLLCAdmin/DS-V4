@@ -1280,5 +1280,173 @@ export const products: Product[] = [
     "image": "/product-images/placeholder.jpg",
     "inStock": false, // MOVED TO DRAFT IN SHOPIFY,
     "badge": "New"
+  },
+  {
+    "id": "T-02",
+    "category": "Apparel & Intimate Wear",
+    "title": "Dancer's Tee",
+    "author": "DS LLC",
+    "price": 35.00, // Default to Small variant price
+    "description": "Move like a secret in our Dancer's Tee. Every glance a dare, every step a confession. This unisex V-neck tee features a dynamic ballerina graphic on the front and the empowering Dark Streets message on the back.",
+    "longDescription": "Express your passion for movement with the Dancer's Tee. This unisex V-neck t-shirt features a striking ballerina silhouette graphic on the front, set against a vibrant orange and white abstract background with the word 'Dance' elegantly scripted. The back showcases the powerful Dark Streets message: 'Move like a Secret, Every Glance a Dare, Every Step a Confession' within a bold circular design. Made from soft, breathable fabric with a classic V-neck cut, this tee offers comfort and style for everyday wear. Perfect for those who live to dance and move with purpose.",
+    "image": "/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bda87.jpg", // Default home image
+    "inStock": true,
+    "badge": "New",
+    "shopifyVariantId": 42288984588386, // Legacy: Shopify Variant ID (Small) - Default
+    "variants": [
+      {
+        "size": "Small",
+        "price": 35.00,
+        "shopifyVariantId": 42288984588386, // Shopify Variant ID (Small) - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-02" // Key for variant-specific images
+      },
+      {
+        "size": "Medium",
+        "price": 35.00,
+        "shopifyVariantId": 42288984621154, // Shopify Variant ID (Medium) - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-02" // Key for variant-specific images
+      },
+      {
+        "size": "Large",
+        "price": 35.00,
+        "shopifyVariantId": 42288984653922, // Shopify Variant ID (Large) - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-02" // Key for variant-specific images
+      },
+      {
+        "size": "XL",
+        "price": 35.00,
+        "shopifyVariantId": 42288984686690, // Shopify Variant ID (XL) - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-02" // Key for variant-specific images
+      },
+      {
+        "size": "2XL",
+        "price": 38.00, // Verified from Shopify Admin - Different price for 2XL
+        "shopifyVariantId": 42288984719458, // Shopify Variant ID (2XL) - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-02" // Key for variant-specific images
+      }
+    ],
+    "fulfillmentProvider": "printful",
+    "requiresShipping": true,
+    "sizeGuide": {
+      imperial: {
+        "XS": { length: "26 ⅛", width: "16 ½" },
+        "S": { length: "27 ⅛", width: "18" },
+        "M": { length: "28 ⅛", width: "20" },
+        "L": { length: "29 ⅛", width: "22" },
+        "XL": { length: "30 ⅛", width: "24" },
+        "2XL": { length: "31 ⅛", width: "26" }
+      },
+      metric: {
+        "XS": { length: "68", width: "42" },
+        "S": { length: "70.5", width: "45.7" },
+        "M": { length: "73", width: "50.8" },
+        "L": { length: "75.6", width: "55.9" },
+        "XL": { length: "78.1", width: "61" },
+        "2XL": { length: "80.7", width: "66" }
+      }
+    },
+    "sizeGuideImages": {
+      imperial: "/product-images/Tee-SizeGuide-Imp.png",
+      metric: "/product-images/Tee-SizeGuide-Metric.png",
+      selector: "/product-images/Tee-SizeSelector.png"
+    }
+  },
+  {
+    "id": "T-03",
+    "category": "Apparel & Intimate Wear",
+    "title": "Streeter Tee",
+    "author": "DS LLC",
+    "price": 26.00, // Default to Small variant price
+    "description": "Hit the streets in style with the Streeter Tee. Featuring the iconic Dark Streets design with a classic car and vintage street lamp, this crew-neck tee embodies the spirit of the open road.",
+    "longDescription": "Show your Dark Streets pride with the Streeter Tee. This crew-neck t-shirt features a bold rectangular graphic showcasing the classic Dark Streets design: a vintage street lamp casting its glow, the iconic 'Dark Streets' text in stylized red and white fonts, and a classic convertible sports car in motion. The back features a striking circular design with a vintage street lamp graphic. Made from soft, breathable fabric, this tee is perfect for everyday wear. Available in sizes from Small to 4XL.",
+    "image": "/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bda87.jpg", // Default home image - will need to update with actual Streeter Tee images
+    "inStock": true,
+    "badge": "New",
+    "shopifyVariantId": 42299748384866, // Legacy: Shopify Variant ID (Small) - Default
+    "variants": [
+      {
+        "size": "Small",
+        "price": 26.00,
+        "shopifyVariantId": 42299748384866, // Shopify Variant ID (Small) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "Medium",
+        "price": 26.00,
+        "shopifyVariantId": 42299748417634, // Shopify Variant ID (Medium) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "Large",
+        "price": 26.00,
+        "shopifyVariantId": 42299748450402, // Shopify Variant ID (Large) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "XL",
+        "price": 26.00,
+        "shopifyVariantId": 42299748483170, // Shopify Variant ID (XL) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "2XL",
+        "price": 28.00, // Verified from Shopify Admin - Different price for 2XL
+        "shopifyVariantId": 42299748515938, // Shopify Variant ID (2XL) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "3XL",
+        "price": 30.00, // Verified from Shopify Admin - Different price for 3XL
+        "shopifyVariantId": 42299748548706, // Shopify Variant ID (3XL) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      },
+      {
+        "size": "4XL",
+        "price": 32.50, // Verified from Shopify Admin - Different price for 4XL
+        "shopifyVariantId": 42299748581474, // Shopify Variant ID (4XL) - Product: 7455140216930 - Verified 11/7/2025
+        "inStock": true,
+        "imageSetKey": "T-03" // Key for variant-specific images
+      }
+    ],
+    "fulfillmentProvider": "printful",
+    "requiresShipping": true,
+    "sizeGuide": {
+      imperial: {
+        "XS": { length: "26 ⅛", width: "16 ½" },
+        "S": { length: "27 ⅛", width: "18" },
+        "M": { length: "28 ⅛", width: "20" },
+        "L": { length: "29 ⅛", width: "22" },
+        "XL": { length: "30 ⅛", width: "24" },
+        "2XL": { length: "31 ⅛", width: "26" },
+        "3XL": { length: "32 ⅛", width: "28" },
+        "4XL": { length: "33 ⅛", width: "30" }
+      },
+      metric: {
+        "XS": { length: "68", width: "42" },
+        "S": { length: "70.5", width: "45.7" },
+        "M": { length: "73", width: "50.8" },
+        "L": { length: "75.6", width: "55.9" },
+        "XL": { length: "78.1", width: "61" },
+        "2XL": { length: "80.7", width: "66" },
+        "3XL": { length: "83.2", width: "71.1" },
+        "4XL": { length: "85.7", width: "76.2" }
+      }
+    },
+    "sizeGuideImages": {
+      imperial: "/product-images/Tee-SizeGuide-Imp.png",
+      metric: "/product-images/Tee-SizeGuide-Metric.png",
+      selector: "/product-images/Tee-SizeSelector.png"
+    }
   }
 ];

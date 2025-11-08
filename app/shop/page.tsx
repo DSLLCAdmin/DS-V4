@@ -71,7 +71,11 @@ function StreetStoreContent() {
 
   // Sort products: images first, then by selected sort option
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    // First priority: products with images come first
+    // First priority: in-stock products come first
+    if (a.inStock && !b.inStock) return -1;
+    if (!a.inStock && b.inStock) return 1;
+    
+    // Second priority: products with images come first (but only if both are in stock or both are out of stock)
     const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here" && a.image !== "/product-images/placeholder.jpg";
     const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here" && b.image !== "/product-images/placeholder.jpg";
     
