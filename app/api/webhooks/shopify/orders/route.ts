@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
 
-// Shopify webhook secret - should be moved to environment variables
-const SHOPIFY_WEBHOOK_SECRET = 'your-webhook-secret';
+// Shopify webhook secret - using environment variables for security
+const SHOPIFY_WEBHOOK_SECRET = process.env.SHOPIFY_WEBHOOK_SECRET || '';
 
 // Verify Shopify webhook signature
 function verifyShopifyWebhook(data: string, signature: string, secret: string): boolean {
