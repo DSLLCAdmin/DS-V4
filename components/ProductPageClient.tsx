@@ -5,7 +5,7 @@ import { ShoppingCart, Heart, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/hooks/use-cart';
-import { Product } from '@/data/products';
+import { Product, ProductVariant } from '@/data/products';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { isProductInDesign } from '@/lib/product-utils';
 import { InDesignModal } from '@/components/InDesignModal';
@@ -23,7 +23,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   const [showInDesignModal, setShowInDesignModal] = useState(false);
   
   // Variant selection state
-  const [selectedVariant, setSelectedVariant] = useState<typeof product.variants extends (infer U)[] ? U : never | null>(
+  const [selectedVariant, setSelectedVariant] = useState<ProductVariant | null>(
     product.variants && product.variants.length > 0 ? product.variants[0] : null
   );
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -96,7 +96,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
   };
   
   // Handle variant selection (for products with variants like mugs)
-  const handleVariantSelect = (variant: typeof product.variants extends (infer U)[] ? U : never) => {
+  const handleVariantSelect = (variant: ProductVariant) => {
     setSelectedVariant(variant);
   };
 
