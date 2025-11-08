@@ -1,11 +1,45 @@
-# Shopify API Credentials
-# Get these from your Shopify admin: Apps → Develop apps → Create app
-SHOPIFY_API_KEY=your_api_key_here
-SHOPIFY_API_SECRET=your_api_secret_here
-SHOPIFY_SHOP_NAME=your-shop-name.myshopify.com
-SHOPIFY_ACCESS_TOKEN=your_access_token_here
+# ============================================================================
+# DS LLC Website - Shopify API Credentials Template
+# ============================================================================
+# Copy this file to .env.local and fill in your actual credentials
+# NEVER commit .env.local to Git - it's already in .gitignore
+#
+# Get these from Shopify Admin: Apps → Develop apps → [Your App] → API credentials
+# ============================================================================
 
-# Optional: Webhook secret for order notifications
+# Store Domain (e.g., wenugu-5b.myshopify.com)
+SHOPIFY_STORE_DOMAIN=wenugu-5b.myshopify.com
+
+# Storefront API Token (for checkout and product queries)
+# Get from: Apps → Develop apps → [Your App] → API credentials → Storefront API
+SHOPIFY_STOREFRONT_API_TOKEN=your_storefront_api_token_here
+
+# Admin API Token (for product management and diagnostics)
+# Get from: Apps → Develop apps → [Your App] → API credentials → Admin API
+SHOPIFY_ADMIN_API_TOKEN=your_admin_api_token_here
+# Alternative name (for compatibility)
+SHOPIFY_ADMIN_API_ACCESS_TOKEN=your_admin_api_token_here
+
+# API Version (optional - defaults to 2024-10)
+SHOPIFY_API_VERSION=2024-10
+
+# Webhook Secret (optional - for order notifications)
 SHOPIFY_WEBHOOK_SECRET=your_webhook_secret_here
 
-# Copy this to .env.local and fill in your actual values
+# ============================================================================
+# LEGACY VARIABLES (for backward compatibility)
+# ============================================================================
+# These may be used by older scripts - update as needed
+SHOPIFY_API_KEY=your_api_key_here
+SHOPIFY_API_SECRET=your_api_secret_here
+SHOPIFY_SHOP_NAME=wenugu-5b.myshopify.com
+SHOPIFY_ACCESS_TOKEN=your_access_token_here
+
+# ============================================================================
+# NOTES
+# ============================================================================
+# 1. After rotating credentials in Shopify, update these values
+# 2. Restart your development server after changing .env.local
+# 3. For production (Netlify), set these in Netlify dashboard:
+#    Site settings → Environment variables
+# 4. Never share these credentials or commit them to Git

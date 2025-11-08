@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getShopifyVariantId } from '@/lib/shopify-dynamic-mapping'; // Dynamic variant resolution
 
-// Shopify configuration - these should be moved to environment variables
-const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
-const SHOPIFY_STOREFRONT_API_TOKEN = '42ec4a86d00bfb85a44c99bd24a4f5f2';
-const SHOPIFY_API_VERSION = '2024-10'; // Use stable version
+// Shopify configuration - using environment variables for security
+const SHOPIFY_STORE_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || 'wenugu-5b.myshopify.com';
+const SHOPIFY_STOREFRONT_API_TOKEN = process.env.SHOPIFY_STOREFRONT_API_TOKEN || process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN || '';
+const SHOPIFY_API_VERSION = process.env.SHOPIFY_API_VERSION || '2024-10'; // Use stable version
 
 interface CartItem {
   id: string;

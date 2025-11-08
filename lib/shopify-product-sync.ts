@@ -3,10 +3,10 @@
  * Fetches product data from Shopify Admin API to keep DS LLC website in sync
  */
 
-// Shopify configuration
-const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
-const SHOPIFY_ADMIN_API_TOKEN = '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';
-const SHOPIFY_API_VERSION = '2024-10';
+// Shopify configuration - using environment variables for security
+const SHOPIFY_STORE_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || 'wenugu-5b.myshopify.com';
+const SHOPIFY_ADMIN_API_TOKEN = process.env.SHOPIFY_ADMIN_API_TOKEN || process.env.SHOPIFY_ADMIN_API_ACCESS_TOKEN || '';
+const SHOPIFY_API_VERSION = process.env.SHOPIFY_API_VERSION || '2024-10';
 
 export interface ShopifyProduct {
   id: string;
