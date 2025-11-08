@@ -100,7 +100,7 @@ export function useScrollMemory() {
       
       // Use multiple attempts to ensure restoration works
       const attemptRestore = (attempts: number = 0) => {
-        if (attempts > 15) {
+        if (attempts > 20) {
           console.log(`Max restoration attempts reached for ${page}`);
           return;
         }
@@ -109,23 +109,40 @@ export function useScrollMemory() {
           // Check if page has enough content to scroll to the saved position
           const documentHeight = document.documentElement.scrollHeight;
           const windowHeight = window.innerHeight;
-          const maxScrollableHeight = documentHeight - windowHeight;
+          const maxScrollableHeight = Math.max(0, documentHeight - windowHeight);
           
           // Ensure we have enough content and the saved position is valid
-          if (documentHeight > windowHeight && savedPosition <= maxScrollableHeight) {
-            window.scrollTo({
-              top: savedPosition,
-              behavior: 'smooth'
-            });
-            console.log(`✅ Scroll restored to ${savedPosition}px (attempt ${attempts + 1})`);
-          } else if (attempts < 15) {
+          // Allow some tolerance for dynamic content loading
+          const minRequiredHeight = savedPosition + windowHeight;
+          
+          if (documentHeight >= minRequiredHeight) {
+            // Use instant scroll for more reliable restoration
+            window.scrollTo(0, savedPosition);
+            console.log(`✅ Scroll restored to ${savedPosition}px (attempt ${attempts + 1}, doc: ${documentHeight}px)`);
+            
+            // Verify the scroll actually happened
+            setTimeout(() => {
+              const actualScroll = window.scrollY;
+              if (Math.abs(actualScroll - savedPosition) > 50) {
+                console.log(`⚠️ Scroll verification failed: expected ${savedPosition}px, got ${actualScroll}px, retrying...`);
+                if (attempts < 20) {
+                  attemptRestore(attempts + 1);
+                }
+              }
+            }, 100);
+          } else if (attempts < 20) {
             // Try again if content isn't ready yet
-            console.log(`⏳ Content not ready (doc: ${documentHeight}, win: ${windowHeight}, max: ${maxScrollableHeight}), retrying... (attempt ${attempts + 1})`);
+            console.log(`⏳ Content not ready (doc: ${documentHeight}px, required: ${minRequiredHeight}px), retrying... (attempt ${attempts + 1})`);
             attemptRestore(attempts + 1);
           } else {
-            console.log(`❌ Failed to restore scroll position after ${attempts + 1} attempts - doc: ${documentHeight}, win: ${windowHeight}, saved: ${savedPosition}`);
+            console.log(`❌ Failed to restore scroll position after ${attempts + 1} attempts - doc: ${documentHeight}px, required: ${minRequiredHeight}px, saved: ${savedPosition}px`);
+            // Fallback: scroll to maximum available position
+            if (maxScrollableHeight > 0) {
+              window.scrollTo(0, maxScrollableHeight);
+              console.log(`📌 Fallback: Scrolled to maximum available position: ${maxScrollableHeight}px`);
+            }
           }
-        }, delay + (attempts * 150)); // Increase delay with each attempt
+        }, delay + (attempts * 100)); // Increase delay with each attempt
       };
       
       attemptRestore();

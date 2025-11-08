@@ -39,7 +39,7 @@ function StreetStoreContent() {
   const [selectedInDesignProduct, setSelectedInDesignProduct] = useState<any>(null);
 
   const { addToCart, itemCount } = useCart();
-  const { useAutoSave, restoreScrollPosition, saveScrollPosition } = useScrollMemory();
+  const { useAutoSave, restoreScrollPosition, saveScrollPosition, clearScrollPosition } = useScrollMemory();
 
   // Auto-save scroll position as user scrolls (lower threshold for better UX)
   useAutoSave('/shop', 50);
@@ -48,11 +48,18 @@ function StreetStoreContent() {
   useEffect(() => {
     const categoryParam = searchParams.get('category');
     if (categoryParam && categories.includes(categoryParam)) {
+      const previousCategory = selectedCategory;
       setSelectedCategory(categoryParam);
-      // Reset scroll to top when category changes
-      window.scrollTo(0, 0);
+      
+      // Only reset scroll to top when explicitly changing to a different category
+      // Don't reset if returning to shop page with same category
+      if (previousCategory !== categoryParam && previousCategory !== 'All') {
+        // Clear scroll position when explicitly changing category
+        clearScrollPosition('/shop');
+        window.scrollTo(0, 0);
+      }
     }
-  }, [searchParams]);
+  }, [searchParams, selectedCategory, clearScrollPosition]);
 
   const filteredProducts = dsProducts.filter(product => {
     const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -146,26 +153,50 @@ function StreetStoreContent() {
 
   // Restore scroll position when component mounts and products are loaded
   useEffect(() => {
-    // Only restore scroll if no category is selected (coming from homepage)
+    // Always try to restore scroll position when returning to shop page
+    // Don't restrict based on category - user might be returning from product page
     const categoryParam = searchParams.get('category');
-    if (sortedProducts.length > 0 && !categoryParam) {
+    
+    // Only skip restoration if explicitly navigating to a new category
+    const shouldRestore = !categoryParam || categoryParam === selectedCategory;
+    
+    if (sortedProducts.length > 0 && shouldRestore) {
       console.log(`🔄 Shop page loaded with ${sortedProducts.length} products, attempting scroll restoration...`);
-      restoreScrollPosition('/shop', 300);
+      // Use longer delay to ensure content is fully rendered
+      restoreScrollPosition('/shop', 500);
     }
-  }, [sortedProducts.length, searchParams]);
+  }, [sortedProducts.length, searchParams, selectedCategory]);
 
   // Additional restoration trigger when page becomes visible (handles back navigation)
   useEffect(() => {
     const handleVisibilityChange = () => {
       const categoryParam = searchParams.get('category');
-      if (!document.hidden && sortedProducts.length > 0 && !categoryParam) {
+      const shouldRestore = !categoryParam || categoryParam === selectedCategory;
+      
+      if (!document.hidden && sortedProducts.length > 0 && shouldRestore) {
         console.log(`🔄 Page became visible, attempting scroll restoration...`);
-        restoreScrollPosition('/shop', 100);
+        restoreScrollPosition('/shop', 200);
       }
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
     return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, [sortedProducts.length, selectedCategory]);
+
+  // Additional restoration on route change (handles browser back/forward)
+  useEffect(() => {
+    const handlePopState = () => {
+      // Small delay to let Next.js finish navigation
+      setTimeout(() => {
+        if (sortedProducts.length > 0) {
+          console.log(`🔄 Browser navigation detected, attempting scroll restoration...`);
+          restoreScrollPosition('/shop', 300);
+        }
+      }, 100);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, [sortedProducts.length]);
 
   const toggleFavorite = (productId: string) => {
