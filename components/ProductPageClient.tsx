@@ -227,7 +227,7 @@ export function ProductPageClient({ product }: ProductPageClientProps) {
                     selectedVariant?.size === variant.size
                       ? 'bg-swatch103 text-white border-swatch103 shadow-lg scale-105'
                       : variant.inStock
-                        ? 'bg-white text-swatch101 border-swatch103/50 hover:border-swatch103 hover:shadow-md'
+                        ? 'bg-swatch101/20 text-swatch101 border-swatch103/50 hover:border-swatch103 hover:shadow-md hover:bg-swatch101/30'
                         : 'bg-gray-200 text-gray-400 border-gray-300 cursor-not-allowed'
                   }`}
                 >
