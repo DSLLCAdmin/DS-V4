@@ -551,20 +551,55 @@ function StreetStoreContent() {
                           </div>
                         ) : (
                           <div className="space-y-2">
-                            <div className="flex items-center space-x-3">
-                              <span className="text-2xl font-black text-swatch103 drop-shadow-sm">
-                                {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0")}
-                              </span>
-                              {false && (
-                                <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
-                                  {product.price}
-                                </span>
-                              )}
-                            </div>
-                            {false && (
-                              <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
-                                Save $0.00
-                              </p>
+                            {/* Show variant prices if variants exist */}
+                            {product.variants && product.variants.length > 0 ? (
+                              <div className="space-y-2">
+                                {/* Price Range */}
+                                {(() => {
+                                  const prices = product.variants.map(v => v.price).filter(p => p > 0);
+                                  const minPrice = Math.min(...prices);
+                                  const maxPrice = Math.max(...prices);
+                                  const hasRange = minPrice !== maxPrice;
+                                  return (
+                                    <div className="space-y-1">
+                                      <div className="flex items-center space-x-3">
+                                        <span className="text-2xl font-black text-swatch103 drop-shadow-sm">
+                                          {hasRange ? `${formatPrice(minPrice.toString())} - ${formatPrice(maxPrice.toString())}` : formatPrice(minPrice.toString())}
+                                        </span>
+                                      </div>
+                                      {/* Variant Sizes */}
+                                      <div className="flex flex-wrap gap-2">
+                                        {product.variants.map((variant) => (
+                                          <span 
+                                            key={variant.size || variant.shopifyVariantId}
+                                            className="text-xs font-semibold text-swatch203 bg-swatch101/20 px-2 py-1 rounded border border-swatch103/30"
+                                          >
+                                            {variant.size}: {formatPrice(variant.price.toString())}
+                                          </span>
+                                        ))}
+                                      </div>
+                                    </div>
+                                  );
+                                })()}
+                              </div>
+                            ) : (
+                              <div className="space-y-2">
+                                <div className="flex items-center space-x-3">
+                                  <span className="text-2xl font-black text-swatch103 drop-shadow-sm">
+                                    {formatPrice(product.price?.toString() || "0", product.price?.toString() || "0")}
+                                  </span>
+                                  {false && (
+                                    <span className="text-xl text-swatch203 line-through opacity-75 font-semibold drop-shadow-sm">
+                                      {product.price}
+                                    </span>
+                                  )}
+                                </div>
+                                {false && (
+                                  <p className="text-sm text-swatch103 font-bold drop-shadow-sm">
+                                    Save $0.00
+                                  </p>
+                                )}
+                              </div>
                             )}
                           </div>
                         )}
