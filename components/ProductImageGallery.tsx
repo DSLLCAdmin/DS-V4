@@ -309,25 +309,6 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374577.jpg', // Back view 3
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374874.jpg', // Back view 4
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6375ef8.jpg' // Back view 5
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bfafe.jpg', // Front view 3
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886c0fbb.jpg', // Front view 4
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886c28ed.jpg', // Front view 5
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886c3298.jpg', // Front view 6
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886be1b2.jpg', // Back view 1
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886bec1a.jpg', // Back view 2
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886c00b3.jpg', // Back view 3
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886c14d6.jpg', // Back view 4
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886c240f.jpg', // Back view 5
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-back-69091886c3777.jpg', // Back view 6
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-left-69091886c3c5f.jpg', // Left side view
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-left-front-69091886bf103.jpg', // Left-front view 1
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-left-front-69091886c05af.jpg', // Left-front view 2
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-left-front-69091886c1a06.jpg', // Left-front view 3
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-right-69091886c413c.jpg', // Right side view
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-right-front-69091886bf5bf.jpg', // Right-front view 1
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-right-front-69091886c0ad9.jpg', // Right-front view 2
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-right-front-69091886c1ee8.jpg', // Right-front view 3
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-product-details-69091886c2db2.jpg' // Product details view
     ]
   };
 
