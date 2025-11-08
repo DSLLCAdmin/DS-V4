@@ -75,14 +75,27 @@ function StreetStoreContent() {
     if (a.inStock && !b.inStock) return -1;
     if (!a.inStock && b.inStock) return 1;
     
-    // Second priority: products with images come first (but only if both are in stock or both are out of stock)
-    const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here" && a.image !== "/product-images/placeholder.jpg";
-    const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here" && b.image !== "/product-images/placeholder.jpg";
+    // Special case: Push out-of-stock products with images to the end (after out-of-stock products without images)
+    // This prevents products like Mesh Bodysuits from appearing at the front
+    if (!a.inStock && !b.inStock) {
+      const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here" && a.image !== "/product-images/placeholder.jpg";
+      const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here" && b.image !== "/product-images/placeholder.jpg";
+      
+      // Out-of-stock products WITH images go AFTER out-of-stock products WITHOUT images
+      if (aHasImage && !bHasImage) return 1;
+      if (!aHasImage && bHasImage) return -1;
+    }
     
-    if (aHasImage && !bHasImage) return -1;
-    if (!aHasImage && bHasImage) return 1;
+    // Second priority: products with images come first (but only if both are in stock)
+    if (a.inStock && b.inStock) {
+      const aHasImage = a.image && a.image !== "" && a.image !== "Product in-Design\nTell us your ideas!" && !a.image.startsWith('Product in-Design') && !a.image.includes('placeholder') && !a.image.includes('Placeholder') && a.image !== "Need Image Here" && a.image !== "/product-images/placeholder.jpg";
+      const bHasImage = b.image && b.image !== "" && b.image !== "Product in-Design\nTell us your ideas!" && !b.image.startsWith('Product in-Design') && !b.image.includes('placeholder') && !b.image.includes('Placeholder') && b.image !== "Need Image Here" && b.image !== "/product-images/placeholder.jpg";
+      
+      if (aHasImage && !bHasImage) return -1;
+      if (!aHasImage && bHasImage) return 1;
+    }
     
-    // Second priority: apply selected sort
+    // Third priority: apply selected sort
     switch (sortBy) {
       case 'price-low':
         return ((a.price || 0) - (b.price || 0));

@@ -292,8 +292,23 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/car-magnets-white-10x3-product-details-690e315a31e07.png' // Product details view
     ],
     'T-03': [ // Streeter Tee - Crew-neck t-shirt with Dark Streets design
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bda87.jpg', // Front view 1 (HOME IMAGE - placeholder, update with actual Streeter Tee images)
-      '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886be6f8.jpg', // Front view 2
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6373405.jpg', // Front view 1 (HOME IMAGE)
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6373c46.jpg', // Front view 2
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6374253.jpg', // Front view 3
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6374bd8.jpg', // Front view 4
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6375216.jpg', // Front view 5
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec637553f.jpg', // Front view 6
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec63758b0.jpg', // Front view 7
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6375bd9.jpg', // Front view 8
+      '/product-images/unisex-staple-t-shirt-black-heather-front-690eec6376246.jpg', // Front view 9
+      '/product-images/unisex-staple-t-shirt-black-heather-front-2-690eec6374ef7.jpg', // Front view 10
+      '/product-images/unisex-staple-t-shirt-black-heather-front-2-690eec6376936.jpg', // Front view 11
+      '/product-images/unisex-staple-t-shirt-black-heather-front-and-back-690eec637657f.jpg', // Front and back view
+      '/product-images/unisex-staple-t-shirt-black-heather-back-690eec63738c9.jpg', // Back view 1
+      '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6373f57.jpg', // Back view 2
+      '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374577.jpg', // Back view 3
+      '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374874.jpg', // Back view 4
+      '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6375ef8.jpg' // Back view 5
       '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bfafe.jpg', // Front view 3
       '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886c0fbb.jpg', // Front view 4
       '/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886c28ed.jpg', // Front view 5

@@ -1364,7 +1364,7 @@ export const products: Product[] = [
     "price": 26.00, // Default to Small variant price
     "description": "Hit the streets in style with the Streeter Tee. Featuring the iconic Dark Streets design with a classic car and vintage street lamp, this crew-neck tee embodies the spirit of the open road.",
     "longDescription": "Show your Dark Streets pride with the Streeter Tee. This crew-neck t-shirt features a bold rectangular graphic showcasing the classic Dark Streets design: a vintage street lamp casting its glow, the iconic 'Dark Streets' text in stylized red and white fonts, and a classic convertible sports car in motion. The back features a striking circular design with a vintage street lamp graphic. Made from soft, breathable fabric, this tee is perfect for everyday wear. Available in sizes from Small to 4XL.",
-    "image": "/product-images/unisex-v-neck-tee-dark-grey-heather-front-69091886bda87.jpg", // Default home image - will need to update with actual Streeter Tee images
+    "image": "/product-images/unisex-staple-t-shirt-black-heather-front-690eec6373405.jpg", // Default home image (Streeter Tee)
     "inStock": true,
     "badge": "New",
     "shopifyVariantId": 42299748384866, // Legacy: Shopify Variant ID (Small) - Default
