@@ -75,6 +75,16 @@ function StreetStoreContent() {
     if (a.inStock && !b.inStock) return -1;
     if (!a.inStock && b.inStock) return 1;
     
+    // Special case: Group tees together (products with IDs starting with "T-")
+    const aIsTee = a.id && a.id.startsWith('T-');
+    const bIsTee = b.id && b.id.startsWith('T-');
+    if (aIsTee && !bIsTee) return -1; // Tees come before non-tees
+    if (!aIsTee && bIsTee) return 1;  // Non-tees come after tees
+    if (aIsTee && bIsTee) {
+      // If both are tees, sort by ID to keep them together (T-02 before T-03)
+      return (a.id || '').localeCompare(b.id || '');
+    }
+    
     // Special case: Push out-of-stock products with images to the end (after out-of-stock products without images)
     // This prevents products like Mesh Bodysuits from appearing at the front
     if (!a.inStock && !b.inStock) {
