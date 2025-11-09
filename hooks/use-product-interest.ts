@@ -11,6 +11,20 @@ interface InterestData {
   [productId: string]: ProductInterest;
 }
 
+interface ProductInterestEmailData {
+  productId: string;
+  productTitle: string;
+  productCategory: string;
+  customerEmail?: string;
+  customerName?: string;
+  customerPhone?: string;
+  customerMessage?: string;
+  productsVisited?: string[];
+  productsPurchased?: string[];
+  referrer?: string;
+  userAgent?: string;
+}
+
 export function useProductInterest() {
   const [interestData, setInterestData] = useState<InterestData>({});
 
@@ -53,6 +67,35 @@ export function useProductInterest() {
     console.log(`Interest tracked for product ${productId}. Total interest: ${newData[productId].count}`);
   };
 
+  // Send product interest email to ProductInterest@zoho
+  const sendProductInterestEmail = async (data: ProductInterestEmailData): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/product-interest', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          timestamp: new Date().toISOString()
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        console.error('Failed to send product interest email:', error);
+        return false;
+      }
+
+      const result = await response.json();
+      console.log('Product interest email sent:', result);
+      return true;
+    } catch (error) {
+      console.error('Error sending product interest email:', error);
+      return false;
+    }
+  };
+
   // Get interest count for a product
   const getInterestCount = (productId: string): number => {
     return interestData[productId]?.count || 0;
@@ -67,6 +110,7 @@ export function useProductInterest() {
     trackInterest,
     getInterestCount,
     getAllInterestData,
+    sendProductInterestEmail,
     interestData
   };
 }
