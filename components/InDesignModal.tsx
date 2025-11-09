@@ -90,8 +90,8 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl border border-swatch103/30 max-w-md w-full p-6 relative">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto">
+      <div className="bg-gradient-to-br from-swatch101/95 to-swatch101/85 backdrop-blur-sm rounded-2xl border border-swatch103/30 max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative my-4">
         {/* Close Button */}
         <Button
           onClick={onClose}
@@ -103,41 +103,41 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
         </Button>
 
         {/* Header */}
-        <div className="text-center mb-6">
-          <div className="mb-4">
-            <Clock className="h-12 w-12 text-swatch103 mx-auto mb-3" />
-            <h2 className="text-2xl font-bold text-white mb-2">
+        <div className="text-center mb-4">
+          <div className="mb-2">
+            <Clock className="h-10 w-10 text-swatch103 mx-auto mb-2" />
+            <h2 className="text-xl font-bold text-white mb-1">
               Coming Soon!
             </h2>
-            <p className="text-white/80">
+            <p className="text-white/80 text-sm">
               This <DarkStreetsTextLogo /> product is currently in development
             </p>
           </div>
         </div>
 
         {/* Product Info */}
-        <div className="bg-white/10 rounded-lg p-4 mb-6">
-          <h3 className="text-lg font-bold text-white mb-2">
+        <div className="bg-white/10 rounded-lg p-3 mb-4">
+          <h3 className="text-base font-bold text-white mb-1">
             {product.title}
           </h3>
-          <p className="text-white/80 text-sm mb-3">
+          <p className="text-white/80 text-xs mb-2">
             by {product.author}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-swatch103 font-bold">
+            <span className="text-swatch103 font-bold text-sm">
               {product.price === 0 ? "Contact for Price" : `$${product.price.toFixed(2)}`}
             </span>
-            <Badge className="bg-swatch102/20 text-swatch102 border-swatch102/30">
+            <Badge className="bg-swatch102/20 text-swatch102 border-swatch102/30 text-xs">
               In Development
             </Badge>
           </div>
         </div>
 
         {/* Interest Tracking */}
-        <div className="text-center mb-6">
-          <div className="flex items-center justify-center space-x-2 mb-3">
-            <Users className="h-5 w-5 text-swatch103" />
-            <span className="text-white font-medium">
+        <div className="text-center mb-4">
+          <div className="flex items-center justify-center space-x-2 mb-2">
+            <Users className="h-4 w-4 text-swatch103" />
+            <span className="text-white font-medium text-sm">
               {interestCount} {interestCount === 1 ? 'person' : 'people'} interested
             </span>
           </div>
@@ -145,85 +145,85 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
           {!hasTrackedInterest && !showContactForm ? (
             <Button
               onClick={handleTrackInterest}
-              className="bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full"
+              className="bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 w-full"
             >
-              <Bell className="w-5 h-5 mr-2" />
+              <Bell className="w-4 h-4 mr-2" />
               Notify Me When Available
             </Button>
           ) : showContactForm ? (
-            <div className="space-y-4">
-              <p className="text-white/80 text-sm mb-4">
+            <div className="space-y-3">
+              <p className="text-white/80 text-xs mb-2">
                 We'd love to hear from you! Share your contact info and we'll notify you when this product is ready.
               </p>
               
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="block text-white/80 text-sm mb-1">Name (Optional)</label>
+                  <label className="block text-white/80 text-xs mb-1">Name (Optional)</label>
                   <Input
                     type="text"
                     placeholder="Your name"
                     value={formData.customerName}
                     onChange={(e) => setFormData({ ...formData, customerName: e.target.value })}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm py-2"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-white/80 text-sm mb-1">Email <span className="text-red-400">*</span></label>
+                  <label className="block text-white/80 text-xs mb-1">Email <span className="text-red-400">*</span></label>
                   <Input
                     type="email"
                     placeholder="your@email.com"
                     value={formData.customerEmail}
                     onChange={(e) => setFormData({ ...formData, customerEmail: e.target.value })}
                     required
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm py-2"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-white/80 text-sm mb-1">Phone (Optional)</label>
+                  <label className="block text-white/80 text-xs mb-1">Phone (Optional)</label>
                   <Input
                     type="tel"
                     placeholder="(555) 123-4567"
                     value={formData.customerPhone}
                     onChange={(e) => setFormData({ ...formData, customerPhone: e.target.value })}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm py-2"
                   />
                 </div>
                 
-                <div>
-                  <label className="block text-white/80 text-sm mb-1">Message (Optional)</label>
+                <div className="col-span-2">
+                  <label className="block text-white/80 text-xs mb-1">Message (Optional)</label>
                   <Textarea
                     placeholder="Tell us what you're looking for..."
                     value={formData.customerMessage}
                     onChange={(e) => setFormData({ ...formData, customerMessage: e.target.value })}
-                    rows={3}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50"
+                    rows={2}
+                    className="bg-white/10 border-white/20 text-white placeholder:text-white/50 text-sm"
                   />
                 </div>
               </div>
               
-              <div className="flex gap-2">
+              <div className="flex gap-2 pt-2">
                 <Button
                   onClick={() => setShowContactForm(false)}
                   variant="outline"
-                  className="flex-1 border-white/20 text-white hover:bg-white/10"
+                  className="flex-1 border-white/20 text-white hover:bg-white/10 text-sm py-2"
                 >
                   Cancel
                 </Button>
                 <Button
                   onClick={handleSubmitInterest}
                   disabled={!formData.customerEmail || isSubmitting}
-                  className="flex-1 bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white font-bold"
+                  className="flex-1 bg-gradient-to-r from-swatch103 to-swatch104 hover:from-swatch104 hover:to-swatch105 text-white font-bold text-sm py-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                      <div className="animate-spin rounded-full h-3 w-3 border-b-2 border-white mr-2"></div>
                       Sending...
                     </>
                   ) : (
                     <>
-                      <Bell className="w-4 h-4 mr-2" />
+                      <Bell className="w-3 h-3 mr-2" />
                       Submit Interest
                     </>
                   )}
@@ -231,9 +231,9 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
               </div>
             </div>
           ) : (
-            <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-3">
-              <p className="text-green-400 font-medium flex items-center justify-center">
-                <Bell className="w-4 h-4 mr-2" />
+            <div className="bg-green-500/20 border border-green-500/30 rounded-lg p-2">
+              <p className="text-green-400 font-medium flex items-center justify-center text-sm">
+                <Bell className="w-3 h-3 mr-2" />
                 We'll notify you when this product is ready!
               </p>
             </div>
@@ -241,8 +241,8 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
         </div>
 
         {/* Footer */}
-        <div className="text-center">
-          <p className="text-white/60 text-sm">
+        <div className="text-center mt-3">
+          <p className="text-white/60 text-xs">
             Stay tuned for updates on this exciting new <DarkStreetsTextLogo /> product!
           </p>
         </div>
