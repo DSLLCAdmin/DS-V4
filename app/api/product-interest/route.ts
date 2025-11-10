@@ -17,6 +17,12 @@ interface ProductInterestRequest {
   customerMessage?: string;
   productsVisited?: string[];
   productsPurchased?: string[];
+  cartItems?: string[];
+  totalProductViews?: number;
+  totalPurchases?: number;
+  totalCartAdds?: number;
+  totalSpent?: number;
+  timeOnSiteMinutes?: number;
   referrer?: string;
   userAgent?: string;
   timestamp: string;
@@ -64,12 +70,17 @@ ${body.customerMessage ? `Message: ${body.customerMessage}` : ''}
 
 Customer Profile:
 -----------------
-Products Visited: ${body.productsVisited && body.productsVisited.length > 0 
+Products Visited (${body.totalProductViews || 0} total): ${body.productsVisited && body.productsVisited.length > 0 
   ? body.productsVisited.join(', ') 
   : 'None tracked'}
-Products Purchased: ${body.productsPurchased && body.productsPurchased.length > 0 
+Products Purchased (${body.totalPurchases || 0} total): ${body.productsPurchased && body.productsPurchased.length > 0 
   ? body.productsPurchased.join(', ') 
   : 'None'}
+Cart Items Added (${body.totalCartAdds || 0} total): ${body.cartItems && body.cartItems.length > 0 
+  ? body.cartItems.join(', ') 
+  : 'None'}
+Total Spent: $${(body.totalSpent || 0).toFixed(2)}
+Time on Site: ${body.timeOnSiteMinutes || 0} minutes
 
 Technical Details:
 ------------------
@@ -82,7 +93,7 @@ This is an automated notification from the DS LLC website.
 Customer expressed interest in a product that is currently in development.
     `.trim();
 
-    // Send email using Zoho SMTP
+    // Send email to ProductInterest@zoho (internal notification)
     const emailSent = await sendEmailViaZoho({
       to: PRODUCT_INTEREST_EMAIL,
       subject: emailSubject,
@@ -98,7 +109,47 @@ Customer expressed interest in a product that is currently in development.
       );
     }
 
+    // Send confirmation email to customer
+    if (body.customerEmail) {
+      const customerEmailSubject = `Thank You for Your Interest - ${body.productTitle}`;
+      const customerEmailBody = `
+Hello ${body.customerName || 'Valued Customer'},
+
+Thank you for expressing interest in "${body.productTitle}"!
+
+We've received your interest notification and have added you to our list. We'll notify you as soon as this product becomes available.
+
+Product Details:
+- Product: ${body.productTitle}
+- Category: ${body.productCategory || 'N/A'}
+${body.customerMessage ? `- Your Message: ${body.customerMessage}` : ''}
+
+What's Next?
+We're working hard to bring this product to market. You'll be among the first to know when it's ready!
+
+In the meantime, feel free to browse our current collection at https://darkstreetllc.com/shop
+
+Thank you for your interest in DarkStreet LLC!
+
+Best regards,
+The DarkStreet Team
+
+---
+This is an automated confirmation email. If you have any questions, please reply to this email.
+      `.trim();
+
+      await sendEmailViaZoho({
+        to: body.customerEmail,
+        subject: customerEmailSubject,
+        body: customerEmailBody,
+        from: ZOHO_SMTP_USER
+      });
+    }
+
     console.log(`✅ Product interest email sent to ${PRODUCT_INTEREST_EMAIL} for product ${body.productId}`);
+    if (body.customerEmail) {
+      console.log(`✅ Confirmation email sent to ${body.customerEmail}`);
+    }
 
     return NextResponse.json({ 
       success: true,

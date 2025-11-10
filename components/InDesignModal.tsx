@@ -48,15 +48,36 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
       // Track interest locally
       await trackInterest(product.id, product.title, product.category);
       
-      // Get customer browsing history
-      const productsVisited = JSON.parse(localStorage.getItem('customer_product_views') || '[]')
+      // Get comprehensive customer browsing history
+      const productViews = JSON.parse(localStorage.getItem('customer_product_views') || '[]');
+      const productsVisited = productViews
         .map((p: any) => p.productTitle || p.productId)
         .slice(-10); // Last 10 products viewed
       
-      const productsPurchased = JSON.parse(localStorage.getItem('customer_purchases') || '[]')
-        .map((p: any) => p.items?.map((i: any) => i.productTitle || i.productId).join(', ') || '')
+      const purchases = JSON.parse(localStorage.getItem('customer_purchases') || '[]');
+      const productsPurchased = purchases
+        .map((p: any) => {
+          if (p.items && Array.isArray(p.items)) {
+            return p.items.map((i: any) => i.productTitle || i.productId).join(', ');
+          }
+          return '';
+        })
         .filter(Boolean)
         .slice(-10); // Last 10 purchases
+      
+      // Get additional metrics
+      const cartAdds = JSON.parse(localStorage.getItem('customer_cart_adds') || '[]');
+      const cartItems = cartAdds
+        .map((c: any) => c.productTitle || c.productId)
+        .slice(-10); // Last 10 items added to cart
+      
+      const timeOnSite = localStorage.getItem('customer_time_on_site') || '0';
+      const timeOnSiteMinutes = Math.floor(parseInt(timeOnSite) / 60000); // Convert ms to minutes
+      
+      const totalProductViews = productViews.length;
+      const totalPurchases = purchases.length;
+      const totalCartAdds = cartAdds.length;
+      const totalSpent = purchases.reduce((sum: number, p: any) => sum + (p.total || 0), 0);
 
       // Send email to ProductInterest@zoho
       const emailSent = await sendProductInterestEmail({
@@ -69,6 +90,12 @@ export function InDesignModal({ product, isOpen, onClose }: InDesignModalProps) 
         customerMessage: formData.customerMessage,
         productsVisited,
         productsPurchased,
+        cartItems,
+        totalProductViews,
+        totalPurchases,
+        totalCartAdds,
+        totalSpent,
+        timeOnSiteMinutes,
         referrer: document.referrer || 'direct',
         userAgent: navigator.userAgent
       });

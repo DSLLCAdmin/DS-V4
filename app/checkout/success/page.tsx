@@ -5,20 +5,38 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { CheckCircle, ShoppingBag, ArrowLeft, Package, Mail, Phone, HelpCircle, Clock } from 'lucide-react';
 import { Order, getOrder } from '@/lib/checkout';
+import { useCustomerTracking } from '@/hooks/use-customer-tracking';
 
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('orderId');
   const [order, setOrder] = useState<Order | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const { trackPurchase } = useCustomerTracking();
 
   useEffect(() => {
     if (orderId) {
       const orderData = getOrder(orderId);
       setOrder(orderData);
+      
+      // Track purchase when order is loaded
+      if (orderData) {
+        const purchaseItems = orderData.items.map(item => ({
+          productId: item.id || item.title,
+          productTitle: item.title,
+          quantity: item.quantity,
+          price: item.price
+        }));
+        
+        trackPurchase(
+          orderData.id || orderData.orderNumber,
+          orderData.total,
+          purchaseItems
+        );
+      }
     }
     setIsLoading(false);
-  }, [orderId]);
+  }, [orderId, trackPurchase]);
 
   if (isLoading) {
     return (

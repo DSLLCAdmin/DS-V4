@@ -21,6 +21,12 @@ interface ProductInterestEmailData {
   customerMessage?: string;
   productsVisited?: string[];
   productsPurchased?: string[];
+  cartItems?: string[];
+  totalProductViews?: number;
+  totalPurchases?: number;
+  totalCartAdds?: number;
+  totalSpent?: number;
+  timeOnSiteMinutes?: number;
   referrer?: string;
   userAgent?: string;
 }

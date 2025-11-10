@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { cartManager, Cart, CartItem } from '../lib/cart';
+import { useCustomerTracking } from './use-customer-tracking';
 
 export function useCart() {
   const [cart, setCart] = useState<Cart>({
@@ -8,6 +9,7 @@ export function useCart() {
     itemCount: 0
   });
   const [loading, setLoading] = useState(false);
+  const { trackCartAdd } = useCustomerTracking();
 
   // Update cart state
   const updateCart = () => {
@@ -21,6 +23,20 @@ export function useCart() {
       const success = await cartManager.addToCart(productId, quantity, attributes);
       if (success) {
         updateCart();
+        
+        // Track cart add
+        try {
+          const { products } = await import('../data/products');
+          const product = products.find(p => String(p.id) === productId);
+          if (product) {
+            const price = attributes?.variant ? 
+              (product.variants?.find(v => v.size === attributes.variant)?.price || product.price) :
+              product.price;
+            trackCartAdd(productId, product.title, quantity, price);
+          }
+        } catch (error) {
+          console.error('Error tracking cart add:', error);
+        }
       }
       return success;
     } catch (error) {

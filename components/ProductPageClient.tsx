@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ShoppingCart, Heart, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/hooks/use-cart';
+import { useCustomerTracking } from '@/hooks/use-customer-tracking';
 import { Product, ProductVariant } from '@/data/products';
 import { DarkStreetsTextLogo } from '@/components/DarkStreetsTextLogo';
 import { isProductInDesign } from '@/lib/product-utils';
@@ -18,6 +19,12 @@ interface ProductPageClientProps {
 
 export function ProductPageClient({ product }: ProductPageClientProps) {
   const { addToCart, itemCount } = useCart();
+  const { trackProductView } = useCustomerTracking();
+  
+  // Track product view when component mounts
+  useEffect(() => {
+    trackProductView(product.id, product.title);
+  }, [product.id, product.title, trackProductView]);
   const [isAdding, setIsAdding] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [showInDesignModal, setShowInDesignModal] = useState(false);
