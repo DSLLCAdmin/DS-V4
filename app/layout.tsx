@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import DarkStreetsButton from '../components/DarkStreetsButton';
+import { Toaster } from '@/components/ui/sonner';
 
 export const metadata: Metadata = {
   title: 'DS LLC - Dark Streets Publishing',
@@ -65,6 +66,7 @@ export default function RootLayout({
       <body>
         {/* Header removed - banner now handled in page.tsx */}
         {children}
+        <Toaster />
       </body>
     </html>
   );

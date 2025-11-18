@@ -29,6 +29,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { Plus, Copy, Check } from 'lucide-react';
+import { ContentSnippetForm } from '@/components/ContentSnippetForm';
 import type { ContentSnippet, ContentSnippetType, Platform } from '@/lib/social-hub-data';
 
 const TYPE_LABELS: Record<ContentSnippetType, string> = {
@@ -85,19 +86,17 @@ export function SocialHubContentLibrary() {
     }
   };
 
-  const handleCreateSnippet = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+  const handleCreateSnippet = async (data: {
+    type: ContentSnippetType;
+    platform: Platform;
+    text: string;
+    tags: string[];
+  }) => {
     try {
-      const tags = newSnippet.tags.split(',').map(t => t.trim()).filter(t => t);
-      
       const response = await fetch('/api/social-hub/content-snippets', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...newSnippet,
-          tags
-        })
+        body: JSON.stringify(data)
       });
 
       if (response.ok) {
@@ -145,69 +144,10 @@ export function SocialHubContentLibrary() {
               <DialogHeader>
                 <DialogTitle>Create Content Snippet</DialogTitle>
               </DialogHeader>
-              <form onSubmit={handleCreateSnippet} className="space-y-4">
-                <div>
-                  <label className="text-sm font-medium">Type *</label>
-                  <Select
-                    value={newSnippet.type}
-                    onValueChange={(value) => setNewSnippet({ ...newSnippet, type: value as ContentSnippetType })}
-                    required
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select type" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(TYPE_LABELS).map(([value, label]) => (
-                        <SelectItem key={value} value={value}>
-                          {label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Platform *</label>
-                  <Select
-                    value={newSnippet.platform}
-                    onValueChange={(value) => setNewSnippet({ ...newSnippet, platform: value as Platform })}
-                    required
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select platform" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.entries(PLATFORM_LABELS).map(([value, label]) => (
-                        <SelectItem key={value} value={value}>
-                          {label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Text *</label>
-                  <Textarea
-                    value={newSnippet.text}
-                    onChange={(e) => setNewSnippet({ ...newSnippet, text: e.target.value })}
-                    required
-                    rows={6}
-                  />
-                </div>
-                <div>
-                  <label className="text-sm font-medium">Tags (comma-separated)</label>
-                  <Input
-                    value={newSnippet.tags}
-                    onChange={(e) => setNewSnippet({ ...newSnippet, tags: e.target.value })}
-                    placeholder="tag1, tag2, tag3"
-                  />
-                </div>
-                <div className="flex justify-end gap-2">
-                  <Button type="button" variant="outline" onClick={() => setIsDialogOpen(false)}>
-                    Cancel
-                  </Button>
-                  <Button type="submit">Create Snippet</Button>
-                </div>
-              </form>
+              <ContentSnippetForm
+                onSubmit={handleCreateSnippet}
+                onCancel={() => setIsDialogOpen(false)}
+              />
             </DialogContent>
           </Dialog>
         </div>

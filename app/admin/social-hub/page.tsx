@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { AdminLayout, AdminTabInfo } from '@/components/AdminLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { SocialHubDashboard } from '@/components/SocialHubDashboard';
@@ -10,22 +11,54 @@ import { SocialHubTrends } from '@/components/SocialHubTrends';
 import { SocialHubCrosslinkChecklist } from '@/components/SocialHubCrosslinkChecklist';
 
 export default function SocialHubPage() {
+  const [activeTab, setActiveTab] = useState('dashboard');
+
   return (
     <AdminLayout currentPage="social-hub">
       <AdminTabInfo tabId="social-hub" />
       
-      <Tabs defaultValue="dashboard" className="w-full">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
         <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
-          <TabsTrigger value="tasks">Tasks</TabsTrigger>
-          <TabsTrigger value="content">Content Library</TabsTrigger>
-          <TabsTrigger value="metrics">Metrics</TabsTrigger>
-          <TabsTrigger value="trends">Trends</TabsTrigger>
-          <TabsTrigger value="checklist">Crosslink</TabsTrigger>
+          <TabsTrigger 
+            value="dashboard"
+            className="data-[state=active]:bg-[#C0C0C0] data-[state=active]:text-gray-900 font-semibold"
+          >
+            Dashboard
+          </TabsTrigger>
+          <TabsTrigger 
+            value="tasks"
+            className="data-[state=active]:bg-[#7EC8E3] data-[state=active]:text-gray-900 font-semibold"
+          >
+            Tasks
+          </TabsTrigger>
+          <TabsTrigger 
+            value="content"
+            className="data-[state=active]:bg-[#4ECDC4] data-[state=active]:text-gray-900 font-semibold"
+          >
+            Content Library
+          </TabsTrigger>
+          <TabsTrigger 
+            value="metrics"
+            className="data-[state=active]:bg-[#B87333] data-[state=active]:text-white font-semibold"
+          >
+            Metrics
+          </TabsTrigger>
+          <TabsTrigger 
+            value="trends"
+            className="data-[state=active]:bg-[#FFD700] data-[state=active]:text-gray-900 font-semibold"
+          >
+            Trends
+          </TabsTrigger>
+          <TabsTrigger 
+            value="checklist"
+            className="data-[state=active]:bg-[#DC143C] data-[state=active]:text-white font-semibold"
+          >
+            Crosslink
+          </TabsTrigger>
         </TabsList>
 
         <TabsContent value="dashboard" className="mt-6">
-          <SocialHubDashboard />
+          <SocialHubDashboard onNavigateToTab={setActiveTab} />
         </TabsContent>
 
         <TabsContent value="tasks" className="mt-6">

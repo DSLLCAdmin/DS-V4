@@ -62,6 +62,28 @@ export interface CrosslinkChecklistItem {
   notes: string;
 }
 
+export type CrosslinkStatus = 'OK' | 'NEEDS_ATTENTION';
+
+export interface SocialSettings {
+  id: string;
+  // Today's Focus
+  todaysFocus: {
+    platform: string;
+    goal: string;
+    special: string;
+  };
+  // Crosslink Statuses
+  igBioStatus: CrosslinkStatus;
+  tiktokBioStatus: CrosslinkStatus;
+  redditProfileStatus: CrosslinkStatus;
+  websiteEmbedStatus: CrosslinkStatus;
+  qrAssetsStatus: CrosslinkStatus;
+  crosslinkNotes: string;
+  // Daily Notes (keyed by date)
+  dailyNotes: Record<string, string>; // date -> notes
+  updatedAt: string;
+}
+
 // In-memory storage (can be replaced with database later)
 class SocialHubStorage {
   private tasks: Map<string, Task> = new Map();
@@ -69,6 +91,7 @@ class SocialHubStorage {
   private metricSnapshots: Map<string, MetricSnapshot> = new Map();
   private trendSignals: Map<string, TrendSignal> = new Map();
   private crosslinkChecklist: Map<string, CrosslinkChecklistItem> = new Map();
+  private socialSettings: SocialSettings | null = null;
 
   constructor() {
     this.initializeDefaultData();
@@ -384,6 +407,41 @@ class SocialHubStorage {
     return updatedItem;
   }
 
+  // Social Settings
+  getSocialSettings(): SocialSettings {
+    if (!this.socialSettings) {
+      const now = new Date().toISOString();
+      this.socialSettings = {
+        id: 'settings_1',
+        todaysFocus: {
+          platform: 'TikTok',
+          goal: '1 new video using a trending sound',
+          special: '+10 Reddit karma'
+        },
+        igBioStatus: 'NEEDS_ATTENTION',
+        tiktokBioStatus: 'NEEDS_ATTENTION',
+        redditProfileStatus: 'NEEDS_ATTENTION',
+        websiteEmbedStatus: 'NEEDS_ATTENTION',
+        qrAssetsStatus: 'NEEDS_ATTENTION',
+        crosslinkNotes: '',
+        dailyNotes: {},
+        updatedAt: now
+      };
+    }
+    return this.socialSettings;
+  }
+
+  updateSocialSettings(updates: Partial<Omit<SocialSettings, 'id'>>): SocialSettings {
+    const settings = this.getSocialSettings();
+    this.socialSettings = {
+      ...settings,
+      ...updates,
+      updatedAt: new Date().toISOString()
+    };
+    this.saveToLocalStorage();
+    return this.socialSettings;
+  }
+
   // Local Storage persistence
   private saveToLocalStorage() {
     if (typeof window === 'undefined') return;
@@ -394,6 +452,9 @@ class SocialHubStorage {
       localStorage.setItem('socialHub_metricSnapshots', JSON.stringify(Array.from(this.metricSnapshots.entries())));
       localStorage.setItem('socialHub_trendSignals', JSON.stringify(Array.from(this.trendSignals.entries())));
       localStorage.setItem('socialHub_crosslinkChecklist', JSON.stringify(Array.from(this.crosslinkChecklist.entries())));
+      if (this.socialSettings) {
+        localStorage.setItem('socialHub_settings', JSON.stringify(this.socialSettings));
+      }
     } catch (error) {
       console.error('Failed to save to localStorage:', error);
     }
@@ -431,6 +492,11 @@ class SocialHubStorage {
       if (checklistData) {
         const checklist = JSON.parse(checklistData);
         this.crosslinkChecklist = new Map(checklist);
+      }
+
+      const settingsData = localStorage.getItem('socialHub_settings');
+      if (settingsData) {
+        this.socialSettings = JSON.parse(settingsData);
       }
     } catch (error) {
       console.error('Failed to load from localStorage:', error);
