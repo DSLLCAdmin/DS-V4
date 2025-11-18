@@ -154,12 +154,12 @@ export function SocialHubContentLibrary() {
       </CardHeader>
       <CardContent>
         <div className="flex gap-4 mb-4">
-          <Select value={filters.type} onValueChange={(value) => setFilters({ ...filters, type: value })}>
+          <Select value={filters.type || 'all'} onValueChange={(value) => setFilters({ ...filters, type: value === 'all' ? '' : value })}>
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder="Filter by Type" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Types</SelectItem>
+              <SelectItem value="all">All Types</SelectItem>
               {Object.entries(TYPE_LABELS).map(([value, label]) => (
                 <SelectItem key={value} value={value}>
                   {label}
@@ -168,12 +168,12 @@ export function SocialHubContentLibrary() {
             </SelectContent>
           </Select>
 
-          <Select value={filters.platform} onValueChange={(value) => setFilters({ ...filters, platform: value })}>
+          <Select value={filters.platform || 'all'} onValueChange={(value) => setFilters({ ...filters, platform: value === 'all' ? '' : value })}>
             <SelectTrigger className="w-[200px]">
               <SelectValue placeholder="Filter by Platform" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Platforms</SelectItem>
+              <SelectItem value="all">All Platforms</SelectItem>
               {Object.entries(PLATFORM_LABELS).map(([value, label]) => (
                 <SelectItem key={value} value={value}>
                   {label}

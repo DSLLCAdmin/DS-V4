@@ -264,12 +264,12 @@ export function SocialHubTasks() {
       </CardHeader>
       <CardContent>
         <div className="flex gap-4 mb-4">
-          <Select value={filters.agent} onValueChange={(value) => setFilters({ ...filters, agent: value })}>
+          <Select value={filters.agent || 'all'} onValueChange={(value) => setFilters({ ...filters, agent: value === 'all' ? '' : value })}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter by Agent" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Agents</SelectItem>
+              <SelectItem value="all">All Agents</SelectItem>
               {Object.entries(AGENT_LABELS).map(([value, label]) => (
                 <SelectItem key={value} value={value}>
                   {label}
@@ -278,24 +278,24 @@ export function SocialHubTasks() {
             </SelectContent>
           </Select>
 
-          <Select value={filters.frequency} onValueChange={(value) => setFilters({ ...filters, frequency: value })}>
+          <Select value={filters.frequency || 'all'} onValueChange={(value) => setFilters({ ...filters, frequency: value === 'all' ? '' : value })}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter by Frequency" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Frequencies</SelectItem>
+              <SelectItem value="all">All Frequencies</SelectItem>
               <SelectItem value="DAILY">Daily</SelectItem>
               <SelectItem value="WEEKLY">Weekly</SelectItem>
               <SelectItem value="ONE_OFF">One-off</SelectItem>
             </SelectContent>
           </Select>
 
-          <Select value={filters.status} onValueChange={(value) => setFilters({ ...filters, status: value })}>
+          <Select value={filters.status || 'all'} onValueChange={(value) => setFilters({ ...filters, status: value === 'all' ? '' : value })}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Filter by Status" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="">All Statuses</SelectItem>
+              <SelectItem value="all">All Statuses</SelectItem>
               <SelectItem value="TODO">Todo</SelectItem>
               <SelectItem value="IN_PROGRESS">In Progress</SelectItem>
               <SelectItem value="DONE">Done</SelectItem>
