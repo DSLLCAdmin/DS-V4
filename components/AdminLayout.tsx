@@ -14,7 +14,8 @@ import {
   BarChart3,
   Settings,
   Shield,
-  CreditCard
+  CreditCard,
+  MessageSquare
 } from 'lucide-react';
 
 interface AdminLayoutProps {
@@ -127,6 +128,14 @@ const ADMIN_TABS: AdminTab[] = [
     path: '/admin/shopify-policies',
     description: 'Legal policies and compliance management',
     services: ['Privacy Policy', 'Terms of Service', 'Legal Compliance']
+  },
+  {
+    id: 'social-hub',
+    name: 'Social Hub',
+    icon: <MessageSquare className="w-4 h-4" />,
+    path: '/admin/social-hub',
+    description: 'Social media operations and content management',
+    services: ['Task Management', 'Content Library', 'Metrics Tracking', 'Trend Analysis']
   }
 ];
 
