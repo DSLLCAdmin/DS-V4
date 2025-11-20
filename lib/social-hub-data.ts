@@ -206,6 +206,28 @@ class SocialHubStorage {
       const id = `checklist_${index}`;
       this.crosslinkChecklist.set(id, { ...item, id });
     });
+
+    // Initialize with real Reddit engagement metrics (u/DarkStreetConfess campaign)
+    // Session: 4 hours, 2 days ago, Total Karma: 11
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+    const weekEnding = new Date(twoDaysAgo);
+    weekEnding.setDate(weekEnding.getDate() + (7 - weekEnding.getDay())); // Get Sunday of that week
+    
+    const redditMetricSnapshot: Omit<MetricSnapshot, 'id'> = {
+      date: weekEnding.toISOString().split('T')[0],
+      tiktokViews: 0,
+      instagramInteractions: 0,
+      redditKarma: 11, // Total karma from campaign
+      followersInstagram: 0,
+      followersTikTok: 0,
+      bestTag: 'r/AskReddit',
+      bestPostNote: 'Childhood moment post: 7 upvotes, 65 views. Nostalgic content performed well (2 upvotes in r/nostalgia).',
+      notes: '4-hour Reddit engagement session across 6 subreddits. Best performer: r/AskReddit post about childhood moments. Total 12 comments posted. Active in: r/AskReddit, r/nostalgia, r/AskMen, r/AskWomen, r/CasualConversation.'
+    };
+
+    const metricId = `metric_reddit_${Date.now()}`;
+    this.metricSnapshots.set(metricId, { ...redditMetricSnapshot, id: metricId });
   }
 
   // Tasks

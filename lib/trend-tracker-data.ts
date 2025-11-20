@@ -48,6 +48,9 @@ class TrendTrackerStorage {
 
     if (typeof window !== 'undefined') {
       this.loadFromLocalStorage();
+    } else {
+      // Server-side: initialize with sample data if state is empty
+      this.initializeSampleData();
     }
   }
 
@@ -195,10 +198,192 @@ class TrendTrackerStorage {
           events: loaded.events || [],
           weights: { ...DEFAULT_WEIGHTS, ...(loaded.weights || {}) }
         };
+      } else {
+        // First time - initialize with sample data
+        this.initializeSampleData();
       }
     } catch (error) {
       console.error('Failed to load TrendTracker from localStorage:', error);
+      // On error, initialize with sample data
+      this.initializeSampleData();
     }
+  }
+
+  private initializeSampleData() {
+    // Only initialize if we don't already have data
+    if (this.state.projects.length > 0 || this.state.tasks.length > 0) {
+      return;
+    }
+
+    // Real Reddit Engagement Campaign Data (u/DarkStreetConfess)
+    // Session: 4 hours of posting, 2 days ago
+    // Total Karma: 11, Active in 6 subreddits
+    
+    const redditProject: Project = {
+      PROJ_CODE: "RKT-01",
+      PLT_ID: "R",
+      type: "Experiment",
+      status: "InProgress",
+      title: "Reddit Karma Boost Campaign",
+      description: "4-hour engagement session across 6 subreddits. Total karma: 11. Best performer: r/AskReddit post with 7 upvotes, 65 views."
+    };
+
+    // Tasks based on real engagement data
+    const tasks: TrendTask[] = [
+      {
+        TASK_ID: "T-REDDIT-001",
+        PROJ_CODE: "RKT-01",
+        primary_agent: "AG_KARMA",
+        collab_agents: ["AG_COPY"],
+        description_short: "Follow up on high-performing AskReddit post (7 upvotes, 65 views)",
+        progress: 0.3,
+        state: {
+          heat: 0.7,
+          urgency: 0.6,
+          alignment: 0.8,
+          maintenance: 0.2,
+          dependency_pressure: 0.1
+        },
+        status: "in_progress"
+      },
+      {
+        TASK_ID: "T-REDDIT-002",
+        PROJ_CODE: "RKT-01",
+        primary_agent: "AG_COPY",
+        collab_agents: ["AG_KARMA"],
+        description_short: "Create more content in r/AskReddit (most successful subreddit)",
+        progress: 0.1,
+        state: {
+          heat: 0.6,
+          urgency: 0.5,
+          alignment: 0.9,
+          maintenance: 0.3,
+          dependency_pressure: 0
+        },
+        status: "todo"
+      },
+      {
+        TASK_ID: "T-REDDIT-003",
+        PROJ_CODE: "RKT-01",
+        primary_agent: "AG_METRIC",
+        description_short: "Track engagement patterns: r/nostalgia (2 upvotes) vs r/AskReddit (7 upvotes)",
+        progress: 0.4,
+        state: {
+          heat: 0.5,
+          urgency: 0.4,
+          alignment: 0.7,
+          maintenance: 0.4,
+          dependency_pressure: 0
+        },
+        status: "in_progress"
+      },
+      {
+        TASK_ID: "T-REDDIT-004",
+        PROJ_CODE: "RKT-01",
+        primary_agent: "AG_COPY",
+        description_short: "Develop nostalgic content strategy (r/nostalgia performed well)",
+        progress: 0.2,
+        state: {
+          heat: 0.5,
+          urgency: 0.3,
+          alignment: 0.8,
+          maintenance: 0.2,
+          dependency_pressure: 0
+        },
+        status: "todo"
+      },
+      {
+        TASK_ID: "T-REDDIT-005",
+        PROJ_CODE: "RKT-01",
+        primary_agent: "AG_KARMA",
+        description_short: "Engage with comments on existing posts to boost visibility",
+        progress: 0.1,
+        state: {
+          heat: 0.4,
+          urgency: 0.5,
+          alignment: 0.6,
+          maintenance: 0.3,
+          dependency_pressure: 0.2
+        },
+        status: "todo"
+      }
+    ];
+
+    // Events from the actual Reddit campaign
+    const twoDaysAgo = new Date();
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+    
+    const events: SMEvent[] = [
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 30).toISOString(), // 30 min into session
+        type: "EV_POST_PUBLISHED",
+        payload: { 
+          platform: "R", 
+          subreddit: "r/AskWomen",
+          karma: 1,
+          views: 1
+        }
+      },
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 60).toISOString(), // 1 hour in
+        type: "EV_POST_PUBLISHED",
+        payload: { 
+          platform: "R", 
+          subreddit: "r/AskMen",
+          karma: 1,
+          views: 1
+        }
+      },
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 90).toISOString(), // 1.5 hours in
+        type: "EV_POST_PUBLISHED",
+        payload: { 
+          platform: "R", 
+          subreddit: "r/nostalgia",
+          karma: 2,
+          views: 1
+        }
+      },
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 120).toISOString(), // 2 hours in
+        type: "EV_KARMA_SPIKE",
+        payload: { 
+          platform: "R", 
+          subreddit: "r/AskReddit",
+          karma: 7,
+          views: 65,
+          thread: "What is a moment from your childhood that you only realized was weird once you became an adult?"
+        }
+      },
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 180).toISOString(), // 3 hours in
+        type: "EV_POST_PUBLISHED",
+        payload: { 
+          platform: "R", 
+          subreddit: "r/CasualConversation",
+          karma: 1,
+          views: 1
+        }
+      },
+      {
+        timestamp: new Date(twoDaysAgo.getTime() + 1000 * 60 * 240).toISOString(), // 4 hours in (end)
+        type: "EV_METRIC_DROP",
+        payload: { 
+          platform: "R", 
+          total_karma: 11,
+          total_posts: 12,
+          top_subreddit: "r/AskReddit",
+          top_karma: 7
+        }
+      }
+    ];
+
+    this.state.projects.push(redditProject);
+    this.state.tasks.push(...tasks);
+    this.state.events.push(...events);
+
+    // Save initialized data (only works in browser)
+    this.saveToLocalStorage();
   }
 }
 
