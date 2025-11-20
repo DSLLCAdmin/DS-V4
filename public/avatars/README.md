@@ -2,13 +2,13 @@
 
 Place agent avatar images here with the following naming convention:
 
-- `AG_TREND.png` - Trend Tiger
-- `AG_COPY.png` - Copy Cat
-- `AG_SHOT.png` - Shot Caller
-- `AG_TIME.png` - Time Tuner
-- `AG_KARMA.png` - Karma Kid
-- `AG_METRIC.png` - Metric Monk
-- `AG_LINK.png` - Link Lion
+- `trend-tiger.png` - Trend Tiger (AG_TREND)
+- `copy-cat.png` - Copy Cat (AG_COPY)
+- `shot-caller.png` - Shot Caller (AG_SHOT)
+- `time-tuner.png` - Time Tuner (AG_TIME)
+- `karma-kid.png` - Karma Kid (AG_KARMA)
+- `metric-monk.png` - Metric Monk (AG_METRIC)
+- `link-lion.png` - Link Lion (AG_LINK)
 
 If avatars are not found, the system will display a colored circle with the agent's initial.
 

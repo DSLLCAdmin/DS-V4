@@ -21,9 +21,23 @@ interface AgentColumnProps {
   maxHeat: number; // Max heat for pulse animation and heat bar
 }
 
+// Map agent IDs to avatar filenames
+const getAvatarPath = (agentId: AgentID): string => {
+  const avatarMap: Record<AgentID, string> = {
+    'AG_TREND': 'trend-tiger.png',
+    'AG_COPY': 'copy-cat.png',
+    'AG_SHOT': 'shot-caller.png',
+    'AG_TIME': 'time-tuner.png',
+    'AG_KARMA': 'karma-kid.png',
+    'AG_METRIC': 'metric-monk.png',
+    'AG_LINK': 'link-lion.png'
+  };
+  return `/avatars/${avatarMap[agentId]}`;
+};
+
 function AgentColumn({ agent, rankedTasks, projectCode, agentScore, laneIndex, primaryProjectCode, maxHeat }: AgentColumnProps) {
   const metadata = AVATAR_METADATA[agent.AGENT_ID];
-  const avatarPath = `/avatars/${agent.AGENT_ID}.png`;
+  const avatarPath = getAvatarPath(agent.AGENT_ID);
   const [avatarError, setAvatarError] = useState(false);
   
   // Check if agent has any red tasks (heat >= 0.66) for pulse animation
