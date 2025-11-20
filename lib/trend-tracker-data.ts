@@ -378,9 +378,134 @@ class TrendTrackerStorage {
       }
     ];
 
+    // Additional project: Specific AskWomen thread engagement (RAW-PT-01)
+    // This is a micro-level project focusing on deep engagement in one thread
+    const askWomenProject: Project = {
+      PROJ_CODE: "RAW-PT-01",
+      PLT_ID: "R",
+      type: "PlayTest",
+      status: "InProgress",
+      title: "AskWomen – What do you miss in a relationship?",
+      description: "Deep engagement strategy for specific AskWomen thread. Focus on thoughtful comments and follow-up responses."
+    };
+
+    // Tasks for the AskWomen thread project
+    const askWomenTasks: TrendTask[] = [
+      {
+        TASK_ID: "T-0001",
+        PROJ_CODE: "RAW-PT-01",
+        primary_agent: "AG_KARMA",
+        description_short: "Post thoughtful comment in AskWomen thread",
+        progress: 1.0, // done
+        state: {
+          heat: 0.3,
+          urgency: 0.1,
+          alignment: 0.7,
+          maintenance: 0.2,
+          dependency_pressure: 0
+        },
+        status: "complete"
+      },
+      {
+        TASK_ID: "T-0002",
+        PROJ_CODE: "RAW-PT-01",
+        primary_agent: "AG_KARMA",
+        description_short: "Check for replies & respond",
+        progress: 0.2,
+        state: {
+          heat: 0.8,
+          urgency: 0.7,
+          alignment: 0.8,
+          maintenance: 0.3,
+          dependency_pressure: 0.1
+        },
+        status: "todo"
+      },
+      {
+        TASK_ID: "T-0003",
+        PROJ_CODE: "RAW-PT-01",
+        primary_agent: "AG_TREND",
+        description_short: "Scan top comments for emotional motifs",
+        progress: 0.5,
+        state: {
+          heat: 0.6,
+          urgency: 0.4,
+          alignment: 0.9,
+          maintenance: 0.2,
+          dependency_pressure: 0
+        },
+        status: "in_progress"
+      },
+      {
+        TASK_ID: "T-0004",
+        PROJ_CODE: "RAW-PT-01",
+        primary_agent: "AG_COPY",
+        description_short: "Save best lines into DS writing notebook",
+        progress: 0.1,
+        state: {
+          heat: 0.5,
+          urgency: 0.3,
+          alignment: 0.8,
+          maintenance: 0.2,
+          dependency_pressure: 0
+        },
+        status: "todo"
+      },
+      {
+        TASK_ID: "T-0005",
+        PROJ_CODE: "RAW-PT-01",
+        primary_agent: "AG_METRIC",
+        description_short: "Track karma on AskWomen comment for 3 days",
+        progress: 0.3,
+        state: {
+          heat: 0.4,
+          urgency: 0.3,
+          alignment: 0.7,
+          maintenance: 0.4,
+          dependency_pressure: 0
+        },
+        status: "in_progress"
+      }
+    ];
+
+    // Events for the AskWomen thread project
+    const askWomenEvents: SMEvent[] = [
+      {
+        timestamp: "2025-11-18T10:00:00Z",
+        type: "EV_TREND_DETECTED",
+        payload: {
+          platform: "R",
+          subreddit: "r/AskWomen",
+          thread: "What do you miss in a relationship?",
+          note: "AskWomen thread on 'what you miss in a relationship' shows huge engagement; themes: quiet intimacy, touch, being seen."
+        }
+      },
+      {
+        timestamp: "2025-11-18T11:00:00Z",
+        type: "EV_DEPENDENCY_TRIGGER",
+        payload: {
+          platform: "R",
+          subreddit: "r/AskWomen",
+          note: "Karma Kid to check for replies to u/DarkStreetConfess comment and respond if needed."
+        }
+      },
+      {
+        timestamp: "2025-11-18T12:00:00Z",
+        type: "EV_KARMA_SPIKE",
+        payload: {
+          platform: "R",
+          subreddit: "r/AskWomen",
+          note: "Monitor if short reflective comment gains more than +1–5 upvotes within 24h."
+        }
+      }
+    ];
+
     this.state.projects.push(redditProject);
+    this.state.projects.push(askWomenProject);
     this.state.tasks.push(...tasks);
+    this.state.tasks.push(...askWomenTasks);
     this.state.events.push(...events);
+    this.state.events.push(...askWomenEvents);
 
     // Save initialized data (only works in browser)
     this.saveToLocalStorage();
