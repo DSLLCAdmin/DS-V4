@@ -1,0 +1,64 @@
+
+======================================================================
+SHOPIFY REDIRECT DEPLOYMENT
+======================================================================
+
+Shopify Redirect Script Deployment Guide
+
+
+
+
+🎯 Manual Theme Update Required
+
+
+The Shopify API token doesn't have theme access permissions. We need to manually add the redirect script to the theme.
+
+
+
+Steps to Deploy Redirect Script:
+  1. Access Shopify Admin
+  • Go to: https://wenugu-5b.myshopify.com/admin  • Login with admin credentials  2. Navigate to Themes
+  • Go to: Online Store → Themes  • Click Actions → Edit code on the current theme  3. Edit theme.liquid
+  • Find and open: layout/theme.liquid  • Add this script before the closing </head> tag:
+
+
+<script>
+(function() {
+  // Redirect all product pages to DS LLC website
+  if (window.location.pathname.includes('/products/')) {
+    window.location.href = 'https://darkstreetllc.com/shop';
+  }
+
+  // Redirect cart page
+  if (window.location.pathname.includes('/cart')) {
+    window.location.href = 'https://darkstreetllc.com/cart';
+  }
+
+  // Redirect checkout pages
+  if (window.location.pathname.includes('/checkout')) {
+    window.location.href = 'https://darkstreetllc.com/checkout';
+  }
+})();
+</script>  4. Save Changes
+  • Click Save in the theme editor  • The redirects will be active immediately
+
+
+
+Alternative: Use Shopify Admin API
+
+
+If you have admin access, you can also:  1. Go to Apps → Develop apps  2. Create a new private app with theme access  3. Use the new token to deploy via API
+
+
+
+Test After Deployment:
+
+
+
+Test URLs that should redirect:
+
+https://wenugu-5b.myshopify.com/products/confession-shots-kits
+https://wenugu-5b.myshopify.com/cart
+https://wenugu-5b.myshopify.com/checkout
+
+All should redirect to https://darkstreetllc.com/shop

@@ -1,0 +1,255 @@
+
+======================================================================
+SHOPIFY BACKEND CONFIG
+======================================================================
+
+Shopify Backend-Only Configuration Guide
+
+
+
+
+🎯 DS LLC Website-First Strategy
+
+
+
+
+Core Architecture
+  • DS LLC Website: Primary customer-facing storefront  • Shopify: Backend-only for payments, order tracking, and fulfillment  • No duplicate stores: Shopify remains invisible to customers
+
+
+
+📋 Required Shopify Backend Setup
+  1. Store Configuration
+
+
+
+
+Store Settings
+
+Store Name: DarkStreet LLC Backend
+Store URL: darkstreetllc-backend.myshopify.com
+Purpose: Backend-only for payments and fulfillment
+Visibility: Hidden from search engines
+
+
+
+Theme Configuration
+  • Use minimal theme (e.g., Dawn)  • Disable all customer-facing features:  • Remove product pages  • Remove collection pages  • Remove search functionality  • Remove navigation menus
+
+
+
+SEO Settings
+
+
+
+Disable SEO for all products
+
+Title: "Product Unavailable"
+Description: "This product is only available through our main website"  2. Product Configuration
+
+
+
+
+Product Structure
+
+{
+  "title": "First & Light- E-book",
+  "handle": "first-light-ebook-a01",
+  "bodyhtml": "<p>Available only through DarkStreet LLC website</p>",
+  "vendor": "DarkStreet LLC",
+  "producttype": "Books",
+  "tags": "backend-only, darkstreet, a01",
+  "status": "active",
+  "publishedscope": "web",
+  "variants": [{
+    "price": "0.00",
+    "sku": "A-01",
+    "inventoryquantity": 999,
+    "inventorypolicy": "deny",
+    "fulfillmentservice": "manual",
+    "requiresshipping": false,
+    "taxable": false
+  }]
+}
+
+
+
+Required Products
+  1. Books (Amazon FBA):  • A-01: First & Light E-book (FREE)  • A-02: First & Light Paperback ($9.99)  • A-03: Risque & Safety E-book ($4.99)  • A-04: Risque & Safety Paperback ($14.99)  • A-06: Mercury & Memory Paperback ($19.99)  2. Apparel (Printful):  • T-01: DarkStreets Tee ($35.00)  • B-08: Hats ($24.99)  3. Other Products:  • C-02: DarkStreet Branded Scent Diffusers ($24.99)  3. Payment Configuration
+
+
+
+
+Shopify Payments Setup
+
+Payment Methods:  • Credit Cards (Visa, Mastercard, Amex)  • Debit Cards  • PayPal  • Apple Pay  • Google Pay
+
+Currency: USD only
+Payout Schedule: Daily
+
+
+
+Tax Configuration
+
+Tax Settings:  • Automatic tax calculation: Enabled  • Tax codes: Set per product type  • Tax rates: Based on shipping address  4. Fulfillment Configuration
+
+
+
+
+Amazon FBA Integration
+
+Fulfillment Service: Amazon FBA
+Products: All books (A-01 through A-06)
+Inventory Management: Track inventory
+
+
+
+Printful Integration
+
+Fulfillment Service: Printful
+Products: Apparel (T-01, B-08)
+Inventory Management: Track inventory
+
+
+
+Manual Fulfillment
+
+Fulfillment Service: Manual
+Products: Other products (C-02)
+Inventory Management: Track inventory  5. Webhook Configuration
+
+
+
+
+Required Webhooks
+
+Order Creation: /api/webhooks/shopify/orders/create
+Order Update: /api/webhooks/shopify/orders/updated
+Order Cancellation: /api/webhooks/shopify/orders/cancelled
+Inventory Update: /api/webhooks/shopify/inventorylevels/update
+
+
+
+Webhook Security
+
+Webhook Secret: [Generate secure secret]
+Verification: HMAC-SHA256  6. API Configuration
+
+
+
+
+Private App Setup
+
+App Name: DarkStreet LLC Backend Integration
+Admin API Access: Full Access
+Webhook Access: Enabled
+
+
+
+Environment Variables
+
+SHOPIFYSTORENAME=darkstreetllc-backend
+SHOPIFYADMINAPIACCESSTOKEN=[Admin API Token]
+SHOPIFYSTOREFRONTAPITOKEN=[Storefront API Token]
+SHOPIFYWEBHOOKSECRET=[Webhook Secret]
+SHOPIFYAPI_VERSION=2024-04  7. Customer Redirect Configuration
+
+
+
+
+Storefront Redirect
+
+
+
+Add to theme.liquid
+
+<script>
+if (window.location.pathname.includes('/products/')) {
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+if (window.location.pathname.includes('/collections/')) {
+  window.location.href = 'https://darkstreetllc.com/shop';
+}
+</script>
+
+
+
+SEO Redirects
+
+
+
+Add to .htaccess or server config
+
+Redirect 301 /products/ https://darkstreetllc.com/shop
+Redirect 301 /collections/ https://darkstreetllc.com/shop
+Redirect 301 /search https://darkstreetllc.com/shop  8. Testing Configuration
+
+
+
+
+Test Products
+
+Test Product: "Test Product - Backend Only"
+Price: $0.01
+SKU: TEST-001
+Purpose: API testing only
+
+
+
+Test Payment Cards
+
+Visa: 4242424242424242
+Mastercard: 5555555555554444
+Amex: 378282246310005
+Declined: 4000000000000002
+
+
+
+🚀 Implementation Steps
+
+
+
+
+Phase 1: Store Setup
+  1. Create Shopify store with backend-only configuration  2. Configure minimal theme  3. Set up payment processing  4. Configure tax settings
+
+
+
+Phase 2: Product Import
+  1. Import all required products  2. Set up fulfillment services  3. Configure inventory tracking  4. Test product sync
+
+
+
+Phase 3: Integration
+  1. Set up webhooks  2. Configure API access  3. Test checkout flow  4. Test fulfillment
+
+
+
+Phase 4: Customer Redirect
+  1. Implement storefront redirects  2. Configure SEO redirects  3. Test redirect functionality  4. Monitor for direct access
+
+
+
+📊 Monitoring & Maintenance
+
+
+
+
+Key Metrics
+  • Order conversion rate  • Payment success rate  • Fulfillment accuracy  • Customer redirect effectiveness
+
+
+
+Maintenance Tasks
+  • Weekly inventory sync  • Monthly order reconciliation  • Quarterly performance review  • Annual security audit
+
+
+
+
+
+🎯 Next Steps
+  1. Create Shopify Backend Store  2. Import Required Products  3. Configure Fulfillment Services  4. Set Up Webhooks  5. Test Complete Integration  6. Implement Customer Redirects
+
+
+
+This configuration ensures Shopify remains a backend-only solution while DS LLC website serves as the primary customer interface.*

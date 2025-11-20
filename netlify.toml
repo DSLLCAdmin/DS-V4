@@ -1,15 +1,17 @@
 [build]
-  command = "npm run build"
+  command = "npm ci && npm run build"
   publish = ".next"  # Enable API routes for serverless functions
 
 [build.environment]
   NODE_VERSION = "18"
+  NODE_OPTIONS = "--max-old-space-size=4096"  # Increase memory limit
+  NPM_FLAGS = "--prefer-offline --no-audit"   # Faster npm install
 
-# Handle SPA routing - serve index.html for all routes
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Next.js handles routing - remove SPA redirect that can cause issues
+# [[redirects]]
+#   from = "/*"
+#   to = "/index.html"
+#   status = 200
 
 [[headers]]
   for = "/*"

@@ -1,0 +1,179 @@
+======================================================================
+GUIDE INDEX
+======================================================================
+
+DS LLC Management Guides Index
+
+Last Updated: October 31, 2025
+Purpose: Master index of all management and operational guides
+
+======================================================================
+
+PRODUCT MANAGEMENT GUIDES
+
+1. PRODUCT-LAUNCH-GUIDE.txt
+   - Complete product launch workflow
+   - Product ID conventions
+   - Image naming standards
+   - Shopify integration steps
+
+2. IMAGE-MANAGEMENT-GUIDE.txt
+   - Product image storage system
+   - Image file management
+   - Adding new product images
+   - Troubleshooting image issues
+
+3. MUG-IMAGE-SETUP-COMPLETE.txt
+   - Streeter Mug image carousel setup
+   - Image organization (0-3 wrap-around views)
+   - Conversion requirements
+
+4. FIX-MUG-IMAGE-0-ISSUE.txt
+   - Fix for missing image 0 loading issue
+   - PNG to JPG conversion
+   - File verification steps
+
+======================================================================
+
+SHOPIFY INTEGRATION GUIDES
+
+5. SHOPIFY-CHECKOUT-FIX-REQUIRED.txt
+   - Steps to fix Shopify checkout failures
+   - Adding products to Shopify
+   - Obtaining correct Shopify Variant IDs
+
+6. SHOPIFY-CHECKOUT-TROUBLESHOOTING.txt
+   - Comprehensive checkout failure diagnosis
+   - Verified product configurations
+   - Storefront API token verification
+
+7. SHOPIFY-VARIANT-IDS-VERIFIED.txt
+   - Verified Shopify Product and Variant IDs
+   - Tee shirt and cap variant information
+   - Verification status
+
+8. STOREFRONT-API-TOKEN-CHECK.txt
+   - Steps to verify Storefront API token permissions
+   - Required scopes checklist
+
+9. ADD-COLLECTIONS-TO-EXISTING-PRODUCTS.txt
+   - How to add collections to existing products
+   - Methods for collection assignment
+   - Verification steps
+
+10. PRINTFUL-PRODUCT-CHECKOUT-SOLUTION.txt
+    - Complete solution for Printful product checkout
+    - NEW products requirement
+    - Collection assignment process
+    - DS Website Integration channel setup
+
+======================================================================
+
+EMAIL MANAGEMENT GUIDES
+
+11. zoho-mail-credentials-complete.txt
+    - All Zoho Mail credentials
+    - DNS records configuration
+    - Access information
+
+12. zoho-alias-management-guide.txt
+    - How Zoho aliases work
+    - Organizing with filters
+    - Configuring From addresses
+
+13. zoho-email-organization-complete.txt
+    - Moving emails into folders
+    - Configuring From addresses
+    - Email organization workflow
+
+14. zoho-filter-fix-guide.txt
+    - Fixing Zoho email filters
+    - Do not process other filters checkbox
+    - Filter order configuration
+
+15. zoho-filter-typo-fix.txt
+    - Fixing typos in filter conditions
+    - Email address corrections
+
+16. zoho-filter-debug-guide.txt
+    - Debugging email filters
+    - Checking filter order
+    - Email headers analysis
+
+17. zoho-filter-admin-fix.txt
+    - Fixing Admin Breakout filter
+    - Filter condition specificity
+
+18. zoho-filter-multi-recipient-behavior.txt
+    - Multiple recipient behavior
+    - First matching filter wins
+    - Filter processing order
+
+======================================================================
+
+INVENTORY & OPERATIONS
+
+19. inventory-sync-management.txt
+    - Inventory mismatch handling
+    - Current sync logic
+    - Future sync options
+
+20. CHECKOUT-FAILURE-DIAGNOSIS.txt
+    - Diagnosis of checkout failures
+    - Root cause identification
+    - Step-by-step solutions
+
+21. SHOPIFY-CHECKOUT-DIAGNOSIS.txt
+    - Additional checkout diagnosis
+    - Product visibility issues
+
+22. SHOPIFY-STOREFRONT-API-VISIBILITY-FIX.txt
+    - Storefront API visibility solutions
+    - Product publishing requirements
+
+======================================================================
+
+ADDITIONAL FILES
+
+23. shopify-setup-guide.txt
+    - General Shopify setup instructions
+    - Configuration steps
+
+24. GUIDE-INDEX.txt (this file)
+    - Master index of all guides
+
+======================================================================
+
+CONFIGURATION DOCUMENTS
+
+shopify-backend-config.txt
+shopify-fulfillment-setup.txt
+shopify-tax-configuration.txt
+shopify-product-import-template.txt
+shopify-customer-redirects.txt
+shopify-redirect-deployment.txt
+stripe-keys-setup.txt
+dsllc-admin-credentials.txt
+zoho-mail-credentials-update.txt
+
+======================================================================
+
+DEVELOPMENT HISTORY
+
+PRODUCT-MANAGEMENT.txt
+CURRENT_SYSTEM_WORKFLOW.txt
+architecture-flow.txt
+visual-workflow-simple.txt
+SHOPIFY-ID-MIGRATION-PLAN.txt
+CRITICAL-ACTIONS-STATUS.txt
+amazon-physical-books-guide.txt
+TSW-STRATEGY-SOP.txt
+
+======================================================================
+
+Total Guides: 40+ files
+Categories: Product Management, Shopify Integration, Email Management, Inventory & Operations
+
+All files located in: docs/pdf-ready/
+
+======================================================================

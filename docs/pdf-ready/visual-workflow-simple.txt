@@ -1,0 +1,105 @@
+
+======================================================================
+VISUAL WORKFLOW SIMPLE
+======================================================================
+
+DS LLC System Workflow - Visual
+
+
+
+
+🎯 Customer Order Flow
+
+
+👤 CUSTOMER
+         │
+         ▼
+    🛍️ DARKSTREET WEBSITE
+         │
+         ▼
+    ☁️ SHOPIFY
+         │
+         ▼
+    📦 AMAZON FBA
+         │
+         ▼
+    📦 PRODUCT SHIPPED
+
+
+
+🔐 Admin System Architecture
+
+
+🔑 ADMIN ACCESS (PIN: DS24)
+         │
+         ▼
+    ┌─────────────────────────────────┐
+    │  📊 OVERVIEW  📦 ORDERS        │
+    │  👥 CUSTOMERS 🛍️ PRODUCTS      │
+    │  🔍 LOOKUP    ☁️ SHOPIFY       │
+    │  📥 IMPORT    🔐 CREDENTIALS   │
+    └─────────────────────────────────┘
+
+
+
+📦 Product Management Flow
+
+
+📋 95 PRODUCTS
+         │
+         ▼
+    🏷️ A-01/B-01 ID SYSTEM
+         │
+         ▼
+    📦 GTIN ASSIGNMENT
+         │
+         ▼
+    ✅ AMAZON COMPLIANCE
+
+
+
+🔐 Secure Credentials Storage
+
+
+🔐 CREDENTIALS (PIN: DS24SECURECREDS)
+         │
+         ▼
+    ┌─────────────────────────────────┐
+    │  🛍️ SHOPIFY    📦 AMAZON       │
+    │  💳 PAYMENT    🌐 HOSTING      │
+    │  📧 EMAIL      📊 ANALYTICS    │
+    │  ⚖️ LEGAL      🏦 BANKING      │
+    └─────────────────────────────────┘
+
+
+
+🔄 Real-Time Integration
+
+
+CUSTOMER ORDER
+         │
+         ▼
+    DARKSTREET → SHOPIFY → AMAZON FBA
+         │           │           │
+         ▼           ▼           ▼
+    ADMIN DASHBOARD ← WEBHOOKS ← INVENTORY SYNC
+
+
+
+📊 Current Status
+
+
+
+
+✅ COMPLETED
+  • 🔐 Unified Admin Dashboard  • 📦 Product Catalog (95 products)  • 🏷️ GTIN Assignment System  • 🔐 Secure Credentials Storage  • 🛒 Checkout System  • 🔍 Product Lookup Table  • ☁️ Shopify Integration Foundation
+
+
+
+🚧 IN PROGRESS
+  • 📦 Amazon FBA Integration (Account Approved!)  • ☁️ Shopify Product Import  • 💳 Payment Processing
+
+
+
+📋 NEXT PHASE
+  • 📦 Amazon FBA Product Listings  • ☁️ Shopify Store Setup  • 🔄 Webhook Implementation  • 📊 Inventory Management

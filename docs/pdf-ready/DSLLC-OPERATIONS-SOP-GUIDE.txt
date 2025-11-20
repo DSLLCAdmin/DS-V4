@@ -1,0 +1,920 @@
+================================================================================
+DS LLC WEBSITE OPERATIONS STANDARD OPERATING PROCEDURES
+================================================================================
+
+COMPREHENSIVE GUIDE FOR MAINTAINING AND OPERATING THE DSLLC WEBSITE
+
+Version: 1.0
+Last Updated: November 1, 2025
+Status: Active Operational Guide
+Audience: New Employees Hired to Maintain and Fix the Website
+
+================================================================================
+TABLE OF CONTENTS
+================================================================================
+
+SECTION 1: SYSTEM OVERVIEW
+  1.1 Website Architecture
+  1.2 Technology Stack
+  1.3 Key Directories and Files
+  1.4 Deployment Process
+
+SECTION 2: PRODUCT MANAGEMENT
+  2.1 Launching New Products (SOP)
+  2.2 Image Management (SOP)
+  2.3 Product Data Structure
+  2.4 Inventory Synchronization
+
+SECTION 3: CHECKOUT AND PAYMENT PROCESSING
+  3.1 Current Checkout Solution (Printful Products)
+  3.2 Shopify Integration Requirements
+  3.3 KDP Book Fulfillment
+  3.4 Payment Configuration
+
+SECTION 4: EMAIL MANAGEMENT
+  4.1 Email System Setup (Zoho)
+  4.2 Email Alias Management
+  4.3 Email Organization and Filtering
+
+SECTION 5: DEPLOYMENT AND MAINTENANCE
+  5.1 Git Workflow
+  5.2 Testing Procedures
+  5.3 Deployment Checklist
+
+SECTION 6: TROUBLESHOOTING QUICK REFERENCE
+  6.1 Common Issues and Solutions
+  6.2 Diagnostic Procedures
+  6.3 When to Check Historical Documents
+
+SECTION 7: APPENDIX - HISTORICAL DOCUMENTATION
+  7.1 Guide Index
+  7.2 Troubleshooting Documents
+  7.3 Configuration Documents
+  7.4 Development History
+
+================================================================================
+SECTION 1: SYSTEM OVERVIEW
+================================================================================
+
+1.1 WEBSITE ARCHITECTURE
+
+The DSLLC website is a Next.js application deployed on Netlify, integrated with:
+  • Shopify for e-commerce and checkout
+  • Printful for merchandise fulfillment
+  • Amazon KDP for book fulfillment
+  • Zoho Mail for business email
+
+Key Components:
+  • Frontend: Next.js (React)
+  • Product Data: Centralized in data/products.ts
+  • Images: Local storage in public/product-images/
+  • Checkout: Shopify Storefront API
+  • Deployment: Netlify (automatic from GitHub)
+
+1.2 TECHNOLOGY STACK
+
+Framework: Next.js 14 (App Router)
+Language: TypeScript
+Styling: Tailwind CSS
+Version Control: Git / GitHub
+Hosting: Netlify
+E-commerce: Shopify Storefront API
+Fulfillment: Printful (merchandise), Amazon KDP (books)
+
+1.3 KEY DIRECTORIES AND FILES
+
+PROJECT STRUCTURE:
+  data/products.ts           ← SINGLE SOURCE OF TRUTH for all products
+  public/product-images/     ← All product images stored locally
+  app/                       ← Next.js pages and routes
+  components/                ← Reusable React components
+  lib/                       ← Utilities and integrations
+  scripts/                   ← Diagnostic and utility scripts
+  docs/                      ← Documentation and guides
+
+CRITICAL FILES:
+  • data/products.ts - Product definitions, pricing, variant IDs
+  • components/ProductImageGallery.tsx - Image carousel logic
+  • app/api/shopify/checkout/route.ts - Checkout API endpoint
+  • components/ShopifyCheckoutButton.tsx - Checkout button component
+
+1.4 DEPLOYMENT PROCESS
+
+DEPLOYMENT WORKFLOW:
+  1. Make changes to codebase
+  2. Test locally (if possible)
+  3. Git Add, Commit, Push to GitHub
+  4. Netlify automatically deploys from main branch
+  5. Verify deployment in Netlify dashboard
+
+GIT COMMANDS (Standard Workflow):
+  git add [files]
+  git commit -m "Descriptive message"
+  git push origin main
+
+IMPORTANT: Always test critical changes (checkout, product data) before pushing.
+
+================================================================================
+SECTION 2: PRODUCT MANAGEMENT
+================================================================================
+
+2.1 LAUNCHING NEW PRODUCTS (CURRENT SOP)
+
+This is the STANDARD PROCEDURE for adding any new product to the website.
+
+PHASE 1: PRODUCT DEFINITION & VENDOR SETUP
+
+Step 1.1: Product Design & Finalization
+  • Finalize all product design elements
+  • Ensure brand consistency
+  • Verify color accuracy and print quality
+  • Get stakeholder approval
+
+Step 1.2: Vendor Platform Setup
+
+For Printful Products (Apparel, Mugs, Magnets):
+  1. Create product in Printful Dashboard → "My products"
+  2. Upload design files
+  3. Configure product options (sizes, colors, etc.)
+  4. Set retail pricing
+  5. Publish to Shopify store
+
+For KDP Products (Books):
+  • Products are already published on Amazon KDP
+  • No additional vendor setup needed
+  • Use existing ASINs from KDP dashboard
+
+PHASE 2: SHOPIFY CONFIGURATION (CRITICAL FOR PRINTFUL PRODUCTS)
+
+Step 2.1: Product Creation in Shopify
+  1. Go to Shopify Admin → Products → "Add product"
+  2. Enter product information:
+     • Title: Match Printful product name
+     • Description: Copy from Printful or write custom
+     • Price: Must match Printful retail price
+     • Product Type: Categorize appropriately
+     • Tags: Add relevant tags (e.g., "new", "apparel", "printful")
+
+Step 2.2: Variants Configuration
+  • Add all size/color options if applicable
+  • Set prices per variant
+  • Note: For single-variant products (mugs, magnets), use "Default Title"
+
+Step 2.3: CRITICAL - Publishing Channels (REQUIRED FOR PRINTFUL)
+  
+This step is MANDATORY for Printful products to work correctly:
+
+During Initial Publish Dialog:
+  1. Look for "Add to collections" option at bottom
+  2. ✅ SELECT "Home page" (or another published collection)
+  3. This is when Printful allows collection assignment
+  4. Click "Publish"
+
+After Publishing:
+  1. Go to: Shopify Admin → Products → [Your Product]
+  2. Click "Publishing" section → Click "Manage"
+  3. ✅ ENABLE "DS Website Integration" toggle
+  4. ✅ VERIFY "Online Store" is enabled
+  5. Click "Done"
+
+Step 2.4: Verify Collection Assignment
+  • Go to "Product organization" → "Collections"
+  • Should show "Home page" (or assigned collection)
+  • If missing, add it manually:
+     Shopify Admin → Products → [Product] → Collections → Add "Home page"
+
+Step 2.5: Retrieve Shopify Variant ID
+  • Go to: Shopify Admin → Products → [Your Product]
+  • Click on the variant (e.g., "Default Title" or specific size)
+  • The URL will contain: .../variants/[NUMBER]
+  • Copy that number ← This is your Shopify Variant ID
+
+Alternative Method:
+  • Run script: node scripts/get-product-variant-id.js [PRODUCT_ID]
+  • Product ID is found in Shopify Admin URL: .../products/[PRODUCT_ID]
+
+PHASE 3: DSLLC WEBSITE INTEGRATION
+
+Step 3.1: Assign Product ID
+  • Use NEXT available ID in the sequence:
+     A-XX = Books
+     T-XX = Tee Shirts / Apparel
+     B-XX = Accessories (Caps, etc.)
+     H-XX = Home/Culinary items
+     M-XX = Vehicle Accessories (Magnets)
+     [Other categories as needed]
+  • NEVER reuse old product IDs
+
+Step 3.2: Prepare Images
+  • Save images to public/product-images/
+  • Follow naming convention: [ProductID]_[descriptive-name].[ext]
+  • Example: M01_streeter-magnet-front.png
+  • For carousels: M01_streeter-magnet-0.png, M01_streeter-magnet-1.png, etc.
+  • Home image (shown in shop listing) should be image 2 for 4-image carousels
+
+Step 3.3: Add Product to data/products.ts
+
+Template for Printful Products:
+  {
+    "id": "M-01",
+    "category": "Vehicle Accessories",
+    "title": "StreeterMagnet",
+    "author": "DS LLC",
+    "price": 8.50,
+    "description": "Short description for shop listing",
+    "longDescription": "Detailed description for product page",
+    "image": "/product-images/car-magnets-white-10x3-front-69063a80be934.png",
+    "inStock": true,
+    "badge": "New",
+    "shopifyVariantId": 7448341971042,
+    "printfulVariantId": "[Printful SKU if available]",
+    "fulfillmentProvider": "printful",
+    "requiresShipping": true
+  }
+
+Template for KDP Books:
+  {
+    "id": "A-01",
+    "category": "Serials/Books",
+    "title": "First & Light- E-book",
+    "author": "Aries Tiger",
+    "price": 2.99,
+    "description": "Stage One- First & Light",
+    "image": "/product-images/1a_first-light-ebook.jpg",
+    "inStock": true,
+    "fulfillmentProvider": "kdp",
+    "kdpASIN": "B0FDH86NJJ",
+    "kdpType": "ebook",
+    "requiresShipping": false
+  }
+
+CRITICAL FIELDS:
+  • shopifyVariantId: MUST be correct (from Step 2.5)
+  • price: MUST match Shopify price
+  • inStock: Set to true if product is Active in Shopify
+  • fulfillmentProvider: "printful" or "kdp"
+
+Step 3.4: Configure Image Carousel (if multiple images)
+
+Edit: components/ProductImageGallery.tsx
+
+Add to imageSets object:
+  'M-01': [
+    '/product-images/car-magnets-white-10x3-front-69063a80be934.png',
+    '/product-images/car-magnets-white-10x3-front-69063a80be7fa.png',
+    '/product-images/car-magnets-white-10x3-front-69063a80be8c7.png',
+    '/product-images/car-magnets-white-10x3-front-69063a80be8fe.png',
+    '/product-images/car-magnets-white-10x3-product-details-69063a80be877.png'
+  ]
+
+PHASE 4: DEPLOYMENT & VERIFICATION
+
+Step 4.1: Commit Changes
+  git add data/products.ts
+  git add components/ProductImageGallery.tsx (if updated)
+  git add public/product-images/[new-images].png
+  git commit -m "Add [Product Name] (ID: X-XX)"
+  git push origin main
+
+Step 4.2: Verification Checklist
+  ✅ Product appears in shop listing
+  ✅ Product page loads correctly
+  ✅ Images display properly
+  ✅ Price matches Shopify
+  ✅ Add to cart works
+  ✅ Checkout redirects to Shopify successfully
+  ✅ Variant ID is correct (no 400 errors)
+
+Step 4.3: Testing Checkout
+  1. Add product to cart on DSLLC website
+  2. Click "Shopify Checkout"
+  3. Should redirect to Shopify checkout page
+  4. Complete a test purchase (or cancel before payment)
+  5. Verify order appears in Shopify Admin → Orders
+
+TROUBLESHOOTING:
+  • If checkout fails with 400 error: Verify shopifyVariantId is correct
+  • If product doesn't appear: Check inStock is true and product is Active in Shopify
+  • If images don't load: Verify file paths and names match exactly
+  • See Section 6 for detailed troubleshooting
+
+2.2 IMAGE MANAGEMENT (CURRENT SOP)
+
+IMAGE STORAGE SYSTEM:
+  • All images stored locally in: public/product-images/
+  • NOT pulled from Shopify CDN
+  • Image paths specified in data/products.ts → image field
+
+WHY LOCAL STORAGE:
+  • Full control over image quality and optimization
+  • Faster load times (no external API calls)
+  • Consistent image delivery
+  • Easier version control
+
+IMAGE FILE MANAGEMENT:
+
+File Location:
+  public/product-images/
+  ├── H6_streeter-mug-2.jpg    ← Streeter Mug home image
+  ├── A8_hats.jpg               ← Cap image
+  ├── Tees-0.png                ← Tee shirt images
+  └── car-magnets-*.png         ← Magnet images
+
+Naming Convention:
+  Format: [ProductID]_[descriptive-name].[ext]
+  Examples:
+    • H6_streeter-mug-2.jpg (mug, image 2)
+    • M01_streeter-magnet-front.png (magnet, front view)
+    • Tees-0.png (tee shirt, view 0)
+
+For Image Carousels:
+  • Use sequential numbering: -0, -1, -2, -3
+  • Home image (shop listing) is typically image 2 (for 4-image sets)
+  • Example: H6_streeter-mug-0.jpg, H6_streeter-mug-1.jpg, H6_streeter-mug-2.jpg (HOME), H6_streeter-mug-3.jpg
+
+ADDING NEW PRODUCT IMAGES:
+
+Step 1: Prepare Images
+  • Optimize for web (compress if needed)
+  • Recommended: JPG for photos, PNG for graphics with transparency
+  • Consistent dimensions recommended (e.g., 800x800px for product images)
+
+Step 2: Save to Directory
+  • Copy images to: public/product-images/
+  • Use naming convention above
+
+Step 3: Update Product Data
+  • Edit data/products.ts
+  • Update image field: "image": "/product-images/[filename].[ext]"
+
+Step 4: Update Image Carousel (if multiple images)
+  • Edit components/ProductImageGallery.tsx
+  • Add image array to imageSets object
+
+Step 5: Commit and Deploy
+  git add public/product-images/[new-files]
+  git add data/products.ts
+  git add components/ProductImageGallery.tsx (if updated)
+  git commit -m "Add images for [Product Name]"
+  git push origin main
+
+VERIFY IMAGE LOADING:
+  • Check browser console for 404 errors
+  • Verify images display on product page
+  • Test image carousel navigation (if applicable)
+
+2.3 PRODUCT DATA STRUCTURE
+
+SINGLE SOURCE OF TRUTH:
+  All product information is stored in: data/products.ts
+
+This file contains:
+  • Product IDs
+  • Titles and descriptions
+  • Prices
+  • Images
+  • Stock status
+  • Shopify Variant IDs
+  • Fulfillment provider information
+  • KDP ASINs (for books)
+
+IMPORTANT RULES:
+  1. NEVER hardcode product data in components
+  2. Always import from data/products.ts
+  3. Keep prices in sync with Shopify
+  4. Update inStock based on Shopify Active/Draft status
+  5. Verify shopifyVariantId before committing
+
+2.4 INVENTORY SYNCHRONIZATION
+
+CURRENT APPROACH: Manual Synchronization
+
+How It Works:
+  • inStock status in data/products.ts should match Shopify Active/Draft status
+  • Books: Active = inStock: true
+  • Merchandise: Active in Shopify = inStock: true, Draft = inStock: false
+
+SYNC LOGIC:
+  • Product is Active in Shopify AND
+  • (No inventory tracking OR inventory quantity > 0)
+  → inStock: true
+  • Otherwise → inStock: false
+
+MANUAL UPDATE PROCESS:
+  1. Check Shopify Admin → Products → [Product]
+  2. Note if product is Active or Draft
+  3. Update data/products.ts accordingly
+  4. Commit and push changes
+
+FUTURE ENHANCEMENT:
+  Consider automated sync via API, but current manual approach works reliably.
+
+================================================================================
+SECTION 3: CHECKOUT AND PAYMENT PROCESSING
+================================================================================
+
+3.1 CURRENT CHECKOUT SOLUTION (PRINTFUL PRODUCTS)
+
+ROOT CAUSE IDENTIFIED (October 31, 2025):
+
+Three Critical Factors for Printful Products to Work:
+  1. ✅ NEW Product Listings (NOT reusing previous product placeholders)
+  2. ✅ Collection Assignment (Products must be in a published collection)
+  3. ✅ "DS Website Integration" Publishing Channel (Must be enabled)
+
+HOW IT WORKS:
+  • DSLLC website creates checkout via Shopify Storefront API
+  • Redirects customer to Shopify checkout page
+  • Shopify processes payment
+  • Printful fulfills order
+  • Customer receives tracking information
+
+CHECKOUT FLOW:
+  1. Customer adds product to cart on DSLLC website
+  2. Customer clicks "Shopify Checkout" button
+  3. Website calls /api/shopify/checkout API endpoint
+  4. API creates checkout session with Shopify
+  5. Customer redirected to Shopify checkout URL
+  6. Customer completes payment on Shopify
+  7. Order appears in Shopify Admin → Orders
+  8. Printful automatically receives order and fulfills
+
+CRITICAL REQUIREMENTS FOR NEW PRINTFUL PRODUCTS:
+  1. Create NEW product in Shopify (don't reuse old placeholders)
+  2. Assign to "Home page" collection during initial publish
+  3. Enable "DS Website Integration" publishing channel
+  4. Enable "Online Store" publishing channel
+  5. Get correct Shopify Variant ID (not Printful ID)
+  6. Add correct shopifyVariantId to data/products.ts
+
+3.2 SHOPIFY INTEGRATION REQUIREMENTS
+
+REQUIRED SETTINGS IN SHOPIFY:
+  • Payments: Configured with Mercury Bank (live mode)
+  • Shipping: Configured with Printful
+  • Checkout: Customer accounts set appropriately
+  • Store Plan: Active (not trial/paused)
+
+REQUIRED API TOKENS:
+  • SHOPIFY_STOREFRONT_API_TOKEN (for checkout)
+  • SHOPIFY_ADMIN_API_TOKEN (for diagnostics)
+
+REQUIRED SCOPES (Storefront API):
+  • unauthenticated_read_product_listings
+  • unauthenticated_read_product_inventory
+  • unauthenticated_write_checkouts
+  • unauthenticated_read_checkouts
+
+VERIFYING CHECKOUT WORKS:
+  • Test with product that has correct shopifyVariantId
+  • Should redirect to Shopify without 400 errors
+  • If 400 error: Verify variant ID is correct
+  • If product not found: Check collection assignment and publishing channels
+
+3.3 KDP BOOK FULFILLMENT
+
+HOW KDP BOOKS WORK:
+  • Books are fulfilled through Amazon KDP
+  • When customer clicks checkout for a book:
+     → Redirected to Amazon product page
+     → Completes purchase on Amazon
+     → DSLLC receives no payment (books sold through Amazon)
+
+KDP PRODUCT CONFIGURATION:
+  • fulfillmentProvider: "kdp"
+  • kdpASIN: Amazon ASIN (from KDP dashboard)
+  • kdpType: "ebook" or "paperback"
+  • requiresShipping: false for ebooks, true for paperbacks
+
+KDP CHECKOUT FLOW:
+  1. Customer adds book to cart
+  2. Separate "Buy on Amazon" button appears
+  3. Clicking redirects to Amazon product page
+  4. Customer completes purchase on Amazon
+
+3.4 PAYMENT CONFIGURATION
+
+CURRENT SETUP:
+  • Payments processed through Shopify
+  • Payment provider: Mercury Bank
+  • Mode: Live (not test mode)
+
+CUSTOMER EXPERIENCE:
+  • Customer completes payment on Shopify checkout page
+  • DSLLC website never handles payment information directly
+  • All payment security handled by Shopify
+
+================================================================================
+SECTION 4: EMAIL MANAGEMENT
+================================================================================
+
+4.1 EMAIL SYSTEM SETUP (ZOHO)
+
+CURRENT CONFIGURATION:
+  • Email provider: Zoho Mail
+  • Primary email: admin@darkstreetllc.com
+  • Domain: darkstreetllc.com
+
+EMAIL ALIASES:
+  • admin@darkstreetllc.com (primary)
+  • support@darkstreetllc.com (alias)
+  • ariestiger@darkstreetllc.com (alias)
+  • All aliases route to single inbox
+
+DNS CONFIGURATION (Managed in Netlify DNS):
+  • MX Records: Point to Zoho mail servers
+  • SPF Record: v=spf1 include:zohomail.com ~all
+  • DKIM Records: Configured for email authentication
+
+ACCESS:
+  • Zoho Mail web interface: mail.zoho.com
+  • Login with admin@darkstreetllc.com credentials
+  • Credentials stored in DSLLC Admin Console
+
+4.2 EMAIL ALIAS MANAGEMENT
+
+HOW ALIASES WORK:
+  • Aliases look different to senders
+  • All emails route to single inbox (admin@)
+  • Filters organize emails into folders by recipient
+
+CURRENT ALIASES:
+  1. admin@darkstreetllc.com - Primary mailbox
+  2. support@darkstreetllc.com - Customer support alias
+  3. ariestiger@darkstreetllc.com - Personal alias
+
+CONFIGURING NEW ALIASES:
+  1. Go to Zoho Mail Admin Console
+  2. Navigate to Email Aliases section
+  3. Add new alias
+  4. Set as alias of admin@darkstreetllc.com
+  5. Create filter to organize emails (see Section 4.3)
+
+4.3 EMAIL ORGANIZATION AND FILTERING
+
+FOLDER STRUCTURE:
+  • Admin - Emails to admin@
+  • Support - Emails to support@
+  • Test - Test emails
+
+FILTER SETUP:
+  • Each alias has a filter
+  • Filter condition: "To" field contains alias address
+  • Filter action: Move to appropriate folder
+  • IMPORTANT: Check "Do not process other filters" for each filter
+
+FILTER CONFIGURATION EXAMPLE:
+  Filter Name: Admin Breakout
+  Condition: To contains "admin@darkstreetllc.com"
+  Action: Move to "Admin" folder
+  Option: Do not process other filters (checked)
+
+CONFIGURING "FROM" ADDRESSES:
+  • When replying, set "From" address to match folder context
+  • Example: Reply from Support folder → Use support@darkstreetllc.com
+  • Configure in Zoho Mail settings → Email Accounts → Add From Address
+
+MOVING EXISTING EMAILS:
+  • Filters only work on NEW emails
+  • Manually move existing emails to appropriate folders
+  • Drag and drop in Zoho Mail interface
+
+================================================================================
+SECTION 5: DEPLOYMENT AND MAINTENANCE
+================================================================================
+
+5.1 GIT WORKFLOW
+
+STANDARD WORKFLOW:
+  1. Make changes to files
+  2. Stage changes: git add [files]
+  3. Commit: git commit -m "Descriptive message"
+  4. Push: git push origin main
+  5. Netlify automatically deploys
+
+IMPORTANT NOTES:
+  • Always commit product data changes with descriptive messages
+  • Include product ID in commit message when adding products
+  • Test critical changes locally if possible
+  • Never commit sensitive credentials (use .env.local)
+
+5.2 TESTING PROCEDURES
+
+BEFORE DEPLOYING PRODUCT CHANGES:
+  1. Verify data/products.ts syntax (no typos)
+  2. Check image paths exist and are correct
+  3. Verify shopifyVariantId is correct
+  4. Test checkout process if possible
+  5. Check for TypeScript errors (build should pass)
+
+AFTER DEPLOYMENT:
+  1. Visit live site
+  2. Navigate to product page
+  3. Verify images load
+  4. Add to cart and test checkout
+  5. Check browser console for errors
+
+5.3 DEPLOYMENT CHECKLIST
+
+PRE-DEPLOYMENT:
+  ✅ All files staged and committed
+  ✅ Commit message is descriptive
+  ✅ Product data syntax is correct
+  ✅ Image paths are correct
+  ✅ shopifyVariantId verified (for new products)
+
+POST-DEPLOYMENT:
+  ✅ Netlify build succeeded
+  ✅ Product appears on website
+  ✅ Images display correctly
+  ✅ Checkout works (no 400 errors)
+  ✅ No console errors
+
+================================================================================
+SECTION 6: TROUBLESHOOTING QUICK REFERENCE
+================================================================================
+
+6.1 COMMON ISSUES AND SOLUTIONS
+
+ISSUE: Checkout fails with 400 error
+SOLUTION:
+  1. Verify shopifyVariantId is correct in data/products.ts
+  2. Check product is Active in Shopify
+  3. Verify product is in published collection
+  4. Verify "DS Website Integration" channel is enabled
+  5. Run diagnostic: node scripts/get-product-variant-id.js [PRODUCT_ID]
+
+ISSUE: Product doesn't appear on website
+SOLUTION:
+  1. Check inStock is true in data/products.ts
+  2. Verify product is Active (not Draft) in Shopify
+  3. Check category filtering on shop page
+  4. Verify product ID is correct
+
+ISSUE: Images don't load
+SOLUTION:
+  1. Verify file exists in public/product-images/
+  2. Check image path in data/products.ts matches filename exactly
+  3. Check file extension matches (.jpg vs .png)
+  4. Verify image is committed and pushed to GitHub
+  5. Clear browser cache
+
+ISSUE: Product price mismatch
+SOLUTION:
+  1. Check price in Shopify Admin
+  2. Update price in data/products.ts to match
+  3. Commit and push changes
+
+ISSUE: Email not received
+SOLUTION:
+  1. Check Zoho Mail inbox
+  2. Verify DNS MX records point to Zoho
+  3. Check spam folder
+  4. Verify alias is configured correctly
+
+6.2 DIAGNOSTIC PROCEDURES
+
+CHECK SHOPIFY VARIANT ID:
+  node scripts/get-product-variant-id.js [SHOPIFY_PRODUCT_ID]
+
+CHECK PRODUCT IN SHOPIFY:
+  • Go to Shopify Admin → Products
+  • Search for product by title
+  • Verify status is "Active"
+  • Check publishing channels
+  • Verify collection assignment
+
+CHECK CHECKOUT CONFIGURATION:
+  • Shopify Admin → Settings → Checkout
+  • Verify checkout is enabled
+  • Check payment provider is configured
+  • Verify shipping zones are set up
+
+6.3 WHEN TO CHECK HISTORICAL DOCUMENTS
+
+Check Appendix Section 7 for historical troubleshooting documents when:
+  • Encountering issues not covered in this guide
+  • Need to understand how current solution was developed
+  • Debugging complex integration problems
+  • Reviewing previous problem-solving approaches
+
+================================================================================
+SECTION 7: APPENDIX - HISTORICAL DOCUMENTATION
+================================================================================
+
+This section contains all historical documents organized by category. These documents
+represent the evolution of the website, troubleshooting processes, and solutions that
+led to current best practices. Use these for reference when encountering unusual issues
+or when needing context on why certain procedures are in place.
+
+7.1 GUIDE INDEX
+
+The master index of all documentation files is available in:
+  docs/pdf-ready/GUIDE-INDEX.txt
+
+This index provides:
+  • Complete list of all guide files
+  • Categorization by topic
+  • Brief descriptions of each guide
+  • Total count: 40+ documentation files
+
+All converted .txt files are located in:
+  docs/pdf-ready/
+
+For detailed reference on specific topics, refer to the appropriate .txt file.
+
+7.2 TROUBLESHOOTING DOCUMENTS
+
+These documents detail specific issues encountered and their resolutions:
+
+CHECKOUT-FAILURE-DIAGNOSIS.txt
+  • Initial diagnosis of checkout failures
+  • Root cause analysis
+  • Step-by-step solutions applied
+
+SHOPIFY-CHECKOUT-DIAGNOSIS.txt
+  • Additional checkout failure investigation
+  • Product visibility issues
+  • Storefront API problems
+
+SHOPIFY-CHECKOUT-FIX-REQUIRED.txt
+  • Steps taken to fix checkout failures
+  • Product addition procedures
+  • Variant ID verification
+
+SHOPIFY-CHECKOUT-TROUBLESHOOTING.txt
+  • Comprehensive troubleshooting guide
+  • Verified product configurations
+  • Token scope verification
+
+SHOPIFY-STOREFRONT-API-VISIBILITY-FIX.txt
+  • Storefront API visibility solutions
+  • Product publishing requirements
+  • Collection assignment solutions
+
+SHOPIFY-VARIANT-IDS-VERIFIED.txt
+  • Verified Shopify Product and Variant IDs
+  • Tee shirt and cap variant information
+  • Verification procedures and dates
+
+STOREFRONT-API-TOKEN-CHECK.txt
+  • Steps to verify Storefront API token permissions
+  • Required scopes checklist
+  • Token configuration
+
+ADD-COLLECTIONS-TO-EXISTING-PRODUCTS.txt
+  • How to add collections to existing products
+  • Methods for collection assignment
+  • Verification steps
+
+FIX-MUG-IMAGE-0-ISSUE.txt
+  • Fix for missing image 0 loading issue
+  • PNG to JPG conversion
+  • File verification steps
+
+MUG-IMAGE-SETUP-COMPLETE.txt
+  • Streeter Mug image carousel setup
+  • Image organization procedures
+  • Conversion requirements
+
+zoho-filter-fix-guide.txt
+  • Fixing Zoho email filters
+  • Do not process other filters checkbox
+  • Filter order configuration
+
+zoho-filter-debug-guide.txt
+  • Debugging email filters
+  • Checking filter order
+  • Email headers analysis
+
+zoho-filter-admin-fix.txt
+  • Fixing Admin Breakout filter
+  • Filter condition specificity
+  • Troubleshooting procedures
+
+zoho-filter-typo-fix.txt
+  • Fixing typos in filter conditions
+  • Email address corrections
+
+zoho-filter-multi-recipient-behavior.txt
+  • Multiple recipient behavior
+  • First matching filter wins
+  • Filter processing order explained
+
+7.3 CONFIGURATION DOCUMENTS
+
+These documents detail system configuration and setup:
+
+shopify-setup-guide.txt
+  • General Shopify setup instructions
+  • Configuration steps
+  • Initial setup procedures
+
+shopify-backend-config.txt
+  • Backend configuration details
+  • API setup
+  • Integration configuration
+
+shopify-fulfillment-setup.txt
+  • Fulfillment service setup
+  • Printful integration
+  • Shipping configuration
+
+shopify-tax-configuration.txt
+  • Tax setup and configuration
+  • Tax calculation settings
+  • Regional tax handling
+
+shopify-product-import-template.txt
+  • Product import procedures
+  • Data templates
+  • Import workflows
+
+shopify-customer-redirects.txt
+  • Customer redirect configuration
+  • Post-purchase flows
+
+shopify-redirect-deployment.txt
+  • Redirect setup and deployment
+  • URL routing configuration
+
+stripe-keys-setup.txt
+  • Stripe payment configuration
+  • API key setup
+  • Payment gateway integration
+
+dsllc-admin-credentials.txt
+  • Admin console credentials
+  • Access information
+  • Security configuration
+
+zoho-mail-credentials-complete.txt
+  • All Zoho Mail credentials
+  • DNS records configuration
+  • Access information
+
+zoho-mail-credentials-update.txt
+  • Updated credential information
+  • Configuration changes
+
+7.4 DEVELOPMENT HISTORY
+
+These documents represent the development process and planning:
+
+PRODUCT-MANAGEMENT.txt
+  • Product management procedures
+  • Workflow documentation
+
+CURRENT_SYSTEM_WORKFLOW.txt
+  • Current system architecture
+  • Workflow diagrams
+  • System flow documentation
+
+architecture-flow.txt
+  • System architecture documentation
+  • Component relationships
+  • Data flow diagrams
+
+visual-workflow-simple.txt
+  • Simplified workflow visualization
+  • Process diagrams
+
+SHOPIFY-ID-MIGRATION-PLAN.txt
+  • ID migration planning
+  • Migration procedures
+  • Transition documentation
+
+CRITICAL-ACTIONS-STATUS.txt
+  • Critical business actions status
+  • Completed tasks log
+  • Pending actions list
+
+amazon-physical-books-guide.txt
+  • Amazon book fulfillment guide
+  • KDP integration documentation
+  • Book product setup
+
+TSW-STRATEGY-SOP.txt
+  • TSW (Troubleshooting Strategy) methodology
+  • Problem-solving framework
+  • Systematic debugging approach
+
+7.5 REFERENCE DOCUMENTS
+
+For additional context on specific topics, refer to these documents in:
+  docs/pdf-ready/
+
+All converted .txt files are available for detailed reference on specific topics.
+The GUIDE-INDEX.txt file provides a complete catalog of all documentation.
+
+================================================================================
+END OF DSLLC OPERATIONS SOP GUIDE
+================================================================================
+
+This guide will be updated as the website continues to grow and develop.
+New procedures will be added to maintain consistency and operational excellence.
+
+Last Updated: November 1, 2025
+Next Review: As needed when new procedures are established
+
+================================================================================

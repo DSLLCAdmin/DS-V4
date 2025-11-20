@@ -1,9 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { storeProductInterestInZoho } from '@/lib/zoho-crm';
 
 /**
  * Product Interest API Route
  * 
  * Sends product interest notifications to ProductInterest@darkstreetllc.com (Zoho)
+ * Stores product interest data in Zoho CRM (if configured)
  * Includes customer contact details, product information, and browsing history
  */
 
@@ -92,6 +94,18 @@ Timestamp: ${body.timestamp || new Date().toISOString()}
 This is an automated notification from the DS LLC website.
 Customer expressed interest in a product that is currently in development.
     `.trim();
+
+    // Store in Zoho CRM (if configured)
+    let zohoCRMStored = false;
+    try {
+      zohoCRMStored = await storeProductInterestInZoho(body);
+      if (zohoCRMStored) {
+        console.log(`✅ Product Interest stored in Zoho CRM for product ${body.productId}`);
+      }
+    } catch (error) {
+      console.error('Error storing in Zoho CRM (continuing with email):', error);
+      // Continue with email even if CRM storage fails
+    }
 
     // Send email to ProductInterest@zoho (internal notification)
     const emailSent = await sendEmailViaZoho({

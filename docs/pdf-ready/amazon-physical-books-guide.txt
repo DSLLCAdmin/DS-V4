@@ -1,0 +1,58 @@
+
+======================================================================
+AMAZON PHYSICAL BOOKS GUIDE
+======================================================================
+
+Amazon Seller Central - Adding Physical Books (NOT E-books)
+
+
+
+
+🚨 CRITICAL ISSUE IDENTIFIED
+
+
+You're trying to add e-book ASIN B0FDH86NJJ to your physical inventory catalog. This won't work because:  • E-books = Digital products managed through KDP  • Physical books = Inventory products managed through Seller Central  • FBA fulfillment only works with physical products
+
+
+
+✅ SOLUTION: Add Physical Paperback Versions
+
+
+
+
+Step 1: Find Your Physical Book ASINs
+  1. Go to Amazon.com (not Seller Central)  2. Search for each book + "paperback":  • "First & Light paperback"  • "Risque & Safety paperback"  • "Mercury & Memory paperback"  • "DarkStreets paperback"  • "The Fall paperback"  • "The Rise paperback"  • "The End paperback"  • "The Beginning paperback"  3. Look for the physical book listing (not the e-book)  4. Copy the ASIN from the URL or product details  5. Note: The paperback ASIN will be DIFFERENT from B0FDH86NJJ
+
+
+
+Step 2: Add Physical Books to Seller Central
+  1. Go to Seller Central → Catalog → Add Products  2. Search for the paperback ASIN (not the e-book ASIN)  3. Click "Sell this product" if it exists  4. Or create new listing if it doesn't exist
+
+
+
+Step 3: Configure for FBA
+  1. Set fulfillment method to "Amazon FBA"  2. Add inventory (if you have physical stock)  3. Set pricing and shipping settings
+
+
+
+📚 EXAMPLE:
+  • ❌ WRONG: B0FDH86NJJ (e-book - can't be fulfilled)  • ✅ RIGHT: [Find paperback ASIN] (physical - can be fulfilled)
+
+
+
+🔗 HELPFUL LINKS:
+  • Amazon.com search: https://amazon.com  • KDP Dashboard: https://kdp.amazon.com  • Seller Central: https://sellercentral.amazon.com
+
+
+
+⚠️ IMPORTANT NOTES:
+  • E-books are managed through KDP (not Seller Central)  • Physical books are managed through Seller Central  • FBA fulfillment only works with physical products  • You need paperback ASINs (not e-book ASINs)
+
+
+
+🎯 NEXT STEPS:
+  1. Find all 8 paperback ASINs on Amazon.com  2. Add them to Seller Central using the correct ASINs  3. Configure them for Amazon FBA fulfillment  4. Test the integration with Shopify
+
+
+
+Remember: You're looking for the physical paperback versions of your books, not the e-book versions!

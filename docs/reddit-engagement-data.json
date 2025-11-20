@@ -1,0 +1,41 @@
+{
+  "session": {
+    "date": "",
+    "username": "u_DarkStreetConfess",
+    "duration_hours": 4,
+    "total_karma_gained": 0,
+    "total_posts_comments": 0
+  },
+  "posts": [
+    {
+      "subreddit": "",
+      "thread_title": "",
+      "content": "",
+      "karma": 0,
+      "comments_received": 0,
+      "timestamp": "",
+      "url": ""
+    }
+  ],
+  "follow_up_tasks": [
+    {
+      "description": "",
+      "agent": "AG_KARMA",
+      "priority": "high|medium|low",
+      "due_date": ""
+    }
+  ],
+  "metrics": {
+    "total_upvotes": 0,
+    "total_downvotes": 0,
+    "net_karma": 0,
+    "total_comments": 0,
+    "most_successful_post": {
+      "subreddit": "",
+      "karma": 0,
+      "thread_title": ""
+    }
+  },
+  "notes": ""
+}
+

@@ -996,3 +996,31 @@ button .dark-streets-text-logo .street-part,
   animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+/* TrendTracker Avatar Styles */
+.avatar-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+  position: relative;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* keep ring/star/dot intact */
+}
+
+.avatar-circle-fallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #ffd580; /* or role-based color if you prefer */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+

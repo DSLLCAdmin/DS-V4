@@ -11,6 +11,74 @@ import type { TrendTracker, Agent, TrendTask, AgentID, Project as TrendProject }
 import { AVATAR_METADATA } from '@/lib/trend-tracker-types';
 import { TrendTrackerManagement } from './TrendTrackerManagement';
 
+// -------------------------------------------------------------------------
+// AVATAR MAP: agent display name → public image path
+// -------------------------------------------------------------------------
+const AVATAR_MAP: Record<string, string> = {
+  "Trend Tiger": "/trend-tiger.png",
+  "Copy Cat": "/copy-cat.png",
+  "Shot Caller": "/shot-caller.png",
+  "Time Tuner": "/time-tuner.png",
+  "Karma Kid": "/karma-kid.png",
+  "Metric Monk": "/metric-monk.png",
+  "Link Lion": "/link-lion.png"
+};
+
+// -------------------------------------------------------------------------
+// Helper: render avatar for an agent (with fallback)
+// -------------------------------------------------------------------------
+function renderAgentAvatar(agent: { display_name?: string }, hasRedTask: boolean, metadata: { ringColor: string }) {
+  const name = agent.display_name ?? "";
+  const src = AVATAR_MAP[name];
+
+  // If we have a mapped avatar, show it.
+  if (src) {
+    return (
+      <div className="relative mb-3">
+        <div 
+          className={`avatar-wrapper ${hasRedTask ? 'pulse-ring' : ''}`}
+          style={{ 
+            borderColor: metadata.ringColor,
+            borderWidth: '4px',
+            borderStyle: 'solid'
+          }}
+        >
+          <Image
+            src={src}
+            alt={name}
+            width={80}
+            height={80}
+            className="avatar-img"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Fallback: original circle with initial if no avatar found.
+  const initial = name ? name.charAt(0) : "?";
+
+  return (
+    <div className="relative mb-3">
+      <div 
+        className={`avatar-wrapper ${hasRedTask ? 'pulse-ring' : ''}`}
+        style={{ 
+          borderColor: metadata.ringColor,
+          borderWidth: '4px',
+          borderStyle: 'solid'
+        }}
+      >
+        <div 
+          className="avatar-circle-fallback"
+          style={{ background: metadata.ringColor }}
+        >
+          {initial}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 interface AgentColumnProps {
   agent: Agent;
   rankedTasks: RankedTask[];
@@ -21,24 +89,8 @@ interface AgentColumnProps {
   maxHeat: number; // Max heat for pulse animation and heat bar
 }
 
-// Map agent IDs to avatar filenames
-const getAvatarPath = (agentId: AgentID): string => {
-  const avatarMap: Record<AgentID, string> = {
-    'AG_TREND': 'trend-tiger.png',
-    'AG_COPY': 'copy-cat.png',
-    'AG_SHOT': 'shot-caller.png',
-    'AG_TIME': 'time-tuner.png',
-    'AG_KARMA': 'karma-kid.png',
-    'AG_METRIC': 'metric-monk.png',
-    'AG_LINK': 'link-lion.png'
-  };
-  return `/avatars/${avatarMap[agentId]}`;
-};
-
 function AgentColumn({ agent, rankedTasks, projectCode, agentScore, laneIndex, primaryProjectCode, maxHeat }: AgentColumnProps) {
   const metadata = AVATAR_METADATA[agent.AGENT_ID];
-  const avatarPath = getAvatarPath(agent.AGENT_ID);
-  const [avatarError, setAvatarError] = useState(false);
   
   // Check if agent has any red tasks (heat >= 0.66) for pulse animation
   const hasRedTask = maxHeat >= 0.66;
@@ -62,32 +114,7 @@ function AgentColumn({ agent, rankedTasks, projectCode, agentScore, laneIndex, p
       )}
 
       {/* Avatar with pulse ring */}
-      <div className="relative mb-3">
-        <div 
-          className={`avatar-wrapper w-16 h-16 rounded-full border-4 flex items-center justify-center overflow-hidden bg-muted ${hasRedTask ? 'pulse-ring' : ''}`}
-          style={{ 
-            borderColor: metadata.ringColor
-          }}
-        >
-          {avatarError ? (
-            <div 
-              className="w-full h-full flex items-center justify-center text-white font-bold text-lg"
-              style={{ background: metadata.ringColor }}
-            >
-              {agent.display_name[0]}
-            </div>
-          ) : (
-            <Image
-              src={avatarPath}
-              alt={agent.display_name}
-              width={64}
-              height={64}
-              className="object-cover"
-              onError={() => setAvatarError(true)}
-            />
-          )}
-        </div>
-      </div>
+      {renderAgentAvatar(agent, hasRedTask, metadata)}
 
       {/* Heat Bar */}
       <div className="w-full h-2 bg-muted rounded-full mb-2 overflow-hidden">

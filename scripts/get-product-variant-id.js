@@ -74,6 +74,9 @@ async function main() {
     console.log(`\n✅ Product: "${product.title}"`);
     console.log(`   Product ID: ${product.id}`);
     console.log(`   Status: ${product.status}`);
+    console.log(`   Published At: ${product.publishedAt || 'NOT PUBLISHED'}`);
+    console.log(`   Online Store URL: ${product.onlineStoreUrl || 'NOT AVAILABLE'}`);
+    console.log(`   Available For Sale: ${product.availableForSale ? '✅ Yes' : '❌ No'}`);
     console.log(`\n   Variants:`);
     console.log('   '.repeat(35));
     

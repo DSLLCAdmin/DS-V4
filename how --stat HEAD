@@ -1,0 +1,9 @@
+ app/admin/social-hub/page.tsx             |  32 [32m+[m[31m--[m
+ app/api/social-hub/trend-tracker/route.ts | 136 [32m+++++++++[m
+ components/TrendTrackerDashboard.tsx      | 259 [32m+++++++++++++++++[m
+ components/TrendTrackerManagement.tsx     | 452 [32m++++++++++++++++++++++++++++++[m
+ lib/trend-tracker-data.ts                 | 206 [32m++++++++++++++[m
+ lib/trend-tracker-engine.ts               |  56 [32m++++[m
+ lib/trend-tracker-types.ts                | 107 [32m+++++++[m
+ public/avatars/README.md                  |  14 [32m+[m
+ 8 files changed, 1238 insertions(+), 24 deletions(-)

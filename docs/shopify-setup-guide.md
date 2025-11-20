@@ -82,7 +82,7 @@ Webhook Access: Enabled
 ```bash
 # .env.local
 SHOPIFY_STORE_NAME=darkstreetllc
-SHOPIFY_ADMIN_API_ACCESS_TOKEN=shpat_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+SHOPIFY_ADMIN_API_ACCESS_TOKEN= _xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 SHOPIFY_WEBHOOK_SECRET=your-webhook-secret
 SHOPIFY_API_VERSION=2024-04
 ```
