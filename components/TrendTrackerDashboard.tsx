@@ -505,13 +505,13 @@ export function TrendTrackerDashboard() {
       >
           <div className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold">Legend & Key</h3>
+              <h3 className="text-lg font-semibold">Legend &amp; Key</h3>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setShowKeyPanel(false)}
               >
-                ×
+                &times;
               </Button>
             </div>
 
@@ -551,11 +551,11 @@ export function TrendTrackerDashboard() {
                       <div className="font-medium">{agent.display_name}</div>
                       <div className="text-xs text-muted-foreground">
                         {agent.AGENT_ID === 'AG_TREND' && 'Trend tracking / triage'}
-                        {agent.AGENT_ID === 'AG_COPY' && 'Copy & messaging'}
+                        {agent.AGENT_ID === 'AG_COPY' && 'Copy &amp; messaging'}
                         {agent.AGENT_ID === 'AG_SHOT' && 'Media creation cues'}
                         {agent.AGENT_ID === 'AG_TIME' && 'Scheduling'}
-                        {agent.AGENT_ID === 'AG_KARMA' && 'Engagement & karma'}
-                        {agent.AGENT_ID === 'AG_METRIC' && 'Metrics & analysis'}
+                        {agent.AGENT_ID === 'AG_KARMA' && 'Engagement &amp; karma'}
+                        {agent.AGENT_ID === 'AG_METRIC' && 'Metrics &amp; analysis'}
                         {agent.AGENT_ID === 'AG_LINK' && 'Crosslink management'}
                       </div>
                     </div>
@@ -586,7 +586,6 @@ export function TrendTrackerDashboard() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

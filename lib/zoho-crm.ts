@@ -80,7 +80,7 @@ class ZohoCRMClient {
       // Token expires in 1 hour, refresh 5 minutes early
       this.tokenExpiry = Date.now() + (data.expires_in - 300) * 1000;
 
-      return this.accessToken;
+      return this.accessToken!;
     } catch (error) {
       console.error('Zoho CRM token error:', error);
       throw error;
