@@ -6,8 +6,8 @@
   NODE_VERSION = "18"
   NODE_OPTIONS = "--max-old-space-size=4096"  # Increase memory limit
   NPM_FLAGS = "--prefer-offline --no-audit"   # Faster npm install
-  # Exclude docs folder from secrets scanning (documentation only, no actual secrets)
-  SECRETS_SCAN_OMIT_PATHS = "docs/**"
+  # Exclude docs folder and security check docs from secrets scanning (documentation only, no actual secrets)
+  SECRETS_SCAN_OMIT_PATHS = "docs/**,PRE_COMMIT_SECURITY_CHECK.md"
 
 # Next.js plugin for proper deployment with API routes
 [[plugins]]

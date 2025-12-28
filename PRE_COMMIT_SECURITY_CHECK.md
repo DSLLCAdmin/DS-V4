@@ -10,13 +10,13 @@
 ### **Exposed Secrets Found & Fixed:**
 
 1. ✅ **`docs/PHASE-ARCHIVE-PRODUCT-INTEREST-INTEGRATION.md`**
-   - **Found:** `ZOHO_SMTP_PASSWORD=pm@xB8SVSkev295` (REAL VALUE)
-   - **Found:** `SHOPIFY_WEBHOOK_SECRET=22f0ff1bc89e25585b33fd979922ec2ffc416e519b257ce649a` (REAL VALUE)
-   - **Fixed:** Redacted to `[REDACTED - See Admin Console or Netlify Environment Variables]`
+   - **Found:** `ZOHO_SMTP_PASSWORD=[actual_password]` (REAL VALUE - redacted in this doc)
+   - **Found:** `SHOPIFY_WEBHOOK_SECRET=[actual_secret]` (REAL VALUE - redacted in this doc)
+   - **Fixed:** Redacted to descriptive text instead of variable=value format
    - **Status:** ✅ Safe to commit (values redacted)
 
 2. ✅ **`ZOHO-SMTP-CREDENTIALS-COMPLETE.txt`**
-   - **Found:** `ZOHO_SMTP_PASSWORD = pm@xB8SVSkev295` (REAL VALUE)
+   - **Found:** `ZOHO_SMTP_PASSWORD = [actual_password]` (REAL VALUE - redacted in this doc)
    - **Fixed:** Added to `.gitignore` (will not be committed)
    - **Status:** ✅ Safe (excluded from Git)
 
