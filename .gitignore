@@ -109,3 +109,19 @@ chat-backups/
 *credentials*
 *sensitive*
 *secret*
+
+# Explicit credential files (CRITICAL - DO NOT COMMIT)
+docs/dsllc-admin-credentials.md
+**/dsllc-admin-credentials.md
+**/*admin-credentials*.md
+data/credentials.ts
+data/credentials.local.ts
+
+# Security alert files (contain credential references)
+SECURITY_ALERT_CREDENTIALS_EXPOSED.md
+IMMEDIATE_SECURITY_FIX_STEPS.md
+
+# Credential files with real values
+ZOHO-SMTP-CREDENTIALS-COMPLETE.txt
+**/*ZOHO-SMTP-CREDENTIALS*.txt
+docs/PHASE-ARCHIVE-PRODUCT-INTEREST-INTEGRATION.md

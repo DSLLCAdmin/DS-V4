@@ -53,18 +53,24 @@
 - ✅ **Registered Services**: Selling On Amazon, Customer Service, FBA, Amazon Business (B2B)
 - ✅ **Active Countries**: Mexico, Canada, United States
 - ✅ **Amazon SP-API Access**: APPROVED (Case ID: `18523145211`)
-- ✅ **Amazon Developer Profile Name**: Admin DS_SBK
-- ✅ **Amazon Developer Profile Description**: Amazon Dev-Chief
-- ✅ **Amazon Login Client ID**: `amzn1.application-oa2-client.[REDACTED]`
-- ✅ **Amazon Login Client Secret**: `amzn1.oa2-cs.v1.[REDACTED]`
-- ✅ **Amazon Login Status**: Successfully enabled
-- ⚠️ **Amazon Developer Profile Status**: Under review (4+ days delay, expected 24-48 hours)
+- ⚠️ **Amazon Developer Profile Name**: Admin DS_SBK (DISPLAY NAME ONLY - NOT A LOGIN)
+- ⚠️ **Amazon Developer Profile Description**: Amazon Dev-Chief
+- ❌ **CRITICAL MISSING: Amazon Developer Account Login Email** (NOT `admin@darkstreetllc.com`)
+- ❌ **CRITICAL MISSING: Amazon Developer Account Password**
+- ❌ **CRITICAL MISSING: Amazon Login Client ID** (Format known: `amzn1.application-oa2-client.xxxxx` - VALUE LOST)
+- ❌ **CRITICAL MISSING: Amazon Login Client Secret** (Format known: `amzn1.oa2-cs.v1.xxxxx` - VALUE LOST)
+- ❌ **CRITICAL MISSING: LWA Refresh Token**
+- ❌ **CRITICAL MISSING: AWS Access Key ID**
+- ❌ **CRITICAL MISSING: AWS Secret Access Key**
+- ❌ **CRITICAL MISSING: IAM Role ARN**
+- ❌ **CRITICAL MISSING: STS External ID**
+- ⚠️ **Amazon Developer Profile Status**: Cannot verify (account access lost)
 - ✅ **Critical Actions Completed**:
   - ✅ Update deposit method (completed)
   - ✅ Submit tax information (VALIDATED)
 - ✅ **Amazon Pay**: Not registered (no RELAY Bank legacy connection)
 - [ ] Seller Central Login Credentials
-- [ ] MWS/SP-API Developer Credentials (now accessible with approved SP-API access)
+- [ ] **URGENT: Recover Amazon Developer Account Access** (See `AMAZON_DEVELOPER_ACCOUNT_RECOVERY_PLAN.md`)
 - [ ] Security Profile Creation (Admin DS_SBK)
 - [ ] Consent Privacy Notice URL
 - [ ] Consent Logo Image
