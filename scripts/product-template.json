@@ -1,0 +1,18 @@
+{
+  "id": "",
+  "category": "",
+  "title": "",
+  "author": "DS LLC",
+  "price": 0,
+  "description": "",
+  "longDescription": "",
+  "image": "/product-images/",
+  "inStock": true,
+  "badge": "",
+  "shopifyVariantId": 0,
+  "printfulVariantId": "",
+  "fulfillmentProvider": "printful",
+  "requiresShipping": true,
+  "variants": []
+}
+

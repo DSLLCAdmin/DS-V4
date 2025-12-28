@@ -309,6 +309,21 @@ const getProductImageSet = async (productId: string): Promise<string[]> => {
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374577.jpg', // Back view 3
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6374874.jpg', // Back view 4
       '/product-images/unisex-staple-t-shirt-black-heather-back-690eec6375ef8.jpg' // Back view 5
+    ],
+    'C-11': [ // DS-Card Sets - Lamp Post Set
+      '/product-images/C-11_lamp-post-set-0.png', // Card set view 1
+      '/product-images/C-11_lamp-post-set-1.png', // Card set view 2 (HOME IMAGE - shown in shop listing)
+      '/product-images/C-11_lamp-post-set-2.png' // Card set view 3
+    ],
+    'C-12': [ // DS-Card Sets - Streeter Set
+      '/product-images/C-12_streeter-set-0.png', // Card set view 1
+      '/product-images/C-12_streeter-set-1.png', // Card set view 2 (HOME IMAGE - shown in shop listing)
+      '/product-images/C-12_streeter-set-2.png' // Card set view 3
+    ],
+    'C-13': [ // DS-Card Sets - After-Hours Set
+      '/product-images/C-13_after-hours-set-0.png', // Card set view 1
+      '/product-images/C-13_after-hours-set-1.png', // Card set view 2 (HOME IMAGE - shown in shop listing)
+      '/product-images/C-13_after-hours-set-2.png' // Card set view 3
     ]
   };
 
