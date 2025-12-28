@@ -4,9 +4,17 @@
  * Shipping from 90732 zip code with 3-5 day US rate
  */
 
-const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
-const SHOPIFY_ADMIN_API_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN || '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';
-const SHOPIFY_API_VERSION = '2024-10';
+const SHOPIFY_STORE_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || 'wenugu-5b.myshopify.com';
+const SHOPIFY_ADMIN_API_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN || process.env.SHOPIFY_ADMIN_API_TOKEN;
+const SHOPIFY_API_VERSION = process.env.SHOPIFY_API_VERSION || '2024-10';
+
+// Validate required environment variables
+if (!SHOPIFY_ADMIN_API_TOKEN) {
+  console.error('\n❌ ERROR: Shopify Admin API Token is required');
+  console.error('   Please set SHOPIFY_ACCESS_TOKEN or SHOPIFY_ADMIN_API_TOKEN environment variable');
+  console.error('   Example: export SHOPIFY_ACCESS_TOKEN=your_token_here');
+  process.exit(1);
+}
 
 // Shipping origin zip code
 const SHIPPING_ORIGIN_ZIP = '90732';

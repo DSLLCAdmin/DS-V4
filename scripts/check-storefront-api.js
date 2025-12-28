@@ -3,8 +3,13 @@
  * Verifies if products are visible via Shopify Storefront API
  */
 
-const SHOPIFY_STORE_DOMAIN = 'wenugu-5b.myshopify.com';
-const SHOPIFY_STOREFRONT_API_TOKEN = '42ec4a86d00bfb85a44c99bd24a4f5f2';
+const SHOPIFY_STORE_DOMAIN = process.env.SHOPIFY_STORE_DOMAIN || 'wenugu-5b.myshopify.com';
+const SHOPIFY_STOREFRONT_API_TOKEN = process.env.SHOPIFY_STOREFRONT_API_TOKEN || process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_API_TOKEN;
+if (!SHOPIFY_STOREFRONT_API_TOKEN) {
+  console.error('\n❌ ERROR: Shopify Storefront API Token is required');
+  console.error('   Please set SHOPIFY_STOREFRONT_API_TOKEN environment variable');
+  process.exit(1);
+}
 const SHOPIFY_API_VERSION = '2024-10';
 
 async function checkStorefrontVisibility(variantId) {

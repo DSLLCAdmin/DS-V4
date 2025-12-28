@@ -11,7 +11,12 @@ const https = require('https');
 
 // Configuration
 const SHOPIFY_STORE = 'wenugu-5b.myshopify.com';
-const SHOPIFY_ACCESS_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN || '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';
+const SHOPIFY_ACCESS_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN;
+if (!SHOPIFY_ACCESS_TOKEN) {
+  console.error('\n❌ ERROR: Shopify Access Token is required');
+  console.error('   Please set SHOPIFY_ACCESS_TOKEN environment variable');
+  process.exit(1);
+}
 const WEBHOOK_BASE_URL = 'https://ds-v5.netlify.app';
 
 console.log('🧪 TESTING WEBHOOK DELIVERY');

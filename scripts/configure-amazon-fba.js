@@ -20,7 +20,12 @@ const bookProducts = [
 ];
 
 const SHOPIFY_STORE = 'wenugu-5b.myshopify.com';
-const SHOPIFY_TOKEN = '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';
+const SHOPIFY_TOKEN = process.env.SHOPIFY_ACCESS_TOKEN || process.env.SHOPIFY_ADMIN_API_TOKEN;
+if (!SHOPIFY_TOKEN) {
+  console.error('\n❌ ERROR: Shopify API Token is required');
+  console.error('   Please set SHOPIFY_ACCESS_TOKEN or SHOPIFY_ADMIN_API_TOKEN environment variable');
+  process.exit(1);
+}
 
 async function updateVariantFulfillment(variantId, productInfo) {
   return new Promise((resolve) => {
