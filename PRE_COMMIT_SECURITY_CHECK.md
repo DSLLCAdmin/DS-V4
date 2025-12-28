@@ -10,13 +10,12 @@
 ### **Exposed Secrets Found & Fixed:**
 
 1. ✅ **`docs/PHASE-ARCHIVE-PRODUCT-INTEREST-INTEGRATION.md`**
-   - **Found:** `ZOHO_SMTP_PASSWORD=[actual_password]` (REAL VALUE - redacted in this doc)
-   - **Found:** `SHOPIFY_WEBHOOK_SECRET=[actual_secret]` (REAL VALUE - redacted in this doc)
+   - **Found:** Zoho SMTP password and Shopify webhook secret (REAL VALUES - redacted in this doc)
    - **Fixed:** Redacted to descriptive text instead of variable=value format
    - **Status:** ✅ Safe to commit (values redacted)
 
 2. ✅ **`ZOHO-SMTP-CREDENTIALS-COMPLETE.txt`**
-   - **Found:** `ZOHO_SMTP_PASSWORD = [actual_password]` (REAL VALUE - redacted in this doc)
+   - **Found:** Zoho SMTP password (REAL VALUE - redacted in this doc)
    - **Fixed:** Added to `.gitignore` (will not be committed)
    - **Status:** ✅ Safe (excluded from Git)
 
