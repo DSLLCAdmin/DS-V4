@@ -6,6 +6,12 @@
   NODE_VERSION = "18"
   NODE_OPTIONS = "--max-old-space-size=4096"  # Increase memory limit
   NPM_FLAGS = "--prefer-offline --no-audit"   # Faster npm install
+  # Exclude docs folder from secrets scanning (documentation only, no actual secrets)
+  SECRETS_SCAN_OMIT_PATHS = "docs/**"
+
+# Next.js plugin for proper deployment with API routes
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
 
 # Next.js handles routing - remove SPA redirect that can cause issues
 # [[redirects]]

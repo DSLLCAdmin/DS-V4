@@ -93,11 +93,11 @@ This phase successfully implemented a comprehensive Product Interest tracking sy
 ZOHO_SMTP_HOST=smtppro.zoho.com
 ZOHO_SMTP_PORT=465
 ZOHO_SMTP_USER=admin@darkstreetllc.com
-ZOHO_SMTP_PASSWORD=pm@xB8SVSkev295
+# Password stored in Netlify environment variables (not shown here)
 PRODUCT_INTEREST_EMAIL=ProductInterest@darkstreetllc.com
 
 # Shopify Webhook (Working)
-SHOPIFY_WEBHOOK_SECRET=22f0ff1bc89e25585b33fd979922ec2ffc416e519b257ce649a
+# Webhook secret stored in Netlify environment variables (not shown here)
 ```
 
 ### **⏳ Pending (Need Zoho CRM Signup)**
