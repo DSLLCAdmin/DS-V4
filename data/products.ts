@@ -506,21 +506,21 @@ export const products: Product[] = [
       {
         "size": "Lamp Post Set",
         "price": 12.99,
-        "shopifyVariantId": 0, // TODO: Replace with actual Shopify Variant ID after creating product in Shopify
+        "shopifyVariantId": 42401911242850, // Shopify Variant ID - Verified 12/28/2025
         "inStock": true,
         "imageSetKey": "C-11" // Uses C-11 image set
       },
       {
         "size": "Streeter Set",
         "price": 12.99,
-        "shopifyVariantId": 0, // TODO: Replace with actual Shopify Variant ID after creating product in Shopify
+        "shopifyVariantId": 42401911275618, // Shopify Variant ID - Verified 12/28/2025
         "inStock": true,
         "imageSetKey": "C-11" // Uses C-11 image set (update when C-12 images available)
       },
       {
         "size": "After-Hours Set",
         "price": 12.99,
-        "shopifyVariantId": 0, // TODO: Replace with actual Shopify Variant ID after creating product in Shopify
+        "shopifyVariantId": 42401911308386, // Shopify Variant ID - Verified 12/28/2025
         "inStock": true,
         "imageSetKey": "C-11" // Uses C-11 image set (update when C-13 images available)
       }
