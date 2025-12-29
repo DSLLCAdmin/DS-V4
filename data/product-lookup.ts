@@ -258,11 +258,11 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
   // Accessories - Manual Fulfillment (DSLLC Manufactured)
   'C-11': {
     dsProductId: 'C-11',
-    title: 'DS-Card Sets - Lamp Post Set',
+    title: 'DS-Card Sets',
     category: 'Accessories',
     author: 'DS LLC',
     price: 12.99,
-    description: 'Hand-crafted confess and dare cards. Explore sultry opportunities of asking and answering provocative questions.',
+    description: 'Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions. Choose from three unique sets: Lamp Post Set, Streeter Set, or After-Hours Set.',
     image: '/product-images/C-11_ds-card-sets.png',
     inStock: true,
     badge: 'New',
@@ -270,36 +270,8 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     status: 'active',
     lastSync: new Date(),
     syncStatus: 'not_mapped'
-  },
-  'C-12': {
-    dsProductId: 'C-12',
-    title: 'DS-Card Sets - Streeter Set',
-    category: 'Accessories',
-    author: 'DS LLC',
-    price: 12.99,
-    description: 'Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.',
-    image: '/product-images/C-11_ds-card-sets.png',
-    inStock: true,
-    badge: 'New',
-    fulfillmentProvider: 'manual',
-    status: 'active',
-    lastSync: new Date(),
-    syncStatus: 'not_mapped'
-  },
-  'C-13': {
-    dsProductId: 'C-13',
-    title: 'DS-Card Sets - After-Hours Set',
-    category: 'Accessories',
-    author: 'DS LLC',
-    price: 12.99,
-    description: 'Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.',
-    image: '/product-images/C-11_ds-card-sets.png',
-    inStock: true,
-    badge: 'New',
-    fulfillmentProvider: 'manual',
-    status: 'active',
-    lastSync: new Date(),
-    syncStatus: 'not_mapped'
+    // Note: This product has 3 variants (Lamp Post Set, Streeter Set, After-Hours Set)
+    // Variants are defined in data/products.ts
   }
 };
 
