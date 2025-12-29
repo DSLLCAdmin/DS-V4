@@ -253,6 +253,53 @@ export const PRODUCT_LOOKUP: { [key: string]: ProductLookup } = {
     status: 'active',
     lastSync: new Date(),
     syncStatus: 'not_mapped'
+  },
+  
+  // Accessories - Manual Fulfillment (DSLLC Manufactured)
+  'C-11': {
+    dsProductId: 'C-11',
+    title: 'DS-Card Sets - Lamp Post Set',
+    category: 'Accessories',
+    author: 'DS LLC',
+    price: 12.99,
+    description: 'Hand-crafted confess and dare cards. Explore sultry opportunities of asking and answering provocative questions.',
+    image: '/product-images/C-11_ds-card-sets.png',
+    inStock: true,
+    badge: 'New',
+    fulfillmentProvider: 'manual',
+    status: 'active',
+    lastSync: new Date(),
+    syncStatus: 'not_mapped'
+  },
+  'C-12': {
+    dsProductId: 'C-12',
+    title: 'DS-Card Sets - Streeter Set',
+    category: 'Accessories',
+    author: 'DS LLC',
+    price: 12.99,
+    description: 'Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.',
+    image: '/product-images/C-11_ds-card-sets.png',
+    inStock: true,
+    badge: 'New',
+    fulfillmentProvider: 'manual',
+    status: 'active',
+    lastSync: new Date(),
+    syncStatus: 'not_mapped'
+  },
+  'C-13': {
+    dsProductId: 'C-13',
+    title: 'DS-Card Sets - After-Hours Set',
+    category: 'Accessories',
+    author: 'DS LLC',
+    price: 12.99,
+    description: 'Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.',
+    image: '/product-images/C-11_ds-card-sets.png',
+    inStock: true,
+    badge: 'New',
+    fulfillmentProvider: 'manual',
+    status: 'active',
+    lastSync: new Date(),
+    syncStatus: 'not_mapped'
   }
 };
 
