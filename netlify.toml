@@ -3,7 +3,7 @@
   publish = ".next"  # Enable API routes for serverless functions
 
 [build.environment]
-  NODE_VERSION = "18"
+  NODE_VERSION = "20"  # Updated for Next.js 16.1.1 requirement (>=20.9.0)
   NODE_OPTIONS = "--max-old-space-size=4096"  # Increase memory limit
   NPM_FLAGS = "--prefer-offline --no-audit"   # Faster npm install
   # Exclude docs folder and security check docs from secrets scanning (documentation only, no actual secrets)
