@@ -217,7 +217,7 @@ export default function Home() {
         </div>
 
         {/* Brand Story Section */}
-        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
+        <div className="bg-gradient-to-b from-[#8B4513] to-swatch105 story-section rounded-2xl p-6 mb-16 relative max-w-5xl mx-auto overflow-hidden w-full grid-item">
           <h2 className="text-3xl font-bold mb-6 text-swatch101 text-center">
             The <DarkStreetsTextLogo /> Story 
 
