@@ -497,7 +497,7 @@ export const products: Product[] = [
     "price": 12.99,
     "description": "Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.",
     "longDescription": "Step into the shadows of DarkStreets with our exclusive Lamp Post Set—hand-crafted game cards designed for those who dare to explore the edges of desire and confession. Each set contains 20 beautifully designed cards featuring provocative questions that blur the lines between curiosity and temptation.\r\n\r\nThree sample questions are revealed, offering a glimpse into the sultry world of DarkStreets: \"Who in this group could talk you into Trouble?\", \"What's One Thing you've done just to feel Dangerous?\", and \"Compliment someone, but make it sound like an Insult\" (Dare). The remaining 17 mystery questions await discovery, each one carefully crafted to spark intimate conversations and reveal hidden desires.\r\n\r\nThese cards are hand-made in the DarkStreets roadside factory by 'Streeters Ink, ensuring each set is unique and crafted with the authentic DarkStreets aesthetic. Perfect for intimate gatherings, late-night adventures, or anyone seeking to explore the deeper, more provocative side of connection.\r\n\r\nEach set includes 20 cards featuring a mix of \"Confess\" and \"Dare\" prompts, designed to create sultry opportunities for asking and answering questions that push boundaries and ignite passion.\r",
-    "image": "/product-images/C-11_lamp-post-set-1.png", // Home image (image 2 of 3)
+    "image": "/product-images/C-11_ds-card-sets.png", // Home image (lead photo showing all 3 sets)
     "inStock": true,
     "badge": "New",
     "fulfillmentProvider": "manual",
@@ -511,7 +511,7 @@ export const products: Product[] = [
     "price": 12.99,
     "description": "Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.",
     "longDescription": "Step into the shadows of DarkStreets with our exclusive Streeter Set—hand-crafted game cards designed for those who dare to explore the edges of desire and confession. Each set contains 20 beautifully designed cards featuring provocative questions that blur the lines between curiosity and temptation.\r\n\r\nThree sample questions are revealed, offering a glimpse into the sultry world of DarkStreets: \"What's the Riskiest Place you've ever Fooled around?\", \"What was your first 'real' moment of Desire?\", and \"Who here would make the Best Partner-n-Crime?\". The remaining 17 mystery questions await discovery, each one carefully crafted to spark intimate conversations and reveal hidden desires.\r\n\r\nThese cards are hand-made in the DarkStreets roadside factory by 'Streeters Ink, ensuring each set is unique and crafted with the authentic DarkStreets aesthetic. Perfect for intimate gatherings, late-night adventures, or anyone seeking to explore the deeper, more provocative side of connection.\r\n\r\nEach set includes 20 cards featuring a mix of \"Confess\" and \"Dare\" prompts, designed to create sultry opportunities for asking and answering questions that push boundaries and ignite passion.\r",
-    "image": "/product-images/C-12_streeter-set-1.png", // Home image (image 2 of 3)
+    "image": "/product-images/C-11_ds-card-sets.png", // Home image (lead photo showing all 3 sets) - Update when C-12 images available
     "inStock": true,
     "badge": "New",
     "fulfillmentProvider": "manual",
@@ -525,7 +525,7 @@ export const products: Product[] = [
     "price": 12.99,
     "description": "Hand-crafted confession and dare game cards. Explore sultry opportunities of asking and answering provocative questions.",
     "longDescription": "Step into the shadows of DarkStreets with our exclusive After-Hours Set—hand-crafted game cards designed for those who dare to explore the edges of desire and confession. Each set contains 20 beautifully designed cards featuring provocative questions that blur the lines between curiosity and temptation.\r\n\r\nThree sample questions are revealed, offering a glimpse into the sultry world of DarkStreets: \"Who here would you trust with your biggest Secret?\", \"What would be the Title of your Romance Movie?\", and \"Describe a drive-time when fear and excitement blurred together. What Happened?\". The remaining 17 mystery questions await discovery, each one carefully crafted to spark intimate conversations and reveal hidden desires.\r\n\r\nThese cards are hand-made in the DarkStreets roadside factory by 'Streeters Ink, ensuring each set is unique and crafted with the authentic DarkStreets aesthetic. Perfect for intimate gatherings, late-night adventures, or anyone seeking to explore the deeper, more provocative side of connection.\r\n\r\nEach set includes 20 cards featuring a mix of \"Confess\" and \"Dare\" prompts, designed to create sultry opportunities for asking and answering questions that push boundaries and ignite passion.\r",
-    "image": "/product-images/C-13_after-hours-set-1.png", // Home image (image 2 of 3)
+    "image": "/product-images/C-11_ds-card-sets.png", // Home image (lead photo showing all 3 sets) - Update when C-13 images available
     "inStock": true,
     "badge": "New",
     "fulfillmentProvider": "manual",
