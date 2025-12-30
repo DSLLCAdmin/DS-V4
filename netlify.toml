@@ -37,17 +37,17 @@
 [[headers]]
   for = "*.webp"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=3600, must-revalidate"  # 1 hour cache, must revalidate on change (faster updates)
     Content-Type = "image/webp"
 
 [[headers]]
   for = "*.png"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"  # 1 day cache, must revalidate on change
+    Cache-Control = "public, max-age=3600, must-revalidate"  # 1 hour cache, must revalidate on change (faster updates)
     Content-Type = "image/png"
 
 [[headers]]
   for = "*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"  # 1 day cache, must revalidate on change
+    Cache-Control = "public, max-age=3600, must-revalidate"  # 1 hour cache, must revalidate on change (faster updates)
     Content-Type = "image/jpeg"
